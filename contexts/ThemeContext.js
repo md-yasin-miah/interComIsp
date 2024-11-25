@@ -1,17 +1,12 @@
 "use client"; // Required for React hooks in Next.js app directory
 
+import { THEME } from "@/config";
 import { createContext, useState, useEffect } from "react";
 
 export const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState(null); // Start as `null` to avoid mismatch
-
-  useEffect(() => {
-    // Determine the theme preference after the client is mounted
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    setTheme(prefersDark ? "dark" : "light");
-  }, []);
+  const [theme, setTheme] = useState(THEME.light);
 
   useEffect(() => {
     // Apply the theme to the document root
@@ -21,12 +16,8 @@ export const ThemeProvider = ({ children }) => {
   }, [theme]);
 
   const toggleTheme = () => {
-    setTheme((prev) => (prev === "light" ? "dark" : "light"));
+    setTheme((prev) => (prev === THEME.light ? THEME.dark : THEME.light));
   };
-
-  // Render nothing until the theme is determined to avoid hydration issues
-  if (theme === null) return null;
-
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       {children}
