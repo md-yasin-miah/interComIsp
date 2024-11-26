@@ -34,7 +34,9 @@ export default function RootLayout({ children }) {
         <ThemeProvider>
           <main>
             <Header />
-            {children}
+            <div className="customContainer">
+              {children}
+            </div>
           </main>
         </ThemeProvider>
       </body>
