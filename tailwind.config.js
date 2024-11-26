@@ -8,10 +8,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        background: 'var(--background)',
+        foreground: 'var(--foreground)',
+        primary: 'var(--primary)'
       },
-      // darkMode: "class",
+      fontFamily: {
+        inter: ['var(--font-inter)']
+      }
     },
   },
   plugins: [],
