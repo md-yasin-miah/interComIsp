@@ -13,7 +13,9 @@ module.exports = {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
         footerBG: 'var(--footerBG)',
-        primary: 'var(--primary)'
+        primary: 'var(--primary)',
+        secondary: 'var(--secondary)',
+        colorParagraph: 'var(--color-paragraph)',
       },
       fontFamily: {
         inter: ['var(--font-inter)']

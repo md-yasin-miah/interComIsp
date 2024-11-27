@@ -3,6 +3,7 @@ import Link from 'next/link'
 import React from 'react'
 
 const LinkButton = ({
+  children,
   href = '',
   icon = '',
   iconPosition = 'start',
@@ -12,7 +13,7 @@ const LinkButton = ({
   return (
     <Link className={`primaryBtn ${animation} ${className}`} href={href}>
       {iconPosition === 'start' && <span>{icon}</span>}
-      <span>Client Portal</span>
+      <span>{children}</span>
       {iconPosition === 'end' && <span>{icon}</span>}
     </Link>
   )
@@ -21,6 +22,7 @@ const LinkButton = ({
 export default LinkButton
 // typography 
 LinkButton.propTypes = {
+  children: PropTypes.node || PropTypes.string,
   href: PropTypes.string,
   icon: PropTypes.node,
   iconPosition: PropTypes.oneOf(['start', 'end']),

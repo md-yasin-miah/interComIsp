@@ -6,10 +6,12 @@
   --background: #ffffff;
   --foreground: #171717;
   --primary: #FD5E53;
+  --secondary: #dd2476;
   --footerBG: #1F2937;
 
   --white: #FFFFFF;
-  --white2:#E4D0D0
+  --white2: #E4D0D0;
+  --color-paragraph: #1A1A1AC4;
 }
 
 [data-theme="dark"] {
@@ -26,7 +28,7 @@ body {
 
 /*======== global css START*/
 .customContainer {
-  @apply max-w-[1140px] m-auto
+  @apply w-[1140px] m-auto
 }
 
 /********* global css END*/
@@ -44,7 +46,7 @@ body {
 
 /*======== button css START  */
 .primaryBtn {
-  @apply border border-solid border-primary bg-primary text-white px-[15px] py-[13px] rounded-[5px] font-medium text-[15px] leading-none flex items-center gap-[9px] transition-all duration-300
+  @apply w-fit border border-solid border-primary bg-primary text-white px-[15px] py-[13px] rounded-[5px] font-medium text-[15px] leading-none flex items-center gap-[9px] transition-all duration-300
 }
 
 .primaryBtn.outLine:hover {

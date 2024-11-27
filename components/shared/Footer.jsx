@@ -38,7 +38,9 @@ const Footer = () => {
         <section className='py-[18px] px-[50px] mt-2.5 mb-5 bg-white rounded-lg'>
           <div className='flex items-center justify-between'>
             <p className='font-semibold text-sm'>Copyright © 2024 Exord Online.  Developed by
-              <Link href='' className='transition-all duration-300 hover:text-primary'> Optimus Technologies</Link>
+              <strong>
+                <Link href='' className='transition-all duration-300 hover:text-primary'> Optimus Technologies</Link>
+              </strong>
             </p>
             <div className='relative w-1/2'>
               <Image src={SSLFooterImg} alt='SSLCommerz-footer' width='fill' height='fill' />
