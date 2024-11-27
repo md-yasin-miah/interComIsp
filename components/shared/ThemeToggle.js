@@ -4,7 +4,7 @@ import { ThemeContext } from "@/contexts/ThemeContext";
 import { useContext } from "react";
 import { IoSunny } from "react-icons/io5";
 import { BsMoonStarsFill } from "react-icons/bs";
-import { THEME } from "@/config";
+import { THEME } from "@/helper/config";
 
 export default function ThemeToggle() {
   const { theme, toggleTheme } = useContext(ThemeContext);

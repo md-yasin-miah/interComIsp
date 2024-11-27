@@ -4,7 +4,7 @@ import logo from '../../public/logo-english.png'
 import LinkButton from './LinkButton'
 import { FaUser } from "react-icons/fa"
 import Link from 'next/link'
-import { navMenu } from '@/fake'
+import { navMenu } from '@/helper/fake'
 import NavList from './NavList'
 import ThemeToggle from './ThemeToggle'
 

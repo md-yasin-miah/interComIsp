@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import "@/styles/globals.css";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import Header from "@/components/shared/Header";
+import Footer from "@/components/shared/Footer";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -37,6 +38,7 @@ export default function RootLayout({ children }) {
             <div className="customContainer">
               {children}
             </div>
+            <Footer />
           </main>
         </ThemeProvider>
       </body>

@@ -6,8 +6,10 @@
   --background: #ffffff;
   --foreground: #171717;
   --primary: #FD5E53;
+  --footerBG: #1F2937;
 
-  --white: #FFFFFF
+  --white: #FFFFFF;
+  --white2:#E4D0D0
 }
 
 [data-theme="dark"] {
