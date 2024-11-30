@@ -17,6 +17,10 @@ module.exports = {
         secondary: 'var(--secondary)',
         colorParagraph: 'var(--color-paragraph)',
       },
+      boxShadow: {
+        card: "0 0 10px 0 rgba(0,0,0,.15)",
+        cardHover: "0 0 30px 0 rgba(0, 0, 0, .15)",
+      },
       fontFamily: {
         inter: ['var(--font-inter)']
       }

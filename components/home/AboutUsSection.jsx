@@ -6,7 +6,7 @@ import { DotLottieReact } from '@lottiefiles/dotlottie-react'
 
 const AboutUsSection = () => {
   return (
-    <div className='mt-14 flex items-center'>
+    <div className='flex items-center'>
       <div className='flex flex-col gap-5 w-7/12'>
         <SectionTitle
           title='Exciting features'
