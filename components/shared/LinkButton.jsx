@@ -8,13 +8,14 @@ const LinkButton = ({
   icon = '',
   iconPosition = 'start',
   animation = 'outLine',
+  type='fill',
   className = ''
 }) => {
   return (
-    <Link className={`primaryBtn ${animation} ${className}`} href={href}>
-      {iconPosition === 'start' && <span>{icon}</span>}
+    <Link className={`primaryBtn animate-${animation} ${type} ${className}`} href={href}>
+      {iconPosition === 'start' && icon && <span>{icon}</span>}
       <span>{children}</span>
-      {iconPosition === 'end' && <span>{icon}</span>}
+      {iconPosition === 'end' && icon && <span>{icon}</span>}
     </Link>
   )
 }
@@ -26,5 +27,6 @@ LinkButton.propTypes = {
   href: PropTypes.string,
   icon: PropTypes.node,
   iconPosition: PropTypes.oneOf(['start', 'end']),
-  animation: PropTypes.oneOf(['outLine', 'stepUp'])
+  animation: PropTypes.oneOf(['stepUp', 'fill']),
+  type: PropTypes.oneOf(['fill','outLine'])
 }

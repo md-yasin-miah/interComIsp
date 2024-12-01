@@ -34,6 +34,8 @@ const Header = () => {
         </div>
         <div className='flex items-center gap-2'>
           <LinkButton
+            animation='fill'
+            type='outline'
             href='/login'
             icon={<FaUser />}
           >Client Portal</LinkButton>

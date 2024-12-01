@@ -4,12 +4,15 @@ import OfferCard from '../cards/OfferCard'
 
 const OffersSection = () => {
   return (
-    <section>
+    <section className='customContainer'>
       <SectionTitle
         title='Exciting offers'
         subTitle='Enjoy our exclusive offers and promotions'
       />
-      <div className="grid grid-cols-4 gap-5">
+      <div className="grid grid-cols-4 gap-5 pt-10">
+        <OfferCard />
+        <OfferCard />
+        <OfferCard />
         <OfferCard />
       </div>
     </section>

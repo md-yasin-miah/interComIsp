@@ -4,6 +4,7 @@
 
 :root {
   --background: #ffffff;
+  --background2:#F9F9F9;
   --foreground: #171717;
   --primary: #FD5E53;
   --secondary: #dd2476;
@@ -48,14 +49,18 @@ body {
 .primaryBtn {
   @apply w-fit border border-solid border-primary bg-primary text-white px-[15px] py-[13px] rounded-[5px] font-medium text-[15px] leading-none flex items-center gap-[9px] transition-all duration-300
 }
-
-.primaryBtn.outLine:hover {
-  color: var(--primary);
-  background-color: hsla(4, 98%, 66%, 0.2);
-  border-color: var(--primary);
+.primaryBtn.fill{
+  @apply bg-primary
+}
+.primaryBtn.outline{
+  @apply outline-none
 }
 
-.primaryBtn.stepUp:hover {
+.primaryBtn.animate-fill {
+  @apply bg-transparent text-primary border-primary hover:bg-primary hover:text-white;
+}
+
+.primaryBtn.animate-stepUp:hover {
   transform: translateY(-2px);
 }
 /********* button css END */
