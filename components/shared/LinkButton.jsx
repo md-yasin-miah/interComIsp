@@ -8,7 +8,7 @@ const LinkButton = ({
   icon = '',
   iconPosition = 'start',
   animation = 'outLine',
-  type='fill',
+  type = 'fill',
   className = ''
 }) => {
   return (
@@ -28,5 +28,5 @@ LinkButton.propTypes = {
   icon: PropTypes.node,
   iconPosition: PropTypes.oneOf(['start', 'end']),
   animation: PropTypes.oneOf(['stepUp', 'fill']),
-  type: PropTypes.oneOf(['fill','outLine'])
+  type: PropTypes.oneOf(['fill', 'outLine'])
 }

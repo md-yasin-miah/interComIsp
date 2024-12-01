@@ -5,6 +5,7 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: ['selector', '[data-theme="dark"]'],
   theme: {
     extend: {
       colors: {
@@ -20,7 +21,7 @@ module.exports = {
       },
       boxShadow: {
         card: "0 0 10px 0 rgba(0,0,0,.15)",
-        card2:"0px 0px 13px -6px rgba(0,0,0,0.5)",
+        card2: "0px 0px 13px -6px rgba(0,0,0,0.5)",
         cardHover: "0 0 30px 0 rgba(0, 0, 0, .15)",
         card2Hover: "-4px 0px 18px 3px rgba(0, 0, 0, 0.13)",
       },

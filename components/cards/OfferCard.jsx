@@ -5,7 +5,7 @@ import React from 'react'
 const OfferCard = () => {
   return (
     <article className='group min-h-[235px]'>
-      <div className='rounded-[10px] overflow-hidden shadow-card hover:shadow-cardHover transition-all duration-200 h-full'>
+      <div className='rounded-[10px] overflow-hidden shadow-card hover:shadow-cardHover transition-all duration-200 h-full bg-white dark:bg-slate-700'>
         <Link href='/'>
           <div
             className='w-full relative after:absolute after:w-full after:h-full after:top-0 after:transition-all 

@@ -10,7 +10,7 @@ const PricingSection = () => {
       speed: "20",
       price: "840",
       title: "Regular 840",
-      type:'regular',
+      type: 'regular',
       features: [
         "20 Mb/s Internet (Shared)",
         "Bufferless Cached Content",
@@ -21,7 +21,7 @@ const PricingSection = () => {
     {
       speed: "40",
       price: "1050",
-      type:'regular',
+      type: 'regular',
       title: "Regular 1050",
       features: [
         "40 Mb/s Internet (Shared)",
@@ -33,7 +33,7 @@ const PricingSection = () => {
     {
       speed: "50",
       price: "1260",
-      type:'regular',
+      type: 'regular',
       title: "Regular 1260",
       features: [
         "50 Mb/s Internet (Shared)",
@@ -43,28 +43,28 @@ const PricingSection = () => {
       ]
     },
     {
-        speed: "50",
-        price: "1260",
-        type:'turbo',
-        title: "Turbo 1260",
-        features: [
-          "50 Mb/s Internet (Shared)",
-          "Bufferless Cached Content",
-          "Extra Speed on VAS",
-          "Public IP (IPv6)"
-        ]
+      speed: "50",
+      price: "1260",
+      type: 'turbo',
+      title: "Turbo 1260",
+      features: [
+        "50 Mb/s Internet (Shared)",
+        "Bufferless Cached Content",
+        "Extra Speed on VAS",
+        "Public IP (IPv6)"
+      ]
     },
     {
-        speed: "50",
-        price: "1260",
-        type:'sme',
-        title: "Sme - 1260",
-        features: [
-          "50 Mb/s Internet (Shared)",
-          "Bufferless Cached Content",
-          "Extra Speed on VAS",
-          "Public IP (IPv6)"
-        ]
+      speed: "50",
+      price: "1260",
+      type: 'sme',
+      title: "Sme - 1260",
+      features: [
+        "50 Mb/s Internet (Shared)",
+        "Bufferless Cached Content",
+        "Extra Speed on VAS",
+        "Public IP (IPv6)"
+      ]
     }
   ]
 
@@ -76,7 +76,7 @@ const PricingSection = () => {
             title='Flexible pricing'
             subTitle='You check our reasonable and flexible pricing below'
           />
-          <LinkButton href='/' iconPosition='end' icon={<IoArrowForwardCircleOutline className='font-semibold text-xl'/>}>
+          <LinkButton href='/' iconPosition='end' icon={<IoArrowForwardCircleOutline className='font-semibold text-xl' />}>
             VIEW ALL PACKAGES
           </LinkButton>
         </div>
@@ -85,10 +85,23 @@ const PricingSection = () => {
             <PricingCard key={index} {...plan} />
           ))}
         </div>
+        {/* check our other packages */}
+        <div className='flex items-center py-12 px-20 gap-10 shadow-card2Hover rounded-3xl mt-16'>
+          <div>
+            <h2 className='text-[40px] mb-4 font-medium'>Check our other <span className='text-primary font-bold'>Packages</span></h2>
+            <p className='text-2xl font-normal'>We have more exciting Shared & Turbo packages. To check or buy, please visit our pricing page.</p>
+          </div>
+          <LinkButton
+            iconPosition='end'
+            icon={<IoArrowForwardCircleOutline className='font-semibold text-xl' />}
+            href='/' className='!py-5 !px-10' animation='stepUp'>
+            <span className='whitespace-nowrap'>All Packages</span>
+          </LinkButton>
+        </div>
       </div>
     </section>
 
-)
+  )
 }
 
 export default PricingSection 

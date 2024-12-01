@@ -18,7 +18,8 @@
 [data-theme="dark"] {
   --background: #0a0a0a;
   --foreground: #ededed;
-  --primary: #FD5E53
+  --primary: #FD5E53;
+  --color-paragraph: #E4D0D0;
 }
 
 body {
@@ -64,3 +65,9 @@ body {
   transform: translateY(-2px);
 }
 /********* button css END */
+
+/*======== FAQ css START */
+.FAQCheckBox:checked ~ .FAQContent {
+    @apply max-h-fit 
+  }
+/*********  FAQ css END */

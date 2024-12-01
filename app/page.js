@@ -1,5 +1,6 @@
 import AboutUsSection from "@/components/home/AboutUsSection";
 import ExcitingFeaturesSection from "@/components/home/ExcitingFeaturesSection";
+import FAQ from "@/components/home/FAQ";
 import OffersSection from "@/components/home/OffersSection";
 import PricingSection from "@/components/home/PricingSection";
 
@@ -11,6 +12,7 @@ export default function Home() {
       <OffersSection />
       <ExcitingFeaturesSection />
       <PricingSection />
+      <FAQ />
     </div>
   );
 }
