@@ -13,6 +13,7 @@
   --white: #FFFFFF;
   --white2: #E4D0D0;
   --color-paragraph: #1A1A1AC4;
+  --color-card-paragraph: #6d7882;
 }
 
 [data-theme="dark"] {
@@ -69,5 +70,11 @@ body {
 /*======== FAQ css START */
 .FAQCheckBox:checked ~ .FAQContent {
     @apply max-h-fit 
-  }
+}
+.FAQCheckBox:checked ~ label {
+  @apply bg-primary text-white rounded-[15px]
+}
+.FAQCheckBox:checked ~ label .arrow {
+  @apply rotate-180
+}
 /*********  FAQ css END */

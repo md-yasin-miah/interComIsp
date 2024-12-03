@@ -18,6 +18,7 @@ module.exports = {
         primary: 'var(--primary)',
         secondary: 'var(--secondary)',
         colorParagraph: 'var(--color-paragraph)',
+        colorCardParagraph: 'var(--color-card-paragraph)',
       },
       boxShadow: {
         card: "0 0 10px 0 rgba(0,0,0,.15)",

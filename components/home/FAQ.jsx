@@ -1,24 +1,32 @@
 import React from 'react'
 import SectionTitle from '../shared/SectionTitle'
 import { IoIosArrowDown } from "react-icons/io";
+import FaqCard from '../cards/FaqCard';
 
 const FAQ = () => {
+  const faq = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   return (
     <section className='customContainer'>
       <SectionTitle
         title='Frequently asked questions'
         subTitle="Common FAQ's regarding Exord and it's services"
       />
-      <div className="grid grid-cols-2 gap-5 pt-10">
-        <div>
-          <input className='FAQCheckBox' type="checkbox" id='faq1' />
-          <label htmlFor='faq1'>
-            <h3>How do I know how much speed i am getting?</h3>
-            <IoIosArrowDown />
-          </label>
-          <div className="FAQContent max-h-0 overflow-hidden transition-all duration-300">
-            You can check your speed from http://proof.ovh.net/. Select nearest servers, Stop background activities and use our connection directly during testing for better understanding. You can also monitor your network traffic via bandwidth monitoring tools like DU Meter, NetSpeedMonitor etc.
-          </div>
+      <div className='flex gap-5 pt-10'>
+        <div className='flex flex-col gap-5'>
+          {
+            faq.map((item, index) => {
+              if (index < faq.length / 2) {
+                return <FaqCard key={index} index={index} />
+              }
+            })
+          }
+        </div>
+        <div className="flex flex-col gap-5">
+          {
+            faq.map((item, index) => {
+              if (index >= faq.length / 2) return <FaqCard key={index} index={index} />
+            })
+          }
         </div>
       </div>
     </section>

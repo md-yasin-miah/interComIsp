@@ -4,7 +4,7 @@ import SectionTitle from '../shared/SectionTitle'
 
 const ExcitingFeaturesSection = () => {
   return (
-    <section className='bg-background2 dark:bg-black py-16'>
+    <section className='bg-background2 dark:bg-black py-20'>
       <div className="customContainer">
         <SectionTitle
           title='Exciting features'
