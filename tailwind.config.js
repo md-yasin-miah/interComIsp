@@ -13,6 +13,7 @@ module.exports = {
 
         background: 'var(--background)',
         background2: 'var(--background2)',
+        background3: 'var(--background3)',
         foreground: 'var(--foreground)',
         footerBG: 'var(--footerBG)',
         primary: 'var(--primary)',

@@ -1,10 +1,11 @@
+@import '@splidejs/react-splide/css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 :root {
   --background: #ffffff;
   --background2:#F9F9F9;
+  --background3: #F0F2F7;
   --foreground: #171717;
   --primary: #FD5E53;
   --secondary: #dd2476;
@@ -78,3 +79,13 @@ body {
   @apply rotate-180
 }
 /*********  FAQ css END */
+
+/* Add this to your existing globals.css */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
