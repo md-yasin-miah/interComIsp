@@ -4,7 +4,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'exordonline.com',
+        hostname: '',
         port: '',
         pathname: '/wp-content/**',
       },

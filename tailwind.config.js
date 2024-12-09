@@ -28,7 +28,8 @@ module.exports = {
         card2Hover: "-4px 0px 18px 3px rgba(0, 0, 0, 0.13)",
       },
       fontFamily: {
-        inter: ['var(--font-inter)']
+        inter: ['var(--font-inter)'],
+        firaSans: ['var(--font-fira-sans)']
       }
     },
   },

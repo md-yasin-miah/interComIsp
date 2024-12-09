@@ -2,7 +2,9 @@ import Link from 'next/link'
 import Image from 'next/image'
 import React from 'react'
 import SSLFooterImg from '../../public/SSLCommerz-footer-1024x48.webp'
-import logoFooter from '../../public/logo-english-footer-white.png'
+// import logoFooter from '../../public/logo-english-footer-white.png'
+import logoFooter from '../../public/NetCom-Logo.png'
+
 import { footerMenu } from '@/helper/fake'
 import SocialIcons from './SocialIcons'
 
@@ -15,7 +17,7 @@ const Footer = () => {
             <div className="relative w-[70%] mb-4">
               <Image src={logoFooter} alt='logo-footer' width='fill' height='fill' />
             </div>
-            <p className='pr-[6px] mb-2.5'>Exord Online is a Divisional Internet Service Provider company providing broadband internet service since 2009. Exord is committed to provide extraordinary internet service to clients!</p>
+            <p className='pr-[6px] mb-2.5'>NetCom Online is a Divisional Internet Service Provider company providing broadband internet service since 2009. NetCom is committed to provide extraordinary internet service to clients!</p>
             <SocialIcons />
           </div>
           {
@@ -37,7 +39,7 @@ const Footer = () => {
         </section>
         <section className='py-[18px] px-[50px] mt-2.5 mb-5 bg-white rounded-lg'>
           <div className='flex items-center justify-between'>
-            <p className='font-semibold text-sm'>Copyright © 2024 Exord Online.  Developed by
+            <p className='font-semibold text-sm'>Copyright © 2024 NetCom Online.  Developed by
               <strong>
                 <Link href='' className='transition-all duration-300 hover:text-primary'> Optimus Technologies</Link>
               </strong>

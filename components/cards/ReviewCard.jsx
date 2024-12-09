@@ -12,7 +12,7 @@ const ReviewCard = () => {
             ))}
         </div>
         <p className="text-[15px] text-colorCardParagraph leading-7">
-            Certainly I have the best experience by using exord connection. I have been using for 3.5 years, highly satisfied with the internet speed and their customer service is really excellent.
+            Certainly I have the best experience by using NetCom connection. I have been using for 3.5 years, highly satisfied with the internet speed and their customer service is really excellent.
             <Link href='' className='font-semibold text-primary'>Read more...</Link>
         </p>
     </div>

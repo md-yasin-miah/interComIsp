@@ -8,7 +8,7 @@ const ExcitingFeaturesSection = () => {
       <div className="customContainer">
         <SectionTitle
           title='Exciting features'
-          subTitle='Join now and enjoy the exciting features from Exord online'
+          subTitle='Join now and enjoy the exciting features from NetCom online'
         />
         <div className='grid grid-cols-3 gap-5 pt-10'>
           <FeatureCard />

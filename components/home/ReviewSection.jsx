@@ -21,7 +21,7 @@ const ReviewSection = () => {
       <div className="customContainer">
         <SectionTitle
           title="What our clients says!"
-          subTitle='Join now and enjoy the exciting features from Exord online'
+          subTitle='Join now and enjoy the exciting features from NetCom online'
         />
         <div className='pt-10'>
           <Splide options={options} extensions={{ AutoScroll }}>

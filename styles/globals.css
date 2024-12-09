@@ -7,8 +7,8 @@
   --background2:#F9F9F9;
   --background3: #F0F2F7;
   --foreground: #171717;
-  --primary: #FD5E53;
-  --secondary: #dd2476;
+  --primary: #0392c3;
+  --secondary: #3e67af;
   --footerBG: #1F2937;
 
   --white: #FFFFFF;
@@ -20,14 +20,14 @@
 [data-theme="dark"] {
   --background: #0a0a0a;
   --foreground: #ededed;
-  --primary: #FD5E53;
+  --primary: #0392c3;
   --color-paragraph: #E4D0D0;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: var(--font-inter);
+  font-family: var(--font-firaSans);
 }
 
 /*======== global css START*/
@@ -89,3 +89,37 @@ body {
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
+
+/*======== Splide Pagination Custom Styles START  */
+.heroSlider{
+  /* also add #F7F8FC color    */
+ background: url("../public/hero-bg.svg") #F7F8FC;
+ background-position: top left;
+ background-repeat: no-repeat;
+ background-size: 25% auto;
+ opacity: 1;
+ transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+}
+.custom-pagination {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    padding: 1rem 0;
+}
+
+.custom-pagination .splide__pagination__page {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #E5E7EB;
+    opacity: 1;
+    transition: all 0.3s ease;
+}
+
+.custom-pagination .splide__pagination__page.is-active {
+    background: var(--primary);
+    transform: none;
+    border-radius: 8px;
+    width: 40px;
+}
+/********* Splide Pagination Custom Styles END */

@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
-import logo from '../../public/logo-english.png'
+import logo from '../../public/NetCom-Logo.png'
 import LinkButton from './LinkButton'
 import { FaUser } from "react-icons/fa"
 import Link from 'next/link'

@@ -9,7 +9,7 @@ const FAQ = () => {
     <section className='customContainer'>
       <SectionTitle
         title='Frequently asked questions'
-        subTitle="Common FAQ's regarding Exord and it's services"
+        subTitle="Common FAQ's regarding NetCom and it's services"
       />
       <div className='flex gap-5 pt-10'>
         <div className='flex flex-col gap-5'>

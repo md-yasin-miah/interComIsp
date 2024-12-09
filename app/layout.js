@@ -1,5 +1,5 @@
 import localFont from "next/font/local";
-import { Inter } from 'next/font/google'
+import { Fira_Sans, Inter } from 'next/font/google'
 import "@/styles/globals.css";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import Header from "@/components/shared/Header";
@@ -20,6 +20,14 @@ const inter = Inter({
   display: 'swap',
   variable: '--font-inter',
 })
+//Fira Sans
+const firaSans = Fira_Sans({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-fira-sans',
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+});
+
 
 export const metadata = {
   title: "Create Next App",
@@ -30,7 +38,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${firaSans.variable} antialiased`}
       >
         <ThemeProvider>
           <main>
