@@ -12,7 +12,7 @@ const NavList = ({ children, url, key }) => {
   }
   console.log(pathname, active())
   return (
-    <li key={key} className={active() ? 'text-primary after:bg-primary' : ''}>
+    <li key={key} className={active() ? 'active' : ''}>
       {children}
     </li>
   )

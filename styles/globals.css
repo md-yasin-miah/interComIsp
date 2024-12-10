@@ -39,12 +39,99 @@ body {
 
 /*======== header css START */
 .navMenu ul {
-  @apply flex items-center text-[16px] leading-5 font-semibold cursor-pointer
+  @apply flex items-center text-[16px] leading-5 font-semibold cursor-pointer relative
 }
 
 .navMenu ul li {
-  @apply relative py-4 mx-3 transition-all duration-300 first:ml-0 last:mr-0 after:content-[''] after:absolute after:h-[3px] after:w-full after:bottom-0 after:left-0 hover:after:bg-primary hover:text-primary after:transition-all after:duration-300
+  @apply relative z-10 px-3 py-2.5 transition-all duration-300 text-black/80 dark:text-white/80 hover:text-white
 }
+
+.navMenu ul span{
+  position: absolute;
+  transition: all 0.3s ease;
+  transition-duration: 0.3s;
+  top: 0;
+  left: 0;
+  width: 68px;
+  height: 100%;
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  border-radius: 5px;
+}
+.navMenu ul li.active{
+  @apply text-white
+}
+.navMenu ul li:nth-child(1).active ~ span{
+  left: 0px;
+  width: 68px;
+}
+.navMenu ul li:nth-child(2).active ~ span{
+  left: 68px;
+  width: 86px;
+}
+.navMenu ul li:nth-child(3).active ~ span{
+  left: 154px;
+  width: 94px;
+}
+.navMenu ul li:nth-child(4).active ~ span{
+  left: 248px;
+  width: 94px;
+}
+.navMenu ul li:nth-child(5).active ~ span{
+  left: 342px;
+  width: 79px;
+}
+
+.navMenu ul li:nth-child(6).active ~ span{
+  left: 420px;
+  width: 73px;
+}
+.navMenu ul li:nth-child(7).active ~ span{
+  left: calc(100% - 84px);
+  width: 84px;
+}
+.navMenu ul:hover li{
+  @apply text-black/80 dark:text-white/80
+}
+.navMenu ul li:nth-child(1):hover~ span{
+  left: 0px;
+  width: 68px;
+}
+.navMenu ul li:nth-child(2):hover~ span{
+  left: 68px;
+  width: 86px;
+}
+.navMenu ul li:nth-child(3):hover~ span{
+  left: 154px;
+  width: 94px;
+}
+.navMenu ul li:nth-child(4):hover~ span{
+  left: 248px;
+  width: 94px;
+}
+.navMenu ul li:nth-child(5):hover~ span{
+  left: 342px;
+  width: 79px;
+}
+
+.navMenu ul li:nth-child(6):hover~ span{
+  left: 420px;
+  width: 73px;
+}
+.navMenu ul li:nth-child(7):hover~ span{
+  left: calc(100% - 84px);
+  width: 84px;
+}
+.navMenu ul li:nth-child(1):hover,
+.navMenu ul li:nth-child(2):hover,
+.navMenu ul li:nth-child(3):hover,
+.navMenu ul li:nth-child(4):hover,
+.navMenu ul li:nth-child(5):hover,
+.navMenu ul li:nth-child(6):hover,
+.navMenu ul li:nth-child(7):hover
+{
+  @apply text-white
+}
+
 
 /********* header css END */
 
@@ -91,6 +178,9 @@ body {
 }
 
 /*======== Splide Pagination Custom Styles START  */
+.heroTitle{
+  @apply text-3xl md:text-[45px] lg:text-6xl font-bold text-gray-900 dark:text-white min-h-[120px]
+}
 .heroSlider{
   /* also add #F7F8FC color    */
  background: url("../public/hero-bg.svg") #F7F8FC;

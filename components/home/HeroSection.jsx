@@ -6,8 +6,15 @@ import heroOne from '../../public/hero-one.gif'
 import heroTwo from '../../public/hero-two.gif'
 import heroThree from '../../public/hero-three.gif'
 import Image from 'next/image'
+import { TextGenerateEffect } from '../ui/text-generate-effect'
 
 const HeroSection = () => {
+    const [activeIndex, setActiveIndex] = React.useState(0);
+    console.log(
+        {
+            activeIndex
+        }
+    )
     const options={
         type   : 'loop',
         arrows : false,
@@ -21,14 +28,19 @@ const HeroSection = () => {
       }
   return (
     <div className='heroSlider'>
-        <Splide options={options}>
+        <Splide 
+        options={options}
+        onActive={(slide) => setActiveIndex(slide.index)}
+        >
             <SplideSlide>
                 <div className="grid lg:grid-cols-12 gap-8 items-center customContainer py-20">
                     {/* Left Content */}
                     <div className="space-y-6 lg:col-span-7">
-                        <h1 className="text-3xl md:text-[45px] lg:text-6xl font-bold text-gray-900 dark:text-white">
-                            Stucked in a crazy slowest Internet?
-                        </h1>
+                        <div className="min-h-[120px]">
+                            {activeIndex === 0 &&
+                            <TextGenerateEffect className="heroTitle" words="Stucked in a crazy slowest Internet?" />
+                            }
+                        </div>
                         <p className="text-gray-600 dark:text-gray-300 text-lg">
                             No worries! An expert internet plan matcher is here to help. Simply & 
                             pick out of hundreds of vetted service plans in 30+ city locations.
@@ -54,9 +66,11 @@ const HeroSection = () => {
                 <div className="grid lg:grid-cols-12 gap-8 items-center customContainer py-20">
                     {/* Left Content */}
                     <div className="space-y-6 lg:col-span-7">
-                        <h1 className="text-3xl md:text-[45px] lg:text-6xl font-bold text-gray-900 dark:text-white">
-                            Stucked in a crazy slowest Internet?
-                        </h1>
+                    <div className="min-h-[120px]">
+                        {activeIndex=== 1 &&    
+                        <TextGenerateEffect className="heroTitle" words="Stucked in a crazy slowest Internet?" />
+                    }
+                    </div>
                         <p className="text-gray-600 dark:text-gray-300 text-lg">
                             No worries! An expert internet plan matcher is here to help. Simply & 
                             pick out of hundreds of vetted service plans in 30+ city locations.
@@ -82,9 +96,11 @@ const HeroSection = () => {
                     <div className="grid lg:grid-cols-12 gap-8 items-center customContainer py-20">
                     {/* Left Content */}
                     <div className="space-y-6 lg:col-span-7">
-                        <h1 className="text-3xl md:text-[45px] lg:text-6xl font-bold text-gray-900 dark:text-white">
-                            Optimal Internet Speed With Multiple IX
-                        </h1>
+                    <div className="min-h-[120px]">
+                            {activeIndex=== 2 &&
+                            <TextGenerateEffect className="heroTitle" words="Optimal Internet Speed With Multiple IX" />
+                        }
+                        </div>
                         <p className="text-gray-600 dark:text-gray-300 text-lg">
                         NetCom online is one of the best internet service providers in Bangladesh with 
                             BDIX, ISPAB IX, aamra IX, etc. In the last 12 years, we have gotten thousands 
