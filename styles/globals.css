@@ -10,6 +10,7 @@
   --primary: #0392c3;
   --secondary: #3e67af;
   --footerBG: #1F2937;
+  --hero-bg:#F7F8FC
 
   --white: #FFFFFF;
   --white2: #E4D0D0;
@@ -22,12 +23,14 @@
   --foreground: #ededed;
   --primary: #0392c3;
   --color-paragraph: #E4D0D0;
+  --hero-bg:#F7F8FC
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: var(--font-firaSans);
+  font-family: var(--font-rajdhani);
+  font-size: 20px;
 }
 
 /*======== global css START*/
