@@ -10,7 +10,6 @@ export const TextGenerateEffect = ({
   duration = 0.5,
   triggerKey, // New prop to trigger re-animation
 }) => {
-    console.log({triggerKey})
   const [scope, animate] = useAnimate();
   let wordsArray = words.split(" ");
   useEffect(() => {
