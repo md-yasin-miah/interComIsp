@@ -30,6 +30,7 @@ const Header = () => {
                 </Link>
               </NavList>
             ))}
+            <span></span>
           </ul>
         </div>
         <div className='flex items-center gap-2'>

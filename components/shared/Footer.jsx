@@ -7,11 +7,12 @@ import logoFooter from '../../public/NetCom-Logo.png'
 
 import { footerMenu } from '@/helper/fake'
 import SocialIcons from './SocialIcons'
+import { BackgroundBeams } from '../ui/background-beams'
 
 const Footer = () => {
   return (
-    <footer className='bg-footerBG py-8'>
-      <div className='customContainer'>
+    <footer className='bg-footerBG py-8 relative antialiased'>
+      <div className='customContainer relative z-50'>
         <section className='grid grid-cols-12 text-white'>
           <div className='col-span-4 p-[34px] pl-0'>
             <div className="relative w-[70%] mb-4">
@@ -37,7 +38,7 @@ const Footer = () => {
             ))
           }
         </section>
-        <section className='py-[18px] px-[50px] mt-2.5 mb-5 bg-white rounded-lg'>
+        <section className='py-[18px] px-[50px] mt-2.5 mb-5 bg-white/60 rounded-lg'>
           <div className='flex items-center justify-between'>
             <p className='font-semibold text-sm'>Copyright © 2024 NetCom Online.  Developed by
               <strong>
@@ -50,6 +51,7 @@ const Footer = () => {
           </div>
         </section>
       </div>
+      <BackgroundBeams />
     </footer>
   )
 }
