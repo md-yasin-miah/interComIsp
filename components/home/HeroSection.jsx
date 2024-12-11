@@ -7,7 +7,6 @@ import { TextGenerateEffect } from '../ui/text-generate-effect'
 import { AuroraBackground } from '../ui/aurora-background'
 import { DotLottieReact } from '@lottiefiles/dotlottie-react'
 
-
 const HeroSection = () => {
     const [activeIndex, setActiveIndex] = React.useState(0);
     const options = {
