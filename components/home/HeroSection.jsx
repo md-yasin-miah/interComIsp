@@ -135,9 +135,8 @@ const HeroSection = () => {
                             </button>
                         </div>
                         {/* Right Image */}
-                        <div className="col-span-5 h-full">
+                        <div className="col-span-5 h-full w-11/12">
                             <DotLottieReact
-                                className='w-11/12'
                                 src={"/lottie/server.lottie"}
                                 loop
                                 autoplay
