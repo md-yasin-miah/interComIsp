@@ -2,12 +2,12 @@
 const nextConfig = {
   images: {
     remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: '',
-        port: '',
-        pathname: '/wp-content/**',
-      },
+      // {
+      //   protocol: 'https',
+      //   hostname: '',
+      //   port: '',
+      //   pathname: '/wp-content/**',
+      // },
     ],
   },
 };
