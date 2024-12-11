@@ -10,7 +10,6 @@ const NavList = ({ children, url, key }) => {
     }
     return pathname.startsWith(url) && url !== '/'; // Check if the URL matches and is not '/'
   }
-  console.log(pathname, active())
   return (
     <li key={key} className={active() ? 'active' : ''}>
       {children}

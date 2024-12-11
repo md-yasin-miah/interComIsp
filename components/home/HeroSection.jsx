@@ -10,11 +10,6 @@ import { DotLottieReact } from '@lottiefiles/dotlottie-react'
 
 const HeroSection = () => {
     const [activeIndex, setActiveIndex] = React.useState(0);
-    console.log(
-        {
-            activeIndex
-        }
-    )
     const options={
         type   : 'loop',
         arrows : false,
