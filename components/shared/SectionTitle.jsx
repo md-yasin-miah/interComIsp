@@ -1,7 +1,7 @@
 import React from 'react'
 
 const SectionTitle = ({ title, subTitle, className = 'w-fit mb-5' }) => {
-  const tittleClass = "pl-8 text-[42px] relative font-semibold before:content-[''] before:w-[5px] before:h-full before:top-0 before:left-0 before:block before:absolute before:bg-gradient-to-b before:from-primary before:to-secondary"
+  const tittleClass = "pl-8 text-[42px] relative font-rajdhani font-semibold before:content-[''] before:w-[5px] before:h-full before:top-0 before:left-0 before:block before:absolute before:bg-gradient-to-b before:from-primary before:to-secondary"
   return (
     <div className={`${className}`}>
       <h2 className={tittleClass}>

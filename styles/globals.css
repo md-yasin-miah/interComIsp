@@ -29,8 +29,7 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: var(--font-rajdhani);
-  font-size: 20px;
+  font-family: var(--font-poppins);
 }
 
 /*======== global css START*/
@@ -42,7 +41,7 @@ body {
 
 /*======== header css START */
 .navMenu ul {
-  @apply flex items-center text-[16px] leading-5 font-semibold cursor-pointer relative
+  @apply flex items-center text-[16px] leading-5 cursor-pointer relative
 }
 
 .navMenu ul li {
@@ -65,64 +64,64 @@ body {
 }
 .navMenu ul li:nth-child(1).active ~ span{
   left: 0px;
-  width: 68px;
+  width: 71.72px;
 }
 .navMenu ul li:nth-child(2).active ~ span{
-  left: 68px;
-  width: 86px;
+  left: 71.72px;
+  width: 90.19px;
 }
 .navMenu ul li:nth-child(3).active ~ span{
-  left: 154px;
-  width: 94px;
+  left: 161.72px;
+  width: 101.94px;
 }
 .navMenu ul li:nth-child(4).active ~ span{
-  left: 248px;
-  width: 94px;
+  left: 263.66px;
+  width: 103.02px;
 }
 .navMenu ul li:nth-child(5).active ~ span{
-  left: 342px;
-  width: 79px;
+  left: 366.68px;
+  width: 78.98px;
 }
 
 .navMenu ul li:nth-child(6).active ~ span{
-  left: 420px;
-  width: 73px;
+  left: 445.66px;
+  width: 71.36px;
 }
 .navMenu ul li:nth-child(7).active ~ span{
-  left: calc(100% - 84px);
-  width: 84px;
+  left: calc(100% - 87.3px);
+  width: 87.3px;
 }
 .navMenu ul:hover li{
   @apply text-black/80 dark:text-white/80
 }
 .navMenu ul li:nth-child(1):hover~ span{
   left: 0px;
-  width: 68px;
+  width: 71.72px;
 }
 .navMenu ul li:nth-child(2):hover~ span{
-  left: 68px;
-  width: 86px;
+  left: 71.72px;
+  width: 90.19px;
 }
 .navMenu ul li:nth-child(3):hover~ span{
-  left: 154px;
-  width: 94px;
+  left: 161.72px;
+  width: 101.94px;
 }
 .navMenu ul li:nth-child(4):hover~ span{
-  left: 248px;
-  width: 94px;
+  left: 263.66px;
+  width: 103.02px;
 }
 .navMenu ul li:nth-child(5):hover~ span{
-  left: 342px;
-  width: 79px;
+  left:   366.68px;
+  width: 78.98px;
 }
 
 .navMenu ul li:nth-child(6):hover~ span{
-  left: 420px;
-  width: 73px;
+  left: 445.66px;
+  width: 71.36px;
 }
 .navMenu ul li:nth-child(7):hover~ span{
-  left: calc(100% - 84px);
-  width: 84px;
+  left: calc(100% - 87.3px);
+  width: 87.3px;
 }
 .navMenu ul li:nth-child(1):hover,
 .navMenu ul li:nth-child(2):hover,
@@ -182,7 +181,7 @@ body {
 
 /*======== Splide Pagination Custom Styles START  */
 .heroTitle{
-  @apply text-3xl md:text-[45px] lg:text-6xl font-bold text-gray-900 dark:text-white min-h-[120px]
+  @apply text-3xl md:text-[45px] font-rajdhani lg:text-6xl font-bold text-gray-900 dark:text-white min-h-[120px]
 }
 .custom-pagination {
     display: flex;
