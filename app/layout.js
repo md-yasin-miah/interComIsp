@@ -1,5 +1,5 @@
 import localFont from "next/font/local";
-import { Fira_Sans, Inter, Poppins, Rajdhani } from 'next/font/google'
+import { Poppins, Rajdhani } from 'next/font/google'
 import "@/styles/globals.css";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import Header from "@/components/shared/Header";
@@ -15,18 +15,6 @@ const geistMono = localFont({
   variable: "--font-geist-mono",
   weight: "100 900",
 });
-const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-inter',
-})
-//Fira Sans
-const firaSans = Fira_Sans({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-fira-sans',
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-});
 const rajdhani = Rajdhani({
   subsets: ['latin'],
   display: 'swap',
@@ -34,7 +22,8 @@ const rajdhani = Rajdhani({
   weight: ['300', '400', '500', '600', '700',],
 });
 const poppins = Poppins({
-  src: "./fonts/Poppins.woff",
+  subsets: ['latin'],
+  display: 'swap',
   variable: "--font-poppins",
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
 });
@@ -49,7 +38,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${firaSans.variable} ${rajdhani.variable} ${poppins.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${rajdhani.variable} ${poppins.variable} antialiased`}
       >
         <ThemeProvider>
           <main>
