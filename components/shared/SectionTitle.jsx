@@ -1,16 +1,14 @@
 import React from 'react'
 
-const SectionTitle = ({ title, subTitle, className = 'w-fit mb-5' }) => {
-  const tittleClass = "pl-8 text-[35px] relative font-semibold before:content-[''] before:w-[5px] before:h-full before:top-0 before:left-0 before:block before:absolute before:bg-gradient-to-b before:from-primary before:to-secondary"
+const SectionTitle = ({ title,title2, subTitle, className=''}) => {
+  const tittleClass = "text-[46px] text-center relative font-rajdhani font-bold tracking-[5px] capitalize relative"  
   return (
     <div className={`${className}`}>
       <h2 className={tittleClass}>
-        {title?.split(' ')?.[0]}
-        <span className="text-primary">
-          {' '}{title?.split(' ')?.slice(1)?.join(' ')}
-        </span>
-      </h2>
-      <p className="text-base leading-6 pl-8">{subTitle}</p>
+         {title} <span className='bg-clip-text bg-gradient-to-r from-primary to-secondary text-transparent'>{title2}</span>
+         <span className='uppercase text-7xl text-primary opacity-10 tracking-[10px] font-bold absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>about us</span>
+       </h2>
+    <p className="text-base text-center font-poppins leading-6 pl-8">{subTitle}</p>
     </div>
   )
 }

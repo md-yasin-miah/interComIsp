@@ -12,6 +12,9 @@ module.exports = {
   darkMode: ['selector', '[data-theme="dark"]'],
   theme: {
     extend: {
+      fontSize: {
+        // base: '20px',
+      },
       colors: {
         white2: 'var(--white2)',
 
@@ -33,7 +36,9 @@ module.exports = {
       },
       fontFamily: {
         inter: ['var(--font-inter)'],
-        firaSans: ['var(--font-fira-sans)']
+        firaSans: ['var(--font-fira-sans)'],
+        rajdhani: ['var(--font-rajdhani)'],
+        poppins: ['var(--font-poppins)'],
       },
       animation: {
         aurora: "aurora 60s linear infinite",
@@ -59,7 +64,7 @@ function addVariablesForColors({ addBase, theme }) {
   let newVars = Object.fromEntries(
     Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
   );
- 
+
   addBase({
     ":root": newVars,
   });
