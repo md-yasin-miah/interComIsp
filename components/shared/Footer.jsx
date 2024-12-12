@@ -2,8 +2,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import React from 'react'
 import SSLFooterImg from '../../public/SSLCommerz-footer-1024x48.webp'
-// import logoFooter from '../../public/logo-english-footer-white.png'
-import logoFooter from '../../public/NetCom-Logo.png'
+// import logo from '../../public/NetCom-Logo.png'
+import logoWhite from '../../public/NetCom-Logo-White.png'
 
 import { footerMenu } from '@/helper/fake'
 import SocialIcons from './SocialIcons'
@@ -16,7 +16,8 @@ const Footer = () => {
         <section className='grid grid-cols-12 text-white'>
           <div className='col-span-4 p-[34px] pl-0'>
             <div className="relative w-[70%] mb-4">
-              <Image src={logoFooter} alt='logo-footer' width='fill' height='fill' />
+              {/* <Image src={logo} alt='logo' width='fill' height='fill' className='dark:hidden'/> */}
+              <Image src={logoWhite} alt='logo' width='fill' height='fill' className='px-2' />
             </div>
             <p className='pr-[6px] mb-2.5'>NetCom Online is a Divisional Internet Service Provider company providing broadband internet service since 2009. NetCom is committed to provide extraordinary internet service to clients!</p>
             <SocialIcons />

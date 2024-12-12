@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 import logo from '../../public/NetCom-Logo.png'
+import logoWhite from '../../public/NetCom-Logo-White.png'
 import LinkButton from './LinkButton'
 import { FaUser } from "react-icons/fa"
 import Link from 'next/link'
@@ -17,7 +18,8 @@ const Header = () => {
     >
       <div className="customContainer flex items-center justify-between">
         <div className='relative w-[211px]'>
-          <Image src={logo} alt='logo' width='fill' height='fill' />
+          <Image src={logo} alt='logo' width='fill' height='fill' className='dark:hidden'/>
+          <Image src={logoWhite} alt='logo' width='fill' height='fill' className='hidden dark:block px-2' />
         </div>
         <div className='navMenu'>
           <ul>
