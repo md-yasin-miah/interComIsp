@@ -41,9 +41,9 @@ const Footer = () => {
         </section>
         <section className='py-[18px] px-[50px] mt-2.5 mb-5 bg-white/60 rounded-lg'>
           <div className='flex items-center justify-between'>
-            <p className='font-semibold text-sm'>Copyright © 2024 NetCom Online.  Developed by
+            <p className='font-semibold text-sm'>Copyright © 2024 <strong>Netcom Internet</strong> | All Rights Reserved.<br/>  Developed by
               <strong>
-                <Link href='' className='transition-all duration-300 hover:text-primary'> Optimus Technologies</Link>
+                <Link href='' className='transition-all duration-300 hover:text-primary'> Net Land System Bangladesh</Link>
               </strong>
             </p>
             <div className='relative w-1/2'>

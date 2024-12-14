@@ -1,27 +1,69 @@
+"use client"
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import offerImage from '../../public/offer-card.webp'
+import { motion } from 'framer-motion'
 
 const OfferCard = () => {
   return (
-    <article className='group min-h-[235px]'>
-      <div className='rounded-[10px] overflow-hidden shadow-card hover:shadow-cardHover transition-all duration-200 h-full bg-white dark:bg-slate-700'>
-        <Link href='/'>
-          <div
-            className='w-full relative after:absolute after:w-full after:h-full after:top-0 after:transition-all 
-            after:duration-200 after:bg-gradient-to-t after:from-[#00000059] after:to-transparent mb-5 group-hover:after:opacity-50'
+    <motion.article 
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3 }}
+      whileHover={{ 
+        scale: 1.05,
+        transition: { duration: 0.3}
+      }}
+      className='w-full aspect-[2/3] bg-white rounded-[20px] overflow-hidden cursor-pointer 
+        shadow-card dark:bg-slate-700'
+    >
+      <div className='relative'>
+        <motion.div 
+          initial={{ borderRadius: "100% 0% 100% 0% / 0% 50% 50% 100%" }}
+          whileHover={{ 
+            borderRadius: "0",
+            transition: { duration: 0.3 }
+          }}
+          className='h-[200px] w-full flex items-center justify-center overflow-hidden'
+        >
+          {/* Centered image */}
+          <div 
+            className='relative w-full h-full'
           >
-            <Image src={offerImage} alt='offer' width={270} height={135} />
+            <Image 
+              src={offerImage} 
+              alt='offer'
+              fill
+              className='object-cover'
+            />
           </div>
-        </Link>
-        <div>
-          <Link href='/' className="">
-            <h3 className="text-lg font-bold px-[30px]">Make a Referral and Earn BDT 500!</h3>
-          </Link>
-        </div>
+        </motion.div>
+        
+        {/* Content area */}
+        <motion.div 
+          initial={{ y: 20, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.2, duration: 0.3 }}
+          className='flex flex-col items-center px-5'
+        >
+          <motion.h3 
+            whileHover={{ scale: 1.05 }}
+            className="text-center uppercase text-base font-bold mt-2.5 mb-5"
+          >
+            TITLE
+          </motion.h3>
+          <motion.p 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.3 }}
+            className="text-center text-xs mb-5"
+          >
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+          </motion.p>
+        </motion.div>
       </div>
-    </article>
+    </motion.article>
   )
 }
 

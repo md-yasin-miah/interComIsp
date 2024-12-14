@@ -51,7 +51,7 @@ const AboutUsSection = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className='bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300'
+                className='bg-white p-6 rounded-xl shadow-card hover:shadow-card2 transition-all duration-300'
               >
                 <h3 className={`text-xl font-bold mb-2 ${stat.color}`}>
                   {stat.number}
