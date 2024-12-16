@@ -25,14 +25,14 @@ const statsData = [
 
 const AboutUsSection = () => {
   return (
-    <div className='customContainer py-20'>
+    <div className='customContainer pb-10 overflow-hidden'>
       <SectionTitle
         title='Exciting features'
         subTitle='Join now and enjoy the exciting features from NetCom online'
       />
       <div className="relative mt-10">
         <div className='h-full w-7/12'>
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -64,7 +64,7 @@ const AboutUsSection = () => {
           </div>
         </div>
         <div className='absolute top-1/2 -right-[120px] -translate-y-1/2 w-3/5'>
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}

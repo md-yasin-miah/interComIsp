@@ -9,8 +9,8 @@ import ReviewSection from "@/components/home/ReviewSection";
 export default function Home() {
 
   return (
-    <div className='space-y-14'>
-      <HeroSection/>
+    <div className="space-y-20">
+      <HeroSection />
       <AboutUsSection />
       <OffersSection />
       <ExcitingFeaturesSection />
