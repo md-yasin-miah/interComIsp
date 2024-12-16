@@ -63,7 +63,7 @@ const OfferCard = () => {
             Lorem Ipsum is simply dummy text of the printing and typesetting industry.
           </motion.p>
           {/* learn more button */}
-          <LinkButton href="/">
+          <LinkButton href="/" className='mt-5'>
             Learn More
           </LinkButton>
         </motion.div>

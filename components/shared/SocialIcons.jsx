@@ -5,7 +5,7 @@ import React from "react";
 
 const SocialIcons = () => {
   return (
-    <div className="flex flex-wrap gap-1">
+    <div className="flex flex-wrap gap-1 max-sm:justify-center">
       {socialLinks.map((social, i) => {
         return (
           <Link

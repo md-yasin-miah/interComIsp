@@ -1,8 +1,10 @@
+"use client"
 import React from 'react'
 import SectionTitle from '../shared/SectionTitle'
 import PricingCard from '../cards/PricingCard'
 import LinkButton from '../shared/LinkButton'
 import { IoArrowForwardCircleOutline } from "react-icons/io5"
+import { motion } from 'framer-motion'
 
 const PricingSection = () => {
   const pricingData = [
@@ -86,17 +88,32 @@ const PricingSection = () => {
           ))}
         </div>
         {/* check our other packages */}
-        <div className='flex items-center py-12 px-20 gap-10 shadow-card2Hover rounded-3xl mt-16'>
-          <div>
-            <h2 className='text-[40px] mb-4 font-medium'>Check our other <span className='text-primary font-bold'>Packages</span></h2>
-            <p className='text-2xl font-normal'>We have more exciting Shared & Turbo packages. To check or buy, please visit our pricing page.</p>
+        <div className='flex flex-col md:flex-row items-center py-12 px-8 md:px-20 gap-10 shadow-card2Hover rounded-3xl mt-16 bg-gradient-to-r from-background2/50 to-background3/50 hover:shadow-xl transition-all duration-300'>
+          <div className='text-center md:text-left'>
+            <h2 className='text-3xl md:text-[40px] mb-4 font-medium'>Check our other <span className='text-primary font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary animate-pulse'>Packages</span></h2>
+            <p className='text-base font-normal text-colorParagraph'>We have more exciting Shared & Turbo packages. To check or buy, please visit our pricing page.</p>
           </div>
-          <LinkButton
-            iconPosition='end'
-            icon={<IoArrowForwardCircleOutline className='font-semibold text-xl' />}
-            href='/' className='!py-5 !px-10' animation='stepUp'>
-            <span className='whitespace-nowrap'>All Packages</span>
-          </LinkButton>
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+          >
+            <LinkButton
+              iconPosition='end'
+              icon={<IoArrowForwardCircleOutline className='font-semibold text-xl' />}
+              href='/'
+              className='!py-6 !px-12 bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary text-white rounded-full font-bold text-lg shadow-lg hover:shadow-2xl transition-all duration-300'
+              animation='stepUp'
+            >
+              <motion.span
+                className='whitespace-nowrap'
+                whileHover={{ x: -5 }}
+                transition={{ type: "spring", stiffness: 400 }}
+              >
+                All Packages
+              </motion.span>
+            </LinkButton>
+          </motion.div>
         </div>
       </div>
     </section>

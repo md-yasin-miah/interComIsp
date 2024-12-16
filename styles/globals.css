@@ -40,6 +40,10 @@ body {
 /********* global css END*/
 
 /*======== header css START */
+
+.navMenu {
+  transition: all 0.3s ease-in-out;
+}
 .navMenu ul {
   @apply flex items-center text-[16px] leading-5 cursor-pointer relative
 }
@@ -206,3 +210,15 @@ body {
     width: 40px;
 }
 /********* Splide Pagination Custom Styles END */
+
+/* Add these to your existing styles */
+
+@media (max-width: 1024px) {
+  .customContainer {
+    @apply w-[95%]
+  }
+}
+
+@media (max-width: 768px) {
+
+}
