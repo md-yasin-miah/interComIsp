@@ -1,7 +1,5 @@
 import React from 'react'
 
-const SectionTitle = ({ title,title2,title3, subTitle, className=''}) => {
-  const tittleClass = "text-[46px] text-center relative font-rajdhani font-bold tracking-[5px] capitalize relative"  
 const SectionTitle = ({ title, title2, subTitle, placeholder_title, className = '', reverse = false }) => {
   const tittleClass = "text-[46px] text-center relative font-rajdhani font-bold tracking-[5px] capitalize relative"
   return (

@@ -54,7 +54,7 @@ const TestimonialSection = () => {
                 <SectionTitle
                     title="customer"
                     title2="stories"
-                    title3="stories"
+                    placeholder_title="stories"
                     subTitle="Hear what our customers have to say about their experience with NetCom"
                 />
 
