@@ -42,6 +42,8 @@ module.exports = {
       },
       animation: {
         aurora: "aurora 60s linear infinite",
+        "meteor-effect": "meteor 5s linear infinite",
+        "spin-slow": "spin 4s linear infinite",
       },
       keyframes: {
         aurora: {
@@ -52,6 +54,17 @@ module.exports = {
             backgroundPosition: "350% 50%, 350% 50%",
           },
         },
+        meteor: {
+          "0%": { transform: "rotate(215deg) translateX(0)", opacity: 1 },
+          "70%": { opacity: 1 },
+          "100%": {
+            transform: "rotate(215deg) translateX(-500px)",
+            opacity: 0,
+          },
+        },
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
       },
     },
   },
