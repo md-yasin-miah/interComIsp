@@ -8,7 +8,9 @@ const FAQ = () => {
   return (
     <section className='customContainer'>
       <SectionTitle
-        title='Frequently asked questions'
+        placeholder_title="FAQ's"
+        title='Frequently'
+        title2="Asked Questions"
         subTitle="Common FAQ's regarding NetCom and it's services"
       />
       <div className='flex gap-5 pt-10'>
