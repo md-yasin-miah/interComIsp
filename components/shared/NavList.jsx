@@ -2,7 +2,7 @@
 import { usePathname } from 'next/navigation'
 import React from 'react'
 
-const NavList = ({ children, url, key }) => {
+const NavList = ({ children, url }) => {
   const pathname = usePathname();
   const active = () => {
     if (pathname === '/') {
@@ -11,7 +11,7 @@ const NavList = ({ children, url, key }) => {
     return pathname.startsWith(url) && url !== '/'; // Check if the URL matches and is not '/'
   }
   return (
-    <li key={key} className={active() ? 'active' : ''}>
+    <li className={active() ? 'active' : ''}>
       {children}
     </li>
   )
