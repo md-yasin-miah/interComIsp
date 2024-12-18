@@ -43,6 +43,7 @@ module.exports = {
       animation: {
         aurora: "aurora 60s linear infinite",
         "meteor-effect": "meteor 5s linear infinite",
+        "spin-slow": "spin 4s linear infinite",
       },
       keyframes: {
         aurora: {
