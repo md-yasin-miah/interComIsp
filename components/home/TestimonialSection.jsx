@@ -5,6 +5,8 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { FaPlay } from "react-icons/fa"
 import { GridBackground } from '../ui/grid-background'
+import { Splide, SplideSlide } from '@splidejs/react-splide';
+import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
 
 const testimonials = [
     {
@@ -45,8 +47,28 @@ const TestimonialSection = () => {
         setIsPlaying(true);
     };
 
+    const splideOptions = {
+        type: 'loop',
+        drag: 'free',
+        focus: 'center',
+        arrows: false,
+        pagination: false,
+        perPage: 3,
+        gap: '2rem',
+        autoScroll: {
+            speed: 1,
+        },
+        breakpoints: {
+            1024: {
+                perPage: 2,
+            },
+            768: {
+                perPage: 1,
+            },
+        },
+    };
+
     return (
-        // bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800
         <section className="relative py-20 overflow-hidden">
             <GridBackground />
             
@@ -58,58 +80,60 @@ const TestimonialSection = () => {
                     subTitle="Hear what our customers have to say about their experience with NetCom"
                 />
 
-                <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                    {testimonials.map((testimonial) => (
-                        <motion.div
-                            key={testimonial.id}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5 }}
-                            className="relative group bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-lg hover:shadow-xl transition-all duration-300"
-                        >
-                            <div className="relative aspect-video overflow-hidden rounded-xl cursor-pointer">
-                                <Image
-                                    src={testimonial.thumbnail}
-                                    alt={testimonial.name}
-                                    fill
-                                    className="object-cover transition-transform duration-300 group-hover:scale-105"
-                                />
-                                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors duration-300" />
-                                
-                                {/* Play Button */}
-                                <motion.div
-                                    whileHover={{ scale: 1.1 }}
-                                    whileTap={{ scale: 0.9 }}
-                                    className="absolute inset-0 flex items-center justify-center"
-                                    onClick={() => handleVideoClick(testimonial.id)}
+                <motion.div 
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="mt-16"
+                >
+                    <Splide options={splideOptions} extensions={{ AutoScroll }}>
+                        {testimonials.map((testimonial, index) => (
+                            <SplideSlide key={index} className='py-5'>
+                                <div
+                                    className="relative group bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-lg hover:shadow-xl transition-all duration-300"
                                 >
-                                    <div className="w-14 h-14 sm:w-16 sm:h-16 bg-primary rounded-full flex items-center justify-center shadow-lg">
-                                        <FaPlay className="text-white text-lg sm:text-xl ml-1" />
+                                    <div className="relative aspect-video overflow-hidden rounded-xl cursor-pointer">
+                                        <Image
+                                            src={testimonial.thumbnail}
+                                            alt={testimonial.name}
+                                            fill
+                                            className="object-cover transition-transform duration-300 group-hover:scale-105"
+                                        />
+                                        <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors duration-300" />
+                                        
+                                        {/* Play Button */}
+                                        <motion.div
+                                            whileHover={{ scale: 1.1 }}
+                                            whileTap={{ scale: 0.9 }}
+                                            className="absolute inset-0 flex items-center justify-center"
+                                            onClick={() => handleVideoClick(testimonial.id)}
+                                        >
+                                            <div className="w-14 h-14 sm:w-16 sm:h-16 bg-primary rounded-full flex items-center justify-center shadow-lg">
+                                                <FaPlay className="text-white text-lg sm:text-xl ml-1" />
+                                            </div>
+                                        </motion.div>
                                     </div>
-                                </motion.div>
-                            </div>
 
-                            <div className="mt-6 space-y-3 px-2">
-                                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-gray-100">
-                                    {testimonial.name}
-                                </h3>
-                                <p className="text-sm text-gray-600 dark:text-gray-400">
-                                    {testimonial.role} at {testimonial.company}
-                                </p>
-                                <p className="text-gray-700 dark:text-gray-300 italic text-sm sm:text-base">
-                                    "{testimonial.quote}"
-                                </p>
-                            </div>
-                        </motion.div>
-                    ))}
-                </div>
+                                    <div className="mt-6 space-y-3 px-2">
+                                        <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-gray-100">
+                                            {testimonial.name}
+                                        </h3>
+                                        <p className="text-sm text-gray-600 dark:text-gray-400">
+                                            {testimonial.role} at {testimonial.company}
+                                        </p>
+                                        <p className="text-gray-700 dark:text-gray-300 italic text-sm sm:text-base">
+                                            "{testimonial.quote}"
+                                        </p>
+                                    </div>
+                                </div>
+                            </SplideSlide>
+                        ))}
+                    </Splide>
+                </motion.div>
 
                 {/* Video Modal */}
                 {activeVideo && (
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
+                    <div
                         className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 backdrop-blur-sm"
                         onClick={() => {
                             setActiveVideo(null);
@@ -141,7 +165,7 @@ const TestimonialSection = () => {
                                 </svg>
                             </button>
                         </motion.div>
-                    </motion.div>
+                    </div>
                 )}
             </div>
         </section>
