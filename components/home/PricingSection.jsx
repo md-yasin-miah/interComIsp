@@ -43,30 +43,6 @@ const PricingSection = () => {
         "Extra Speed on VAS",
         "Public IP (IPv6)"
       ]
-    },
-    {
-      speed: "50",
-      price: "1260",
-      type: 'turbo',
-      title: "Turbo 1260",
-      features: [
-        "50 Mb/s Internet (Shared)",
-        "Bufferless Cached Content",
-        "Extra Speed on VAS",
-        "Public IP (IPv6)"
-      ]
-    },
-    {
-      speed: "50",
-      price: "1260",
-      type: 'sme',
-      title: "Sme - 1260",
-      features: [
-        "50 Mb/s Internet (Shared)",
-        "Bufferless Cached Content",
-        "Extra Speed on VAS",
-        "Public IP (IPv6)"
-      ]
     }
   ]
 
@@ -82,7 +58,7 @@ const PricingSection = () => {
             VIEW ALL PACKAGES
           </LinkButton>
         </div>
-        <div className='grid grid-cols-1 gap-6 mt-10'>
+        <div className='grid grid-cols-3 gap-6 mt-10'>
           {pricingData.map((plan, index) => (
             <PricingCard key={index} {...plan} />
           ))}
