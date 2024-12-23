@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import { motion } from 'framer-motion'
 
@@ -7,9 +8,9 @@ const PricingCard = ({plan}) => {
     initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-              key={plan.title}
-              className={`w-full ${
-                plan.featured ? 'md:-mt-4' : ''
+      key={plan.title}
+      className={`w-full ${
+                plan.featured ? 'md:-mt-4' : 'md:-mt-0'
               }`}
             >
               <div
