@@ -6,143 +6,7 @@ import LabelInputContainer from '@/components/ui/LabelInputContainer'
 import { Label } from '@/components/ui/label'
 import { Input } from '@/components/ui/input'
 import PricingCard from '@/components/cards/PricingCard'
-
-const pricingData = {
-  basic: [
-    {
-      title: "Basic Starter",
-      subtitle: "Perfect for small websites",
-      price: "2.99",
-      features: [
-        { name: "Space", value: "10GB" },
-        { name: "FTP User", value: "10" },
-        { name: "Databases", value: "10" },
-        { name: "Addons Domain", value: "2" },
-        { name: "24/7 Support", value: "Yes" },
-        { name: "Custom Email", value: "10" },
-      ],
-      buttonGradient: "from-primary to-secondary",
-      priceGradient: "from-secondary to-primary",
-      featured: false
-    },
-    {
-      title: "Basic Plus",
-      subtitle: "Great for growing businesses",
-      price: "3.99",
-      features: [
-        { name: "Space", value: "15GB" },
-        { name: "FTP User", value: "15" },
-        { name: "Databases", value: "15" },
-        { name: "Addons Domain", value: "3" },
-        { name: "24/7 Support", value: "Yes" },
-        { name: "Custom Email", value: "15" },
-      ],
-      buttonGradient: "from-primary to-secondary",
-      priceGradient: "from-secondary to-primary",
-      featured: true
-    },
-    {
-      title: "Basic Plus",
-      subtitle: "Great for growing businesses",
-      price: "3.99",
-      features: [
-        { name: "Space", value: "15GB" },
-        { name: "FTP User", value: "15" },
-        { name: "Databases", value: "15" },
-        { name: "Addons Domain", value: "3" },
-        { name: "24/7 Support", value: "Yes" },
-        { name: "Custom Email", value: "15" },
-      ],
-      buttonGradient: "from-primary to-secondary",
-      priceGradient: "from-secondary to-primary",
-      featured: false
-    },
-    {
-      title: "Basic Plus",
-      subtitle: "Great for growing businesses",
-      price: "3.99",
-      features: [
-        { name: "Space", value: "15GB" },
-        { name: "FTP User", value: "15" },
-        { name: "Databases", value: "15" },
-        { name: "Addons Domain", value: "3" },
-        { name: "24/7 Support", value: "Yes" },
-        { name: "Custom Email", value: "15" },
-      ],
-      buttonGradient: "from-primary to-secondary",
-      priceGradient: "from-secondary to-primary",
-      featured: false
-    }
-  ],
-  standard: [
-    {
-      title: "Standard Lite",
-      subtitle: "Perfect for medium websites",
-      price: "5.99",
-      features: [
-        { name: "Space", value: "30GB" },
-        { name: "FTP User", value: "30" },
-        { name: "Databases", value: "30" },
-        { name: "Addons Domain", value: "5" },
-        { name: "24/7 Support", value: "Yes" },
-        { name: "Custom Email", value: "30" },
-      ],
-      buttonGradient: "from-[#6B3FFF] to-[#8E6FFF]",
-      priceGradient: "from-white to-white",
-      featured: false
-    },
-    {
-      title: "Standard Pro",
-      subtitle: "Best for businesses",
-      price: "7.99",
-      features: [
-        { name: "Space", value: "50GB" },
-        { name: "FTP User", value: "50" },
-        { name: "Databases", value: "50" },
-        { name: "Addons Domain", value: "7" },
-        { name: "24/7 Support", value: "Yes" },
-        { name: "Custom Email", value: "50" },
-      ],
-      buttonGradient: "from-[#6B3FFF] to-[#8E6FFF]",
-      priceGradient: "from-white to-white",
-      featured: true
-    }
-  ],
-  premium: [
-    {
-      title: "Premium Basic",
-      subtitle: "For large websites",
-      price: "9.99",
-      features: [
-        { name: "Space", value: "100GB" },
-        { name: "FTP User", value: "100" },
-        { name: "Databases", value: "100" },
-        { name: "Addons Domain", value: "10" },
-        { name: "24/7 Support", value: "Yes" },
-        { name: "Custom Email", value: "100" },
-      ],
-      buttonGradient: "from-secondary to-primary",
-      priceGradient: "from-primary to-secondary",
-      featured: false
-    },
-    {
-      title: "Premium Enterprise",
-      subtitle: "For enterprise solutions",
-      price: "12.99",
-      features: [
-        { name: "Space", value: "Unlimited" },
-        { name: "FTP User", value: "Unlimited" },
-        { name: "Databases", value: "Unlimited" },
-        { name: "Addons Domain", value: "Unlimited" },
-        { name: "24/7 Support", value: "Yes" },
-        { name: "Custom Email", value: "Unlimited" },
-      ],
-      buttonGradient: "from-secondary to-primary",
-      priceGradient: "from-primary to-secondary",
-      featured: true
-    }
-  ]
-};
+import { pricingData } from '@/fake'
 
 const Packages = () => {
   const [activeTab, setActiveTab] = useState('basic')
@@ -315,9 +179,9 @@ const Packages = () => {
 
         {/* Tab Content */}
         <div className="mt-8">
-          {activeTab === 'basic' && renderPricingCards(pricingData.basic)}
-          {activeTab === 'standard' && renderPricingCards(pricingData.standard)}
-          {activeTab === 'premium' && renderPricingCards(pricingData.premium)}
+          {activeTab === 'basic' && renderPricingCards(pricingData.filter(item => item.type === 'basic'))}
+          {activeTab === 'standard' && renderPricingCards(pricingData.filter(item => item.type === 'standard'))}
+          {activeTab === 'premium' && renderPricingCards(pricingData.filter(item => item.type === 'premium'))}
           {activeTab === 'corporate' && renderCorporateForm()}
         </div>
       </div>
