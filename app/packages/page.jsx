@@ -5,7 +5,6 @@ import { motion } from 'framer-motion'
 import LabelInputContainer from '@/components/ui/LabelInputContainer'
 import { Label } from '@/components/ui/label'
 import { Input } from '@/components/ui/input'
-import Button from '@/components/shared/Button'
 import PricingCard from '@/components/cards/PricingCard'
 
 const pricingData = {
@@ -265,18 +264,16 @@ const Packages = () => {
           </LabelInputContainer>
         </div>
         <div className="flex justify-center">
-          <Button buttonType='submit'>
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               type="submit"
               disabled={loading}
-              className={`${loading ? 'opacity-70 cursor-not-allowed' : 'hover:shadow-lg'} 
+              className={`primaryBtn ${loading ? 'opacity-70 cursor-not-allowed' : 'hover:shadow-lg'} 
                 transition-all duration-300`}
             >
               {loading ? 'Submitting...' : 'Get Started'}
             </motion.button>
-          </Button>
         </div>
       </form>
       {success && (

@@ -1,11 +1,6 @@
 "use client"
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { IoLocationOutline } from "react-icons/io5";
-import { MdOutlineEmail } from "react-icons/md";
-import { FaRegUser } from "react-icons/fa";
-import { FiPhone } from "react-icons/fi";
-import Button from '../shared/Button';
 import LabelInputContainer from '../ui/LabelInputContainer';
 import { Label } from '../ui/label';
 import { Input } from '../ui/input';
@@ -118,7 +113,6 @@ const LeadCaptureForm = () => {
                     </div>
                         {/* Submit Button */}
                         <div className="flex justify-center">
-                        <Button>
                             <motion.button
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
@@ -130,7 +124,6 @@ const LeadCaptureForm = () => {
                                     >
                                 {loading ? 'Submitting...' : 'Get Started'}
                             </motion.button>
-                        </Button>
                         </div>
                     </form>
                     {/* Success Message */}

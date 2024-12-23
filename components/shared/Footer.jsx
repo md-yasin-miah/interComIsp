@@ -43,7 +43,7 @@ const Footer = () => {
           <div className='flex flex-col md:flex-row max-sm:gap-3 items-center justify-between'>
             <p className='font-semibold text-sm'>Copyright © 2024 <strong>Netcom Internet</strong> | All Rights Reserved.<br />  Developed by
               <strong>
-                <Link href='' className='transition-all duration-300 hover:text-primary'> Net Land System Bangladesh</Link>
+                <Link href='#' className='transition-all duration-300 hover:text-primary'> Net Land System Bangladesh</Link>
               </strong>
             </p>
             <div className='relative w-full md:w-1/2'>
