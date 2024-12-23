@@ -2,7 +2,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-export const GridBackground = () => {
+export const GridBackground = ({
+  animationDot=true
+}) => {
   const rows = 10;
   const cols = 10;
   
@@ -12,6 +14,7 @@ export const GridBackground = () => {
       <div className="absolute inset-0 bg-grid-primary-pattern opacity-30 dark:opacity-90" />
       
       {/* Animated Dots */}
+      {animationDot&&
       <div className="absolute inset-0">
         {Array.from({ length: rows * cols }).map((_, i) => {
           const row = Math.floor(i / cols);
@@ -41,6 +44,7 @@ export const GridBackground = () => {
           );
         })}
       </div>
+      }
       
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/90" />
