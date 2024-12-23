@@ -21,8 +21,8 @@ const HeroSection = () => {
         },
     }
     return (
-        <div className='overflow-hidden'>
-            <AuroraBackground className='h-full'>
+        <section>
+            <AuroraBackground className='h-full md:pb-10 pb-5 overflow-hidden'>
                 <Splide
                     className=''
                     options={options}
@@ -145,7 +145,7 @@ const HeroSection = () => {
                     </SplideSlide>
                 </Splide>
             </AuroraBackground>
-        </div>
+        </section>
     )
 }
 

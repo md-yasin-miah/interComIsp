@@ -183,9 +183,9 @@ const Packages = () => {
   const renderPricingCards = (plans) => (
     <div
       className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center gap-8"
-     >
-      {plans.map((plan,index) => (
-        <PricingCard plan={plan} key={index}/>
+    >
+      {plans.map((plan, index) => (
+        <PricingCard plan={plan} key={index} />
       ))}
     </div>
   )
@@ -195,7 +195,7 @@ const Packages = () => {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="max-w-3xl mx-auto bg-white dark:bg-gray-800 rounded-2xl shadow-card p-6 md:p-8"
+      className="max-w-3xl mx-auto bg-white dark:bg-slate-700 rounded-2xl shadow-card p-6 md:p-8"
     >
       <div className="text-center mb-8">
         <h2 className="text-2xl md:text-3xl font-bold mb-3 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
@@ -209,7 +209,7 @@ const Packages = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
           <LabelInputContainer>
             <Label htmlFor="name">Your name</Label>
-            <Input 
+            <Input
               id="name"
               placeholder="Tyler"
               type="text"
@@ -220,7 +220,7 @@ const Packages = () => {
           </LabelInputContainer>
           <LabelInputContainer>
             <Label htmlFor="email">Email</Label>
-            <Input 
+            <Input
               id="email"
               placeholder="abc@gmail.com"
               type="email"
@@ -231,7 +231,7 @@ const Packages = () => {
           </LabelInputContainer>
           <LabelInputContainer>
             <Label htmlFor="phone">Phone Number</Label>
-            <Input 
+            <Input
               id="phone"
               placeholder="123-456-7890"
               type="tel"
@@ -242,7 +242,7 @@ const Packages = () => {
           </LabelInputContainer>
           <LabelInputContainer>
             <Label htmlFor="location">Address</Label>
-            <Input 
+            <Input
               id="location"
               placeholder="dhaka, BD"
               type="text"
@@ -253,7 +253,7 @@ const Packages = () => {
           </LabelInputContainer>
           <LabelInputContainer className="col-span-1 md:col-span-2">
             <Label htmlFor="location">Apartment, suite, etc</Label>
-            <Input 
+            <Input
               id="apartment"
               placeholder="House 23, Flat- 201"
               type="text"
@@ -264,16 +264,16 @@ const Packages = () => {
           </LabelInputContainer>
         </div>
         <div className="flex justify-center">
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              type="submit"
-              disabled={loading}
-              className={`primaryBtn ${loading ? 'opacity-70 cursor-not-allowed' : 'hover:shadow-lg'} 
+          <motion.button
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            type="submit"
+            disabled={loading}
+            className={`primaryBtn ${loading ? 'opacity-70 cursor-not-allowed' : 'hover:shadow-lg'} 
                 transition-all duration-300`}
-            >
-              {loading ? 'Submitting...' : 'Get Started'}
-            </motion.button>
+          >
+            {loading ? 'Submitting...' : 'Get Started'}
+          </motion.button>
         </div>
       </form>
       {success && (
@@ -295,7 +295,7 @@ const Packages = () => {
         title2="Packages"
         subTitle="You check our reasonable and flexible pricing below"
       />
-      
+
       <div className="customContainer">
         {/* Tabs */}
         <div className="flex flex-wrap justify-center md:gap-4 gap-2 my-5 md:my-10">
@@ -303,11 +303,10 @@ const Packages = () => {
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`px-6 py-2 rounded-full capitalize transition-all ${
-                activeTab === tab 
-                  ? 'bg-gradient-to-r from-primary to-secondary text-white'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-              }`}
+              className={`px-6 py-2 rounded-full capitalize transition-all ${activeTab === tab
+                ? 'bg-gradient-to-r from-primary to-secondary text-white'
+                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                }`}
             >
               {tab}
             </button>

@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import LabelInputContainer from '../ui/LabelInputContainer';
 import { Label } from '../ui/label';
 import { Input } from '../ui/input';
+import Button from '../shared/Button';
 
 const LeadCaptureForm = () => {
     const [formData, setFormData] = useState({
@@ -46,13 +47,13 @@ const LeadCaptureForm = () => {
     };
 
     return (
-        <section className="relative py-20 bg-gradient-to-r from-background2 to-background3 dark:from-gray-900 dark:to-gray-800">
+        <section className="relative md:py-20 py-10 bg-background3 dark:bg-black">
             <div className="customContainer">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
-                    className="max-w-3xl mx-auto bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 md:p-8"
+                    className="max-w-3xl mx-auto bg-white dark:bg-black rounded-2xl shadow-lg p-6 md:p-8 border border-transparent dark:border-white/[0.2]"
                 >
                     <div className="text-center mb-8">
                         <h2 className="text-2xl md:text-3xl font-bold mb-3 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
@@ -63,67 +64,68 @@ const LeadCaptureForm = () => {
                         </p>
                     </div>
                     <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
-                        <LabelInputContainer>
-                            <Label htmlFor="name">Your name</Label>
-                            <Input 
-                                id="name"
-                                placeholder="Tyler"
-                                type="text"
-                                value={formData.name}
-                                onChange={handleChange}
-                                required
-                            />
-                        </LabelInputContainer>
-                        <LabelInputContainer>
-                            <Label htmlFor="email">Email</Label>
-                            <Input 
-                                id="email"
-                                placeholder="abc@gmail.com"
-                                type="email"
-                                value={formData.email}
-                                onChange={handleChange}
-                                required
-                            />
-                        </LabelInputContainer>
-                    </div>
-                    <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
-                        <LabelInputContainer>
-                            <Label htmlFor="phone">Phone Number</Label>
-                            <Input 
-                                id="phone"
-                                placeholder="123-456-7890"
-                                type="tel"
-                                value={formData.phone}
-                                onChange={handleChange}
-                                required
-                            />
-                        </LabelInputContainer>
-                        <LabelInputContainer>
-                            <Label htmlFor="location">Location</Label>
-                            <Input 
-                                id="location"
-                                placeholder="dhaka, BD"
-                                type="text"
-                                value={formData.location}
-                                onChange={handleChange}
-                                required
-                            />
-                        </LabelInputContainer>
-                    </div>
+                        <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
+                            <LabelInputContainer>
+                                <Label htmlFor="name">Your name</Label>
+                                <Input
+                                    id="name"
+                                    placeholder="Tyler"
+                                    type="text"
+                                    value={formData.name}
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </LabelInputContainer>
+                            <LabelInputContainer>
+                                <Label htmlFor="email">Email</Label>
+                                <Input
+                                    id="email"
+                                    placeholder="abc@gmail.com"
+                                    type="email"
+                                    value={formData.email}
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </LabelInputContainer>
+                        </div>
+                        <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
+                            <LabelInputContainer>
+                                <Label htmlFor="phone">Phone Number</Label>
+                                <Input
+                                    id="phone"
+                                    placeholder="123-456-7890"
+                                    type="tel"
+                                    value={formData.phone}
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </LabelInputContainer>
+                            <LabelInputContainer>
+                                <Label htmlFor="location">Location</Label>
+                                <Input
+                                    id="location"
+                                    placeholder="dhaka, BD"
+                                    type="text"
+                                    value={formData.location}
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </LabelInputContainer>
+                        </div>
                         {/* Submit Button */}
                         <div className="flex justify-center">
-                            <motion.button
-                                whileHover={{ scale: 1.02 }}
-                                whileTap={{ scale: 0.98 }}
-                                type="submit"
+                            <Button
+                                buttonType="submit"
                                 disabled={loading}
                                 className={`
                                     ${loading ? 'opacity-70 cursor-not-allowed' : 'hover:shadow-lg'} 
-                                    transition-all duration-300`}
-                                    >
+                                    transition-all duration-300
+                                `}
+                                whileHover={{ scale: 1.02 }}
+                                whileTap={{ scale: 0.98 }}
+                            >
                                 {loading ? 'Submitting...' : 'Get Started'}
-                            </motion.button>
+                            </Button>
                         </div>
                     </form>
                     {/* Success Message */}

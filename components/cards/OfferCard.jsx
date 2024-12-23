@@ -17,7 +17,7 @@ const OfferCard = () => {
         transition: { duration: 0.3 }
       }}
       className='w-full aspect-[2/3] bg-white rounded-[20px] overflow-hidden cursor-pointer 
-        shadow-card dark:bg-slate-700'
+        shadow-card dark:bg-black dark:border-white/[0.2] border border-transparent'
     >
       <div className='relative h-full'>
         <motion.div

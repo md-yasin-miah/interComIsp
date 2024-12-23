@@ -3,7 +3,6 @@ import Link from 'next/link'
 import React from 'react'
 import { motion } from 'framer-motion'
 
-
 const Button = ({
   children,
   href = '',
@@ -12,10 +11,11 @@ const Button = ({
   animation = 'outLine',
   type = 'fill',
   className = '',
-  buttonType='button',
-  props
+  buttonType = 'button',
+  disabled = false,
+  ...props
 }) => {
-  return (href?
+  return (href ?
     <Link className={`primaryBtn animate-${animation} ${type} ${className}`} href={href}>
       {iconPosition === 'start' && icon && <span>{icon}</span>}
       <span>{children}</span>
@@ -23,9 +23,10 @@ const Button = ({
     </Link>
     :
     <motion.button
-      {...props} 
-      type={buttonType} 
+      type={buttonType}
+      disabled={disabled}
       className={`primaryBtn animate-${animation} ${type} ${className}`}
+      {...props}
     >
       {iconPosition === 'start' && icon && <span>{icon}</span>}
       <span>{children}</span>
@@ -34,8 +35,6 @@ const Button = ({
   )
 }
 
-export default Button
-// typography 
 Button.propTypes = {
   children: PropTypes.node || PropTypes.string,
   href: PropTypes.string,
@@ -43,5 +42,9 @@ Button.propTypes = {
   iconPosition: PropTypes.oneOf(['start', 'end']),
   animation: PropTypes.oneOf(['stepUp', 'fill']),
   type: PropTypes.oneOf(['fill', 'outLine']),
-  buttonType: PropTypes.oneOf(['button','submit'])
+  buttonType: PropTypes.oneOf(['button', 'submit']),
+  whileHover: PropTypes.object,
+  whileTap: PropTypes.object,
 }
+
+export default Button

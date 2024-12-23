@@ -10,24 +10,26 @@ import SectionTitle from "../shared/SectionTitle";
 
 const ExcitingFeaturesSection = () => {
   return (
-    <div className="customContainer">
-      <SectionTitle
-        title='Exciting'
-        title2="features"
-        subTitle='Experience the future of content creation'
-      />
-      <BentoGrid className="w-full md:auto-rows-[20rem] gap-8 pt-10">
-        {items.map((item, i) => (
-          <BentoGridItem
-            key={i}
-            title={item.title}
-            description={item.description}
-            header={item.header}
-            className={cn("[&>p:text-lg]", item.className)}
-            icon={item.icon} />
-        ))}
-      </BentoGrid>
-    </div>
+    <section className='md:py-20 py-10'>
+      <div className="customContainer">
+        <SectionTitle
+          title='Exciting'
+          title2="features"
+          subTitle='Experience the future of content creation'
+        />
+        <BentoGrid className="w-full md:auto-rows-[20rem] gap-8 pt-10">
+          {items.map((item, i) => (
+            <BentoGridItem
+              key={i}
+              title={item.title}
+              description={item.description}
+              header={item.header}
+              className={cn("[&>p:text-lg]", item.className)}
+              icon={item.icon} />
+          ))}
+        </BentoGrid>
+      </div>
+    </section>
   );
 }
 

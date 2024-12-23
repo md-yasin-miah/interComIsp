@@ -49,7 +49,7 @@ const services = [
 const Services = () => {
   return (
     <section className='relative py-10 overflow-hidden'>
-      <GridBackground animationDot={false}/>
+      <GridBackground animationDot={false} />
       <div className="relative z-10">
         <SectionTitle
           title="Our"
@@ -60,7 +60,7 @@ const Services = () => {
         <div className="customContainer mt-10">
           <HoverEffect effectBGClassName="bg-gradient-to-t from-primary to-secondary" items={services.map(service => ({
             content: (
-              <div className="flex overflow-hidden flex-col items-center bg-gray-100 dark:bg-gray-400 rounded-[18px] h-full">
+              <div className="flex overflow-hidden flex-col items-center bg-gray-100 dark:bg-slate-700 rounded-[18px] h-full">
                 <motion.div
                   className="relative w-full aspect-[4/3]"
                   whileHover={{ scale: 1.05 }}
@@ -74,12 +74,12 @@ const Services = () => {
                   />
                 </motion.div>
                 <div className='p-5 h-full flex flex-col justify-between'>
-                  <motion.div 
+                  <motion.div
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{ delay: 0.2 }}
                   >
-                    <motion.h3 
+                    <motion.h3
                       initial={{ opacity: 0, x: 20 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.5 }}
