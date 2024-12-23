@@ -1,100 +1,127 @@
-"use client"
-import React from 'react'
-import SectionTitle from '../shared/SectionTitle'
-import PricingCard from '../cards/PricingCard'
-import LinkButton from '../shared/LinkButton'
-import { IoArrowForwardCircleOutline } from "react-icons/io5"
-import { motion } from 'framer-motion'
+import React from 'react';
+import { WavyBackground } from '../ui/wavy-background';
+
+const pricingData = [
+  {
+    title: "Basic Plan",
+    subtitle: "This is Basic hosting plan",
+    price: "2.99",
+    features: [
+      { name: "Space", value: "10GB" },
+      { name: "FTP User", value: "10" },
+      { name: "Databases", value: "10" },
+      { name: "Addons Domain", value: "2" },
+      { name: "24/7 Support", value: "Yes" },
+      { name: "Custom Email", value: "10" },
+    ],
+    buttonGradient: "from-primary to-secondary",
+    priceGradient: "from-secondary to-primary",
+    featured: false
+  },
+  {
+    title: "Standard Plan",
+    subtitle: "This is standard hosting plan",
+    price: "3.99",
+    features: [
+      { name: "Space", value: "30GB" },
+      { name: "FTP User", value: "50" },
+      { name: "Databases", value: "50" },
+      { name: "Addons Domain", value: "5" },
+      { name: "24/7 Support", value: "Yes" },
+      { name: "Custom Email", value: "50" },
+    ],
+    buttonGradient: "from-[#6B3FFF] to-[#8E6FFF]",
+    priceGradient: "from-white to-white",
+    featured: true
+  },
+  {
+    title: "Premium Plan",
+    subtitle: "This is premium hosting plan",
+    price: "7.99",
+    features: [
+      { name: "Space", value: "100GB" },
+      { name: "FTP User", value: "100" },
+      { name: "Databases", value: "100" },
+      { name: "Addons Domain", value: "unlimited" },
+      { name: "24/7 Support", value: "Yes" },
+      { name: "Custom Email", value: "unlimited" },
+    ],
+    buttonGradient: "from-secondary to-primary",
+    priceGradient: "from-primary to-secondary",
+    featured: false
+  }
+];
 
 const PricingSection = () => {
-  const pricingData = [
-    {
-      speed: "20",
-      price: "840",
-      title: "Regular 840",
-      type: 'regular',
-      features: [
-        "20 Mb/s Internet (Shared)",
-        "Bufferless Cached Content",
-        "Extra Speed on VAS",
-        "Public IP (IPv6)"
-      ]
-    },
-    {
-      speed: "40",
-      price: "1050",
-      type: 'regular',
-      title: "Regular 1050",
-      features: [
-        "40 Mb/s Internet (Shared)",
-        "Bufferless Cached Content",
-        "Extra Speed on VAS",
-        "Public IP (IPv6)"
-      ]
-    },
-    {
-      speed: "50",
-      price: "1260",
-      type: 'regular',
-      title: "Regular 1260",
-      features: [
-        "50 Mb/s Internet (Shared)",
-        "Bufferless Cached Content",
-        "Extra Speed on VAS",
-        "Public IP (IPv6)"
-      ]
-    }
-  ]
-
   return (
-    <section className='py-16'>
-      <div className="customContainer">
-        <div className='flex items-center justify-between'>
-          <SectionTitle
-            title='Flexible pricing'
-            subTitle='You check our reasonable and flexible pricing below'
-          />
-          <LinkButton href='/' iconPosition='end' icon={<IoArrowForwardCircleOutline className='font-semibold text-xl' />}>
-            VIEW ALL PACKAGES
-          </LinkButton>
-        </div>
-        <div className='grid grid-cols-3 gap-6 mt-10'>
+    <section className="relative py-20">
+      <WavyBackground>
+      <div className="customContainer px-4">
+        <div className="flex flex-col md:flex-row justify-center items-stretch -mx-4">
           {pricingData.map((plan, index) => (
-            <PricingCard key={index} {...plan} />
+            <div
+              key={plan.title}
+              className={`w-full md:w-1/3 px-4 mb-8 md:mb-0 ${
+                plan.featured ? 'md:-mt-4' : ''
+              }`}
+            >
+              <div
+                className={`h-full bg-white rounded-[20px] shadow-lg p-8 relative ${
+                  plan.featured ? 'bg-gradient-to-t from-primary to-secondary' : ''
+                }`}
+              >
+                <div className="text-center mb-8">
+                  <h3 className={`text-xl font-semibold mb-2 ${plan.featured ? 'text-white' : 'text-gray-800'}`}>
+                    {plan.title}
+                  </h3>
+                  <p className={`text-sm ${plan.featured ? 'text-white/80' : 'text-gray-600'}`}>
+                    {plan.subtitle}
+                  </p>
+                  
+                  <div className={`inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-r ${plan.priceGradient} mt-6`}>
+                    <div className={`text-center ${plan.featured ? '' : 'text-white'}`}>
+                      <span className="text-2xl font-bold">${plan.price}</span>
+                      <span className="text-sm block">/mo</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  {plan.features.map((feature) => (
+                    <div
+                      key={feature.name}
+                      className="flex items-center justify-between"
+                    >
+                      <span className={`flex items-center gap-2 ${plan.featured ? 'text-white/80' : 'text-gray-600'}`}>
+                        <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none">
+                          <path d="M9 12l2 2 4-4" stroke={plan.featured ? '#fff' : '#4C6FFF'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                        {feature.name}
+                      </span>
+                      <span className={`font-medium ${plan.featured ? 'text-white' : 'text-gray-800'}`}>
+                        {feature.value}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+
+                <button
+                  className={`w-full mt-8 py-3 px-6 rounded-lg font-medium transition-all ${
+                    plan.featured
+                      ? 'bg-white text-[#6B3FFF] hover:bg-gray-50'
+                      : `bg-gradient-to-r ${plan.buttonGradient} text-white hover:opacity-90`
+                  }`}
+                >
+                  Choose Plan
+                </button>
+              </div>
+            </div>
           ))}
         </div>
-        {/* check our other packages */}
-        <div className='flex flex-col md:flex-row items-center py-12 px-8 md:px-20 gap-10 shadow-card2Hover rounded-3xl mt-16 bg-gradient-to-r from-background2/50 to-background3/50 hover:shadow-xl transition-all duration-300'>
-          <div className='text-center md:text-left'>
-            <h2 className='text-3xl md:text-[40px] mb-4 font-medium'>Check our other <span className='text-primary font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary animate-pulse'>Packages</span></h2>
-            <p className='text-base font-normal text-colorParagraph'>We have more exciting Shared & Turbo packages. To check or buy, please visit our pricing page.</p>
-          </div>
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            transition={{ type: "spring", stiffness: 400, damping: 17 }}
-          >
-            <LinkButton
-              iconPosition='end'
-              icon={<IoArrowForwardCircleOutline className='font-semibold text-xl' />}
-              href='/'
-              className='!py-6 !px-12 bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary text-white rounded-full font-bold text-lg shadow-lg hover:shadow-2xl transition-all duration-300'
-              animation='stepUp'
-            >
-              <motion.span
-                className='whitespace-nowrap'
-                whileHover={{ x: -5 }}
-                transition={{ type: "spring", stiffness: 400 }}
-              >
-                All Packages
-              </motion.span>
-            </LinkButton>
-          </motion.div>
-        </div>
       </div>
+      </WavyBackground>
     </section>
+  );
+};
 
-  )
-}
-
-export default PricingSection 
+export default PricingSection;
