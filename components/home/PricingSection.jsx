@@ -66,7 +66,7 @@ const PricingSection = () => {
               }`}
             >
               <div
-                className={`h-full bg-white rounded-[20px] shadow-lg p-8 relative ${
+                className={`h-full bg-white dark:bg-gray-800 rounded-[20px] shadow-lg p-8 relative ${
                   plan.featured ? 'bg-gradient-to-t from-primary to-secondary' : ''
                 }`}
               >
@@ -79,7 +79,7 @@ const PricingSection = () => {
                   </p>
                   
                   <div className={`inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-r ${plan.priceGradient} mt-6`}>
-                    <div className={`text-center ${plan.featured ? '' : 'text-white'}`}>
+                    <div className={`text-center ${plan.featured ? 'text-black' : 'text-white'}`}>
                       <span className="text-2xl font-bold">${plan.price}</span>
                       <span className="text-sm block">/mo</span>
                     </div>
@@ -92,13 +92,13 @@ const PricingSection = () => {
                       key={feature.name}
                       className="flex items-center justify-between"
                     >
-                      <span className={`flex items-center gap-2 ${plan.featured ? 'text-white/80' : 'text-gray-600'}`}>
+                      <span className={`flex items-center gap-2 ${plan.featured ? 'text-white/80' : 'text-gray-600 dark:text-gray-400'}`}>
                         <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none">
                           <path d="M9 12l2 2 4-4" stroke={plan.featured ? '#fff' : '#4C6FFF'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>
                         {feature.name}
                       </span>
-                      <span className={`font-medium ${plan.featured ? 'text-white' : 'text-gray-800'}`}>
+                      <span className={`font-medium ${plan.featured ? 'text-white' : 'text-gray-800 dark:text-white'}`}>
                         {feature.value}
                       </span>
                     </div>

@@ -41,7 +41,9 @@ const ReviewSection = () => {
     <section className='bg-background3 dark:bg-black py-20'>
       <div className="customContainer">
         <SectionTitle
-          title="What our clients says!"
+          title="What our"
+          title2="clients says!"
+          placeholder_title="review"
           subTitle='Join now and enjoy the exciting features from NetCom online'
         />
         <div className='pt-10'>
@@ -58,7 +60,7 @@ const ReviewSection = () => {
                         href="https://www.google.com/business" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors duration-300"
+                        className="inline-flex items-center text-blue-600 dark:text-white hover:text-blue-800 transition-colors duration-300"
                     >
                         See all reviews on Google
                         <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -27,7 +27,8 @@ const AboutUsSection = () => {
   return (
     <div className='customContainer pb-10 overflow-hidden'>
       <SectionTitle
-        title='Exciting features'
+        title='Exciting'
+        title2="features"
         subTitle='Join now and enjoy the exciting features from NetCom online'
       />
       <div className="relative mt-10">

@@ -6,7 +6,7 @@ import { FaStar } from 'react-icons/fa';
 const ReviewCard = ({review}) => {
   return (
     <div 
-    className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 min-h-[250px]"
+    className="bg-white dark:bg-gray-400 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 min-h-[250px]"
     >
     <div className="flex items-center mb-4">
         <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
