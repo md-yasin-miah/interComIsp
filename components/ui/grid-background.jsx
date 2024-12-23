@@ -14,7 +14,7 @@ export const GridBackground = ({
       <div className="absolute inset-0 bg-grid-primary-pattern opacity-30 dark:opacity-90" />
       
       {/* Animated Dots */}
-      {animationDot&&
+      {animationDot &&
       <div className="absolute inset-0">
         {Array.from({ length: rows * cols }).map((_, i) => {
           const row = Math.floor(i / cols);

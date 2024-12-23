@@ -4,7 +4,7 @@ import Image from 'next/image'
 import React, { useState } from 'react'
 import logo from '../../public/NetCom-Logo.png'
 import logoWhite from '../../public/NetCom-Logo-White.png'
-import LinkButton from './LinkButton'
+import Button from './Button'
 import { FaUser } from "react-icons/fa"
 import { HiMenuAlt3, HiX } from "react-icons/hi"
 import Link from 'next/link'
@@ -40,13 +40,13 @@ const Header = () => {
         </div>
 
         <div className='flex items-center gap-2'>
-          <LinkButton
+          <Button
             animation='fill'
             type='outline'
             href='/login'
             icon={<FaUser />}
             className="max-sm:hidden"
-          >Client Portal</LinkButton>
+          >Client Portal</Button>
           <ThemeToggle />
 
           {/* Mobile Menu Button */}
@@ -74,13 +74,13 @@ const Header = () => {
                 </li>
               ))}
               <li className="text-center sm:hidden m-auto">
-                <LinkButton
+                <Button
                   animation='fill'
                   type='outline'
                   href='/login'
                   icon={<FaUser />}
                   className="w-full justify-center"
-                >Client Portal</LinkButton>
+                >Client Portal</Button>
               </li>
             </ul>
           </nav>

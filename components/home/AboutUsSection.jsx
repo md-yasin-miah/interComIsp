@@ -1,7 +1,7 @@
 "use client"
 import React from 'react'
 import SectionTitle from '@/components/shared/SectionTitle'
-import LinkButton from '../shared/LinkButton'
+import Button from '../shared/Button'
 import { DotLottieReact } from '@lottiefiles/dotlottie-react'
 import { motion } from 'framer-motion'
 
@@ -42,7 +42,7 @@ const AboutUsSection = () => {
             <p className='text-lg text-colorParagraph font-medium leading-8 mb-6'>
               NetCom online is a home and corporate broadband internet service provider that has been operating for over 12 years. We have gained excellent reputation in these years among clients by providing uncompromising quality and committed service.
             </p>
-            <LinkButton className='uppercase w-fit' animation='stepUp'>more about us</LinkButton>
+            <Button className='uppercase w-fit' animation='stepUp'>more about us</Button>
           </motion.div>
 
           <div className='grid grid-cols-1 md:grid-cols-3 gap-6 mt-12'>

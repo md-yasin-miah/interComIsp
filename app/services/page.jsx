@@ -48,7 +48,7 @@ const services = [
 
 const Services = () => {
   return (
-    <section className='relative py-20 overflow-hidden'>
+    <section className='relative py-10 overflow-hidden'>
       <GridBackground animationDot={false}/>
       <div className="relative z-10">
         <SectionTitle
