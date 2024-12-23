@@ -4,7 +4,7 @@ import Link from 'next/link'
 import React from 'react'
 import offerImage from '../../public/offer-card.webp'
 import { motion } from 'framer-motion'
-import LinkButton from '../shared/LinkButton'
+import Button from '../shared/Button'
 
 const OfferCard = () => {
   return (
@@ -63,9 +63,9 @@ const OfferCard = () => {
             Lorem Ipsum is simply dummy text of the printing and typesetting industry.
           </motion.p>
           {/* learn more button */}
-          <LinkButton href="/" className='mt-5'>
+          <Button href="/" className='mt-5'>
             Learn More
-          </LinkButton>
+          </Button>
         </motion.div>
       </div>
     </motion.article>
