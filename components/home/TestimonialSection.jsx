@@ -71,7 +71,7 @@ const TestimonialSection = () => {
     return (
         <section className="relative py-20 overflow-hidden">
             <GridBackground />
-            
+
             <div className="relative z-10 customContainer">
                 <SectionTitle
                     title="customer"
@@ -80,7 +80,7 @@ const TestimonialSection = () => {
                     subTitle="Hear what our customers have to say about their experience with NetCom"
                 />
 
-                <motion.div 
+                <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
@@ -90,7 +90,7 @@ const TestimonialSection = () => {
                         {testimonials.map((testimonial, index) => (
                             <SplideSlide key={index} className='py-5'>
                                 <div
-                                    className="relative group bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-lg hover:shadow-xl transition-all duration-300"
+                                    className="relative group bg-white dark:bg-black border border-transparent dark:border-white/[0.2] rounded-2xl p-4 shadow-lg hover:shadow-xl transition-all duration-300"
                                 >
                                     <div className="relative aspect-video overflow-hidden rounded-xl cursor-pointer">
                                         <Image
@@ -100,7 +100,7 @@ const TestimonialSection = () => {
                                             className="object-cover transition-transform duration-300 group-hover:scale-105"
                                         />
                                         <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors duration-300" />
-                                        
+
                                         {/* Play Button */}
                                         <motion.div
                                             whileHover={{ scale: 1.1 }}

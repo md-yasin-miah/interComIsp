@@ -4,6 +4,8 @@ import "@/styles/globals.css";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
+import ScrollLine from "@/components/ui/scroll-line";
+import ScrollToTop from "@/components/shared/ScrollToTop";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -42,11 +44,13 @@ export default function RootLayout({ children }) {
       >
         <ThemeProvider>
           <main>
+            <ScrollLine />
             <Header />
             <div>
               {children}
             </div>
             <Footer />
+            <ScrollToTop />
           </main>
         </ThemeProvider>
       </body>

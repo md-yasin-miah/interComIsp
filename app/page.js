@@ -11,7 +11,7 @@ import TestimonialSection from "@/components/home/TestimonialSection";
 export default function Home() {
 
   return (
-    <div className="space-y-20">
+    <div>
       <HeroSection />
       <AboutUsSection />
       <OffersSection />

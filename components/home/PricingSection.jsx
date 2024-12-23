@@ -51,13 +51,13 @@ const PricingSection = () => {
   return (
     <section className="relative py-20">
       <WavyBackground>
-      <div className="customContainer px-4">
-        <div className="flex flex-col md:flex-row justify-center items-stretch -mx-4">
-          {pricingData.map((plan, index) => (
-            <PricingCard key={index} plan={plan}/>
-          ))}
+        <div className="customContainer px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
+            {pricingData.map((plan, index) => (
+              <PricingCard key={index} plan={plan} />
+            ))}
+          </div>
         </div>
-      </div>
       </WavyBackground>
     </section>
   );

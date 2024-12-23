@@ -2,15 +2,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 :root {
   --background: #ffffff;
-  --background2:#F9F9F9;
+  --background2: #F9F9F9;
   --background3: #F0F2F7;
   --foreground: #171717;
   --primary: #0392c3;
   --secondary: #3e67af;
   --footerBG: #1F2937;
-  --hero-bg:#F7F8FC;
+  --hero-bg: #F7F8FC;
 
   --white: #FFFFFF;
   --white2: #E4D0D0;
@@ -23,7 +24,7 @@
   --foreground: #ededed;
   --primary: #0392c3;
   --color-paragraph: #E4D0D0;
-  --hero-bg:#F7F8FC
+  --hero-bg: #F7F8FC
 }
 
 body {
@@ -53,7 +54,8 @@ body {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.ellipsis-4{
+
+.ellipsis-4 {
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
@@ -72,6 +74,7 @@ body {
 .navMenu {
   transition: all 0.3s ease-in-out;
 }
+
 .navMenu ul {
   @apply flex items-center text-[16px] leading-5 cursor-pointer relative
 }
@@ -80,7 +83,7 @@ body {
   @apply relative z-10 px-3 py-2.5 transition-all duration-300 text-black/80 dark:text-white/80 hover:text-white
 }
 
-.navMenu ul span{
+.navMenu ul span {
   position: absolute;
   transition: all 0.3s ease;
   transition-duration: 0.3s;
@@ -91,78 +94,92 @@ body {
   background: linear-gradient(to right, var(--primary), var(--secondary));
   border-radius: 5px;
 }
-.navMenu ul li.active{
+
+.navMenu ul li.active {
   @apply text-white
 }
-.navMenu ul li:nth-child(1).active ~ span{
+
+.navMenu ul li:nth-child(1).active~span {
   left: 0px;
   width: 71.72px;
 }
-.navMenu ul li:nth-child(2).active ~ span{
+
+.navMenu ul li:nth-child(2).active~span {
   left: 71.72px;
   width: 90.19px;
 }
-.navMenu ul li:nth-child(3).active ~ span{
+
+.navMenu ul li:nth-child(3).active~span {
   left: 161.72px;
   width: 101.94px;
 }
-.navMenu ul li:nth-child(4).active ~ span{
+
+.navMenu ul li:nth-child(4).active~span {
   left: 263.66px;
   width: 103.02px;
 }
-.navMenu ul li:nth-child(5).active ~ span{
+
+.navMenu ul li:nth-child(5).active~span {
   left: 366.68px;
   width: 78.98px;
 }
 
-.navMenu ul li:nth-child(6).active ~ span{
+.navMenu ul li:nth-child(6).active~span {
   left: 445.66px;
   width: 71.36px;
 }
-.navMenu ul li:nth-child(7).active ~ span{
+
+.navMenu ul li:nth-child(7).active~span {
   left: calc(100% - 87.3px);
   width: 87.3px;
 }
-.navMenu ul:hover li{
+
+.navMenu ul:hover li {
   @apply text-black/80 dark:text-white/80
 }
-.navMenu ul li:nth-child(1):hover~ span{
+
+.navMenu ul li:nth-child(1):hover~span {
   left: 0px;
   width: 71.72px;
 }
-.navMenu ul li:nth-child(2):hover~ span{
+
+.navMenu ul li:nth-child(2):hover~span {
   left: 71.72px;
   width: 90.19px;
 }
-.navMenu ul li:nth-child(3):hover~ span{
+
+.navMenu ul li:nth-child(3):hover~span {
   left: 161.72px;
   width: 101.94px;
 }
-.navMenu ul li:nth-child(4):hover~ span{
+
+.navMenu ul li:nth-child(4):hover~span {
   left: 263.66px;
   width: 103.02px;
 }
-.navMenu ul li:nth-child(5):hover~ span{
-  left:   366.68px;
+
+.navMenu ul li:nth-child(5):hover~span {
+  left: 366.68px;
   width: 78.98px;
 }
 
-.navMenu ul li:nth-child(6):hover~ span{
+.navMenu ul li:nth-child(6):hover~span {
   left: 445.66px;
   width: 71.36px;
 }
-.navMenu ul li:nth-child(7):hover~ span{
+
+.navMenu ul li:nth-child(7):hover~span {
   left: calc(100% - 87.3px);
   width: 87.3px;
 }
+
 .navMenu ul li:nth-child(1):hover,
 .navMenu ul li:nth-child(2):hover,
 .navMenu ul li:nth-child(3):hover,
 .navMenu ul li:nth-child(4):hover,
 .navMenu ul li:nth-child(5):hover,
 .navMenu ul li:nth-child(6):hover,
-.navMenu ul li:nth-child(7):hover
-{
+.navMenu ul li:nth-child(7):hover {
   @apply text-white
 }
 
@@ -173,10 +190,12 @@ body {
 .primaryBtn {
   @apply w-fit border border-solid border-primary bg-primary text-white px-[15px] py-[13px] rounded-[5px] font-medium text-[15px] leading-none flex items-center gap-[9px] transition-all duration-300
 }
-.primaryBtn.fill{
+
+.primaryBtn.fill {
   @apply bg-primary
 }
-.primaryBtn.outline{
+
+.primaryBtn.outline {
   @apply outline-none
 }
 
@@ -187,56 +206,62 @@ body {
 .primaryBtn.animate-stepUp:hover {
   transform: translateY(-2px);
 }
+
 /********* button css END */
 
 /*======== FAQ css START */
-.FAQCheckBox:checked ~ .FAQContent {
-    @apply max-h-fit 
+.FAQCheckBox:checked~.FAQContent {
+  @apply max-h-fit
 }
-.FAQCheckBox:checked ~ label {
-  @apply bg-primary text-white rounded-[15px]
+
+.FAQCheckBox:checked~label {
+  @apply bg-gradient-to-t from-primary to-secondary text-white rounded-[15px]
 }
-.FAQCheckBox:checked ~ label .arrow {
+
+.FAQCheckBox:checked~label .arrow {
   @apply rotate-180
 }
+
 /*********  FAQ css END */
 
 /* Add this to your existing globals.css */
 .scrollbar-hide::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /*======== Splide Pagination Custom Styles START  */
-.heroTitle{
+.heroTitle {
   @apply text-3xl md:text-[45px] font-rajdhani lg:text-6xl font-bold text-gray-900 dark:text-white min-h-[120px]
 }
+
 .custom-pagination {
-    display: flex;
-    gap: 8px;
-    justify-content: center;
-    padding: 1rem 0;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  padding: 1rem 0;
 }
 
 .custom-pagination .splide__pagination__page {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: #E5E7EB;
-    opacity: 1;
-    transition: all 0.3s ease;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #E5E7EB;
+  opacity: 1;
+  transition: all 0.3s ease;
 }
 
 .custom-pagination .splide__pagination__page.is-active {
-    background: var(--primary);
-    transform: none;
-    border-radius: 8px;
-    width: 40px;
+  background: var(--primary);
+  transform: none;
+  border-radius: 8px;
+  width: 40px;
 }
+
 /********* Splide Pagination Custom Styles END */
 
 /* Add these to your existing styles */
@@ -247,21 +272,72 @@ body {
   }
 }
 
-@media (max-width: 768px) {
-
-}
+@media (max-width: 768px) {}
 
 @layer utilities {
   .bg-grid-primary-pattern {
     background-size: 40px 40px;
-    background-image: 
+    background-image:
       linear-gradient(to right, rgba(3, 146, 195, 0.2) 1px, transparent 1px),
       linear-gradient(to bottom, rgba(62, 103, 175, 0.2) 1px, transparent 1px);
   }
-  
+
   .dark .bg-grid-primary-pattern {
-    background-image: 
+    background-image:
       linear-gradient(to right, var(--white2) 1px, transparent 1px),
-      linear-gradient(to bottom,var(--white2) 1px, transparent 1px);
+      linear-gradient(to bottom, var(--white2) 1px, transparent 1px);
   }
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+  @apply w-[10px];
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 dark:bg-gray-900 rounded-full;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gradient-to-b from-primary to-secondary rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gradient-to-b from-secondary to-primary;
+}
+
+/* Hide scrollbar buttons */
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: '10px';
+  scrollbar-color: theme('colors.primary') theme('colors.gray.100');
+}
+
+/* Dark mode for Firefox */
+@media (prefers-color-scheme: dark) {
+  * {
+    scrollbar-color: theme('colors.primary') theme('colors.gray.900');
+  }
+}
+
+/* Thin scrollbar variant */
+.scrollbar-thin::-webkit-scrollbar {
+  @apply w-2.5;
+}
+
+/* Custom scrollbar for specific containers */
+.custom-scrollbar {
+  @apply scrollbar-thin;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  @apply bg-gray-100/50 dark:bg-gray-900/50 rounded-full;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-gradient-to-b from-primary to-secondary rounded-full hover:from-secondary hover:to-primary transition-colors duration-300;
 }

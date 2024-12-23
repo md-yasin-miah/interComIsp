@@ -12,7 +12,7 @@ import { BackgroundBeams } from '../ui/background-beams'
 const Footer = () => {
   return (
     <footer className='bg-footerBG py-8 relative antialiased'>
-      <div className='customContainer relative z-50'>
+      <div className='customContainer relative z-10'>
         <section className='grid grid-cols-12 text-white'>
           <div className='col-span-12 md:col-span-4 md:p-[34px] md:pl-0'>
             <div className="relative md:w-[70%] w-[50%] mb-4 max-sm:mx-auto">
