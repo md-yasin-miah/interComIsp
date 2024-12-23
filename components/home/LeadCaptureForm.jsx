@@ -5,7 +5,10 @@ import { IoLocationOutline } from "react-icons/io5";
 import { MdOutlineEmail } from "react-icons/md";
 import { FaRegUser } from "react-icons/fa";
 import { FiPhone } from "react-icons/fi";
-import { Button } from '../ui/moving-border';
+import LinkButton from '../shared/LinkButton';
+import LabelInputContainer from '../ui/LabelInputContainer';
+import { Label } from '../ui/label';
+import { Input } from '../ui/input';
 
 const LeadCaptureForm = () => {
     const [formData, setFormData] = useState({
@@ -20,7 +23,7 @@ const LeadCaptureForm = () => {
     const handleChange = (e) => {
         setFormData({
             ...formData,
-            [e.target.name]: e.target.value
+            [e.target.id]: e.target.value
         });
     };
 
@@ -29,6 +32,11 @@ const LeadCaptureForm = () => {
         setLoading(true);
 
         try {
+            // Basic validation
+            if (!formData.name || !formData.email || !formData.phone || !formData.location) {
+                throw new Error('Please fill in all fields');
+            }
+
             // Here you would integrate with your CRM
             // await axios.post('/api/leads', formData);
             console.log('Form submitted:', formData);
@@ -36,13 +44,14 @@ const LeadCaptureForm = () => {
             setFormData({ name: '', email: '', phone: '', location: '' });
         } catch (error) {
             console.error('Error submitting form:', error);
+            // You might want to add error state handling here
         } finally {
             setLoading(false);
         }
     };
 
     return (
-        <section className="relative py-8 bg-gradient-to-r from-background2 to-background3 dark:from-gray-900 dark:to-gray-800">
+        <section className="relative py-20 bg-gradient-to-r from-background2 to-background3 dark:from-gray-900 dark:to-gray-800">
             <div className="customContainer">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -59,88 +68,69 @@ const LeadCaptureForm = () => {
                         </p>
                     </div>
                     <form onSubmit={handleSubmit} className="space-y-6">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            {/* Name Input */}
-                            <div className="relative">
-                                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                    <FaRegUser className="text-gray-400" />
-                                </div>
-                                <input
-                                    type="text"
-                                    name="name"
-                                    value={formData.name}
-                                    onChange={handleChange}
-                                    required
-                                    placeholder="Your Name"
-                                    className="w-full pl-10 pr-4 py-3 border border-gray-200 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary dark:bg-gray-700 dark:text-white transition-colors duration-300"
-                                />
-                            </div>
-
-                            {/* Email Input */}
-                            <div className="relative">
-                                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                    <MdOutlineEmail className="text-gray-400" />
-                                </div>
-                                <input
-                                    type="email"
-                                    name="email"
-                                    value={formData.email}
-                                    onChange={handleChange}
-                                    required
-                                    placeholder="Email Address"
-                                    className="w-full pl-10 pr-4 py-3 border border-gray-200 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary dark:bg-gray-700 dark:text-white transition-colors duration-300"
-                                />
-                            </div>
-
-                            {/* Phone Input */}
-                            <div className="relative">
-                                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                    <FiPhone className="text-gray-400" />
-                                </div>
-                                <input
-                                    type="tel"
-                                    name="phone"
-                                    value={formData.phone}
-                                    onChange={handleChange}
-                                    required
-                                    placeholder="Phone Number"
-                                    className="w-full pl-10 pr-4 py-3 border border-gray-200 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary dark:bg-gray-700 dark:text-white transition-colors duration-300"
-                                />
-                            </div>
-
-                            {/* Location Input */}
-                            <div className="relative">
-                                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                    <IoLocationOutline className="text-gray-400" />
-                                </div>
-                                <input
-                                    type="text"
-                                    name="location"
-                                    value={formData.location}
-                                    onChange={handleChange}
-                                    required
-                                    placeholder="Your Location"
-                                    className="w-full pl-10 pr-4 py-3 border border-gray-200 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary dark:bg-gray-700 dark:text-white transition-colors duration-300"
-                                />
-                            </div>
-                        </div>
-
+                    <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
+                        <LabelInputContainer>
+                            <Label htmlFor="name">Your name</Label>
+                            <Input 
+                                id="name"
+                                placeholder="Tyler"
+                                type="text"
+                                value={formData.name}
+                                onChange={handleChange}
+                                required
+                            />
+                        </LabelInputContainer>
+                        <LabelInputContainer>
+                            <Label htmlFor="email">Email</Label>
+                            <Input 
+                                id="email"
+                                placeholder="abc@gmail.com"
+                                type="email"
+                                value={formData.email}
+                                onChange={handleChange}
+                                required
+                            />
+                        </LabelInputContainer>
+                    </div>
+                    <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
+                        <LabelInputContainer>
+                            <Label htmlFor="phone">Phone Number</Label>
+                            <Input 
+                                id="phone"
+                                placeholder="123-456-7890"
+                                type="tel"
+                                value={formData.phone}
+                                onChange={handleChange}
+                                required
+                            />
+                        </LabelInputContainer>
+                        <LabelInputContainer>
+                            <Label htmlFor="location">Location</Label>
+                            <Input 
+                                id="location"
+                                placeholder="dhaka, BD"
+                                type="text"
+                                value={formData.location}
+                                onChange={handleChange}
+                                required
+                            />
+                        </LabelInputContainer>
+                    </div>
                         {/* Submit Button */}
                         <div className="flex justify-center">
-                        <Button>
-
+                        <LinkButton>
                             <motion.button
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
                                 type="submit"
                                 disabled={loading}
-                                className={`w-full md:w-auto px-8 py-3 bg-gradient-to-r from-primary to-secondary text-white rounded-lg font-semibold 
+                                className={`
                                     ${loading ? 'opacity-70 cursor-not-allowed' : 'hover:shadow-lg'} 
                                     transition-all duration-300`}
                                     >
                                 {loading ? 'Submitting...' : 'Get Started'}
                             </motion.button>
-                                </Button>
+                        </LinkButton>
                         </div>
                     </form>
                     {/* Success Message */}

@@ -13,14 +13,14 @@ export default function Home() {
   return (
     <div className="space-y-20">
       <HeroSection />
-      <LeadCaptureForm />
       <AboutUsSection />
       <OffersSection />
       <ExcitingFeaturesSection />
-      <PricingSection />
+        <PricingSection />
       <TestimonialSection />
       <ReviewSection />
       <FAQ />
+      <LeadCaptureForm />
     </div>
   );
 }
