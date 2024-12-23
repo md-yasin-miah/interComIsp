@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types'
 import Link from 'next/link'
 import React from 'react'
+import { motion } from 'framer-motion'
+
 
 const Button = ({
   children,
@@ -10,7 +12,8 @@ const Button = ({
   animation = 'outLine',
   type = 'fill',
   className = '',
-  buttonType='button'
+  buttonType='button',
+  props
 }) => {
   return (href?
     <Link className={`primaryBtn animate-${animation} ${type} ${className}`} href={href}>
@@ -19,11 +22,15 @@ const Button = ({
       {iconPosition === 'end' && icon && <span>{icon}</span>}
     </Link>
     :
-    <button type={buttonType} className={`primaryBtn animate-${animation} ${type} ${className}`} href={href}>
+    <motion.button
+      {...props} 
+      type={buttonType} 
+      className={`primaryBtn animate-${animation} ${type} ${className}`}
+    >
       {iconPosition === 'start' && icon && <span>{icon}</span>}
       <span>{children}</span>
       {iconPosition === 'end' && icon && <span>{icon}</span>}
-    </button>
+    </motion.button>
   )
 }
 
