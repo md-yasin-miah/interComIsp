@@ -18,7 +18,7 @@ const PricingSection = () => {
           />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 mt-12">
             {pricingData.map((plan, index) => (
-              <PricingCard key={index} plan={plan} />
+             index<3 && <PricingCard key={index} plan={plan} />
             ))}
           </div>
         </div>
