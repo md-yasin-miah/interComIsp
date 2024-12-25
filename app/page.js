@@ -1,4 +1,5 @@
 import AboutUsSection from "@/components/home/AboutUsSection";
+import BlogSection from "@/components/home/BlogSection";
 import ExcitingFeaturesSection from "@/components/home/ExcitingFeaturesSection";
 import FAQ from "@/components/home/FAQ";
 import HeroSection from "@/components/home/HeroSection";
@@ -19,6 +20,7 @@ export default function Home() {
       <PricingSection />
       <TestimonialSection />
       <ReviewSection />
+      <BlogSection/>
       <FAQ />
       <LeadCaptureForm />
     </div>

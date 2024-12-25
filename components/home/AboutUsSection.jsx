@@ -46,7 +46,7 @@ const AboutUsSection = () => {
               <Button className='uppercase w-fit' animation='stepUp'>more about us</Button>
             </motion.div>
 
-            <div className='grid grid-cols-1 md:grid-cols-3 gap-6 mt-12'>
+            <div className='grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 pb-2 pl-2'>
               {statsData.map((stat, index) => (
                 <motion.div
                   key={index}

@@ -55,4 +55,142 @@ const coverageAreas = [
     radius: 5
   }
 ]
-export { coverageAreas }
+const pricingData = [
+  {
+    title: "PACCO",
+    subtitle: "UNLIMITED TRAFFIC",
+    speed: "75",
+    price: "3,499",
+    features: [
+      { name: "YouTube", value: "100Mbps" },
+      { name: "Facebook", value: "100Mbps" },
+      { name: "BDIX", value: "100Mbps" },
+    ],
+    vat: "5% VAT Included",
+    installation: "Installation Charge: 1,500 Tk",
+    featured: false,
+    type: "basic"
+  },
+  {
+    title: "STANDARD",
+    subtitle: "UNLIMITED TRAFFIC",
+    speed: "100",
+    price: "4,499",
+    features: [
+      { name: "YouTube", value: "200Mbps" },
+      { name: "Facebook", value: "200Mbps" },
+      { name: "BDIX", value: "200Mbps" },
+    ],
+    vat: "5% VAT Included",
+    installation: "Installation Charge: 1,500 Tk",
+    featured: true,
+    type: "standard"
+  },
+  {
+    title: "PREMIUM",
+    subtitle: "UNLIMITED TRAFFIC",
+    speed: "150",
+    price: "5,499",
+    features: [
+      { name: "YouTube", value: "300Mbps" },
+      { name: "Facebook", value: "300Mbps" },
+      { name: "BDIX", value: "300Mbps" },
+    ],
+    vat: "5% VAT Included",
+    installation: "Installation Charge: 1,500 Tk",
+    featured: false,
+    type: "premium"
+  },
+  {
+    title: "PACCO",
+    subtitle: "UNLIMITED TRAFFIC",
+    speed: "75",
+    price: "3,499",
+    features: [
+      { name: "YouTube", value: "100Mbps" },
+      { name: "Facebook", value: "100Mbps" },
+      { name: "BDIX", value: "100Mbps" },
+    ],
+    vat: "5% VAT Included",
+    installation: "Installation Charge: 1,500 Tk",
+    featured: false,
+    type: "basic"
+  },
+  {
+    title: "STANDARD",
+    subtitle: "UNLIMITED TRAFFIC",
+    speed: "100",
+    price: "4,499",
+    features: [
+      { name: "YouTube", value: "200Mbps" },
+      { name: "Facebook", value: "200Mbps" },
+      { name: "BDIX", value: "200Mbps" },
+    ],
+    vat: "5% VAT Included",
+    installation: "Installation Charge: 1,500 Tk",
+    featured: true,
+    type: "standard"
+  },
+  {
+    title: "PREMIUM",
+    subtitle: "UNLIMITED TRAFFIC",
+    speed: "150",
+    price: "5,499",
+    features: [
+      { name: "YouTube", value: "300Mbps" },
+      { name: "Facebook", value: "300Mbps" },
+      { name: "BDIX", value: "300Mbps" },
+    ],
+    vat: "5% VAT Included",
+    installation: "Installation Charge: 1,500 Tk",
+    featured: false,
+    type: "premium"
+  },
+  {
+    title: "PACCO",
+    subtitle: "UNLIMITED TRAFFIC",
+    speed: "75",
+    price: "3,499",
+    features: [
+      { name: "YouTube", value: "100Mbps" },
+      { name: "Facebook", value: "100Mbps" },
+      { name: "BDIX", value: "100Mbps" },
+    ],
+    vat: "5% VAT Included",
+    installation: "Installation Charge: 1,500 Tk",
+    featured: false,
+    type: "basic"
+  },
+  {
+    title: "STANDARD",
+    subtitle: "UNLIMITED TRAFFIC",
+    speed: "100",
+    price: "4,499",
+    features: [
+      { name: "YouTube", value: "200Mbps" },
+      { name: "Facebook", value: "200Mbps" },
+      { name: "BDIX", value: "200Mbps" },
+    ],
+    vat: "5% VAT Included",
+    installation: "Installation Charge: 1,500 Tk",
+    featured: true,
+    type: "standard"
+  },
+  {
+    title: "PREMIUM",
+    subtitle: "UNLIMITED TRAFFIC",
+    speed: "150",
+    price: "5,499",
+    features: [
+      { name: "YouTube", value: "300Mbps" },
+      { name: "Facebook", value: "300Mbps" },
+      { name: "BDIX", value: "300Mbps" },
+    ],
+    vat: "5% VAT Included",
+    installation: "Installation Charge: 1,500 Tk",
+    featured: false,
+    type: "premium"
+  }
+];
+
+export { coverageAreas, pricingData }
