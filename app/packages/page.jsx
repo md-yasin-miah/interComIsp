@@ -6,7 +6,8 @@ import LabelInputContainer from '@/components/ui/LabelInputContainer'
 import { Label } from '@/components/ui/label'
 import { Input } from '@/components/ui/input'
 import PricingCard from '@/components/cards/PricingCard'
-import { pricingData } from '@/fake'
+import { pricingData } from '@/helper/fake'
+import PageBanner from '@/components/shared/PageBanner'
 
 const Packages = () => {
   const [activeTab, setActiveTab] = useState('basic')
@@ -153,6 +154,12 @@ const Packages = () => {
   )
 
   return (
+    <>
+    <PageBanner
+        bgClassName='bg-red-800'
+        title='Our Packages'
+        subTitle='You check our reasonable and flexible pricing below.'
+      />
     <section className='md:py-10 py-5'>
       <SectionTitle
         title="our"
@@ -186,6 +193,7 @@ const Packages = () => {
         </div>
       </div>
     </section>
+    </>
   )
 }
 

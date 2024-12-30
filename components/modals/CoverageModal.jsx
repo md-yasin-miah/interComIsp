@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { IoClose } from 'react-icons/io5'
 import { FaCheckCircle, FaTimesCircle } from 'react-icons/fa'
-import { coverageAreas } from '@/fake'
+import { coverageAreas } from '@/helper/fake'
 
 const CoverageModal = ({ isOpen, onClose, userLocation }) => {
   const [isInCoverageArea, setIsInCoverageArea] = useState(false)

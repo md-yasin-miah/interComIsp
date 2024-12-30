@@ -44,13 +44,14 @@ export default function RootLayout({ children }) {
       >
         <ThemeProvider>
           <main>
-            <ScrollLine />
             <Header />
             <div>
               {children}
             </div>
             <Footer />
+            
             <ScrollToTop />
+            {/* <ScrollLine /> */}
           </main>
         </ThemeProvider>
       </body>

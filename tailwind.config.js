@@ -13,7 +13,6 @@ module.exports = {
   theme: {
     extend: {
       fontSize: {
-        // base: '20px',
       },
       colors: {
         white2: 'var(--white2)',

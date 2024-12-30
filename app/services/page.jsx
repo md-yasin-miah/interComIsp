@@ -6,53 +6,21 @@ import Image from 'next/image'
 import { HoverEffect } from '@/components/ui/card-hover-effect'
 import { GridBackground } from '@/components/ui/grid-background'
 import ServiceBenefits from '@/components/sections/ServiceBenefits'
-import image from '../../public/Home-BroadBand-Internet-scaled.webp'
+import { services } from '@/helper/fake'
+import PageBanner from '@/components/shared/PageBanner'
 
-const services = [
-  {
-    title: "Home Broadband Internet",
-    description: "We are one of the most reliable broadband internet",
-    link: "/services/home-internet",
-    image: image
-  },
-  {
-    title: "Corporate Broadband Internet",
-    description: "Corporate and SME customers dedicated internet connections to ensure network stability.",
-    link: "/services/corporate-internet",
-    image: image
-  },
-  {
-    title: "Complete Network Solutions",
-    description: "Our network engineers work with our clients to provide the most efficient network solutions possible.",
-    link: "/services/network-solutions",
-    image: image
-  },
-  {
-    title: "Home Broadband Internet",
-    description: "We are one of the most reliable broadband internet and network for both gamers and regular users.",
-    link: "/services/home-internet",
-    image: image
-  },
-  {
-    title: "Corporate Broadband Internet",
-    description: "Corporate and SME customers dedicated internet connections to ensure network stability.",
-    link: "/services/corporate-internet",
-    image: image
-  },
-  {
-    title: "Complete Network Solutions",
-    description: "Our network engineers work with our clients to provide the most efficient network solutions possible.",
-    link: "/services/network-solutions",
-    image: image
-  }
-]
 
 const Services = () => {
   return (
     <>
+      <PageBanner
+        bgClassName='bg-green-800'
+        title='Our Services'
+        subTitle='Take a look at the services that we provide and choose the one that suits you best. We are here to help you with your needs.'
+      />
       <section className='relative py-10 overflow-hidden'>
         <GridBackground animationDot={false} />
-        <div className="customContainer relative z-10">
+        <div className="customContainer relative">
           <SectionTitle
             title="Our"
             title2="services"
