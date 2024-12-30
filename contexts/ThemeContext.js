@@ -7,10 +7,13 @@ export const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState(THEME.light);
+  // set theme to dark if user prefers dark mode
+  useEffect(() => {
+    setTheme(window.matchMedia('(prefers-color-scheme: dark)').matches ? THEME.dark : THEME.light);
+  }, []);
 
   useEffect(() => {
     // Apply the theme to the document root
-    window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme(THEME.dark) : setTheme(THEME.light);
     if (theme) {
       document.documentElement.setAttribute("data-theme", theme);
     }
