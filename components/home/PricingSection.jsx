@@ -2,7 +2,7 @@ import React from 'react';
 import { WavyBackground } from '../ui/wavy-background';
 import PricingCard from '@/components/cards/PricingCard';
 import SectionTitle from '../shared/SectionTitle';
-import { pricingData } from '@/fake';
+import { pricingData } from '@/helper/fake';
 
 
 const PricingSection = () => {

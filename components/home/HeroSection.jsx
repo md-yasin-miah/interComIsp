@@ -24,7 +24,7 @@ const HeroSection = () => {
         <section>
             <AuroraBackground className='h-full md:pb-10 pb-5 overflow-hidden'>
                 <Splide
-                    className=''
+                    className='pt-24'
                     options={options}
                     onActive={(slide) => setActiveIndex(slide.index)}
                 >

@@ -6,7 +6,7 @@ import { createContext, useState, useEffect } from "react";
 export const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState(THEME.light);
+  const [theme, setTheme] = useState(window.matchMedia('(prefers-color-scheme: dark)').matches ? THEME.dark : THEME.light);
 
   useEffect(() => {
     // Apply the theme to the document root
