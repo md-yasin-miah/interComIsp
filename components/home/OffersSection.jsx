@@ -11,7 +11,7 @@ const OffersSection = () => {
           title2="offers"
           subTitle='Enjoy our exclusive offers and promotions'
         />
-        <div className="grid grid-cols-4 gap-5 pt-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 pt-10 max-sm:px-10">
           <OfferCard />
           <OfferCard />
           <OfferCard />

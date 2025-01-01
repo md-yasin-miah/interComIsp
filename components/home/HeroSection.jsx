@@ -29,15 +29,15 @@ const HeroSection = () => {
                     onActive={(slide) => setActiveIndex(slide.index)}
                 >
                     <SplideSlide>
-                        <div className="grid lg:grid-cols-12 h-full items-center customContainer">
+                        <div className="grid lg:grid-cols-12 grid-cols-1 h-full items-center customContainer">
                             {/* Left Content */}
-                            <div className="space-y-6 col-span-7 py-20">
-                                <div className="min-h-[120px]">
+                            <div className="space-y-6 col-span-7 md:py-20">
+                                <div className="md:min-h-[120px] min-h-[80px]">
                                     {activeIndex === 0 &&
                                         <TextGenerateEffect className="heroTitle" words="Stucked in a crazy slowest Internet?" />
                                     }
                                 </div>
-                                <p className="text-gray-600 dark:text-gray-300 text-lg">
+                                <p className="text-gray-600 dark:text-gray-300 md:text-lg text-base w-full">
                                     No worries! An expert internet plan matcher is here to help. Simply &
                                     pick out of hundreds of vetted service plans in 30+ city locations.
                                 </p>
@@ -46,7 +46,7 @@ const HeroSection = () => {
                                 </button>
                             </div>
                             {/* Right Image */}
-                            <div className="col-span-5 h-full">
+                            <div className="col-span-5 h-full w-full">
                                 <DotLottieReact
                                     src={"/lottie/mobile-wifi.lottie"}
                                     loop
@@ -56,15 +56,15 @@ const HeroSection = () => {
                         </div>
                     </SplideSlide>
                     <SplideSlide>
-                        <div className="grid lg:grid-cols-12 h-full items-center customContainer">
+                        <div className="grid lg:grid-cols-12 grid-cols-1 h-full items-center customContainer">
                             {/* Left Content */}
-                            <div className="space-y-6 lg:col-span-7 py-20">
-                                <div className="min-h-[120px]">
+                            <div className="space-y-6 col-span-7 md:py-20">
+                                <div className="md:min-h-[120px] min-h-[80px]">
                                     {activeIndex === 1 &&
                                         <TextGenerateEffect className="heroTitle" words="Stucked in a crazy slowest Internet?" />
                                     }
                                 </div>
-                                <p className="text-gray-600 dark:text-gray-300 text-lg">
+                                <p className="text-gray-600 dark:text-gray-300 md:text-lg text-base">
                                     No worries! An expert internet plan matcher is here to help. Simply &
                                     pick out of hundreds of vetted service plans in 30+ city locations.
                                 </p>
@@ -74,7 +74,7 @@ const HeroSection = () => {
                             </div>
 
                             {/* Right Image */}
-                            <div className="col-span-5 h-full">
+                            <div className="col-span-5 h-full w-full">
                                 <DotLottieReact
                                     src={"/lottie/laptop-working.lottie"}
                                     loop
@@ -84,28 +84,28 @@ const HeroSection = () => {
                         </div>
                     </SplideSlide>
                     <SplideSlide>
-                        <div className="grid lg:grid-cols-12 h-full items-center customContainer">
+                        <div className="grid lg:grid-cols-12 grid-cols-1 h-full items-center customContainer">
                             {/* Left Content */}
-                            <div className="space-y-6 lg:col-span-7  py-20">
-                                <div className="min-h-[120px]">
+                            <div className="space-y-6 col-span-7  md:py-20">
+                                <div className="md:min-h-[120px] min-h-[80px]">
                                     {activeIndex === 2 &&
                                         <TextGenerateEffect className="heroTitle" words="Optimal Internet Speed With Multiple IX" />
                                     }
                                 </div>
-                                <p className="text-gray-600 dark:text-gray-300 text-lg">
+                                <p className="text-gray-600 dark:text-gray-300 md:text-lg text-base w-full">
                                     NetCom online is one of the best internet service providers in Bangladesh with
                                     BDIX, ISPAB IX, aamra IX, etc. In the last 12 years, we have gotten thousands
                                     of happy clients by providing them with stable Internet Connections.
                                 </p>
                                 {/* Speed Indicators */}
-                                <div className="flex gap-4 lg:col-span-5">
+                                <div className="flex flex-wrap md:gap-4 gap-3 col-span-5">
                                     <div className="flex items-center cursor-pointer hover:-translate-y-1 transition-all duration-300 gap-2 bg-white/80 dark:bg-gray-800/80 shadow-card rounded-lg px-5 py-3">
                                         <div className="bg-blue-100 p-3 rounded-full">
                                             <FaFacebook className="text-blue-500 text-xl" />
                                         </div>
                                         <div>
                                             <p className="text-sm font-semibold text-gray-600 dark:text-gray-300">Upto</p>
-                                            <p className="font-semibold">100 Mbps</p>
+                                            <p className="font-semibold text-gray-600 dark:text-gray-300">100 Mbps</p>
                                         </div>
                                     </div>
 
@@ -115,7 +115,7 @@ const HeroSection = () => {
                                         </div>
                                         <div>
                                             <p className="text-sm font-semibold text-gray-600 dark:text-gray-300">Upto</p>
-                                            <p className="font-semibold">100 Mbps</p>
+                                            <p className="font-semibold text-gray-600 dark:text-gray-300">100 Mbps</p>
                                         </div>
                                     </div>
 
@@ -125,7 +125,7 @@ const HeroSection = () => {
                                         </div>
                                         <div>
                                             <p className="text-sm font-semibold text-gray-600 dark:text-gray-300">Upto</p>
-                                            <p className="font-semibold">100 Mbps</p>
+                                            <p className="font-semibold text-gray-600 dark:text-gray-300">100 Mbps</p>
                                         </div>
                                     </div>
                                 </div>
@@ -134,7 +134,7 @@ const HeroSection = () => {
                                 </button>
                             </div>
                             {/* Right Image */}
-                            <div className="col-span-5 h-full w-11/12">
+                            <div className="col-span-5 h-full md:w-11/12 w-full">
                                 <DotLottieReact
                                     src={"/lottie/server.lottie"}
                                     loop

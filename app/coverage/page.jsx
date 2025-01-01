@@ -9,7 +9,8 @@ import PageBanner from '@/components/shared/PageBanner'
 import { IoSearch } from "react-icons/io5"
 import LabelInputContainer from '@/components/ui/LabelInputContainer'
 import { Label } from '@/components/ui/label'
-import { Input } from '@/components/ui/input'
+import { Input, Select } from '@/components/ui/input'
+import { cn } from '@/lib/utils'
 
 const Coverage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -48,40 +49,25 @@ const Coverage = () => {
   return (
     <>
       <PageBanner
-        bgClassName='bg-red-800'
+        bgClassName='bg-blue-800'
         title='Our Coverage Area'
         subTitle='You check our reasonable and flexible pricing below.'
       />
       
       {/* search coverage area */}
-      <section className="py-10 bg-gray-50 dark:bg-gray-800/50">
-        <div className="customContainer">
+      <section className="md:py-8 py-5 max-sm:px-10 bg-white shadow-card hover:shadow-cardHover dark:bg-slate-700 customContainer max-sm:!w-full md:rounded-full md:-translate-y-1/2">
           <div className="max-w-2xl mx-auto">
             <div className="flex flex-col md:flex-row gap-4">
               {/* District Select */}
-              <select
-                value={selectedDistrict}
-                onChange={(e) => setSelectedDistrict(e.target.value)}
-                className="w-full md:w-1/3 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 focus:ring-2 focus:ring-primary"
-              >
-                {coverageAreas.map(district => (
-                  <option key={district.district} value={district.district}>
-                    {district.district}
-                  </option>
-                ))}
-              </select>
+              <LabelInputContainer className={cn('w-full md:w-2/3')}>
+                <Select 
+                  options={coverageAreas.map(district => ({ value: district.district, label: district.district }))} 
+                  value={selectedDistrict}
+                  onChange={(e) => setSelectedDistrict(e.target.value)}
+                />
+              </LabelInputContainer>
               
               {/* Search Input */}
-              {/* <div className="relative flex-1">
-                <input
-                  type="text"
-                  placeholder="Search area..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full p-3 pl-12 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 focus:ring-2 focus:ring-primary"
-                />
-                <IoSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-xl" />
-              </div> */}
               <LabelInputContainer>
                 <Input
                   id="search"
@@ -95,7 +81,6 @@ const Coverage = () => {
               </LabelInputContainer>
             </div>
           </div>
-        </div>
       </section>
 
       <section className="pt-10 pb-20">

@@ -69,7 +69,7 @@ body {
   @apply w-[1140px] m-auto
 }
 .title {
-  @apply text-[46px] text-center font-rajdhani font-bold tracking-[5px] capitalize relative
+  @apply md:text-[46px] text-[36px] text-center font-rajdhani font-bold tracking-[5px] capitalize relative max-sm:leading-[1]
 }
 
 /********* global css END*/
@@ -245,7 +245,7 @@ body {
 
 /*======== Splide Pagination Custom Styles START  */
 .heroTitle {
-  @apply text-3xl md:text-[45px] font-rajdhani lg:text-6xl font-bold text-gray-900 dark:text-white min-h-[120px]
+  @apply text-3xl md:text-[45px] font-rajdhani lg:text-6xl font-bold text-gray-900 dark:text-white md:min-h-[120px] min-h-[80px]
 }
 
 .custom-pagination {

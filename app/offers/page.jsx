@@ -1,6 +1,7 @@
 import React from 'react'
 import SectionTitle from '@/components/shared/SectionTitle'
 import OfferCard from '@/components/shared/OfferCard'
+import PageBanner from '@/components/shared/PageBanner'
 
 const offers = [
   {
@@ -28,6 +29,12 @@ const offers = [
 
 const Offers = () => {
   return (
+    <>
+    <PageBanner
+        bgClassName='bg-primary'
+        title='Our Fantastic Offers'
+        subTitle='Take a look at the offers that we provide and choose the one that suits you best. We are here to help you with your needs.'
+      />
     <section className='pt-10 pb-20'>
       <div className='customContainer'>
         <SectionTitle
@@ -47,6 +54,7 @@ const Offers = () => {
         </div>
       </div>
     </section>
+    </>
   )
 }
 

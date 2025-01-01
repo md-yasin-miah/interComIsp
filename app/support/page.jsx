@@ -6,6 +6,7 @@ import SocialMedia from '@/components/shared/SocialMedia'
 import Map from '@/components/shared/Map'
 import { HiOutlinePhone, HiOutlineMail, HiOutlineLocationMarker, HiOutlineClock } from 'react-icons/hi'
 import { BsWhatsapp } from 'react-icons/bs'
+import PageBanner from '@/components/shared/PageBanner'
 
 const contactInfo = [
   {
@@ -51,6 +52,12 @@ const operatingHours = [
 
 const Support = () => {
   return (
+    <>
+    <PageBanner
+        bgClassName='bg-secondary'
+        title='24/7 Support'
+        subTitle='We are here to help you with your needs.'
+      />
     <div className="pt-10 pb-20">
       <div className="customContainer">
         <SectionTitle
@@ -119,6 +126,7 @@ const Support = () => {
         </div>
       </div>
     </div>
+    </>
   )
 }
 

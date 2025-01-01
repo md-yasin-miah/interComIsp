@@ -33,27 +33,27 @@ const AboutUsSection = () => {
           subTitle='Join now and enjoy the exciting features from NetCom online'
         />
         <div className="relative mt-10">
-          <div className='h-full w-7/12'>
+          <div className='h-full md:w-7/12 w-full'>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className='flex flex-col gap-5'
+              className='flex flex-col gap-5 max-sm:items-center'
             >
-              <p className='text-lg text-colorParagraph font-medium leading-8 mb-6'>
+              <p className='md:text-lg text-sm text-colorParagraph font-medium md:leading-8 leading-7 mb-6 max-sm:text-center'>
                 NetCom online is a home and corporate broadband internet service provider that has been operating for over 12 years. We have gained excellent reputation in these years among clients by providing uncompromising quality and committed service.
               </p>
               <Button className='uppercase w-fit' animation='stepUp'>more about us</Button>
             </motion.div>
 
-            <div className='grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 pb-2 pl-2'>
+            <div className='grid grid-cols-1 md:grid-cols-3 md:gap-6 gap-4 mt-12 pb-2 pl-2'>
               {statsData.map((stat, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className='bg-white p-6 rounded-xl shadow-card hover:shadow-card2 transition-all duration-300'
+                  className='bg-white dark:bg-gray-800 p-6 rounded-xl shadow-card hover:shadow-card2 transition-all duration-300'
                 >
                   <h3 className={`text-xl font-bold mb-2 ${stat.color}`}>
                     {stat.number}
@@ -65,7 +65,7 @@ const AboutUsSection = () => {
               ))}
             </div>
           </div>
-          <div className='absolute top-1/2 -right-[120px] -translate-y-1/2 w-3/5'>
+          <div className='absolute top-1/2 -right-[120px] -translate-y-1/2 w-3/5 max-sm:hidden'>
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}

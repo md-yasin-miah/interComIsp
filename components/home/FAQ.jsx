@@ -14,7 +14,7 @@ const FAQ = () => {
           title2="Asked Questions"
           subTitle="Common FAQ's regarding NetCom and it's services"
         />
-        <div className='flex gap-5 pt-10'>
+        <div className='flex flex-col md:flex-row gap-5 pt-10'>
           <div className='flex flex-col gap-5'>
             {
               faq.map((item, index) => {

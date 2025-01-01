@@ -16,7 +16,7 @@ const OfferCard = () => {
         scale: 1.05,
         transition: { duration: 0.3 }
       }}
-      className='w-full aspect-[2/3] bg-white rounded-[20px] overflow-hidden cursor-pointer 
+      className='w-full max-sm:h-fit md:aspect-[2/3] bg-white rounded-[20px] overflow-hidden cursor-pointer 
         shadow-card dark:bg-black dark:border-white/[0.2] border border-transparent'
     >
       <div className='relative h-full'>
@@ -46,7 +46,7 @@ const OfferCard = () => {
           initial={{ y: 20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.3 }}
-          className='flex flex-col items-center px-5'
+          className='flex flex-col items-center px-5 max-sm:px-5 max-sm:py-5'
         >
           <motion.h3
             whileHover={{ scale: 1.05 }}
