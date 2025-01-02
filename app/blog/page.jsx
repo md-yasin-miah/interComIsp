@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { HiOutlineClock, HiOutlineUser, HiOutlineSearch } from 'react-icons/hi'
 import { blogPosts } from '@/data/fake'
 import SectionTitle from '@/components/shared/SectionTitle'
-import MotionDiv from '@/components/ui/motionDiv'
+import MotionDiv from '@/components/ui/motion/motionDiv'
 
 const categories = [...new Set(blogPosts.map(post => post.category))]
 

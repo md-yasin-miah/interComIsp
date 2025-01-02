@@ -1,14 +1,15 @@
 import SectionTitle from '@/components/shared/SectionTitle'
 import React from 'react'
-import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { HoverEffect } from '@/components/ui/card-hover-effect'
 import { GridBackground } from '@/components/ui/grid-background'
 import ServiceBenefits from '@/components/sections/ServiceBenefits'
 import { services } from '@/data/fake'
 import PageBanner from '@/components/shared/PageBanner'
-import MotionDiv from '@/components/ui/motionDiv'
 import MotionButton from '@/components/ui/motion/motionButton'
+import MotionDiv from '@/components/ui/motion/motionDiv'
+import MotionP from '@/components/ui/motion/motionP'
+import MotionH3 from '@/components/ui/motion/motionH3'
 
 
 const Services = () => {
@@ -51,22 +52,22 @@ const Services = () => {
                       whileInView={{ opacity: 1 }}
                       transition={{ delay: 0.2 }}
                     >
-                      <motion.h3
+                      <MotionH3
                         initial={{ opacity: 0, x: 20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5 }}
                         className='text-lg font-semibold mb-2'
                       >
                         {service.title}
-                      </motion.h3>
-                      <motion.p
+                      </MotionH3>
+                      <MotionP
                         initial={{ opacity: 0, x: 20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5 }}
                         className='font-normal ellipsis-3'
                       >
                         {service.description}
-                      </motion.p>
+                      </MotionP>
                     </MotionDiv>
                     <MotionButton
                       whileHover={{ scale: 1.05 }}
