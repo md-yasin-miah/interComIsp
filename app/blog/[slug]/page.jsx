@@ -1,20 +1,22 @@
-// 'use client'
 import React from 'react'
-import { motion } from 'framer-motion'
-import Image from 'next/image'
 import Link from 'next/link'
-import { HiOutlineClock, HiOutlineUser, HiOutlineCalendar, HiOutlineShare } from 'react-icons/hi'
-import { blogPosts } from '@/data/fake' // You'll need to move the blog data to a separate file
+import { HiOutlineShare } from 'react-icons/hi'
+import { blogPosts } from '@/data/fake'
 import BlogBanner from '@/components/shared/BlogBanner'
 
-const BlogPost = ({ params }) => {
-  const post = blogPosts.find(post => post.slug === params.slug)
+async function getBlogPost(slug) {
+  return blogPosts.find(post => post.slug === slug)
+}
 
-  if (!post) return <div>Post not found</div>
+export default async function BlogPost({ params }) {
+  const post = await getBlogPost(params.slug)
+
+  if (!post) {
+    return <div className="min-h-screen flex items-center justify-center">Post not found</div>
+  }
 
   return (
-    <article>
-      {/* Header */}
+    <article className="min-h-screen">
       <BlogBanner post={post} />
       <div className="py-10">
         <div className="customContainer">
@@ -23,7 +25,7 @@ const BlogPost = ({ params }) => {
             {/* Content */}
             <div className="prose prose-lg dark:prose-invert max-w-none">
               {/* Add your blog post content here */}
-              {/* <p dangerouslySetInnerHTML={{ __html: post.content }} /> */}
+              <div dangerouslySetInnerHTML={{ __html: post.content }} />
               {/* Add more content sections */}
             </div>
 
@@ -63,5 +65,3 @@ const BlogPost = ({ params }) => {
     </article>
   )
 }
-
-export default BlogPost 
