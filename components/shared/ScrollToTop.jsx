@@ -1,7 +1,8 @@
 "use client"
 import React, { useEffect, useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { AnimatePresence } from 'framer-motion'
 import { FaArrowUp } from 'react-icons/fa'
+import MotionButton from '../ui/motion/motionButton'
 
 const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false)
@@ -29,7 +30,7 @@ const ScrollToTop = () => {
   return (
     <AnimatePresence>
       {isVisible && (
-        <motion.button
+        <MotionButton
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.5 }}
@@ -38,7 +39,7 @@ const ScrollToTop = () => {
         >
           <FaArrowUp className="w-6 h-6 transition-transform group-hover:-translate-y-1" />
           <div className="absolute inset-0 bg-gradient-to-r from-secondary to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-        </motion.button>
+        </MotionButton>
       )}
     </AnimatePresence>
   )

@@ -1,5 +1,4 @@
 "use client"; // Required for React hooks in Next.js app directory
-
 import { THEME } from "@/helper/config";
 import { createContext, useState, useEffect } from "react";
 

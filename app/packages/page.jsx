@@ -1,13 +1,14 @@
-'use client'
+"use client"
 import SectionTitle from '@/components/shared/SectionTitle'
 import { useState } from 'react'
-import { motion } from 'framer-motion'
 import LabelInputContainer from '@/components/ui/LabelInputContainer'
 import { Label } from '@/components/ui/label'
 import { Input } from '@/components/ui/input'
 import PricingCard from '@/components/cards/PricingCard'
-import { pricingData } from '@/helper/fake'
+import { pricingData } from '@/data/fake'
 import PageBanner from '@/components/shared/PageBanner'
+import MotionButton from '@/components/ui/motion/motionButton'
+import MotionDiv from '@/components/ui/motion/motionDiv'
 
 const Packages = () => {
   const [activeTab, setActiveTab] = useState('basic')
@@ -56,7 +57,7 @@ const Packages = () => {
   )
 
   const renderCorporateForm = () => (
-    <motion.div
+    <MotionDiv
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
@@ -129,7 +130,7 @@ const Packages = () => {
           </LabelInputContainer>
         </div>
         <div className="flex justify-center">
-          <motion.button
+          <MotionButton
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             type="submit"
@@ -138,19 +139,19 @@ const Packages = () => {
                 transition-all duration-300`}
           >
             {loading ? 'Submitting...' : 'Get Started'}
-          </motion.button>
+          </MotionButton>
         </div>
       </form>
       {success && (
-        <motion.div
+        <MotionDiv
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           className="mt-4 p-4 bg-green-50 dark:bg-green-900/30 text-green-600 dark:text-green-400 rounded-lg text-center"
         >
           Thank you! We'll contact you soon.
-        </motion.div>
+        </MotionDiv>
       )}
-    </motion.div>
+    </MotionDiv>
   )
 
   return (

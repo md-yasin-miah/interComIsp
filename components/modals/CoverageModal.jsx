@@ -1,9 +1,9 @@
-'use client'
+"use client"
 import React, { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { IoClose } from 'react-icons/io5'
 import { FaCheckCircle, FaTimesCircle } from 'react-icons/fa'
-import { coverageAreas } from '@/helper/fake'
+import { coverageAreas } from '@/data/fake'
 
 const CoverageModal = ({ isOpen, onClose, userLocation }) => {
   const [isInCoverageArea, setIsInCoverageArea] = useState(false)

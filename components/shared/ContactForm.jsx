@@ -1,9 +1,10 @@
-'use client'
+"use client"
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import LabelInputContainer from '@/components/ui/LabelInputContainer'
 import { Label } from '@/components/ui/label'
 import { Input, Textarea } from '@/components/ui/input'
+import MotionButton from '../ui/motion/motionButton'
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -134,7 +135,7 @@ const ContactForm = () => {
         </LabelInputContainer>
 
         <div className="flex justify-center">
-          <motion.button
+          <MotionButton
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             type="submit"
@@ -145,7 +146,7 @@ const ContactForm = () => {
           >
             <span className="relative z-10">{loading ? 'Sending...' : 'Send Message'}</span>
             <div className="absolute inset-0 bg-gradient-to-r from-secondary to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-400"></div>
-          </motion.button>
+          </MotionButton>
         </div>
       </form>
 

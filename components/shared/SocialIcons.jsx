@@ -1,4 +1,4 @@
-import { socialLinks } from "@/helper/fake";
+import { socialLinks } from "@/data/fake";
 import { getSocialIcon } from "@/helper/functions";
 import Link from "next/link";
 import React from "react";

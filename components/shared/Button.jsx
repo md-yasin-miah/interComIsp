@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import Link from 'next/link'
 import React from 'react'
-import { motion } from 'framer-motion'
+import MotionButton from '../ui/motion/motionButton'
 
 const Button = ({
   children,
@@ -22,7 +22,7 @@ const Button = ({
       {iconPosition === 'end' && icon && <span>{icon}</span>}
     </Link>
     :
-    <motion.button
+    <MotionButton
       type={buttonType}
       disabled={disabled}
       className={`primaryBtn animate-${animation} ${type} ${className}`}
@@ -31,7 +31,7 @@ const Button = ({
       {iconPosition === 'start' && icon && <span>{icon}</span>}
       <span>{children}</span>
       {iconPosition === 'end' && icon && <span>{icon}</span>}
-    </motion.button>
+    </MotionButton>
   )
 }
 

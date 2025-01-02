@@ -1,16 +1,15 @@
-'use client'
+"use client"
 import React, { useState } from 'react'
-import { motion } from 'framer-motion'
 import { FaMapMarkerAlt } from 'react-icons/fa'
 import CoverageModal from '@/components/modals/CoverageModal'
 import SectionTitle from '@/components/shared/SectionTitle'
-import { coverageAreas } from '@/helper/fake'
+import { coverageAreas } from '@/data/fake'
 import PageBanner from '@/components/shared/PageBanner'
 import { IoSearch } from "react-icons/io5"
 import LabelInputContainer from '@/components/ui/LabelInputContainer'
-import { Label } from '@/components/ui/label'
 import { Input, Select } from '@/components/ui/input'
 import { cn } from '@/lib/utils'
+import MotionDiv from '@/components/ui/motion/motionDiv'
 
 const Coverage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -85,7 +84,7 @@ const Coverage = () => {
 
       <section className="pt-10 pb-20">
         <div className='customContainer'>
-          <motion.div
+          <MotionDiv
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -100,11 +99,11 @@ const Coverage = () => {
                 Check our service availability in your area.
               </span>}
             />
-          </motion.div>
+          </MotionDiv>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {filteredAreas.map((location, index) => (
-              <motion.div
+              <MotionDiv
                 key={index}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -122,11 +121,11 @@ const Coverage = () => {
                 <p className="mt-4 text-gray-600 dark:text-gray-300">
                   Full coverage available
                 </p>
-              </motion.div>
+              </MotionDiv>
             ))}
           </div>
 
-          <motion.div
+          <MotionDiv
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 1 }}
@@ -139,7 +138,7 @@ const Coverage = () => {
               <span className="relative z-10">Check Coverage in Your Area</span>
               <div className="absolute inset-0 bg-gradient-to-r from-secondary to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-400"></div>
             </button>
-          </motion.div>
+          </MotionDiv>
         </div>
 
         <CoverageModal

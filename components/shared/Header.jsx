@@ -1,5 +1,4 @@
 "use client"
-
 import Image from 'next/image'
 import React, { useState, useEffect } from 'react'
 import logo from '../../public/NetCom-Logo.png'
@@ -8,7 +7,7 @@ import Button from './Button'
 import { FaUser } from "react-icons/fa"
 import { HiMenuAlt3, HiX } from "react-icons/hi"
 import Link from 'next/link'
-import { navMenu } from '@/helper/fake'
+import { navMenu } from '@/data/fake'
 import NavList from './NavList'
 import ThemeToggle from './ThemeToggle'
 

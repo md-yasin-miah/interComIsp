@@ -1,10 +1,10 @@
-'use client'
 import React from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 import SectionTitle from '@/components/shared/SectionTitle'
 import { HiOutlineClock, HiOutlineUser } from 'react-icons/hi'
+import MotionDiv from '../ui/motion/motionDiv'
 
 const blogPosts = [
   {
@@ -15,7 +15,7 @@ const blogPosts = [
     author: "Tech Team",
     date: "March 15, 2024",
     readTime: "5 min read",
-    image: "/blog/wifi-optimization.jpg",
+    image: "/about.webp",
     slug: "10-tips-boost-wifi-performance"
   },
   {
@@ -26,7 +26,7 @@ const blogPosts = [
     author: "Network Expert",
     date: "March 12, 2024",
     readTime: "7 min read",
-    image: "/blog/internet-plan.jpg",
+    image: "/about.webp",
     slug: "choose-perfect-internet-plan"
   },
   {
@@ -37,14 +37,14 @@ const blogPosts = [
     author: "Network Team",
     date: "March 10, 2024",
     readTime: "4 min read",
-    image: "/blog/network-upgrade.jpg",
+    image: "/about.webp",
     slug: "network-upgrade-updates"
   }
 ];
 
 const BlogCard = ({ post }) => {
   return (
-    <motion.div
+    <MotionDiv
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
@@ -83,7 +83,7 @@ const BlogCard = ({ post }) => {
           </div>
         </div>
       </Link>
-    </motion.div>
+    </MotionDiv>
   )
 }
 

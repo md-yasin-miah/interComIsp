@@ -3,7 +3,7 @@ import React from 'react'
 import SectionTitle from '@/components/shared/SectionTitle'
 import Button from '../shared/Button'
 import { DotLottieReact } from '@lottiefiles/dotlottie-react'
-import { motion } from 'framer-motion'
+import MotionDiv from '../ui/motion/motionDiv'
 
 const statsData = [
   {
@@ -34,7 +34,7 @@ const AboutUsSection = () => {
         />
         <div className="relative mt-10">
           <div className='h-full md:w-7/12 w-full'>
-            <motion.div
+            <MotionDiv
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -44,15 +44,12 @@ const AboutUsSection = () => {
                 NetCom online is a home and corporate broadband internet service provider that has been operating for over 12 years. We have gained excellent reputation in these years among clients by providing uncompromising quality and committed service.
               </p>
               <Button className='uppercase w-fit' animation='stepUp'>more about us</Button>
-            </motion.div>
+            </MotionDiv>
 
             <div className='grid grid-cols-1 md:grid-cols-3 md:gap-6 gap-4 mt-12 pb-2 pl-2'>
               {statsData.map((stat, index) => (
-                <motion.div
+                <div
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
                   className='bg-white dark:bg-gray-800 p-6 rounded-xl shadow-card hover:shadow-card2 transition-all duration-300'
                 >
                   <h3 className={`text-xl font-bold mb-2 ${stat.color}`}>
@@ -61,12 +58,12 @@ const AboutUsSection = () => {
                   <p className='text-colorParagraph font-medium text-sm'>
                     {stat.label}
                   </p>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
           <div className='absolute top-1/2 -right-[120px] -translate-y-1/2 w-3/5 max-sm:hidden'>
-            <motion.div
+            <MotionDiv
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
@@ -76,7 +73,7 @@ const AboutUsSection = () => {
                 loop
                 autoplay
               />
-            </motion.div>
+            </MotionDiv>
           </div>
         </div>
       </div>

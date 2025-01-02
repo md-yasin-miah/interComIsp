@@ -5,7 +5,7 @@ import SSLFooterImg from '../../public/SSLCommerz-footer-1024x48.webp'
 // import logo from '../../public/NetCom-Logo.png'
 import logoWhite from '../../public/NetCom-Logo-White.png'
 
-import { footerMenu } from '@/helper/fake'
+import { footerMenu } from '@/data/fake'
 import SocialIcons from './SocialIcons'
 import { BackgroundBeams } from '../ui/background-beams'
 

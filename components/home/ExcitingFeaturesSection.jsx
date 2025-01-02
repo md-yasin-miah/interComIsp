@@ -274,12 +274,6 @@ const SkeletonFive = () => {
       <motion.div
         variants={variants}
         className="flex flex-row rounded-2xl border border-neutral-100 dark:border-white/[0.2] p-2  items-start space-x-2 bg-white dark:bg-black">
-        {/* <Image
-          src="https://pbs.twimg.com/profile_images/1417752099488636931/cs2R59eW_400x400.jpg"
-          alt="avatar"
-          height="100"
-          width="100"
-          className="rounded-full h-10 w-10" /> */}
         <FaJs />
         <p className="text-xs text-neutral-500">
           There are a lot of cool framerworks out there like React, Angular,
