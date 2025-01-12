@@ -19,12 +19,15 @@ const HeroSection = () => {
             pagination: 'splide__pagination custom-pagination',
         },
     }
-    
+
     return (
         <section>
-            <AuroraBackground className='h-full md:pb-10 pb-5 overflow-hidden'>
+            <AuroraBackground className='h-full md:pb-10 pb-5 overflow-hidden md:block hidden'>
                 <Slider options={options} setActiveIndex={setActiveIndex} activeIndex={activeIndex} />
             </AuroraBackground>
+            <div className="md:hidden block">
+                <Slider options={options} setActiveIndex={setActiveIndex} activeIndex={activeIndex} />
+            </div>
         </section>
     )
 }
@@ -114,20 +117,20 @@ const Slider = ({ options, setActiveIndex, activeIndex }) => {
                         </p>
                         {/* Speed Indicators */}
                         <div className="flex md:flex-row flex-col md:gap-4 gap-2">
-                            <SpeedIndicator 
-                                icon={<FaFacebook />} 
-                                bgColor="bg-blue-100" 
-                                iconColor="text-blue-500" 
+                            <SpeedIndicator
+                                icon={<FaFacebook />}
+                                bgColor="bg-blue-100"
+                                iconColor="text-blue-500"
                             />
-                            <SpeedIndicator 
-                                icon={<FaYoutube />} 
-                                bgColor="bg-red-100" 
-                                iconColor="text-red-500" 
+                            <SpeedIndicator
+                                icon={<FaYoutube />}
+                                bgColor="bg-red-100"
+                                iconColor="text-red-500"
                             />
-                            <SpeedIndicator 
-                                icon={<FaTiktok />} 
-                                bgColor="bg-pink-100" 
-                                iconColor="text-black" 
+                            <SpeedIndicator
+                                icon={<FaTiktok />}
+                                bgColor="bg-pink-100"
+                                iconColor="text-black"
                             />
                         </div>
                         <button className="bg-primary text-white px-8 py-3 rounded-lg hover:bg-primary/90 transition">

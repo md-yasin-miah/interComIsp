@@ -16,6 +16,14 @@ const ReviewSection = () => {
     autoScroll: {
       speed: 1,
     },
+    breakpoints: {
+      1024: {
+        perPage: 2,
+      },
+      640: {
+        perPage: 1,
+      },
+    },
   }
   const reviews = [
     {
