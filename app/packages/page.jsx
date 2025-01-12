@@ -36,7 +36,6 @@ const Packages = () => {
       if (!formData.name || !formData.email || !formData.phone || !formData.location) {
         throw new Error('Please fill in all fields');
       }
-      console.log('Form submitted:', formData);
       setSuccess(true);
       setFormData({ name: '', email: '', phone: '', location: '' });
     } catch (error) {
@@ -156,44 +155,44 @@ const Packages = () => {
 
   return (
     <>
-    <PageBanner
+      <PageBanner
         bgClassName='bg-red-800'
         title='Our Packages'
         subTitle='You check our reasonable and flexible pricing below.'
       />
-    <section className='md:py-10 py-5'>
-      <SectionTitle
-        title="our"
-        title2="Packages"
-        subTitle="You check our reasonable and flexible pricing below"
-      />
+      <section className='md:py-10 py-5'>
+        <SectionTitle
+          title="our"
+          title2="Packages"
+          subTitle="You check our reasonable and flexible pricing below"
+        />
 
-      <div className="customContainer">
-        {/* Tabs */}
-        <div className="flex flex-wrap justify-center md:gap-4 gap-2 my-5 md:my-10">
-          {['basic', 'standard', 'premium', 'corporate'].map((tab) => (
-            <button
-              key={tab}
-              onClick={() => setActiveTab(tab)}
-              className={`px-6 py-2 rounded-full capitalize transition-all ${activeTab === tab
-                ? 'bg-gradient-to-r from-primary to-secondary text-white'
-                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                }`}
-            >
-              {tab}
-            </button>
-          ))}
-        </div>
+        <div className="customContainer">
+          {/* Tabs */}
+          <div className="flex flex-wrap justify-center md:gap-4 gap-2 my-5 md:my-10">
+            {['basic', 'standard', 'premium', 'corporate'].map((tab) => (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(tab)}
+                className={`px-6 py-2 rounded-full capitalize transition-all ${activeTab === tab
+                  ? 'bg-gradient-to-r from-primary to-secondary text-white'
+                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  }`}
+              >
+                {tab}
+              </button>
+            ))}
+          </div>
 
-        {/* Tab Content */}
-        <div className="mt-8">
-          {activeTab === 'basic' && renderPricingCards(pricingData.filter(item => item.type === 'basic'))}
-          {activeTab === 'standard' && renderPricingCards(pricingData.filter(item => item.type === 'standard'))}
-          {activeTab === 'premium' && renderPricingCards(pricingData.filter(item => item.type === 'premium'))}
-          {activeTab === 'corporate' && renderCorporateForm()}
+          {/* Tab Content */}
+          <div className="mt-8">
+            {activeTab === 'basic' && renderPricingCards(pricingData.filter(item => item.type === 'basic'))}
+            {activeTab === 'standard' && renderPricingCards(pricingData.filter(item => item.type === 'standard'))}
+            {activeTab === 'premium' && renderPricingCards(pricingData.filter(item => item.type === 'premium'))}
+            {activeTab === 'corporate' && renderCorporateForm()}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
     </>
   )
 }

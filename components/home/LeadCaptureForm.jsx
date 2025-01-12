@@ -35,7 +35,6 @@ const LeadCaptureForm = () => {
 
             // Here you would integrate with your CRM
             // await axios.post('/api/leads', formData);
-            console.log('Form submitted:', formData);
             setSuccess(true);
             setFormData({ name: '', email: '', phone: '', location: '' });
         } catch (error) {

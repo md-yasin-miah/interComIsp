@@ -17,6 +17,7 @@
     "framer-motion": "^11.13.4",
     "mini-svg-data-uri": "^1.4.4",
     "next": "15.0.3",
+    "pocketbase": "^0.25.0",
     "prop-types": "^15.8.1",
     "react": "19.0.0-rc-66855b96-20241106",
     "react-dom": "19.0.0-rc-66855b96-20241106",

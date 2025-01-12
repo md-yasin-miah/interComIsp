@@ -6,6 +6,7 @@ import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
 import ScrollLine from "@/components/ui/scroll-line";
 import ScrollToTop from "@/components/shared/ScrollToTop";
+import { HomeAPIProvider } from "@/contexts/HomeAPIContext";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -44,16 +45,18 @@ export default function RootLayout({ children }) {
         suppressHydrationWarning
       >
         <ThemeProvider>
-          <main>
-            <Header />
-            <div>
-              {children}
-            </div>
-            <Footer />
+          <HomeAPIProvider>
+            <main>
+              <Header />
+              <div>
+                {children}
+              </div>
+              <Footer />
 
-            <ScrollToTop />
-            {/* <ScrollLine /> */}
-          </main>
+              <ScrollToTop />
+              {/* <ScrollLine /> */}
+            </main>
+          </HomeAPIProvider>
         </ThemeProvider>
       </body>
     </html>

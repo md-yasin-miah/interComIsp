@@ -1,32 +1,31 @@
 "use client"
 import { Splide, SplideSlide } from '@splidejs/react-splide'
-import React, { useState } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import { FaFacebook, FaYoutube, FaTiktok } from 'react-icons/fa'
 import { TextGenerateEffect } from '../ui/text-generate-effect'
 import { AuroraBackground } from '../ui/aurora-background'
 import { DotLottieReact } from '@lottiefiles/dotlottie-react'
+import { heroSliderOptions } from '@/lib/utils'
+import { HomeAPIContext } from '@/contexts/HomeAPIContext'
 
 const HeroSection = () => {
     const [activeIndex, setActiveIndex] = useState(0);
-    const options = {
-        type: 'loop',
-        arrows: false,
-        perPage: 1,
-        autoPlay: true,
-        pagination: true,
-        interval: 5000,
-        classes: {
-            pagination: 'splide__pagination custom-pagination',
-        },
-    }
+    const {
+        HeroSlide,
+        getHeroSlideData
+    } = useContext(HomeAPIContext);
 
+    useEffect(() => {
+        getHeroSlideData();
+    }, []);
+    console.log({ HeroSlide });
     return (
         <section>
             <AuroraBackground className='h-full md:pb-10 pb-5 overflow-hidden md:block hidden'>
-                <Slider options={options} setActiveIndex={setActiveIndex} activeIndex={activeIndex} />
+                <Slider options={heroSliderOptions} setActiveIndex={setActiveIndex} activeIndex={activeIndex} />
             </AuroraBackground>
             <div className="md:hidden block">
-                <Slider options={options} setActiveIndex={setActiveIndex} activeIndex={activeIndex} />
+                <Slider options={heroSliderOptions} setActiveIndex={setActiveIndex} activeIndex={activeIndex} />
             </div>
         </section>
     )

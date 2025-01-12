@@ -4,7 +4,6 @@ import { motion } from 'framer-motion'
 import Button from '../shared/Button'
 
 const PricingCard = ({ plan }) => {
-  console.log(plan)
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}

@@ -29,6 +29,9 @@ import {
   FaGoogle,
   FaMicrosoft,
 } from 'react-icons/fa';
+import { DB_BASE_URL } from './config';
+import PocketBase from 'pocketbase';
+
 const getSocialIcon = (icon) => {
   switch (icon.toLowerCase()) {
     case 'facebook':
@@ -93,6 +96,13 @@ const getSocialIcon = (icon) => {
       return <FaFacebook />;
   }
 }
+const DB = new PocketBase(DB_BASE_URL);
+const getImgUrl = (item, name) => {
+  return DB.files.getURL(item, item[name])
+}
+
 export {
-  getSocialIcon
+  getSocialIcon,
+  DB,
+  getImgUrl
 }
