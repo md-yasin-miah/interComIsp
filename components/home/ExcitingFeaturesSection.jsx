@@ -112,7 +112,8 @@ const SkeletonTwo = () => {
       initial="initial"
       animate="animate"
       whileHover="hover"
-      className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-2">
+      className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-2"
+    >
       {arr.map((_, i) => (
         <motion.div
           key={"skelenton-two" + i}
@@ -120,6 +121,7 @@ const SkeletonTwo = () => {
           style={{
             maxWidth: Math.random() * (100 - 40) + 40 + "%",
           }}
+          suppressHydrationWarning
           className="flex flex-row rounded-full border border-neutral-100 dark:border-white/[0.2] p-2  items-center space-x-2 bg-primary dark:bg-black w-full h-4"></motion.div>
       ))}
     </motion.div>)

@@ -38,9 +38,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" >
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${rajdhani.variable} ${poppins.variable} antialiased`}
+        suppressHydrationWarning
       >
         <ThemeProvider>
           <main>
@@ -49,7 +50,7 @@ export default function RootLayout({ children }) {
               {children}
             </div>
             <Footer />
-            
+
             <ScrollToTop />
             {/* <ScrollLine /> */}
           </main>
