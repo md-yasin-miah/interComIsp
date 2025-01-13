@@ -11,7 +11,7 @@ export const TextGenerateEffect = ({
   triggerKey, // New prop to trigger re-animation
 }) => {
   const [scope, animate] = useAnimate();
-  let wordsArray = words.split(" ");
+  let wordsArray = words?.split(" ");
   useEffect(() => {
     animate("span", {
       opacity: 1,
@@ -25,7 +25,7 @@ export const TextGenerateEffect = ({
   const renderWords = () => {
     return (
       (<motion.div ref={scope} >
-        {wordsArray.map((word, idx) => {
+        {wordsArray?.map((word, idx) => {
           return (
             (<motion.span
               key={word + idx}

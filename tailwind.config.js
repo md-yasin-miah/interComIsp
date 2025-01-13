@@ -16,7 +16,6 @@ module.exports = {
       },
       colors: {
         white2: 'var(--white2)',
-
         background: 'var(--background)',
         background2: 'var(--background2)',
         background3: 'var(--background3)',
@@ -43,6 +42,7 @@ module.exports = {
         aurora: "aurora 60s linear infinite",
         "meteor-effect": "meteor 5s linear infinite",
         "spin-slow": "spin 4s linear infinite",
+        pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
       keyframes: {
         aurora: {
@@ -59,6 +59,14 @@ module.exports = {
           "100%": {
             transform: "rotate(215deg) translateX(-500px)",
             opacity: 0,
+          },
+        },
+        pulse: {
+          '0%, 100%': {
+            opacity: 1,
+          },
+          '50%': {
+            opacity: .5,
           },
         },
       },
