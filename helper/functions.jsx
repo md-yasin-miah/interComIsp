@@ -97,12 +97,12 @@ const getSocialIcon = (icon) => {
   }
 }
 const DB = new PocketBase(DB_BASE_URL);
-const getImgUrl = (item, name) => {
+const getUrl = (item, name) => {
   return DB.files.getURL(item, item[name])
 }
 
 export {
   getSocialIcon,
   DB,
-  getImgUrl
+  getUrl
 }

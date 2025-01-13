@@ -18,7 +18,9 @@ const HeroSection = () => {
         getHeroSlideData
     } = useContext(HomeAPIContext);
     useEffect(() => {
-        getHeroSlideData()
+        if(!HeroSlide.data){
+            getHeroSlideData()
+        }
     }, []);
 
     if (HeroSlide.isLoading) {

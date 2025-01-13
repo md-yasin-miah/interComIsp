@@ -11,7 +11,9 @@ import ErrorSection from '../sections/ErrorSection'
 const AboutUsSection = () => {
   const {getAboutData, About} = useContext(HomeAPIContext);
   useEffect(() => {
-    getAboutData()
+    if(!About.data){
+      getAboutData()
+    }
   }, []);
   if(About.isLoading){
     return <AboutSkeleton/>

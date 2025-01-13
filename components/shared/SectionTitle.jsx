@@ -2,7 +2,7 @@ import React from 'react'
 
 const SectionTitle = ({ title, title2, subTitle, placeholder_title, className = '', reverse = false }) => {
   return (
-    <div className={`${className}`}>
+    <div className={`flex flex-col items-center ${className}`}>
       <h2 className="title">
         {
           reverse ?
@@ -18,7 +18,7 @@ const SectionTitle = ({ title, title2, subTitle, placeholder_title, className = 
           {placeholder_title}
         </span>
       </h2>
-      <p className="md:text-base text-sm text-center font-poppins leading-6 pl-8 text-gray-700 dark:text-gray-400">
+      <p className="md:text-base text-sm font-poppins leading-6 text-gray-700 dark:text-gray-400">
         {subTitle}
       </p>
     </div>
