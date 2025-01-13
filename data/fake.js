@@ -349,7 +349,7 @@ const pricingData = [
 const blogPosts = [
   {
     id: 1,
-    title: "10 Tips to Boost Your Wi-Fi Performance",
+    title: "100 Tips to Boost Your Wi-Fi Performance",
     excerpt: "Learn how to optimize your home network for better speed and coverage.",
     category: "Tips & Tricks",
     author: "Tech Team",
