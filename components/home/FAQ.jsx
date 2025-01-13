@@ -1,10 +1,21 @@
-import React from 'react'
+"use client"
+import { useEffect, useContext } from 'react'
 import SectionTitle from '../shared/SectionTitle'
-import { IoIosArrowDown } from "react-icons/io";
-import FaqCard from '../cards/FaqCard';
+import FaqCard from '../cards/FaqCard'
+import { HomeAPIContext } from '@/contexts/HomeAPIContext'
+import FAQSkeleton from '../skeleton/FAQSkeleton'
+import ErrorSection from '../sections/ErrorSection'
 
 const FAQ = () => {
-  const faq = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const { FAQ, getFaqData } = useContext(HomeAPIContext);
+  useEffect(() => {
+    !FAQ.data && getFaqData();
+  }, []);
+  if (FAQ.isLoading) return <FAQSkeleton />;
+  if (FAQ.isError) return <ErrorSection
+    retry={getFaqData}
+    message="Something went wrong while fetching FAQ data"
+  />;
   return (
     <section className='md:py-20 py-10'>
       <div className="customContainer">
@@ -17,17 +28,17 @@ const FAQ = () => {
         <div className='flex flex-col md:flex-row gap-5 pt-10'>
           <div className='flex flex-col gap-5'>
             {
-              faq.map((item, index) => {
-                if (index < faq.length / 2) {
-                  return <FaqCard key={index} index={index} />
+              FAQ.data?.map((faq, index) => {
+                if (index < FAQ.data.length / 2) {
+                  return <FaqCard key={index} faq={faq} index={index} />
                 }
               })
             }
           </div>
           <div className="flex flex-col gap-5">
             {
-              faq.map((item, index) => {
-                if (index >= faq.length / 2) return <FaqCard key={index} index={index} />
+              FAQ.data?.map((faq, index) => {
+                if (index >= FAQ.data.length / 2) return <FaqCard key={index} faq={faq} index={index} />
               })
             }
           </div>

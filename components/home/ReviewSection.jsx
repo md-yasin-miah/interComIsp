@@ -7,6 +7,7 @@ import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
 import { HomeAPIContext } from '@/contexts/HomeAPIContext';
 import { reviewSplideOptions } from '@/lib/utils';
 import ReviewSectionSkeleton from '../skeleton/ReviewSectionSkeleton';
+import ErrorSection from '../sections/ErrorSection';
 
 const ReviewSection = () => {
   const { ClientReview, getClientReviewData } = useContext(HomeAPIContext);

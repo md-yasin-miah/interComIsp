@@ -1,5 +1,5 @@
 "use client"
-import  { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import SectionTitle from '../shared/SectionTitle'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
@@ -9,6 +9,8 @@ import { Splide, SplideSlide } from '@splidejs/react-splide';
 import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
 import { testimonialSplideOptions } from '@/lib/utils'
 import { HomeAPIContext } from '@/contexts/HomeAPIContext'
+import TestimonialSectionSkeleton from '../skeleton/TestimonialSectionSkeleton'
+import ErrorSection from '../sections/ErrorSection'
 
 const TestimonialSection = () => {
     const { Testimonial, getTestimonialData } = useContext(HomeAPIContext);
@@ -34,9 +36,12 @@ const TestimonialSection = () => {
     useEffect(() => {
         !Testimonial.data && getTestimonialData();
     }, []);
-    if(Testimonial.isLoading) return <div>Loading...</div>;
-    if(Testimonial.isError) return <div>Error</div>;
-   
+    if (Testimonial.isLoading) return <TestimonialSectionSkeleton />;
+    if (Testimonial.isError) return <ErrorSection
+        retry={getTestimonialData}
+        message="Something went wrong while fetching testimonial data"
+    />;
+
 
     return (
         <section className="relative py-20 overflow-hidden">
@@ -66,36 +71,36 @@ const TestimonialSection = () => {
                                     <div className="relative aspect-video overflow-hidden rounded-xl cursor-pointer">
                                         {
                                             testimonial?.iFrame ?
-                                            <iframe 
-                                                width="100%" 
-                                                height="100%"
-                                                src={testimonial?.iFrame}
-                                                title="YouTube video player"
-                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                                referrerPolicy="strict-origin-when-cross-origin"
-                                                allowFullScreen
-                                            />
-                                            :
-                                            <Image
-                                                src={testimonial?.thumbnailUrl}
-                                                alt={testimonial?.name}
-                                                fill
-                                                className="object-cover transition-transform duration-300 group-hover:scale-105"
-                                        />
+                                                <iframe
+                                                    width="100%"
+                                                    height="100%"
+                                                    src={testimonial?.iFrame}
+                                                    title="YouTube video player"
+                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                    referrerPolicy="strict-origin-when-cross-origin"
+                                                    allowFullScreen
+                                                />
+                                                :
+                                                <Image
+                                                    src={testimonial?.thumbnailUrl}
+                                                    alt={testimonial?.name}
+                                                    fill
+                                                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                                                />
                                         }
                                         <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors duration-300" />
                                         {/* Play Button */}
-                                    
-                                            <motion.div
-                                                whileHover={{ scale: 1.1 }}
-                                                whileTap={{ scale: 0.9 }}
-                                                className="absolute inset-0 flex items-center justify-center"
-                                                onClick={() => handleVideoClick(testimonial)}
-                                            >
+
+                                        <motion.div
+                                            whileHover={{ scale: 1.1 }}
+                                            whileTap={{ scale: 0.9 }}
+                                            className="absolute inset-0 flex items-center justify-center"
+                                            onClick={() => handleVideoClick(testimonial)}
+                                        >
                                             <div className={`w-14 h-14 sm:w-16 sm:h-16 ${!testimonial?.iFrame ? 'bg-primary' : 'bg-transparent'} rounded-full flex items-center justify-center shadow-lg`}>
                                                 {
                                                     !testimonial?.iFrame &&
-                                                <FaPlay className="text-white text-lg sm:text-xl ml-1" />
+                                                    <FaPlay className="text-white text-lg sm:text-xl ml-1" />
                                                 }
                                             </div>
                                         </motion.div>
@@ -136,23 +141,23 @@ const TestimonialSection = () => {
                         >
                             {
                                 activeVideo?.iFrame ?
-                                    <iframe 
-                                        width="100%" 
+                                    <iframe
+                                        width="100%"
                                         height="100%"
                                         src={activeVideo?.iFrame}
                                         title="YouTube video player"
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                         referrerPolicy="strict-origin-when-cross-origin"
                                         allowFullScreen
-                                   />
+                                    />
                                     :
                                     <video
                                         src={activeVideo?.videoUrl}
                                         controls
-                                        autoPlay={isPlaying}    
+                                        autoPlay={isPlaying}
                                         className="w-full h-full rounded-xl"
                                     />
-                                }
+                            }
                             <button
                                 className="absolute top-4 right-4 text-white hover:text-gray-300 bg-black/50 p-2 rounded-full backdrop-blur-sm transition-all duration-300 hover:bg-black/70"
                                 onClick={() => {

@@ -9,6 +9,7 @@ import { HomeAPIContext } from '@/contexts/HomeAPIContext'
 import { getSocialIcon } from '@/helper/functions'
 import HeroSkeleton from '../skeleton/HeroSkeleton'
 import Button from '../shared/Button'
+import ErrorSection from '../sections/ErrorSection'
 
 const HeroSection = () => {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -18,7 +19,7 @@ const HeroSection = () => {
         getHeroSlideData
     } = useContext(HomeAPIContext);
     useEffect(() => {
-        if(!HeroSlide.data){
+        if (!HeroSlide.data) {
             getHeroSlideData()
         }
     }, []);
@@ -27,16 +28,19 @@ const HeroSection = () => {
         return <HeroSkeleton />
     }
     if (HeroSlide.isError) {
-        return <div>something went wrong while fetching hero slide data</div>
+        return <ErrorSection
+            retry={getHeroSlideData}
+            message="Something went wrong while fetching hero slide data"
+        />
     }
 
     return (
         <section>
             <AuroraBackground className='h-full md:pb-10 pb-5 overflow-hidden md:block hidden'>
-                <Slider options={heroSliderOptions} setActiveIndex={setActiveIndex} activeIndex={activeIndex} data={HeroSlide.data}/>
+                <Slider options={heroSliderOptions} setActiveIndex={setActiveIndex} activeIndex={activeIndex} data={HeroSlide.data} />
             </AuroraBackground>
             <div className="md:hidden block">
-                <Slider options={heroSliderOptions} setActiveIndex={setActiveIndex} activeIndex={activeIndex} data={HeroSlide.data}/>
+                <Slider options={heroSliderOptions} setActiveIndex={setActiveIndex} activeIndex={activeIndex} data={HeroSlide.data} />
             </div>
         </section>
         // <HeroSkeleton />
@@ -60,7 +64,7 @@ const Slider = ({ options, setActiveIndex, activeIndex, data }) => {
                                     <TextGenerateEffect className="heroTitle" words={slide.tittle} />
                                 )}
                             </div>
-                            <div 
+                            <div
                                 className="text-gray-600 dark:text-gray-300 md:text-lg text-base"
                                 dangerouslySetInnerHTML={{ __html: slide.description }}
                             />
@@ -77,8 +81,8 @@ const Slider = ({ options, setActiveIndex, activeIndex, data }) => {
                                 </div>
                             )}
                             {/* Get Started Button */}
-                            <Button 
-                                href={slide.getStartButtonLink || '#'} 
+                            <Button
+                                href={slide.getStartButtonLink || '#'}
                                 className="bg-primary text-white px-8 py-3 rounded-lg hover:bg-primary/90 transition"
                             >
                                 Get it started

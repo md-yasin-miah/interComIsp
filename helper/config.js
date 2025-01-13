@@ -6,5 +6,6 @@ export const COLLECTION = {
   HERO_SLIDE: 'heroSlide',
   ABOUT: 'about',
   TESTIMONIAL: 'testimonial',
-  CLIENT_REVIEW: 'client_review'
+  CLIENT_REVIEW: 'client_review',
+  FAQ: 'faq'
 }
