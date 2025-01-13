@@ -6,28 +6,26 @@ import { AuroraBackground } from '../ui/aurora-background'
 import { DotLottieReact } from '@lottiefiles/dotlottie-react'
 import { heroSliderOptions } from '@/lib/utils'
 import { HomeAPIContext } from '@/contexts/HomeAPIContext'
-import Link from 'next/link'
 import { getSocialIcon } from '@/helper/functions'
 import HeroSkeleton from '../skeleton/HeroSkeleton'
+import Button from '../shared/Button'
 
 const HeroSection = () => {
     const [activeIndex, setActiveIndex] = useState(0);
-    const [mounted, setMounted] = useState(false);
+    // const [mounted, setMounted] = useState(false);
     const {
         HeroSlide,
         getHeroSlideData
     } = useContext(HomeAPIContext);
-
     useEffect(() => {
-        const initData = async () => {
-            await getHeroSlideData();
-            setMounted(true);
-        };
-        initData();
+        getHeroSlideData()
     }, []);
 
-    if (!mounted || !HeroSlide.data || HeroSlide.data.length === 0) {
+    if (HeroSlide.isLoading) {
         return <HeroSkeleton />
+    }
+    if (HeroSlide.isError) {
+        return <div>something went wrong while fetching hero slide data</div>
     }
 
     return (
@@ -77,12 +75,12 @@ const Slider = ({ options, setActiveIndex, activeIndex, data }) => {
                                 </div>
                             )}
                             {/* Get Started Button */}
-                            <Link 
+                            <Button 
                                 href={slide.getStartButtonLink || '#'} 
-                                className="bg-primary text-white px-8 py-3 rounded-lg hover:bg-primary/90 transition block w-fit"
+                                className="bg-primary text-white px-8 py-3 rounded-lg hover:bg-primary/90 transition"
                             >
                                 Get it started
-                            </Link>
+                            </Button>
                         </div>
                         {/* Right Image */}
                         <div className="lg:col-span-5 col-span-12 h-full order-1 lg:order-2">
