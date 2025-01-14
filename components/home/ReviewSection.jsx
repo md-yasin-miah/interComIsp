@@ -1,50 +1,31 @@
 "use client"
-import React from 'react'
+import { useContext, useEffect } from 'react'
 import SectionTitle from '../shared/SectionTitle'
 import ReviewCard from '../cards/ReviewCard';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
+import { HomeAPIContext } from '@/contexts/HomeAPIContext';
+import { reviewSplideOptions } from '@/lib/utils';
+import ReviewSectionSkeleton from '../skeleton/ReviewSectionSkeleton';
+import ErrorSection from '../sections/ErrorSection';
 
 const ReviewSection = () => {
-  const options = {
-    type: 'loop',
-    drag: 'free',
-    focus: 'center',
-    arrows: false,
-    perPage: 3,
-    gap: '16px',
-    autoScroll: {
-      speed: 1,
-    },
-    breakpoints: {
-      1024: {
-        perPage: 2,
-      },
-      640: {
-        perPage: 1,
-      },
-    },
-  }
-  const reviews = [
-    {
-      name: "Sarah Johnson",
-      rating: 5,
-      text: "Exceptional service! The team went above and beyond to help me find exactly what I needed. Highly recommend!",
-      date: "March 2024"
-    },
-    {
-      name: "Michael Chen",
-      rating: 5,
-      text: "Professional, knowledgeable, and very responsive. A pleasure to work with!",
-      date: "February 2024"
-    },
-    {
-      name: "Emily Rodriguez",
-      rating: 5,
-      text: "Outstanding experience from start to finish. The attention to detail was impressive.",
-      date: "January 2024"
+  const { ClientReview, getClientReviewData } = useContext(HomeAPIContext);
+  useEffect(() => {
+    if (!ClientReview.data) {
+      getClientReviewData()
     }
-  ];
+  }, []);
+  if (ClientReview.isLoading) {
+    return <ReviewSectionSkeleton />
+  }
+  if (ClientReview.isError) {
+    return <ErrorSection
+      retry={getClientReviewData}
+      message="Something went wrong while fetching client review data"
+    />
+  }
+
   return (
     <section className='bg-background3 dark:bg-black py-20'>
       <div className="customContainer">
@@ -55,8 +36,8 @@ const ReviewSection = () => {
           subTitle='Join now and enjoy the exciting features from NetCom online'
         />
         <div className='pt-10'>
-          <Splide options={options} extensions={{ AutoScroll }}>
-            {reviews.map((review, index) => (
+          <Splide options={reviewSplideOptions} extensions={{ AutoScroll }}>
+            {ClientReview.data?.map((review, index) => (
               <SplideSlide key={index} className='py-5'>
                 <ReviewCard review={review} />
               </SplideSlide>
@@ -65,7 +46,7 @@ const ReviewSection = () => {
         </div>
         <div className="text-center mt-10">
           <a
-            href="https://www.google.com/business"
+            href={`https://www.google.com/business/reviews/${process.env.NEXT_PUBLIC_GOOGLE_BUSINESS_ID}`}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center text-blue-600 dark:text-white hover:text-blue-800 transition-colors duration-300"

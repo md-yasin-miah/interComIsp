@@ -1,11 +1,18 @@
-import React from 'react';
+"use client"
+import React, { useContext, useEffect } from 'react';
 import { WavyBackground } from '../ui/wavy-background';
 import PricingCard from '@/components/cards/PricingCard';
 import SectionTitle from '../shared/SectionTitle';
-import { pricingData } from '@/data/fake';
+import { HomeAPIContext } from '@/contexts/HomeAPIContext';
+import PricingCardSkeleton from '../skeleton/PricingCardSkeleton';
 
 
 const PricingSection = () => {
+  const {Packages, getPackagesData} = useContext(HomeAPIContext);
+  useEffect(() => {
+    !Packages.data && getPackagesData();
+  }, []);
+  console.log({Packages});
   return (
     <section className="relative py-20">
       <WavyBackground>
@@ -15,11 +22,19 @@ const PricingSection = () => {
             title2="Packages"
             placeholder_title="Packages"
             subTitle="Choose the perfect internet package for your needs"
+            loading={Packages.isLoading}
           />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 mt-12">
-            {pricingData.map((plan, index) => (
-             index<3 && <PricingCard key={index} plan={plan} />
-            ))}
+            {
+              Packages.isLoading ? 
+              [...Array(3)].map((_, index) => (
+                <PricingCardSkeleton key={index} />
+              )) 
+              :
+              Packages.data && Packages.data.filter(plan => plan.view_in_home_page).map((plan, index) => (
+                <PricingCard key={index} plan={plan} />
+              ))
+            }
           </div>
         </div>
       </WavyBackground>

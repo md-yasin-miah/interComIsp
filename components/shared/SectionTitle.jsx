@@ -1,7 +1,11 @@
 import React from 'react'
+import SectionTitleSkeleton from '../skeleton/SectionTitleSkeleton'
 
-const SectionTitle = ({ title, title2, subTitle, placeholder_title, className = '', reverse = false }) => {
+const SectionTitle = ({ title, title2, subTitle, placeholder_title, className = '', reverse = false, loading = false }) => {
   return (
+    loading? 
+    <SectionTitleSkeleton/> 
+    :
     <div className={`flex flex-col items-center ${className}`}>
       <h2 className="title">
         {

@@ -1,30 +1,40 @@
 import React from 'react'
-import { IoStar } from "react-icons/io5";
-import Link from 'next/link';
-import { FaStar } from 'react-icons/fa';
+import Rating from '../shared/Rating';
+import Image from 'next/image';
 
 const ReviewCard = ({ review }) => {
     return (
         <div
-            className="bg-white dark:bg-slate-700 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 min-h-[250px]"
+            className="bg-white dark:bg-slate-700 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 min-h-[250px] flex flex-col h-full"
         >
             <div className="flex items-center mb-4">
                 <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                    <span className="text-xl font-semibold text-blue-600">
-                        {review.name.charAt(0)}
-                    </span>
+                    {review?.client_image_url ? (
+                        <Image src={review?.client_image_url} alt={review?.name} width={48} height={48} className="rounded-full" />
+                    ) : (
+                        <span className="text-xl font-semibold text-blue-600">
+                            {review?.name?.charAt(0)}
+                        </span>
+                    )}
                 </div>
                 <div>
-                    <h3 className="font-semibold">{review.name}</h3>
-                    <div className="flex text-yellow-400">
-                        {[...Array(review.rating)].map((_, i) => (
-                            <FaStar key={i} />
-                        ))}
-                    </div>
+                    <h3 className="font-semibold">{review?.name}</h3>
+                    <Rating rating={review?.rating} />
                 </div>
             </div>
-            <p className="text-gray-600 dark:text-white/[0.5] mb-3 ellipsis-4">{review.text}</p>
-            <span className="text-sm text-gray-500 dark:text-white/[0.5]">{review.date}</span>
+            <div className='flex flex-col gap-2 justify-between h-full'>
+                <p className="text-gray-600 dark:text-white/[0.5] mb-3 ellipsis-4">{review?.review}</p>
+                {review?.review_date &&
+                    <span className="text-sm text-gray-500 dark:text-white/[0.5]">
+                        {
+                            new Date(review?.review_date)?.toLocaleDateString(
+                                'en-US',
+                                { month: 'long', day: 'numeric', year: 'numeric' }
+                            )
+                        }
+                    </span>
+                }
+            </div>
         </div>
     )
 }

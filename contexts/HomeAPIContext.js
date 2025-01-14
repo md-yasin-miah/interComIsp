@@ -16,7 +16,10 @@ export const HomeAPIProvider = ({ children }) => {
   const [HeroSlide, setHeroSlide] = useState(initial);
   const [About, setAbout] = useState(initial);
   const [Testimonial, setTestimonial] = useState(initial);
-  const homePage=()=>{
+  const [ClientReview, setClientReview] = useState(initial);
+  const [FAQ, setFAQ] = useState(initial);
+  const [Packages, setPackages] = useState(initial);
+  const homePage = () => {
     // get hero slide data
     const getHeroSlideData = () => {
       setHeroSlide({ ...initial, isLoading: true });
@@ -67,17 +70,59 @@ export const HomeAPIProvider = ({ children }) => {
         setTestimonial({ ...initial, isError: true });
       })
     }
+    // get client review data
+    const getClientReviewData = () => {
+      setClientReview({ ...initial, isLoading: true });
+      DB.collection(COLLECTION.CLIENT_REVIEW).getFullList({ requestKey: null }).then((result) => {
+        const data = result.map((item) => {
+          return {
+            ...item,
+            client_image_url: getUrl(item, 'client_img')
+          }
+        })
+        setClientReview({ ...initial, data: data });
+      }).catch((error) => {
+        console.log(COLLECTION.CLIENT_REVIEW, error)
+        setClientReview({ ...initial, isError: true });
+      })
+    }
+    // get faq data
+    const getFaqData = () => {
+      setFAQ({ ...initial, isLoading: true });
+      DB.collection(COLLECTION.FAQ).getFullList({ requestKey: null }).then((result) => {
+        setFAQ({ ...initial, data: result });
+      }).catch((error) => {
+        console.log(COLLECTION.FAQ, error)
+        setFAQ({ ...initial, isError: true });
+      })
+    }
+    //get data packages
+    const getPackagesData = () => {
+      setPackages({ ...initial, isLoading: true });
+      DB.collection(COLLECTION.PACKAGES).getFullList({ requestKey: null }).then((result) => {
+        setPackages({ ...initial, data: result });
+      }).catch((error) => {
+        console.log(COLLECTION.PACKAGES, error)
+        setPackages({ ...initial, isError: true });
+      })
+    }
 
-    return{
+    return {
       //function
       getHeroSlideData,
       getAboutData,
       getTestimonialData,
-
+      getClientReviewData,
+      getFaqData,
+      getPackagesData,
+      
       //data
       HeroSlide,
       About,
-      Testimonial
+      Testimonial,
+      ClientReview,
+      FAQ,
+      Packages
     }
   }
 
