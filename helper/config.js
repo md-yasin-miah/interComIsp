@@ -8,5 +8,7 @@ export const COLLECTION = {
   TESTIMONIAL: 'testimonial',
   CLIENT_REVIEW: 'client_review',
   FAQ: 'faq',
-  PACKAGES: 'packages'
+  PACKAGES: 'packages',
+  CONNECTION_REQUEST: 'connection_request',
+  SUPPORT_REQUEST: 'support_request'
 }

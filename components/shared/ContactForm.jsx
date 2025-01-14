@@ -1,12 +1,14 @@
 "use client"
-import React, { useState } from 'react'
+import { useContext, useState } from 'react'
 import { motion } from 'framer-motion'
 import LabelInputContainer from '@/components/ui/LabelInputContainer'
 import { Label } from '@/components/ui/label'
 import { Input, Textarea } from '@/components/ui/input'
 import MotionButton from '../ui/motion/motionButton'
+import { HomeAPIContext } from '@/contexts/HomeAPIContext';
 
 const ContactForm = () => {
+  const { clientSupportRequest } = useContext(HomeAPIContext);
   const [formData, setFormData] = useState({
     name: '',
     companyName: '',
@@ -23,10 +25,13 @@ const ContactForm = () => {
     setLoading(true)
 
     try {
-      if (!formData.name || !formData.email || !formData.phone || !formData.subject || !formData.message) {
-        throw new Error('Please fill in all fields')
+      if (!formData.name || !formData.phone || !formData.subject || !formData.message) {
+        throw new Error('Please fill in all fields');
+        return;
       }
-      console.log('Form submitted:', formData)
+      // post client support request data
+      clientSupportRequest.create(formData);
+
       setSuccess(true)
       setFormData({ name: '', companyName: '', email: '', phone: '', subject: '', message: '' })
     } catch (error) {
@@ -62,7 +67,7 @@ const ContactForm = () => {
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <LabelInputContainer>
-            <Label htmlFor="name">Your name</Label>
+            <Label htmlFor="name">Your name <span className='text-red-500'>*</span></Label>
             <Input
               id="name"
               placeholder="Tyler"
@@ -81,7 +86,6 @@ const ContactForm = () => {
               type="text"
               value={formData.companyName}
               onChange={handleChange}
-              required
             />
           </LabelInputContainer>
 
@@ -93,12 +97,11 @@ const ContactForm = () => {
               type="email"
               value={formData.email}
               onChange={handleChange}
-              required
             />
           </LabelInputContainer>
 
           <LabelInputContainer>
-            <Label htmlFor="phone">Phone Number</Label>
+            <Label htmlFor="phone">Phone Number <span className='text-red-500'>*</span></Label>
             <Input
               id="phone"
               placeholder="123-456-7890"
@@ -111,7 +114,7 @@ const ContactForm = () => {
         </div>
 
         <LabelInputContainer>
-          <Label htmlFor="subject">Subject</Label>
+          <Label htmlFor="subject">Subject <span className='text-red-500'>*</span></Label>
           <Input
             id="subject"
             placeholder="How can we help you?"
@@ -123,7 +126,7 @@ const ContactForm = () => {
         </LabelInputContainer>
 
         <LabelInputContainer>
-          <Label htmlFor="message">Message</Label>
+          <Label htmlFor="message">Message <span className='text-red-500'>*</span></Label>
           <Textarea
             id="message"
             placeholder="Your message..."

@@ -5,9 +5,9 @@ import SSLFooterImg from '../../public/SSLCommerz-footer-1024x48.webp'
 // import logo from '../../public/NetCom-Logo.png'
 import logoWhite from '../../public/NetCom-Logo-White.png'
 
-import { footerMenu } from '@/data/fake'
 import SocialIcons from './SocialIcons'
 import { BackgroundBeams } from '../ui/background-beams'
+import { footerMenu } from '@/helper/pathConfig'
 
 const Footer = () => {
   return (
@@ -39,12 +39,12 @@ const Footer = () => {
             ))
           }
         </section>
-        <section className='md:py-[18px] md:px-[50px] py-4 px-4 mt-2.5 mb-5 bg-white/60 rounded-lg'>
+        <section className='md:py-[18px] md:px-[50px] py-4 px-4 mt-2.5 mb-5 bg-white/10 rounded-lg'>
           <div className='flex flex-col md:flex-row max-sm:gap-3 items-center justify-between'>
-            <p className='font-semibold text-sm'>Copyright © 2024 <strong>Netcom Internet</strong> | All Rights Reserved.<br />  Developed by
-              <strong>
+            <p className='text-sm'>Copyright © 2024 <span className='font-semibold'>Netcom Internet</span> | All Rights Reserved.<br />  Developed by
+              <span className='font-semibold'>
                 <Link href='#' className='transition-all duration-300 hover:text-primary'> Net Land System Bangladesh</Link>
-              </strong>
+              </span>
             </p>
             <div className='relative w-full md:w-1/2'>
               <Image src={SSLFooterImg} alt='SSLCommerz-footer' width='fill' height='fill' />

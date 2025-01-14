@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import Button from './Button'
+import { PATH } from '@/helper/config'
 
 const OfferCard = ({ title, description, bannerImg, price, oldPrice }) => {
   return (
@@ -15,8 +16,8 @@ const OfferCard = ({ title, description, bannerImg, price, oldPrice }) => {
       </div>
       <div className="p-6 h-full flex flex-col justify-between">
         <div>
-        <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">{title}</h3>
-        <p className="text-gray-600 dark:text-white/[0.7] mb-4">{description}</p>
+          <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">{title}</h3>
+          <p className="text-gray-600 dark:text-white/[0.7] mb-4">{description}</p>
         </div>
         <div>
           <div className="flex items-center gap-2 mb-4">
@@ -26,7 +27,7 @@ const OfferCard = ({ title, description, bannerImg, price, oldPrice }) => {
             )}
           </div>
           <Button
-            href="/contact"
+            href={PATH.contact}
             className="w-fit"
           >
             Get Offer

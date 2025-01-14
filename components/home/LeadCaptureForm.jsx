@@ -1,17 +1,19 @@
 "use client"
-import React, { useState } from 'react'
+import { useContext, useState } from 'react'
 import { motion } from 'framer-motion'
 import LabelInputContainer from '../ui/LabelInputContainer';
 import { Label } from '../ui/label';
 import { Input } from '../ui/input';
 import Button from '../shared/Button';
+import { HomeAPIContext } from '@/contexts/HomeAPIContext';
 
 const LeadCaptureForm = () => {
+    const { connectionRequest } = useContext(HomeAPIContext);
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         phone: '',
-        location: ''
+        address: ''
     });
     const [loading, setLoading] = useState(false);
     const [success, setSuccess] = useState(false);
@@ -29,14 +31,14 @@ const LeadCaptureForm = () => {
 
         try {
             // Basic validation
-            if (!formData.name || !formData.email || !formData.phone || !formData.location) {
+            if (!formData.name || !formData.email || !formData.phone || !formData.address) {
                 throw new Error('Please fill in all fields');
             }
+            // post connection request data
+            connectionRequest.create(formData);
 
-            // Here you would integrate with your CRM
-            // await axios.post('/api/leads', formData);
             setSuccess(true);
-            setFormData({ name: '', email: '', phone: '', location: '' });
+            setFormData({ name: '', email: '', phone: '', address: '' });
         } catch (error) {
             console.error('Error submitting form:', error);
             // You might want to add error state handling here
@@ -83,7 +85,6 @@ const LeadCaptureForm = () => {
                                     type="email"
                                     value={formData.email}
                                     onChange={handleChange}
-                                    required
                                 />
                             </LabelInputContainer>
                         </div>
@@ -100,14 +101,13 @@ const LeadCaptureForm = () => {
                                 />
                             </LabelInputContainer>
                             <LabelInputContainer>
-                                <Label htmlFor="location">Location</Label>
+                                <Label htmlFor="address">address</Label>
                                 <Input
-                                    id="location"
+                                    id="address"
                                     placeholder="dhaka, BD"
                                     type="text"
-                                    value={formData.location}
+                                    value={formData.address}
                                     onChange={handleChange}
-                                    required
                                 />
                             </LabelInputContainer>
                         </div>

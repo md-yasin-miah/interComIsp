@@ -100,7 +100,12 @@ export const HomeAPIProvider = ({ children }) => {
     const getPackagesData = () => {
       setPackages({ ...initial, isLoading: true });
       DB.collection(COLLECTION.PACKAGES).getFullList({ requestKey: null }).then((result) => {
-        setPackages({ ...initial, data: result });
+        setPackages({
+          ...initial,
+          data: result,
+          // unique type
+          type: [...new Set(result.map((item) => item.type))]
+        });
       }).catch((error) => {
         console.log(COLLECTION.PACKAGES, error)
         setPackages({ ...initial, isError: true });
@@ -115,7 +120,7 @@ export const HomeAPIProvider = ({ children }) => {
       getClientReviewData,
       getFaqData,
       getPackagesData,
-      
+
       //data
       HeroSlide,
       About,
@@ -126,11 +131,34 @@ export const HomeAPIProvider = ({ children }) => {
     }
   }
 
+  // connection request
+  const connectionRequest = {
+    create: (data) => {
+      DB.collection(COLLECTION.CONNECTION_REQUEST).create(data).then((result) => {
+        console.log(result)
+      }).catch((error) => {
+        console.log(error)
+      })
+    }
+  }
+  //client support request
+  const clientSupportRequest = {
+    create: (data) => {
+      DB.collection(COLLECTION.SUPPORT_REQUEST).create(data).then((result) => {
+        console.log(result)
+      }).catch((error) => {
+        console.log(error)
+      })
+    }
+  }
+
 
   return (
     <HomeAPIContext.Provider
       value={{
-        ...homePage()
+        ...homePage(),
+        connectionRequest,
+        clientSupportRequest
       }}>
       {children}
     </HomeAPIContext.Provider>
