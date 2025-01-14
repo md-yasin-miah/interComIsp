@@ -10,7 +10,6 @@ import ReviewSection from "@/components/home/ReviewSection";
 import TestimonialSection from "@/components/home/TestimonialSection";
 
 export default function Home() {
-
   return (
     <div>
       <HeroSection />

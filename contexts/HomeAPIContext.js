@@ -18,7 +18,7 @@ export const HomeAPIProvider = ({ children }) => {
   const [Testimonial, setTestimonial] = useState(initial);
   const [ClientReview, setClientReview] = useState(initial);
   const [FAQ, setFAQ] = useState(initial);
-
+  const [Packages, setPackages] = useState(initial);
   const homePage = () => {
     // get hero slide data
     const getHeroSlideData = () => {
@@ -96,6 +96,16 @@ export const HomeAPIProvider = ({ children }) => {
         setFAQ({ ...initial, isError: true });
       })
     }
+    //get data packages
+    const getPackagesData = () => {
+      setPackages({ ...initial, isLoading: true });
+      DB.collection(COLLECTION.PACKAGES).getFullList({ requestKey: null }).then((result) => {
+        setPackages({ ...initial, data: result });
+      }).catch((error) => {
+        console.log(COLLECTION.PACKAGES, error)
+        setPackages({ ...initial, isError: true });
+      })
+    }
 
     return {
       //function
@@ -104,13 +114,15 @@ export const HomeAPIProvider = ({ children }) => {
       getTestimonialData,
       getClientReviewData,
       getFaqData,
-
+      getPackagesData,
+      
       //data
       HeroSlide,
       About,
       Testimonial,
       ClientReview,
-      FAQ
+      FAQ,
+      Packages
     }
   }
 

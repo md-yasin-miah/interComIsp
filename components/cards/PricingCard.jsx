@@ -9,35 +9,34 @@ const PricingCard = ({ plan }) => {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      key={plan.title}
-      className={`w-full ${plan.featured ? 'md:-mt-4' : 'md:-mt-0'}`}
+      className={`w-full ${plan?.featured ? 'md:-mt-4' : 'md:-mt-0'}`}
     >
       <div
-        className={`h-full bg-white rounded-[20px] shadow-card p-8 relative flex flex-col ${plan.featured
+        className={`h-full bg-white rounded-[20px] shadow-card p-8 relative flex flex-col ${plan?.featured
           ? 'bg-gradient-to-t from-primary to-secondary'
           : 'dark:bg-black dark:border-white/[0.2] bg-white border border-transparent'
           }`}
       >
         <div className="mb-8">
-          <h3 className={`text-2xl font-bold mb-2 dark:text-white ${plan.featured ? 'text-white' : 'text-gray-800'
-            } font-rajdhani`}>
-            {plan.title}
+          <h3 className={`text-2xl font-bold mb-2 dark:text-white ${plan?.featured ? 'text-white' : 'text-gray-800'
+            } font-rajdhani capitalize`}>
+            {plan?.title}
           </h3>
 
           <div className={`flex items-center gap-2 mb-4`}>
-            <span className={`text-5xl font-bold ${plan.featured ? 'text-white' : 'text-primary'
+            <span className={`text-5xl font-bold ${plan?.featured ? 'text-white' : 'text-primary'
               }`}>
-              {plan.speed}
+              {plan?.speed_per_unit}
             </span>
-            <span className={`text-xl ${plan.featured ? 'text-white/80' : 'text-gray-600 dark:text-white/80'
+            <span className={`text-xl ${plan?.featured ? 'text-white/80' : 'text-gray-600 dark:text-white/80'
               }`}>
               Mbps
             </span>
           </div>
 
-          <p className={`text-sm ${plan.featured ? 'text-white/80' : 'text-gray-600 dark:text-white/80'
+          <p className={`text-sm ${plan?.featured ? 'text-white/80' : 'text-gray-600 dark:text-white/80'
             }`}>
-            {plan.subtitle}
+            {plan?.sub_title}
           </p>
         </div>
 
@@ -48,12 +47,12 @@ const PricingCard = ({ plan }) => {
                 key={idx}
                 className="flex items-center justify-between"
               >
-                <span className={`${plan.featured ? 'text-white/80' : 'text-gray-600 dark:text-gray-400'
-                  }`}>
+                <span className={`${plan?.featured ? 'text-white/80' : 'text-gray-600 dark:text-gray-400'
+                  } capitalize`}>
                   {feature.name}
                 </span>
-                <span className={`font-medium ${plan.featured ? 'text-white' : 'text-gray-800 dark:text-white'
-                  }`}>
+                <span className={`font-medium ${plan?.featured ? 'text-white' : 'text-gray-800 dark:text-white'
+                  } capitalize` }>
                   {feature.value}
                 </span>
               </div>
@@ -62,21 +61,24 @@ const PricingCard = ({ plan }) => {
 
           <div className="mt-8 space-y-6">
             <div className="space-y-2">
-              <div className={`text-2xl font-bold ${plan.featured ? 'text-white' : 'text-primary'
+              <div className={`text-2xl font-bold ${plan?.featured ? 'text-white' : 'text-primary'
                 }`}>
-                {plan.price} Tk<span className="text-base font-normal">/mo</span>
+                {plan?.price} {plan?.currency}<span className="text-base font-normal">/{plan?.price_schedule}</span>
               </div>
-              <p className={`text-sm ${plan.featured ? 'text-white/80' : 'text-gray-600 dark:text-white/80'
+              {
+                plan?.vat&&
+                  <p className={`text-sm ${plan?.featured ? 'text-white/80' : 'text-gray-600 dark:text-white/80'
+                    }`}>
+                    {plan?.vat}
+                  </p>
+                }
+              <p className={`text-sm ${plan?.featured ? 'text-white/80' : 'text-gray-600 dark:text-white/80'
                 }`}>
-                {plan.vat}
-              </p>
-              <p className={`text-sm ${plan.featured ? 'text-white/80' : 'text-gray-600 dark:text-white/80'
-                }`}>
-                {plan.installation}
+                {plan?.installation}
               </p>
             </div>
             <Button
-              className={`!w-full justify-center ${plan.featured
+              className={`!w-full justify-center ${plan?.featured
                 ? '!bg-white !text-primary hover:bg-gray-50'
                 : ''
                 }`}

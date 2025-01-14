@@ -7,5 +7,6 @@ export const COLLECTION = {
   ABOUT: 'about',
   TESTIMONIAL: 'testimonial',
   CLIENT_REVIEW: 'client_review',
-  FAQ: 'faq'
+  FAQ: 'faq',
+  PACKAGES: 'packages'
 }
