@@ -9,7 +9,7 @@ import { HiMenuAlt3, HiX } from "react-icons/hi"
 import Link from 'next/link'
 import NavList from './NavList'
 import ThemeToggle from './ThemeToggle'
-import { navMenu } from '@/helper/pathConfig'
+import { navMenu, PATH } from '@/helper/pathConfig'
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

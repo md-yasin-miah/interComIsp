@@ -1,7 +1,6 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import Button from './Button'
-import { PATH } from '@/helper/config'
+import { PATH } from '@/helper/pathConfig'
 
 const OfferCard = ({ title, description, bannerImg, price, oldPrice }) => {
   return (
