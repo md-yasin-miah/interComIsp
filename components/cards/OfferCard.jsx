@@ -1,14 +1,11 @@
-'use client'
 import Image from 'next/image'
 import React from 'react'
-import offerImage from '../../public/offer-card.webp'
 import Button from '../shared/Button'
 import MotionDiv from '../ui/motion/motionDiv'
 import MotionArticle from '../ui/motion/motionArticle'
-import MotionH3 from '../ui/motion/motionH3'
-import MotionP from '../ui/motion/motionP'
+import { PATH } from '@/helper/pathConfig'
 
-const OfferCard = () => {
+const OfferCard = ({ offer }) => {
   return (
     <MotionArticle
       initial={{ opacity: 0, y: 20 }}
@@ -18,24 +15,24 @@ const OfferCard = () => {
         scale: 1.05,
         transition: { duration: 0.3 }
       }}
-      className='w-full max-sm:h-fit md:aspect-[2/3] bg-white rounded-[20px] overflow-hidden cursor-pointer 
+      className='w-full max-sm:h-fit bg-white rounded-[20px] overflow-hidden cursor-pointer 
         shadow-card dark:bg-black dark:border-white/[0.2] border border-transparent'
     >
-      <div className='relative h-full'>
+      <div className='h-full flex flex-col justify-between'>
         <MotionDiv
           initial={{ borderRadius: "100% 0% 100% 0% / 0% 50% 50% 100%" }}
           whileHover={{
             borderRadius: "0",
             transition: { duration: 0.3 }
           }}
-          className='h-[200px] w-full flex items-center justify-center overflow-hidden'
+          className='min-h-[200px] w-full flex items-center justify-center overflow-hidden'
         >
           {/* Centered image */}
           <div
             className='relative w-full h-full'
           >
             <Image
-              src={offerImage}
+              src={offer.bannerImg}
               alt='offer'
               fill
               className='object-cover'
@@ -44,31 +41,26 @@ const OfferCard = () => {
         </MotionDiv>
 
         {/* Content area */}
-        <MotionDiv
-          initial={{ y: 20, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.3 }}
-          className='flex flex-col items-center px-5 max-sm:px-5 max-sm:py-5'
-        >
-          <MotionH3
-            whileHover={{ scale: 1.05 }}
-            className="text-center uppercase text-base font-bold mt-2.5 mb-5"
-          >
-            TITLE
-          </MotionH3>
-          <MotionP
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.2, duration: 0.3 }}
-            className="text-gray-600 dark:text-gray-300 text-sm"
-          >
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-          </MotionP>
-          {/* learn more button */}
-          <Button href="/" className='mt-5'>
-            Learn More
-          </Button>
-        </MotionDiv>
+        <div className="p-6 h-full flex flex-col justify-between">
+          <div>
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">{offer.title}</h3>
+            <p className="text-gray-600 dark:text-white/[0.7] mb-4">{offer.description}</p>
+          </div>
+          <div>
+            <div className="flex items-center gap-2 mb-4">
+              <span className="text-2xl font-bold text-primary">${offer.price}</span>
+              {offer.oldPrice && (
+                <span className="text-lg text-gray-400 line-through">${offer.oldPrice}</span>
+              )}
+            </div>
+            <Button
+              href={PATH.contact}
+              className="w-fit"
+            >
+              Get Offer
+            </Button>
+          </div>
+        </div>
       </div>
     </MotionArticle>
   )

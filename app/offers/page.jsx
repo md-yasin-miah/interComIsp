@@ -1,8 +1,8 @@
 import React from 'react'
 import SectionTitle from '@/components/shared/SectionTitle'
-import OfferCard from '@/components/shared/OfferCard'
 import PageBanner from '@/components/shared/PageBanner'
 import image from '../../public/offer-card.webp'
+import OfferCard from '@/components/cards/OfferCard'
 
 const offers = [
   {
@@ -52,7 +52,7 @@ const Offers = () => {
             {offers.map((offer, index) => (
               <OfferCard
                 key={index}
-                {...offer}
+                offer={offer}
               />
             ))}
           </div>

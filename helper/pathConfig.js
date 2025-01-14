@@ -1,22 +1,23 @@
 export const PATH = {
   root: '/',
+  services: '/services',
+  packages: '/packages',
+  coverage: '/coverage',
+  payBill: '/pay-bill',
+  offers: '/offers',
+  support: '/support',
   about: '/about-us',
-  // offers: '/offers',
-  // contact: '/contact',
-  // blog: '/blog',
-  // faq: '/faq',
-  // packages: '/packages',
-  // connectionRequest: '/connection-request',
-  // supportRequest: '/support-request'
+  contact: '/contact-us',
 }
+
 export const navMenu = [
-  { name: 'Home', url: '/' },
-  { name: 'Services', url: '/services' },
-  { name: 'Packages', url: '/packages' },
-  { name: 'Coverage', url: '/coverage' },
-  { name: 'Pay Bill', url: '/pay-bill' },
-  { name: 'Offers', url: '/offers' },
-  { name: 'Support', url: '/support' },
+  { name: 'Home', url: PATH.root },
+  { name: 'Services', url: PATH.services },
+  { name: 'Packages', url: PATH.packages },
+  { name: 'Coverage', url: PATH.coverage },
+  { name: 'Pay Bill', url: PATH.payBill },
+  { name: 'Offers', url: PATH.offers },
+  { name: 'Support', url: PATH.support },
 ]
 
 export const footerMenu = [
@@ -24,7 +25,7 @@ export const footerMenu = [
     title: 'company',
     menu: [
       { name: 'about', url: PATH.about },
-      { name: 'careers', url: '/careers' },
+      { name: 'contact', url: PATH.contact },
       { name: 'internship', url: '/internship' },
       { name: 'BTRC License', url: '/btrc-license' },
       { name: ' terms of use', url: '/terms-of-use' },
@@ -35,11 +36,11 @@ export const footerMenu = [
   {
     title: 'services',
     menu: [
-      { name: 'offers', url: '/offers' },
-      { name: 'pay bill', url: '/pay-bill' },
-      { name: 'services', url: '/services' },
+      { name: 'offers', url: PATH.offers },
+      // { name: 'pay bill', url: PATH.payBill },
+      { name: 'services', url: PATH.services },
       { name: 'products', url: '/products' },
-      { name: 'packages', url: '/packages' },
+      { name: 'packages', url: PATH.packages },
     ]
   },
   {
