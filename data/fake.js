@@ -1,49 +1,6 @@
 import image from '../public/Home-BroadBand-Internet-scaled.webp'
 
-const navMenu = [
-  { name: 'Home', url: '/' },
-  { name: 'Services', url: '/services' },
-  { name: 'Packages', url: '/packages' },
-  { name: 'Coverage', url: '/coverage' },
-  { name: 'Pay Bill', url: '/pay-bill' },
-  { name: 'Offers', url: '/offers' },
-  { name: 'Support', url: '/support' },
-]
-const footerMenu = [
-  {
-    title: 'company',
-    menu: [
-      { name: 'about', url: '/about' },
-      { name: 'careers', url: '/careers' },
-      { name: 'internship', url: '/internship' },
-      { name: 'BTRC License', url: '/btrc-license' },
-      { name: ' terms of use', url: '/terms-of-use' },
-      { name: 'privacy policy', url: '/privacy-policy' },
-      { name: 'return & refund policy', url: '/return-refund-policy' },
-    ]
-  },
-  {
-    title: 'services',
-    menu: [
-      { name: 'offers', url: '/offers' },
-      { name: 'pay bill', url: '/pay-bill' },
-      { name: 'services', url: '/services' },
-      { name: 'products', url: '/products' },
-      { name: 'packages', url: '/packages' },
-    ]
-  },
-  {
-    title: 'support',
-    menu: [
-      { name: "FAQ's", url: '/faqs' },
-      { name: 'get quote', url: '/get-quote' },
-      { name: 'coverage', url: '/coverage' },
-      { name: 'user manual', url: '/user-manual' },
-      { name: 'schedule of charges', url: '/schedule-of-charges' },
-      { name: 'contact', url: '/contact' },
-    ]
-  }
-]
+
 const socialLinks = [
   { name: 'Facebook', url: 'https://facebook.com' },
   { name: 'Twitter', url: 'https://twitter.com' },
@@ -396,7 +353,7 @@ const blogPosts = [
     category: "Guides",
     author: "Network Expert",
     date: "March 12, 2024",
-    readTime: "7 min read",  
+    readTime: "7 min read",
     image: "/about.webp",
     slug: "choose-perfect-internet-plan",
     content: `
@@ -518,12 +475,10 @@ const blogPosts = [
       <p>Planning for adding more smart devices in the future.</p>
     `
   }
-]; 
+];
 
 
 export {
-  navMenu,
-  footerMenu,
   socialLinks,
   services,
   coverageAreas,

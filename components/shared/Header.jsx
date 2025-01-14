@@ -7,9 +7,9 @@ import Button from './Button'
 import { FaUser } from "react-icons/fa"
 import { HiMenuAlt3, HiX } from "react-icons/hi"
 import Link from 'next/link'
-import { navMenu } from '@/data/fake'
 import NavList from './NavList'
 import ThemeToggle from './ThemeToggle'
+import { navMenu } from '@/helper/pathConfig'
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -29,10 +29,10 @@ const Header = () => {
   }, []);
 
   return (
-    <header 
+    <header
       className={`h-24 w-full flex items-center fixed top-0 left-0 right-0 z-50 transition-all duration-300
-        ${isScrolled 
-          ? 'bg-white dark:bg-gray-900' 
+        ${isScrolled
+          ? 'bg-white dark:bg-gray-900'
           : 'bg-white/45 dark:bg-gray-900/10 backdrop-blur-sm'}`}
       style={{
         boxShadow: isScrolled ? "0px 5px 20px 0px rgba(0, 0, 0, 0.1)" : "none"
@@ -40,8 +40,10 @@ const Header = () => {
     >
       <div className="customContainer flex items-center justify-between">
         <div className='relative w-[180px]'>
-          <Image src={logo} alt='logo' width='fill' height='fill' className='dark:hidden' />
-          <Image src={logoWhite} alt='logo' width='fill' height='fill' className='hidden dark:block px-2' />
+          <Link href={PATH.root}>
+            <Image src={logo} alt='logo' width='fill' height='fill' className='dark:hidden' />
+            <Image src={logoWhite} alt='logo' width='fill' height='fill' className='hidden dark:block px-2' />
+          </Link>
         </div>
 
         {/* Desktop Menu */}

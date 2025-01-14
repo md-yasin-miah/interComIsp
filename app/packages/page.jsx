@@ -1,6 +1,6 @@
 "use client"
 import SectionTitle from '@/components/shared/SectionTitle'
-import { useState } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import LabelInputContainer from '@/components/ui/LabelInputContainer'
 import { Label } from '@/components/ui/label'
 import { Input } from '@/components/ui/input'
@@ -9,14 +9,24 @@ import { pricingData } from '@/data/fake'
 import PageBanner from '@/components/shared/PageBanner'
 import MotionButton from '@/components/ui/motion/motionButton'
 import MotionDiv from '@/components/ui/motion/motionDiv'
+import { HomeAPIContext } from '@/contexts/HomeAPIContext'
 
 const Packages = () => {
-  const [activeTab, setActiveTab] = useState('basic')
+  const { Packages, getPackagesData, connectionRequest } = useContext(HomeAPIContext);
+  const [activeTab, setActiveTab] = useState('');
+  useEffect(() => {
+    !Packages.data && getPackagesData();
+  }, []);
+  useEffect(() => {
+    if (Packages?.type?.length > 0) {
+      setActiveTab(Packages?.type[0]);
+    }
+  }, [Packages?.type]);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    location: ''
+    address: ''
   });
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -33,11 +43,14 @@ const Packages = () => {
     setLoading(true);
 
     try {
-      if (!formData.name || !formData.email || !formData.phone || !formData.location) {
+      if (!formData.name || !formData.email || !formData.phone || !formData.address) {
         throw new Error('Please fill in all fields');
       }
+      // post connection request data
+      connectionRequest.create(formData);
+
       setSuccess(true);
-      setFormData({ name: '', email: '', phone: '', location: '' });
+      setFormData({ name: '', email: '', phone: '', address: '' });
     } catch (error) {
       console.error('Error submitting form:', error);
     } finally {
@@ -91,7 +104,6 @@ const Packages = () => {
               type="email"
               value={formData.email}
               onChange={handleChange}
-              required
             />
           </LabelInputContainer>
           <LabelInputContainer>
@@ -106,25 +118,23 @@ const Packages = () => {
             />
           </LabelInputContainer>
           <LabelInputContainer>
-            <Label htmlFor="location">Address</Label>
+            <Label htmlFor="address">Address</Label>
             <Input
-              id="location"
+              id="address"
               placeholder="dhaka, BD"
               type="text"
-              value={formData.location}
+              value={formData.address}
               onChange={handleChange}
-              required
             />
           </LabelInputContainer>
           <LabelInputContainer className="col-span-1 md:col-span-2">
-            <Label htmlFor="location">Apartment, suite, etc</Label>
+            <Label htmlFor="address">Apartment, suite, etc</Label>
             <Input
               id="apartment"
               placeholder="House 23, Flat- 201"
               type="text"
-              value={formData.location}
+              value={formData.address}
               onChange={handleChange}
-              required
             />
           </LabelInputContainer>
         </div>
@@ -170,7 +180,7 @@ const Packages = () => {
         <div className="customContainer">
           {/* Tabs */}
           <div className="flex flex-wrap justify-center md:gap-4 gap-2 my-5 md:my-10">
-            {['basic', 'standard', 'premium', 'corporate'].map((tab) => (
+            {Packages?.type?.map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
@@ -189,7 +199,12 @@ const Packages = () => {
             {activeTab === 'basic' && renderPricingCards(pricingData.filter(item => item.type === 'basic'))}
             {activeTab === 'standard' && renderPricingCards(pricingData.filter(item => item.type === 'standard'))}
             {activeTab === 'premium' && renderPricingCards(pricingData.filter(item => item.type === 'premium'))}
-            {activeTab === 'corporate' && renderCorporateForm()}
+            {activeTab === 'corporate' &&
+              <div className='flex flex-col gap-20'>
+                {renderPricingCards(Packages?.data?.filter(item => item.type === 'corporate'))}
+                {renderCorporateForm()}
+              </div>
+            }
           </div>
         </div>
       </section>

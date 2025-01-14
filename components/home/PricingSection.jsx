@@ -8,11 +8,10 @@ import PricingCardSkeleton from '../skeleton/PricingCardSkeleton';
 
 
 const PricingSection = () => {
-  const {Packages, getPackagesData} = useContext(HomeAPIContext);
+  const { Packages, getPackagesData } = useContext(HomeAPIContext);
   useEffect(() => {
     !Packages.data && getPackagesData();
   }, []);
-  console.log({Packages});
   return (
     <section className="relative py-20">
       <WavyBackground>
@@ -26,14 +25,14 @@ const PricingSection = () => {
           />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 mt-12">
             {
-              Packages.isLoading ? 
-              [...Array(3)].map((_, index) => (
-                <PricingCardSkeleton key={index} />
-              )) 
-              :
-              Packages.data && Packages.data.filter(plan => plan.view_in_home_page).map((plan, index) => (
-                <PricingCard key={index} plan={plan} />
-              ))
+              Packages.isLoading ?
+                [...Array(3)].map((_, index) => (
+                  <PricingCardSkeleton key={index} />
+                ))
+                :
+                Packages.data && Packages.data.filter(plan => plan.view_in_home_page).map((plan, index) => (
+                  <PricingCard key={index} plan={plan} />
+                ))
             }
           </div>
         </div>
