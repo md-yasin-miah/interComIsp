@@ -19,6 +19,9 @@ export const HomeAPIProvider = ({ children }) => {
   const [ClientReview, setClientReview] = useState(initial);
   const [FAQ, setFAQ] = useState(initial);
   const [Packages, setPackages] = useState(initial);
+  const [Offers, setOffers] = useState(initial);
+  const [OfferDetails, setOfferDetails] = useState(initial);
+
   const homePage = () => {
     // get hero slide data
     const getHeroSlideData = () => {
@@ -111,6 +114,34 @@ export const HomeAPIProvider = ({ children }) => {
         setPackages({ ...initial, isError: true });
       })
     }
+    //get offers data
+    const getOffersData = () => {
+      setOffers({ ...initial, isLoading: true });
+      DB.collection(COLLECTION.OFFERS).getFullList({ requestKey: null }).then((result) => {
+        const data = result.map((item) => {
+          return {
+            ...item,
+            bannerImgUrl: getUrl(item, 'banner_img')
+          }
+        })
+        setOffers({ ...initial, data });
+      }).catch((error) => {
+        console.log(COLLECTION.OFFERS, error)
+        setOffers({ ...initial, isError: true });
+      })
+    }
+    const getOfferDetails = (id) => {
+      setOfferDetails({ ...initial, isLoading: true });
+      DB.collection(COLLECTION.OFFERS).getOne(id).then((result) => {
+        setOfferDetails({ ...initial, data: {
+          ...result,
+          bannerImgUrl: getUrl(result, 'banner_img')
+        } });
+      }).catch((error) => {
+        console.log(COLLECTION.OFFERS, error)
+        setOfferDetails({ ...initial, isError: true });
+      })
+    }
 
     return {
       //function
@@ -120,14 +151,17 @@ export const HomeAPIProvider = ({ children }) => {
       getClientReviewData,
       getFaqData,
       getPackagesData,
-
+      getOffersData,
+      getOfferDetails,
       //data
       HeroSlide,
       About,
       Testimonial,
       ClientReview,
       FAQ,
-      Packages
+      Packages,
+      Offers,
+      OfferDetails
     }
   }
 

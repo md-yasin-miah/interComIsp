@@ -9,6 +9,8 @@ export const COLLECTION = {
   CLIENT_REVIEW: 'client_review',
   FAQ: 'faq',
   PACKAGES: 'packages',
+  OFFERS: 'offers',
+
   CONNECTION_REQUEST: 'connection_request',
   SUPPORT_REQUEST: 'support_request'
 }
