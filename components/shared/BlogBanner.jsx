@@ -2,7 +2,6 @@
 import React from 'react'
 import Image from 'next/image'
 import { HiOutlineCalendar, HiOutlineClock, HiOutlineUser } from 'react-icons/hi'
-import MotionDiv from '../ui/motion/motionDiv'
 import { motion } from 'framer-motion'
 
 const BlogBanner = ({ post }) => {
@@ -11,8 +10,8 @@ const BlogBanner = ({ post }) => {
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image 
-          src={post.image} 
-          alt={post.title}
+          src={post?.image} 
+          alt={post?.title}
           fill
           className="object-cover"
           priority
@@ -30,33 +29,33 @@ const BlogBanner = ({ post }) => {
         >
           {/* Category Tag */}
           <span className="px-4 py-2 rounded-full bg-primary/90 text-white text-sm mb-6 inline-block">
-            {post.category}
+            {post?.category}
           </span>
 
           {/* Title */}
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            {post.title}
+            {post?.title}
           </h1>
 
           {/* Meta Information */}
           <div className="flex flex-wrap items-center gap-6 text-gray-200">
             <div className="flex items-center gap-2">
               <HiOutlineUser className="w-5 h-5" />
-              <span>{post.author}</span>
+              <span>{post?.author}</span>
             </div>
             <div className="flex items-center gap-2">
               <HiOutlineClock className="w-5 h-5" />
-              <span>{post.readTime}</span>
+              <span>{post?.readTime}</span>
             </div>
             <span className='flex items-center gap-2'>
                 <HiOutlineCalendar className="w-5 h-5" />
-                <span>{post.date}</span>
+                <span>{post?.date}</span>
             </span>
           </div>
 
           {/* Excerpt */}
           <p className="text-gray-200 mt-6 text-lg">
-            {post.excerpt}
+            {post?.excerpt}
           </p>
         </motion.div>
       </div>

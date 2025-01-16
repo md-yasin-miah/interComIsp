@@ -10,11 +10,11 @@ import Link from 'next/link'
 import NavList from './NavList'
 import ThemeToggle from './ThemeToggle'
 import { navMenu, PATH } from '@/helper/pathConfig'
+import { usePathname } from 'next/navigation'
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 0) {

@@ -35,6 +35,25 @@ body {
 
 }
 
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  .blog-content h1,
+  .blog-content h1 *,
+  .blog-content h2,
+  .blog-content h2 *,
+  .blog-content h3,
+  .blog-content h3 *,
+  .blog-content h4,
+  .blog-content h4 *,
+  .blog-content h5,
+  .blog-content h5 *,
+  .blog-content h6,
+  .blog-content h6 *{
+    color: var(--foreground) !important;
+  } 
+}
+
 /* text ellipsis */
 .ellipsis-1 {
   display: -webkit-box;
@@ -312,7 +331,7 @@ body {
 
 /* Scrollbar Styles */
 ::-webkit-scrollbar {
-  @apply w-[10px];
+  @apply w-3;
 }
 
 ::-webkit-scrollbar-track {
@@ -332,22 +351,9 @@ body {
   display: none;
 }
 
-/* Firefox */
-* {
-  scrollbar-width: '10px';
-  scrollbar-color: theme('colors.primary') theme('colors.gray.100');
-}
-
-/* Dark mode for Firefox */
-@media (prefers-color-scheme: dark) {
-  * {
-    scrollbar-color: theme('colors.primary') theme('colors.gray.900');
-  }
-}
-
 /* Thin scrollbar variant */
 .scrollbar-thin::-webkit-scrollbar {
-  @apply w-2.5;
+  @apply w-1.5;
 }
 
 /* Custom scrollbar for specific containers */
