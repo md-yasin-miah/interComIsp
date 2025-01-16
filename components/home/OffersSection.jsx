@@ -10,7 +10,6 @@ const OffersSection = () => {
   useEffect(() => {
     !Offers.data && getOffersData();
   }, []);
-  console.log({ Offers });
   return (
     <section className='bg-background3 dark:bg-black md:py-20 py-10'>
       <div className="customContainer">

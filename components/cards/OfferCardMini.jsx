@@ -20,7 +20,14 @@ const OfferCardMini = ({offer}) => {
                 <div className='relative h-full w-full flex items-center justify-center overflow-hidden'>
                     {
                         offer?.bannerImgUrl && (
-                            <Image src={offer?.bannerImgUrl} alt='offer' fill className='object-cover bg-opacity-50 absolute inset-0'/>
+                            <Image 
+                            src={offer?.bannerImgUrl} 
+                            alt='offer' 
+                            fill
+                            loading = 'lazy'
+                            sizes="(max-width: 166.66px) 100vw, 50vw"
+                            className='bg-opacity-50 object-cover absolute inset-0'
+                            />
                         )
                     }
                 </div>  

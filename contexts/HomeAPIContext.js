@@ -132,7 +132,7 @@ export const HomeAPIProvider = ({ children }) => {
     }
     const getOfferDetails = (id) => {
       setOfferDetails({ ...initial, isLoading: true });
-      DB.collection(COLLECTION.OFFERS).getOne(id).then((result) => {
+      DB.collection(COLLECTION.OFFERS).getOne(id, { requestKey: null }).then((result) => {
         setOfferDetails({ ...initial, data: {
           ...result,
           bannerImgUrl: getUrl(result, 'banner_img')

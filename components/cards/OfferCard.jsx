@@ -16,7 +16,7 @@ const OfferCard = ({ offer }) => {
         scale: 1.05,
         transition: { duration: 0.3 }
       }}
-      className='w-full max-sm:h-fit bg-white rounded-[20px] overflow-hidden cursor-pointer 
+      className='w-full max-sm:h-fit bg-white rounded-[20px] overflow-hidden 
         shadow-card dark:bg-black dark:border-white/[0.2] border border-transparent'
     >
       <div className='h-full flex flex-col justify-between'>
@@ -26,7 +26,7 @@ const OfferCard = ({ offer }) => {
             borderRadius: "0",
             transition: { duration: 0.3 }
           }}
-          className='min-h-[200px] w-full flex items-center justify-center overflow-hidden'
+          className='min-h-[250px] w-full flex items-center justify-center overflow-hidden'
         >
           {/* Centered image */}
           <div
@@ -61,7 +61,7 @@ const OfferCard = ({ offer }) => {
             </div>
             <Button
               href={offer?.slug ? `${PATH.offers}/${offer?.id}/${offer?.slug}` : PATH.offers}
-              className="w-fit"
+              className="w-fit hover:bg-gradient-to-r from-primary to-secondary duration-300 transition-all"
             >
               {offer?.button_text || 'Learn More'}
             </Button>
