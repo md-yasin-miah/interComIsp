@@ -166,9 +166,9 @@ const Packages = () => {
   return (
     <>
       <PageBanner
-        bgClassName='bg-red-800'
-        title='Our Packages'
-        subTitle='You check our reasonable and flexible pricing below.'
+        bgClassName=''
+        title='Explore Our 8 Interesting Packages'
+        subTitle={`<p dir="ltr" role="presentation">Please choose from our carefully designed packages that offer various needs, whether for home or business. Need something unique? We offer fully customizable plans to match your requirements.<br>For a personalized package, contact us and let us build the perfect plan for you!<strong id="docs-internal-guid-ec62150b-7fff-edb8-187e-6b7c89844ed6"> There are no hidden charges&mdash;just transparent, flat-rate pricing.</strong></p>`}
       />
       <section className='md:py-10 py-5'>
         <SectionTitle

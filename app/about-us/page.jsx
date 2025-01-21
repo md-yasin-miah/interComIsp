@@ -17,7 +17,7 @@ const AboutUsPage = () => {
             <SectionTitle
                 title="About"
                 title2="Us"
-                subTitle="Learn more about our journey, mission, and commitment to providing exceptional internet services. Learn more about our journey, mission, and commitment to providing exceptional internet services."
+                subTitle="Need assistance? Contact us for reliable support, quick responses, and solutions to all your service inquiries."
                 className="!items-start w-[60%]"
             />
         </div>

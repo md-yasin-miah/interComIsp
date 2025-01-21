@@ -12,5 +12,7 @@ export const COLLECTION = {
   OFFERS: 'offers',
 
   CONNECTION_REQUEST: 'connection_request',
-  SUPPORT_REQUEST: 'support_request'
+  SUPPORT_REQUEST: 'support_request',
+  WHY_CHOOSE_US: 'why_choose_us',
+  POLICIES: 'all_policies'
 }

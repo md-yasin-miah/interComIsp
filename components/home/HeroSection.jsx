@@ -13,7 +13,6 @@ import ErrorSection from '../sections/ErrorSection'
 
 const HeroSection = () => {
     const [activeIndex, setActiveIndex] = useState(0);
-    // const [mounted, setMounted] = useState(false);
     const {
         HeroSlide,
         getHeroSlideData
@@ -37,13 +36,12 @@ const HeroSection = () => {
     return (
         <section>
             <AuroraBackground className='h-full md:pb-10 pb-5 overflow-hidden md:block hidden'>
-                <Slider options={heroSliderOptions} setActiveIndex={setActiveIndex} activeIndex={activeIndex} data={HeroSlide.data} />
+                <Slider options={heroSliderOptions} setActiveIndex={setActiveIndex} activeIndex={activeIndex} data={HeroSlide.data?.sort((a, b) => a.serial - b.serial)} />
             </AuroraBackground>
             <div className="md:hidden block">
-                <Slider options={heroSliderOptions} setActiveIndex={setActiveIndex} activeIndex={activeIndex} data={HeroSlide.data} />
+                <Slider options={heroSliderOptions} setActiveIndex={setActiveIndex} activeIndex={activeIndex} data={HeroSlide.data?.sort((a, b) => a.serial - b.serial)} />
             </div>
         </section>
-        // <HeroSkeleton />
     )
 }
 
@@ -71,22 +69,29 @@ const Slider = ({ options, setActiveIndex, activeIndex, data }) => {
                             {/* Speed Indicators */}
                             {slide.mediaSpeed && slide.mediaSpeed.length > 0 && (
                                 <div className="flex md:flex-row flex-col md:gap-4 gap-2">
-                                    {slide.mediaSpeed.map((speed, speedIndex) => (
-                                        <SpeedIndicator
-                                            key={speedIndex}
-                                            icon={speed.name}
-                                            speed={speed.speed}
-                                        />
-                                    ))}
+                                    {slide.mediaSpeed.map((speed, speedIndex) => {
+                                        if (speed.name && speed.speed) {
+                                            return (
+                                                <SpeedIndicator
+                                                    key={speedIndex}
+                                                    icon={speed.name}
+                                                    speed={speed.speed}
+                                                />
+                                            )
+                                        }
+                                    })}
                                 </div>
                             )}
                             {/* Get Started Button */}
-                            <Button
-                                href={slide.getStartButtonLink || '#'}
-                                className="bg-primary text-white px-8 py-3 rounded-lg hover:bg-primary/90 transition"
+                            {
+                                slide.getStartButtonLink && (
+                                    <Button
+                                        href={slide.getStartButtonLink}
+                                        className="bg-primary text-white px-8 py-3 rounded-lg hover:bg-primary/90 transition"
                             >
-                                Get it started
-                            </Button>
+                                    Get it started
+                                </Button>
+                            )}
                         </div>
                         {/* Right Image */}
                         <div className="lg:col-span-5 col-span-12 h-full order-1 lg:order-2">

@@ -32,9 +32,10 @@ const PageBanner = ({
               <Shade className="w-9/12 h-4" />
             </div>
             :
-            <p className="lg:mt-6 md:mt-3 mt-6 lg:text-lg md:text-base text-lg dark:text-indigo-100 text-gray-500 max-w-3xl font-poppins">
-              {subTitle}
-            </p>
+            <p 
+            className="lg:mt-6 md:mt-3 mt-6 lg:text-lg md:text-base text-lg dark:text-indigo-100 text-gray-500 max-w-3xl font-poppins"
+            dangerouslySetInnerHTML={{ __html: subTitle }}
+            />
         }
       </div>
     </section>
