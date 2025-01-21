@@ -8,6 +8,9 @@ export const PATH = {
   support: '/support',
   about: '/about-us',
   contact: '/contact-us',
+  termsOfUse: '/terms-of-use',
+  privacyPolicy: '/privacy-policy',
+  returnRefundPolicy: '/return-refund-policy',
 }
 
 export const navMenu = [
@@ -26,11 +29,11 @@ export const footerMenu = [
     menu: [
       { name: 'about', url: PATH.about },
       { name: 'contact', url: PATH.contact },
-      { name: 'internship', url: '/internship' },
-      { name: 'BTRC License', url: '/btrc-license' },
-      { name: ' terms of use', url: '/terms-of-use' },
-      { name: 'privacy policy', url: '/privacy-policy' },
-      { name: 'return & refund policy', url: '/return-refund-policy' },
+      // { name: 'internship', url: '/internship' },
+      // { name: 'BTRC License', url: '/btrc-license' },
+      { name: 'terms of use', url: PATH.termsOfUse },
+      { name: 'privacy policy', url: PATH.privacyPolicy },
+      { name: 'return & refund policy', url: PATH.returnRefundPolicy },
     ]
   },
   {

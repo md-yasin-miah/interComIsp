@@ -21,6 +21,7 @@ export const HomeAPIProvider = ({ children }) => {
   const [Packages, setPackages] = useState(initial);
   const [Offers, setOffers] = useState(initial);
   const [OfferDetails, setOfferDetails] = useState(initial);
+  const [WhyChooseUs, setWhyChooseUs] = useState(initial);
 
   const homePage = () => {
     // get hero slide data
@@ -143,6 +144,17 @@ export const HomeAPIProvider = ({ children }) => {
       })
     }
 
+    //why_choose_us data
+    const getWhyChooseUsData = () => {
+      setWhyChooseUs({ ...initial, isLoading: true });
+      DB.collection(COLLECTION.WHY_CHOOSE_US).getFullList({ requestKey: null }).then((result) => {
+        setWhyChooseUs({ ...initial, data: result });
+      }).catch((error) => {
+        console.log(COLLECTION.WHY_CHOOSE_US, error)
+        setWhyChooseUs({ ...initial, isError: true });
+      })
+    }
+
     return {
       //function
       getHeroSlideData,
@@ -153,6 +165,7 @@ export const HomeAPIProvider = ({ children }) => {
       getPackagesData,
       getOffersData,
       getOfferDetails,
+      getWhyChooseUsData,
       //data
       HeroSlide,
       About,
@@ -161,7 +174,8 @@ export const HomeAPIProvider = ({ children }) => {
       FAQ,
       Packages,
       Offers,
-      OfferDetails
+      OfferDetails,
+      WhyChooseUs
     }
   }
 

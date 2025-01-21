@@ -16,7 +16,7 @@ const Services = () => {
   return (
     <>
       <PageBanner
-        bgClassName='bg-green-800'
+        bgClassName=''
         title='Our Services'
         subTitle='Take a look at the services that we provide and choose the one that suits you best. We are here to help you with your needs.'
       />

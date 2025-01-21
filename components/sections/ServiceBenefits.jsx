@@ -1,40 +1,27 @@
-import { BiWifi, BiSupport, BiDollarCircle, BiShield, BiCloud, BiSignal5 } from 'react-icons/bi';
+"use client"
+import { useContext, useEffect } from 'react';
 import MotionDiv from '../ui/motion/motionDiv';
-
-const benefits = [
-  {
-    icon: <BiWifi className="w-8 h-8" />,
-    title: "High-Speed Internet",
-    description: "Experience lightning-fast internet speeds perfect for streaming, gaming, and work"
-  },
-  {
-    icon: <BiSupport className="w-8 h-8" />,
-    title: "24/7 Support",
-    description: "Our dedicated support team is always available to help you with any issues"
-  },
-  {
-    icon: <BiDollarCircle className="w-8 h-8" />,
-    title: "Affordable Pricing",
-    description: "Competitive rates with flexible plans to suit every budget"
-  },
-  {
-    icon: <BiShield className="w-8 h-8" />,
-    title: "Secure Connection",
-    description: "Advanced security measures to protect your online activities"
-  },
-  {
-    icon: <BiCloud className="w-8 h-8" />,
-    title: "No Data Caps",
-    description: "Unlimited data usage with no hidden charges or restrictions"
-  },
-  {
-    icon: <BiSignal5 className="w-8 h-8" />,
-    title: "Wide Coverage",
-    description: "Extensive network coverage ensuring connectivity wherever you are"
-  }
-];
+import { Icon } from '@iconify/react';
+import { HomeAPIContext } from '@/contexts/HomeAPIContext';
+import WhyChooseUsSkeleton from '../skeleton/WhyChooseUsSkeleton';
 
 const ServiceBenefits = () => {
+  const { WhyChooseUs, getWhyChooseUsData } = useContext(HomeAPIContext);
+  useEffect(() => {
+    if (!WhyChooseUs.data) {
+      getWhyChooseUsData()
+    }
+  }, []);
+
+  if (WhyChooseUs.isLoading) {
+    return <WhyChooseUsSkeleton />
+  }
+  if (WhyChooseUs.isError) {
+    return <ErrorSection
+      retry={getWhyChooseUsData}
+      message="Something went wrong while fetching why choose us data"
+    />
+  }
   return (
     <div className="py-12 bg-gray-50 dark:bg-gray-900">
       <div className="customContainer">
@@ -46,12 +33,12 @@ const ServiceBenefits = () => {
             </span>
           </h2>
           <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Experience the best internet service with our cutting-edge technology and customer-first approach
+          We have some of the best internet packages, whether you need them for home entertainment sources, small businesses or demanding corporate use. All packages come with flexible bandwidth and the highest level of reliability.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {benefits.map((benefit, index) => (
+          {WhyChooseUs.data?.map((benefit, index) => (
             <MotionDiv
               key={index}
               initial={{ opacity: 0, y: 20 }}
@@ -59,10 +46,10 @@ const ServiceBenefits = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-card hover:shadow-lg transition-all duration-300"
             >
-              <div className="flex items-center gap-4 mb-4">
-                <div className="p-3 rounded-lg bg-gradient-to-r from-primary/10 to-secondary/10">
+              <div className="flex items-center mb-4">
+                <div className="pr-2 rounded-lg bg-gradient-to-r from-primary/10 to-secondary/10">
                   <div className="text-primary">
-                    {benefit.icon}
+                    <Icon icon={benefit?.icon_name} className="w-10 h-10" />
                   </div>
                 </div>
                 <h3 className="text-xl font-semibold">{benefit.title}</h3>

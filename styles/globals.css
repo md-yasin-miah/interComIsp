@@ -53,6 +53,10 @@ body {
     color: var(--foreground) !important;
   } 
 }
+/* disable all base tailwind css in blog-content */
+.blog-content * {
+  all: revert;
+}
 
 /* text ellipsis */
 .ellipsis-1 {

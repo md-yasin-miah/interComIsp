@@ -24,7 +24,7 @@ const Footer = () => {
           </div>
           {
             footerMenu.map((item, index) => (
-              <div key={index} className={`p-[34px] ${index === 2 ? 'col-span-6 md:col-span-4 pr-0' : 'col-span-6 md:col-span-2'}`}>
+              <div key={index} className={`p-[34px] ${index === 1 ?'col-span-6 md:col-span-2': 'col-span-6 md:col-span-3 pr-0' }`}>
                 <h4 className='mb-5 font-bold text-[21px] capitalize'>{item.title}</h4>
                 <ul className=''>
                   {

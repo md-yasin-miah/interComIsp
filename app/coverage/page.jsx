@@ -48,7 +48,7 @@ const Coverage = () => {
   return (
     <>
       <PageBanner
-        bgClassName='bg-blue-800'
+        bgClassName=''
         title='Our Coverage Area'
         subTitle='You check our reasonable and flexible pricing below.'
       />
