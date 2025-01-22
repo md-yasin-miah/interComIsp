@@ -3,12 +3,12 @@ import React, { useContext, useEffect } from 'react';
 import { WavyBackground } from '../ui/wavy-background';
 import PricingCard from '@/components/cards/PricingCard';
 import SectionTitle from '../shared/SectionTitle';
-import { HomeAPIContext } from '@/contexts/HomeAPIContext';
+import { APIContext } from '@/contexts/APIContext';
 import PricingCardSkeleton from '../skeleton/PricingCardSkeleton';
 
 
 const PricingSection = () => {
-  const { Packages, getPackagesData } = useContext(HomeAPIContext);
+  const { Packages, getPackagesData } = useContext(APIContext);
   useEffect(() => {
     !Packages.data && getPackagesData();
   }, []);

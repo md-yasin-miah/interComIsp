@@ -2,11 +2,11 @@
 import { useContext, useEffect,  } from 'react'
 import SectionTitle from '../shared/SectionTitle'
 import OfferCard from '../cards/OfferCard'
-import { HomeAPIContext } from '@/contexts/HomeAPIContext'
+import { APIContext } from '@/contexts/APIContext'
 
 
 const OffersSection = () => {
-  const { Offers, getOffersData } = useContext(HomeAPIContext);
+  const { Offers, getOffersData } = useContext(APIContext);
   useEffect(() => {
     !Offers.data && getOffersData();
   }, []);

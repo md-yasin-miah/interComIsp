@@ -3,9 +3,9 @@ import { COLLECTION } from "@/helper/config";
 import { DB, getUrl } from "@/helper/functions";
 import { createContext, useState } from "react";
 
-export const HomeAPIContext = createContext();
+export const APIContext = createContext();
 
-export const HomeAPIProvider = ({ children }) => {
+export const APIProvider = ({ children }) => {
   const initial = {
     data: null,
     isLoading: false,
@@ -22,7 +22,9 @@ export const HomeAPIProvider = ({ children }) => {
   const [Offers, setOffers] = useState(initial);
   const [OfferDetails, setOfferDetails] = useState(initial);
   const [WhyChooseUs, setWhyChooseUs] = useState(initial);
-
+  //service page state
+  const [Services, setServices] = useState(initial);
+  const [ServiceDetails, setServiceDetails] = useState(initial);
   const homePage = () => {
     // get hero slide data
     const getHeroSlideData = () => {
@@ -179,6 +181,51 @@ export const HomeAPIProvider = ({ children }) => {
     }
   }
 
+  const servicePage = () => {
+    //get services data
+    const getServicesData = () => {
+      setServices({ ...initial, isLoading: true });
+      DB.collection(COLLECTION.SERVICE).getFullList(
+        { filter: `active = true` },
+        { requestKey: null }
+      ).then((result) => {
+        const data = result.map((item) => {
+          return {
+            ...item,
+            bannerImgUrl: getUrl(item, 'banner_img_url')
+          }
+        })
+        setServices({ ...initial, data });
+      }).catch((error) => {
+        console.log(COLLECTION.SERVICE, error)
+        setServices({ ...initial, isError: true });
+      })
+    }
+    //get service details
+    const getServiceDetails = (id) => {
+      setServiceDetails({ ...initial, isLoading: true });
+      DB.collection(COLLECTION.SERVICE).getOne(id, { requestKey: null }).then((result) => {
+        setServiceDetails({ ...initial, data: {
+          ...result,
+          bannerImgUrl: getUrl(result, 'banner_img_url')
+        } });
+      }).catch((error) => {
+        console.log(COLLECTION.SERVICE, error)
+        setServiceDetails({ ...initial, isError: true });
+      })
+    }
+
+    return {
+      //function
+      getServicesData,
+      getServiceDetails,  
+
+      //data
+      Services,
+      ServiceDetails
+    }
+  }
+
   // connection request
   const connectionRequest = {
     create: (data) => {
@@ -202,13 +249,14 @@ export const HomeAPIProvider = ({ children }) => {
 
 
   return (
-    <HomeAPIContext.Provider
+    <APIContext.Provider
       value={{
         ...homePage(),
+        ...servicePage(),
         connectionRequest,
         clientSupportRequest
       }}>
       {children}
-    </HomeAPIContext.Provider>
+    </APIContext.Provider>
   );
 };

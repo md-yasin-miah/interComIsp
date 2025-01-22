@@ -4,13 +4,13 @@ import SectionTitle from '../shared/SectionTitle'
 import ReviewCard from '../cards/ReviewCard';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
-import { HomeAPIContext } from '@/contexts/HomeAPIContext';
+import { APIContext } from '@/contexts/APIContext';
 import { reviewSplideOptions } from '@/lib/utils';
 import ReviewSectionSkeleton from '../skeleton/ReviewSectionSkeleton';
 import ErrorSection from '../sections/ErrorSection';
 
 const ReviewSection = () => {
-  const { ClientReview, getClientReviewData } = useContext(HomeAPIContext);
+  const { ClientReview, getClientReviewData } = useContext(APIContext);
   useEffect(() => {
     if (!ClientReview.data) {
       getClientReviewData()

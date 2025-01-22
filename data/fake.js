@@ -32,44 +32,44 @@ const socialLinks = [
   // { name: 'Google', url: 'https://google.com' },
   // { name: 'Microsoft', url: 'https://microsoft.com' },
 ];
-const services = [
-  {
-    title: "Home Broadband Internet",
-    description: "We are one of the most reliable broadband internet",
-    link: "/services/home-internet",
-    image: image
-  },
-  {
-    title: "Corporate Broadband Internet",
-    description: "Corporate and SME customers dedicated internet connections to ensure network stability.",
-    link: "/services/corporate-internet",
-    image: image
-  },
-  {
-    title: "Complete Network Solutions",
-    description: "Our network engineers work with our clients to provide the most efficient network solutions possible.",
-    link: "/services/network-solutions",
-    image: image
-  },
-  {
-    title: "Home Broadband Internet",
-    description: "We are one of the most reliable broadband internet and network for both gamers and regular users.",
-    link: "/services/home-internet",
-    image: image
-  },
-  {
-    title: "Corporate Broadband Internet",
-    description: "Corporate and SME customers dedicated internet connections to ensure network stability.",
-    link: "/services/corporate-internet",
-    image: image
-  },
-  {
-    title: "Complete Network Solutions",
-    description: "Our network engineers work with our clients to provide the most efficient network solutions possible.",
-    link: "/services/network-solutions",
-    image: image
-  }
-]
+// const services = [
+//   {
+//     title: "Home Broadband Internet",
+//     description: "We are one of the most reliable broadband internet",
+//     link: "/services/home-internet",
+//     image: image
+//   },
+//   {
+//     title: "Corporate Broadband Internet",
+//     description: "Corporate and SME customers dedicated internet connections to ensure network stability.",
+//     link: "/services/corporate-internet",
+//     image: image
+//   },
+//   {
+//     title: "Complete Network Solutions",
+//     description: "Our network engineers work with our clients to provide the most efficient network solutions possible.",
+//     link: "/services/network-solutions",
+//     image: image
+//   },
+//   {
+//     title: "Home Broadband Internet",
+//     description: "We are one of the most reliable broadband internet and network for both gamers and regular users.",
+//     link: "/services/home-internet",
+//     image: image
+//   },
+//   {
+//     title: "Corporate Broadband Internet",
+//     description: "Corporate and SME customers dedicated internet connections to ensure network stability.",
+//     link: "/services/corporate-internet",
+//     image: image
+//   },
+//   {
+//     title: "Complete Network Solutions",
+//     description: "Our network engineers work with our clients to provide the most efficient network solutions possible.",
+//     link: "/services/network-solutions",
+//     image: image
+//   }
+// ]
 // Define coverage areas with their coordinates and radius
 const coverageAreas = [
   {
@@ -480,7 +480,7 @@ const blogPosts = [
 
 export {
   socialLinks,
-  services,
+  // services,
   coverageAreas,
   pricingData,
   blogPosts

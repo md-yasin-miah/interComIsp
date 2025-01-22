@@ -4,12 +4,12 @@ import SectionTitle from '@/components/shared/SectionTitle'
 import Button from '../shared/Button'
 import { DotLottieReact } from '@lottiefiles/dotlottie-react'
 import MotionDiv from '../ui/motion/motionDiv'
-import { HomeAPIContext } from '@/contexts/HomeAPIContext'
+import { APIContext } from '@/contexts/APIContext'
 import AboutSkeleton from '../skeleton/AboutSkeleton'
 import ErrorSection from '../sections/ErrorSection'
 
 const AboutUsSection = () => {
-  const {getAboutData, About} = useContext(HomeAPIContext);
+  const {getAboutData, About} = useContext(APIContext);
   useEffect(() => {
     if(!About.data){
       getAboutData()

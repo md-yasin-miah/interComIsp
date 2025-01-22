@@ -6,6 +6,7 @@ import { HiOutlineClock, HiOutlineUser, HiOutlineSearch } from 'react-icons/hi'
 import { blogPosts } from '@/data/fake'
 import SectionTitle from '@/components/shared/SectionTitle'
 import MotionDiv from '@/components/ui/motion/motionDiv'
+import PageBanner from '@/components/shared/PageBanner'
 
 const categories = [...new Set(blogPosts.map(post => post.category))]
 
@@ -21,8 +22,12 @@ const BlogPage = () => {
   })
 
   return (
-    <div className="py-10">
-      <div className="customContainer">
+    <div>
+      <PageBanner
+        title="Our Blog"
+        subTitle="Stay informed with our latest articles and updates"
+      />
+      <div className="customContainer py-10">
         <SectionTitle
           title="Our"
           title2="Blog"
@@ -89,6 +94,7 @@ const BlogPage = () => {
                     src={post.image}
                     alt={post.title}
                     fill
+                    sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
                     className="object-cover transition-transform duration-300 hover:scale-105"
                   />
                   <div className="absolute top-4 left-4">

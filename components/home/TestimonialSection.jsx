@@ -8,12 +8,12 @@ import { GridBackground } from '../ui/grid-background'
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
 import { testimonialSplideOptions } from '@/lib/utils'
-import { HomeAPIContext } from '@/contexts/HomeAPIContext'
+import { APIContext } from '@/contexts/APIContext'
 import TestimonialSectionSkeleton from '../skeleton/TestimonialSectionSkeleton'
 import ErrorSection from '../sections/ErrorSection'
 
 const TestimonialSection = () => {
-    const { Testimonial, getTestimonialData } = useContext(HomeAPIContext);
+    const { Testimonial, getTestimonialData } = useContext(APIContext);
     const [activeVideo, setActiveVideo] = useState(null);
     const [isPlaying, setIsPlaying] = useState(false);
 

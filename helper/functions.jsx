@@ -96,6 +96,8 @@ const getSocialIcon = (icon) => {
       return <FaFacebook />;
   }
 }
+
+
 const DB = new PocketBase(DB_BASE_URL);
 const getUrl = (item, name) => {
   return DB.files.getURL(item, item[name])

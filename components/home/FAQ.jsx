@@ -2,12 +2,12 @@
 import { useEffect, useContext } from 'react'
 import SectionTitle from '../shared/SectionTitle'
 import FaqCard from '../cards/FaqCard'
-import { HomeAPIContext } from '@/contexts/HomeAPIContext'
+import { APIContext } from '@/contexts/APIContext'
 import FAQSkeleton from '../skeleton/FAQSkeleton'
 import ErrorSection from '../sections/ErrorSection'
 
 const FAQ = () => {
-  const { FAQ, getFaqData } = useContext(HomeAPIContext);
+  const { FAQ, getFaqData } = useContext(APIContext);
   useEffect(() => {
     !FAQ.data && getFaqData();
   }, []);

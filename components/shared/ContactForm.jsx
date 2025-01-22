@@ -5,10 +5,10 @@ import LabelInputContainer from '@/components/ui/LabelInputContainer'
 import { Label } from '@/components/ui/label'
 import { Input, Textarea } from '@/components/ui/input'
 import MotionButton from '../ui/motion/motionButton'
-import { HomeAPIContext } from '@/contexts/HomeAPIContext';
+import { APIContext } from '@/contexts/APIContext';
 
 const ContactForm = () => {
-  const { clientSupportRequest } = useContext(HomeAPIContext);
+  const { clientSupportRequest } = useContext(APIContext);
   const [formData, setFormData] = useState({
     name: '',
     companyName: '',

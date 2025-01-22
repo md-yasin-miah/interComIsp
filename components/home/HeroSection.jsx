@@ -5,7 +5,7 @@ import { TextGenerateEffect } from '../ui/text-generate-effect'
 import { AuroraBackground } from '../ui/aurora-background'
 import { DotLottieReact } from '@lottiefiles/dotlottie-react'
 import { heroSliderOptions } from '@/lib/utils'
-import { HomeAPIContext } from '@/contexts/HomeAPIContext'
+import { APIContext } from '@/contexts/APIContext'
 import { getSocialIcon } from '@/helper/functions'
 import HeroSkeleton from '../skeleton/HeroSkeleton'
 import Button from '../shared/Button'
@@ -16,7 +16,7 @@ const HeroSection = () => {
     const {
         HeroSlide,
         getHeroSlideData
-    } = useContext(HomeAPIContext);
+    } = useContext(APIContext);
     useEffect(() => {
         if (!HeroSlide.data) {
             getHeroSlideData()

@@ -3,6 +3,7 @@ export const DB_BASE_URL = process.env.NEXT_PUBLIC_DB_BASE_URL;
 
 // data collection name
 export const COLLECTION = {
+  // home page
   HERO_SLIDE: 'heroSlide',
   ABOUT: 'about',
   TESTIMONIAL: 'testimonial',
@@ -10,9 +11,18 @@ export const COLLECTION = {
   FAQ: 'faq',
   PACKAGES: 'packages',
   OFFERS: 'offers',
+  // service page
+  SERVICE: 'services',
+
 
   CONNECTION_REQUEST: 'connection_request',
   SUPPORT_REQUEST: 'support_request',
   WHY_CHOOSE_US: 'why_choose_us',
   POLICIES: 'all_policies'
 }
+
+// app info
+export const APP_NAME = 'NetCom Internet';
+export const APP_DESCRIPTION = 'NetCom Internet';
+export const APP_KEYWORDS = 'NetCom Internet, ISP';
+export const APP_AUTHOR = 'NetCom Internet';

@@ -1,16 +1,16 @@
 import React from 'react'
 import { ThemeProvider } from './ThemeContext'
-import { HomeAPIProvider } from './HomeAPIContext'
+import { APIProvider } from './APIContext'
 import { PolicyAPIProvider } from './PolicyAPIContext'
 
 const Provider = ({children}) => {
   return (
     <ThemeProvider>
-          <HomeAPIProvider>
+          <APIProvider>
             <PolicyAPIProvider>
               {children}
             </PolicyAPIProvider>
-          </HomeAPIProvider>
+          </APIProvider>
     </ThemeProvider>
   )
 }

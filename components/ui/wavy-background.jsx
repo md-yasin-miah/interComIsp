@@ -76,7 +76,7 @@ export const WavyBackground = ({
 
   let animationId;
   const render = () => {
-    ctx.fillStyle = backgroundFill || (theme === "dark" ? "black" : "#f0f2f7");
+    ctx.fillStyle = backgroundFill || (theme === "dark" ? "transparent" : "white");
     ctx.globalAlpha = waveOpacity || 0.5;
     ctx.fillRect(0, 0, w, h);
     drawWave(5);

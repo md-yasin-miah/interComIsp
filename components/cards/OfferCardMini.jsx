@@ -2,7 +2,7 @@ import React from 'react'
 import MotionArticle from '../ui/motion/motionArticle'
 import Image from 'next/image'
 
-const OfferCardMini = ({offer}) => {
+const OfferCardMini = ({post}) => {
   return (
     <MotionArticle
       initial={{ opacity: 0, y: 20 }}
@@ -19,10 +19,10 @@ const OfferCardMini = ({offer}) => {
             <div className='aspect-[7/6] h-full'>
                 <div className='relative h-full w-full flex items-center justify-center overflow-hidden'>
                     {
-                        offer?.bannerImgUrl && (
+                        post?.bannerImgUrl && (
                             <Image 
-                            src={offer?.bannerImgUrl} 
-                            alt='offer' 
+                            src={post?.bannerImgUrl} 
+                            alt='post' 
                             fill
                             loading = 'lazy'
                             sizes="(max-width: 166.66px) 100vw, 50vw"
@@ -33,8 +33,8 @@ const OfferCardMini = ({offer}) => {
                 </div>  
             </div>
             <div className='p-2 pl-4'>
-                <h3 className='ellipsis-1 text-lg font-semibold'>{offer?.title}</h3>
-                <p className='ellipsis-2 text-sm text-gray-300'>{offer?.short_description}</p> 
+                <h3 className='ellipsis-1 text-lg font-semibold'>{post?.title}</h3>
+                <p className='ellipsis-2 text-sm text-gray-300'>{post?.short_description}</p> 
             </div>
         </div>
     </MotionArticle>

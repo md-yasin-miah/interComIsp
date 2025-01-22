@@ -5,10 +5,10 @@ import LabelInputContainer from '../ui/LabelInputContainer';
 import { Label } from '../ui/label';
 import { Input } from '../ui/input';
 import Button from '../shared/Button';
-import { HomeAPIContext } from '@/contexts/HomeAPIContext';
+import { APIContext } from '@/contexts/APIContext';
 
 const LeadCaptureForm = () => {
-    const { connectionRequest } = useContext(HomeAPIContext);
+    const { connectionRequest } = useContext(APIContext);
     const [formData, setFormData] = useState({
         name: '',
         email: '',

@@ -2,11 +2,11 @@
 import { useContext, useEffect } from 'react';
 import MotionDiv from '../ui/motion/motionDiv';
 import { Icon } from '@iconify/react';
-import { HomeAPIContext } from '@/contexts/HomeAPIContext';
+import { APIContext } from '@/contexts/APIContext';
 import WhyChooseUsSkeleton from '../skeleton/WhyChooseUsSkeleton';
 
 const ServiceBenefits = () => {
-  const { WhyChooseUs, getWhyChooseUsData } = useContext(HomeAPIContext);
+  const { WhyChooseUs, getWhyChooseUsData } = useContext(APIContext);
   useEffect(() => {
     if (!WhyChooseUs.data) {
       getWhyChooseUsData()
