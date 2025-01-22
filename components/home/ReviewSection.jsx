@@ -8,6 +8,7 @@ import { APIContext } from '@/contexts/APIContext';
 import { reviewSplideOptions } from '@/lib/utils';
 import ReviewSectionSkeleton from '../skeleton/ReviewSectionSkeleton';
 import ErrorSection from '../sections/ErrorSection';
+import Link from 'next/link';
 
 const ReviewSection = () => {
   const { ClientReview, getClientReviewData } = useContext(APIContext);
@@ -45,8 +46,8 @@ const ReviewSection = () => {
           </Splide>
         </div>
         <div className="text-center mt-10">
-          <a
-            href={`https://www.google.com/business/reviews/${process.env.NEXT_PUBLIC_GOOGLE_BUSINESS_ID}`}
+          <Link
+            href={`https://maps.app.goo.gl/HFjgUKsmf6MaUZuA9`}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center text-blue-600 dark:text-white hover:text-blue-800 transition-colors duration-300"
@@ -55,7 +56,7 @@ const ReviewSection = () => {
             <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
-          </a>
+          </Link>
         </div>
       </div>
     </section>
