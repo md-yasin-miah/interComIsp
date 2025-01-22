@@ -120,7 +120,10 @@ export const APIProvider = ({ children }) => {
     //get offers data
     const getOffersData = () => {
       setOffers({ ...initial, isLoading: true });
-      DB.collection(COLLECTION.OFFERS).getFullList({ requestKey: null }).then((result) => {
+      DB.collection(COLLECTION.OFFERS).getFullList(
+        { filter: `view_in_home = true` },
+        { requestKey: null }
+      ).then((result) => {
         const data = result.map((item) => {
           return {
             ...item,
