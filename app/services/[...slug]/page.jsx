@@ -6,6 +6,8 @@ import { PATH } from '@/helper/pathConfig'
 import ErrorSection from '@/components/sections/ErrorSection'
 import OtherPost from '@/components/sections/OtherPost'
 import PostDetails from '@/components/sections/PostDetails'
+import Link from 'next/link'
+import MotionButton from '@/components/ui/motion/motionButton'
 
 const ServiceDetails = ({ params }) => {
     const unwrappedParams = React.use(params);
@@ -47,6 +49,17 @@ const ServiceDetails = ({ params }) => {
                         isLoading={ServiceDetails.isLoading}
                         data={ServiceDetails.data}
                     />
+                    <div className='w-full flex justify-center mt-10'>
+                        <Link href={`${PATH.contact}/#contactForm`}>
+                            <MotionButton
+                              whileHover={{ scale: 1.05 }}
+                              whileTap={{ scale: 0.95 }}
+                              className="mt-4 px-6 py-2 bg-gradient-to-r from-primary to-secondary text-white rounded-lg w-fit"
+                            >
+                              Get a quote
+                            </MotionButton>
+                          </Link>
+                    </div>
                 </div>
                 {/* Other offers sidebar */}
                 <div className='lg:col-span-1'>

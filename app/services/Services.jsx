@@ -98,13 +98,15 @@ const Services = () => {
                               </MotionButton>
                             </Link>
                           :
-                          <MotionButton
-                            whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                          className="mt-4 px-6 py-2 bg-gradient-to-r from-primary to-secondary text-white rounded-lg w-fit"
-                        >
+                          <Link href={`${PATH.contact}/#contactForm`}>
+                            <MotionButton
+                              whileHover={{ scale: 1.05 }}
+                              whileTap={{ scale: 0.95 }}
+                              className="mt-4 px-6 py-2 bg-gradient-to-r from-primary to-secondary text-white rounded-lg w-fit"
+                            >
                               Get a quote
                             </MotionButton>
+                          </Link>
                         }
                       </div>
                     </div>

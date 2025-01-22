@@ -1,7 +1,6 @@
 "use client"
 import React from 'react'
 import { motion } from 'framer-motion'
-import { HiOutlineClock, HiOutlineSupport, HiOutlineLightningBolt, HiOutlineCreditCard } from 'react-icons/hi'
 import SectionTitle from '../shared/SectionTitle'
 import MotionDiv from '../ui/motion/motionDiv'
 import { Icon } from '@iconify/react'

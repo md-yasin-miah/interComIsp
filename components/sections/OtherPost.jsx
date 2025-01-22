@@ -14,30 +14,29 @@ const OtherPost = ({
 }) => {
     const [searchQuery, setSearchQuery] = useState('');
   return (
-    
-        <div className='lg:sticky lg:top-[100px]'>
-            <div className='md:pl-6'>
-                <h3 className='md:text-2xl text-xl font-semibold mb-2'>{title}</h3>
+    <div className='lg:sticky lg:top-[100px]'>
+        <div className='md:pl-6'>
+            <h3 className='md:text-2xl text-xl font-semibold mb-2'>{title}</h3>
                 {/* add a search input */}
                 <div className='flex items-center gap-2 w-full mb-4'>
-                                <LabelInputContainer>
-                                    <Input
-                                        placeholder='Search here'
-                                        type='text'
-                                        value={searchQuery}
-                                        onChange={(e) => setSearchQuery(e.target.value)}
-                                        />
-                                </LabelInputContainer>
-                            </div>
-                        </div>
-                        <div className='md:space-y-5 space-y-4 max-h-[calc(100vh-230px)] overflow-y-auto md:pl-6 pr-2 pt-1 scrollbar-thin'>
-        {isLoading ?
-            [1,2,3].map((_, index) => (
-                <CompactOfferCardSkeleton key={index} />
-            ))
-            :
-            data?.filter(post => post.id !== activeID)
-            // sort offers by searchQuery
+                    <LabelInputContainer>
+                        <Input
+                            placeholder='Search here'
+                            type='text'
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                        />
+                    </LabelInputContainer>
+                </div>
+            </div>
+            <div className='md:space-y-5 space-y-4 max-h-[calc(100vh-230px)] overflow-y-auto md:pl-6 pr-2 pt-1 scrollbar-thin'>
+                {isLoading ?
+                    [1,2,3].map((_, index) => (
+                        <CompactOfferCardSkeleton key={index} />
+                    ))
+                :
+                data?.filter(post => post.id !== activeID)
+                // sort offers by searchQuery
             ?.sort((a, b) => {
                 const aTitle = a?.title?.toLowerCase();
                 const bTitle = b?.title?.toLowerCase();
@@ -54,10 +53,9 @@ const OtherPost = ({
                     />
                 </Link>
             ))
-        }
-            </div>
+            }
         </div>
-   
+    </div>
   )
 }
 
