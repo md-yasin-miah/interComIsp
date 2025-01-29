@@ -10,6 +10,7 @@ import { getSocialIcon } from '@/helper/functions'
 import HeroSkeleton from '../skeleton/HeroSkeleton'
 import Button from '../shared/Button'
 import ErrorSection from '../sections/ErrorSection'
+import Image from 'next/image'
 
 const HeroSection = () => {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -88,14 +89,14 @@ const Slider = ({ options, setActiveIndex, activeIndex, data }) => {
                                     <Button
                                         href={slide.getStartButtonLink}
                                         className="bg-primary text-white px-8 py-3 rounded-lg hover:bg-primary/90 transition"
-                            >
-                                    Get it started
-                                </Button>
-                            )}
+                                    >
+                                        Get it started
+                                    </Button>
+                                )}
                         </div>
                         {/* Right Image */}
                         <div className="lg:col-span-5 col-span-12 h-full order-1 lg:order-2">
-                            {slide.featureImage_url && (
+                            {slide.featureImage_url && slide.featureImage_url?.includes('.lottie') ? (
                                 <DotLottieReact
                                     src={slide.featureImage_url}
                                     loop={true}
@@ -103,6 +104,15 @@ const Slider = ({ options, setActiveIndex, activeIndex, data }) => {
                                     onError={(error) => {
                                         console.error("Lottie Error:", error);
                                     }}
+                                />
+                            ) : (
+                                <Image
+                                    src={slide.featureImage_url}
+                                    alt={slide.tittle}
+                                    width={500}
+                                    height={500}
+                                    loading="lazy"
+                                    className="w-full h-full object-contain"
                                 />
                             )}
                         </div>

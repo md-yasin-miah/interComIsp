@@ -41,45 +41,43 @@ const Coverage = () => {
   // Filter areas based on search and selected district
   const filteredAreas = coverageAreas
     .find(district => district.district === selectedDistrict)?.area
-    .filter(area => 
+    .filter(area =>
       area.name.toLowerCase().includes(searchQuery.toLowerCase())
     ) || []
 
   return (
     <>
       <PageBanner
-        bgClassName=''
-        title='Our Coverage Area'
-        subTitle='You check our reasonable and flexible pricing below.'
+        pageName='coverage'
       />
-      
+
       {/* search coverage area */}
       <section className="md:py-8 py-5 max-sm:px-10 bg-white shadow-card hover:shadow-cardHover dark:bg-slate-700 customContainer max-sm:!w-full md:rounded-full md:-translate-y-1/2">
-          <div className="max-w-2xl mx-auto">
-            <div className="flex flex-col md:flex-row gap-4">
-              {/* District Select */}
-              <LabelInputContainer className={cn('w-full md:w-2/3')}>
-                <Select 
-                  options={coverageAreas.map(district => ({ value: district.district, label: district.district }))} 
-                  value={selectedDistrict}
-                  onChange={(e) => setSelectedDistrict(e.target.value)}
-                />
-              </LabelInputContainer>
-              
-              {/* Search Input */}
-              <LabelInputContainer>
-                <Input
-                  id="search"
-                  placeholder="Search Area..."
-                  type="text"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  required
-                  icon={<IoSearch />}
-                />
-              </LabelInputContainer>
-            </div>
+        <div className="max-w-2xl mx-auto">
+          <div className="flex flex-col md:flex-row gap-4">
+            {/* District Select */}
+            <LabelInputContainer className={cn('w-full md:w-2/3')}>
+              <Select
+                options={coverageAreas.map(district => ({ value: district.district, label: district.district }))}
+                value={selectedDistrict}
+                onChange={(e) => setSelectedDistrict(e.target.value)}
+              />
+            </LabelInputContainer>
+
+            {/* Search Input */}
+            <LabelInputContainer>
+              <Input
+                id="search"
+                placeholder="Search Area..."
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                required
+                icon={<IoSearch />}
+              />
+            </LabelInputContainer>
           </div>
+        </div>
       </section>
 
       <section className="pt-10 pb-20">
@@ -95,7 +93,7 @@ const Coverage = () => {
               title2={selectedDistrict}
               placeholder_title='Area'
               subTitle={<span>
-                Experience high-speed internet coverage across {selectedDistrict}.<br /> 
+                Experience high-speed internet coverage across {selectedDistrict}.<br />
                 Check our service availability in your area.
               </span>}
             />

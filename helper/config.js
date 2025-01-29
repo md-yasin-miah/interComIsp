@@ -13,7 +13,8 @@ export const COLLECTION = {
   OFFERS: 'offers',
   // service page
   SERVICE: 'services',
-
+  // page banner
+  PAGE_BANNER: 'page_banner',
 
   CONNECTION_REQUEST: 'connection_request',
   SUPPORT_REQUEST: 'support_request',

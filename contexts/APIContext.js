@@ -22,6 +22,10 @@ export const APIProvider = ({ children }) => {
   const [Offers, setOffers] = useState(initial);
   const [OfferDetails, setOfferDetails] = useState(initial);
   const [WhyChooseUs, setWhyChooseUs] = useState(initial);
+
+  //page banner state
+  const [PageBanners, setPageBanners] = useState(initial);
+
   //service page state
   const [Services, setServices] = useState(initial);
   const [ServiceDetails, setServiceDetails] = useState(initial);
@@ -139,10 +143,12 @@ export const APIProvider = ({ children }) => {
     const getOfferDetails = (id) => {
       setOfferDetails({ ...initial, isLoading: true });
       DB.collection(COLLECTION.OFFERS).getOne(id, { requestKey: null }).then((result) => {
-        setOfferDetails({ ...initial, data: {
-          ...result,
-          bannerImgUrl: getUrl(result, 'banner_img')
-        } });
+        setOfferDetails({
+          ...initial, data: {
+            ...result,
+            bannerImgUrl: getUrl(result, 'banner_img')
+          }
+        });
       }).catch((error) => {
         console.log(COLLECTION.OFFERS, error)
         setOfferDetails({ ...initial, isError: true });
@@ -208,10 +214,12 @@ export const APIProvider = ({ children }) => {
     const getServiceDetails = (id) => {
       setServiceDetails({ ...initial, isLoading: true });
       DB.collection(COLLECTION.SERVICE).getOne(id, { requestKey: null }).then((result) => {
-        setServiceDetails({ ...initial, data: {
-          ...result,
-          bannerImgUrl: getUrl(result, 'banner_img_url')
-        } });
+        setServiceDetails({
+          ...initial, data: {
+            ...result,
+            bannerImgUrl: getUrl(result, 'banner_img_url')
+          }
+        });
       }).catch((error) => {
         console.log(COLLECTION.SERVICE, error)
         setServiceDetails({ ...initial, isError: true });
@@ -221,12 +229,30 @@ export const APIProvider = ({ children }) => {
     return {
       //function
       getServicesData,
-      getServiceDetails,  
+      getServiceDetails,
 
       //data
       Services,
       ServiceDetails
     }
+  }
+
+  //page banner data
+  const getPageBannerData = () => {
+    setPageBanners({ ...initial, isLoading: true });
+    DB.collection(COLLECTION.PAGE_BANNER).getFullList({ requestKey: null }).then((result) => {
+      setPageBanners({
+        ...initial, data: result.map((item) => {
+          return {
+            ...item,
+            bannerImgUrl: getUrl(item, 'banner_img')
+          }
+        })
+      });
+    }).catch((error) => {
+      console.log(COLLECTION.PAGE_BANNER, error)
+      setPageBanners({ ...initial, isError: true });
+    })
   }
 
   // connection request
@@ -256,6 +282,8 @@ export const APIProvider = ({ children }) => {
       value={{
         ...homePage(),
         ...servicePage(),
+        getPageBannerData,
+        PageBanners,
         connectionRequest,
         clientSupportRequest
       }}>

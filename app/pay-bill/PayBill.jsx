@@ -5,10 +5,8 @@ import React from 'react'
 const PayBill = () => {
   return (
     <>
-    <PageBanner
-        bgClassName='bg-primary'
-        title='Easy to Pay'
-        subTitle='Take a look at the services that we provide and choose the one that suits you best. We are here to help you with your needs.'
+      <PageBanner
+        pageName='pay-bill'
       />
       <section className='pt-10 pb-20'>
         <div className='customContainer'>

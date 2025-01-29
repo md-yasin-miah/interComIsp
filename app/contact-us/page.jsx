@@ -8,9 +8,7 @@ const ContactUs = () => {
     <ConnectSection
       banner={
         <PageBanner
-          bgClassName='bg-secondary'
-          title='Contact Us'
-          subTitle='We are here to help you with your needs.'
+          pageName='contact-us'
         />
       }
       sectionTitle={
