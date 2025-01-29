@@ -17,16 +17,14 @@ import { PATH } from '@/helper/pathConfig'
 
 
 const Services = () => {
-  const { Services, getServicesData} = useContext(APIContext)
+  const { Services, getServicesData } = useContext(APIContext)
   useEffect(() => {
-   !Services.data && getServicesData();
+    !Services.data && getServicesData();
   }, []);
   return (
     <>
       <PageBanner
-        bgClassName=''
-        title='Our Services'
-        subTitle='Take a look at the services that we provide and choose the one that suits you best. We are here to help you with your needs.'
+        pageName='services'
       />
       <section className='relative py-10 overflow-hidden'>
         <GridBackground animationDot={false} />
@@ -39,13 +37,13 @@ const Services = () => {
 
           {/* service card section */}
           {
-            Services.isLoading ? 
+            Services.isLoading ?
               <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-[120px]'>
                 {Array.from({ length: 3 }).map((_, index) => (
                   <ServiceCardSkeleton key={index} />
                 ))}
               </div>
-            :
+              :
               <div className="mt-10">
                 <HoverEffect effectBGClassName="bg-gradient-to-t from-primary to-secondary" items={Services.data?.map(service => ({
                   content: (
@@ -60,7 +58,7 @@ const Services = () => {
                           alt={service?.banner_img_url || service?.title}
                           fill
                           className="object-cover"
-                          sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'  
+                          sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
                         />
                       </MotionDiv>
                       <div className='p-5 h-full flex flex-col justify-between'>
@@ -97,16 +95,16 @@ const Services = () => {
                                 Read More
                               </MotionButton>
                             </Link>
-                          :
-                          <Link href={`${PATH.contact}/#contactForm`}>
-                            <MotionButton
-                              whileHover={{ scale: 1.05 }}
-                              whileTap={{ scale: 0.95 }}
-                              className="mt-4 px-6 py-2 bg-gradient-to-r from-primary to-secondary text-white rounded-lg w-fit"
-                            >
-                              Get a quote
-                            </MotionButton>
-                          </Link>
+                            :
+                            <Link href={`${PATH.contact}/#contactForm`}>
+                              <MotionButton
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                className="mt-4 px-6 py-2 bg-gradient-to-r from-primary to-secondary text-white rounded-lg w-fit"
+                              >
+                                Get a quote
+                              </MotionButton>
+                            </Link>
                         }
                       </div>
                     </div>

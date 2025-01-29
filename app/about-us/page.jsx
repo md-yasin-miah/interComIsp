@@ -5,23 +5,15 @@ import Button from '@/components/shared/Button'
 import SectionTitle from '@/components/shared/SectionTitle'
 import { DotLottieReact } from '@lottiefiles/dotlottie-react'
 import MotionDiv from '@/components/ui/motion/motionDiv'
-import ServiceBenefits from '@/components/sections/ServiceBenefits'
+import PageBanner from '@/components/shared/PageBanner'
 
 const AboutUsPage = () => {
   return (
     <main>
       {/* Hero Section */}
-      <section className="relative min-h-[300px] md:min-h-[400px] bg-gradient-to-r from-primary/90 to-secondary/90 flex items-center">
-        <div className="absolute inset-0 dark:bg-grid-white/[0.1] bg-grid-black/[0.1] bg-grid" />
-        <div className="customContainer">
-            <SectionTitle
-                title="About"
-                title2="Us"
-                subTitle="Need assistance? Contact us for reliable support, quick responses, and solutions to all your service inquiries."
-                className="!items-start w-[60%]"
-            />
-        </div>
-      </section>
+      <PageBanner
+        pageName='about-us'
+      />
 
       {/* Vision Section */}
       <section className='md:py-20 py-10'>
@@ -83,7 +75,7 @@ const AboutUsPage = () => {
                 subTitle="Empowering businesses with robust connectivity solutions"
                 className="!items-start"
               />
-              
+
               {/* Features List */}
               <div className="space-y-4 mt-8">
                 <FeatureItem>Complete Suite of Services</FeatureItem>
@@ -91,8 +83,8 @@ const AboutUsPage = () => {
                 <FeatureItem>Widest Reach: Connect Anywhere, Anytime</FeatureItem>
               </div>
 
-              <Button 
-                href="/contact" 
+              <Button
+                href="/contact"
                 className="mt-8"
                 animation="stepUp"
               >
@@ -112,16 +104,16 @@ const AboutUsPage = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent" />
               </div>
-              
+
             </div>
-              {/* Stats Cards */}
+            {/* Stats Cards */}
           </div>
-              <div className=" grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
-                <StatCard number="99.9%" label="Uptime" />
-                <StatCard number="24/7" label="Support" />
-                <StatCard number="24/7" label="Support" />
-                <StatCard number="100+" label="Enterprise Clients"/>
-              </div>
+          <div className=" grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
+            <StatCard number="99.9%" label="Uptime" />
+            <StatCard number="24/7" label="Support" />
+            <StatCard number="24/7" label="Support" />
+            <StatCard number="100+" label="Enterprise Clients" />
+          </div>
         </div>
       </section>
     </main>

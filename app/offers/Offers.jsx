@@ -16,8 +16,7 @@ const Offers = () => {
   return (
     <>
       <PageBanner
-        title='Our Fantastic Offers'
-        subTitle='Take a look at the offers that we provide and choose the one that suits you best. We are here to help you with your needs.'
+        pageName='offers'
       />
       <section className='pt-10 pb-20'>
         <div className='customContainer'>
