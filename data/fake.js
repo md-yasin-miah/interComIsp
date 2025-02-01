@@ -343,7 +343,6 @@ const blogPosts = [
 
 export {
   socialLinks,
-  // services,
   coverageAreas,
   blogPosts
 }
