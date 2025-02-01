@@ -5,7 +5,6 @@ import LabelInputContainer from '@/components/ui/LabelInputContainer'
 import { Label } from '@/components/ui/label'
 import { Input } from '@/components/ui/input'
 import PricingCard from '@/components/cards/PricingCard'
-import { pricingData } from '@/data/fake'
 import PageBanner from '@/components/shared/PageBanner'
 import MotionButton from '@/components/ui/motion/motionButton'
 import MotionDiv from '@/components/ui/motion/motionDiv'
@@ -194,15 +193,10 @@ const Packages = () => {
 
           {/* Tab Content */}
           <div className="mt-8">
-            {activeTab === 'basic' && renderPricingCards(pricingData.filter(item => item.type === 'basic'))}
-            {activeTab === 'standard' && renderPricingCards(pricingData.filter(item => item.type === 'standard'))}
-            {activeTab === 'premium' && renderPricingCards(pricingData.filter(item => item.type === 'premium'))}
-            {activeTab === 'corporate' &&
-              <div className='flex flex-col gap-20'>
-                {renderPricingCards(Packages?.data?.filter(item => item.type === 'corporate'))}
-                {renderCorporateForm()}
-              </div>
-            }
+            <div className='flex flex-col gap-20'>
+              {renderPricingCards(Packages?.data?.filter(item => item.type === activeTab))}
+              {activeTab === 'corporate' && renderCorporateForm()}
+            </div>
           </div>
         </div>
       </section>
