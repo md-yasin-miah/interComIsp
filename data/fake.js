@@ -345,6 +345,5 @@ export {
   socialLinks,
   // services,
   coverageAreas,
-  pricingData,
   blogPosts
 }
