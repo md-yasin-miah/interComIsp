@@ -24,7 +24,7 @@ const Footer = () => {
           </div>
           {
             footerMenu.map((item, index) => (
-              <div key={index} className={`p-[34px] ${index === 1 ?'col-span-6 md:col-span-2': 'col-span-6 md:col-span-3 pr-0' }`}>
+              <div key={index} className={`p-[34px] ${index === 1 ? 'col-span-6 md:col-span-2' : 'col-span-6 md:col-span-3 pr-0'}`}>
                 <h4 className='mb-5 font-bold text-[21px] capitalize'>{item.title}</h4>
                 <ul className=''>
                   {
@@ -41,7 +41,7 @@ const Footer = () => {
         </section>
         <section className='md:py-[18px] md:px-[50px] py-4 px-4 mt-2.5 mb-5 bg-white/10 rounded-lg'>
           <div className='flex flex-col md:flex-row max-sm:gap-3 items-center justify-between'>
-            <p className='text-sm'>Copyright © 2024 <span className='font-semibold'>Netcom Internet</span> | All Rights Reserved.<br />  Developed by
+            <p className='text-sm'>Copyright © {new Date()?.getFullYear()} <span className='font-semibold'>Netcom Internet</span> | All Rights Reserved.<br />  Developed by
               <span className='font-semibold'>
                 <Link href='#' className='transition-all duration-300 hover:text-primary'> Net Land System Bangladesh</Link>
               </span>

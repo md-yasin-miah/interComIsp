@@ -35,65 +35,65 @@ import PocketBase from 'pocketbase';
 const getSocialIcon = (icon) => {
   switch (icon.toLowerCase()) {
     case 'facebook':
-      return <FaFacebook />;
+      return FaFacebook;
     case 'twitter':
-      return <FaTwitter />;
+      return FaTwitter;
     case 'instagram':
-      return <FaInstagram />;
+      return FaInstagram;
     case 'linkedin':
-      return <FaLinkedin />;
+      return FaLinkedin;
     case 'youtube':
-      return <FaYoutube />;
+      return FaYoutube;
     case 'pinterest':
-      return <FaPinterest />;
+      return FaPinterest;
     case 'snapchat':
-      return <FaSnapchat />;
+      return FaSnapchat;
     case 'reddit':
-      return <FaReddit />;
+      return FaReddit;
     case 'whatsapp':
-      return <FaWhatsapp />;
+      return FaWhatsapp;
     case 'telegram':
-      return <FaTelegram />;
+      return FaTelegram;
     case 'tiktok':
-      return <FaTiktok />;
+      return FaTiktok;
     case 'github':
-      return <FaGithub />;
+      return FaGithub;
     case 'gitlab':
-      return <FaGitlab />;
+      return FaGitlab;
     case 'medium':
-      return <FaMedium />;
+      return FaMedium;
     case 'dribbble':
-      return <FaDribbble />;
+      return FaDribbble;
     case 'behance':
-      return <FaBehance />;
+      return FaBehance;
     case 'vimeo':
-      return <FaVimeo />;
+      return FaVimeo;
     case 'discord':
-      return <FaDiscord />;
+      return FaDiscord;
     case 'slack':
-      return <FaSlack />;
+      return FaSlack;
     case 'tumblr':
-      return <FaTumblr />;
+      return FaTumblr;
     case 'wechat':
-      return <FaWeixin />;
+      return FaWeixin;
     case 'line':
-      return <FaLine />;
+      return FaLine;
     case 'flickr':
-      return <FaFlickr />;
+      return FaFlickr;
     case 'quora':
-      return <FaQuora />;
+      return FaQuora;
     case 'soundcloud':
-      return <FaSoundcloud />;
+      return FaSoundcloud;
     case 'spotify':
-      return <FaSpotify />;
+      return FaSpotify;
     case 'apple':
-      return <FaApple />;
+      return FaApple;
     case 'google':
-      return <FaGoogle />;
+      return FaGoogle;
     case 'microsoft':
-      return <FaMicrosoft />;
+      return FaMicrosoft;
     default:
-      return <FaFacebook />;
+      return FaFacebook;
   }
 }
 

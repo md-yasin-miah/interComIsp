@@ -29,6 +29,10 @@ export const APIProvider = ({ children }) => {
   //service page state
   const [Services, setServices] = useState(initial);
   const [ServiceDetails, setServiceDetails] = useState(initial);
+
+  // contact us page state
+  const [ContactInfo, setContactInfo] = useState(initial);
+
   const homePage = () => {
     // get hero slide data
     const getHeroSlideData = () => {
@@ -237,6 +241,19 @@ export const APIProvider = ({ children }) => {
     }
   }
 
+  // contact us page data
+  const getContactInfoData = () => {
+    setContactInfo({ ...initial, isLoading: true });
+    DB.collection(COLLECTION.CONTACT_INFO).getFullList(
+      { filter: `active = true` },
+      { requestKey: null }
+    ).then((result) => {
+      setContactInfo({ ...initial, data: result });
+    }).catch((error) => {
+      console.log(COLLECTION.CONTACT_INFO, error)
+      setContactInfo({ ...initial, isError: true });
+    })
+  }
   //page banner data
   const getPageBannerData = () => {
     setPageBanners({ ...initial, isLoading: true });
@@ -282,10 +299,15 @@ export const APIProvider = ({ children }) => {
       value={{
         ...homePage(),
         ...servicePage(),
+        // page banner data
         getPageBannerData,
         PageBanners,
+        // connection request
         connectionRequest,
-        clientSupportRequest
+        clientSupportRequest,
+        // contact us page data
+        getContactInfoData,
+        ContactInfo,
       }}>
       {children}
     </APIContext.Provider>

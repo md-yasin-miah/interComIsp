@@ -15,7 +15,7 @@ const ContactUs = () => {
         <SectionTitle
           title="Contact"
           title2="Us"
-          placeholder_title="Contact Us"
+          placeholder_title="Connect"
           subTitle="We're here to help! Reach out to us through any of these channels."
         />
       }

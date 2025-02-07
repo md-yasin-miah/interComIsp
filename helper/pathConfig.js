@@ -11,6 +11,11 @@ export const PATH = {
   termsOfUse: '/terms-of-use',
   privacyPolicy: '/privacy-policy',
   returnRefundPolicy: '/return-refund-policy',
+
+  faqs: '/faqs',
+  getQuote: '/get-quote',
+  userManual: '/user-manual',
+  scheduleOfCharges: '/schedule-of-charges',
 }
 
 export const navMenu = [
@@ -42,19 +47,19 @@ export const footerMenu = [
       { name: 'offers', url: PATH.offers },
       // { name: 'pay bill', url: PATH.payBill },
       { name: 'services', url: PATH.services },
-      { name: 'products', url: '/products' },
+      // { name: 'products', url: '/products' },
       { name: 'packages', url: PATH.packages },
     ]
   },
   {
     title: 'support',
     menu: [
-      { name: "FAQ's", url: '/faqs' },
-      { name: 'get quote', url: '/get-quote' },
-      { name: 'coverage', url: '/coverage' },
-      { name: 'user manual', url: '/user-manual' },
-      { name: 'schedule of charges', url: '/schedule-of-charges' },
-      { name: 'contact', url: '/contact' },
+      { name: "FAQ's", url: PATH.faqs },
+      { name: 'get quote', url: PATH.getQuote },
+      { name: 'coverage', url: PATH.coverage },
+      { name: 'user manual', url: PATH.userManual },
+      { name: 'schedule of charges', url: PATH.scheduleOfCharges },
+      // { name: 'contact', url: PATH.contact },
     ]
   }
 ]
