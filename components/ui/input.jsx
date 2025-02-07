@@ -4,7 +4,7 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 import { useMotionTemplate, useMotionValue, motion } from "framer-motion";
 
-const Input = React.forwardRef(({ className, type, as, icon,...props }, ref) => {
+const Input = React.forwardRef(({ className, type, as, icon, ...props }, ref) => {
   const radius = 100; // change this to increase the rdaius of the hover effect
   const [visible, setVisible] = React.useState(false);
 
@@ -49,7 +49,7 @@ const Input = React.forwardRef(({ className, type, as, icon,...props }, ref) => 
           className
         )}
         ref={ref}
-        {...props} 
+        {...props}
       />
       {icon && <div className='absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-xl'>{icon}</div>}
     </motion.div>)
@@ -104,7 +104,7 @@ const Textarea = React.forwardRef(({ className, ...props }, ref) => {
     </motion.div>
   )
 })
-const Select = React.forwardRef(({ className, options, as, icon,...props }, ref) => {
+const Select = React.forwardRef(({ className, options, as, icon, ...props }, ref) => {
   const radius = 100; // change this to increase the rdaius of the hover effect
   const [visible, setVisible] = React.useState(false);
 
@@ -148,9 +148,9 @@ const Select = React.forwardRef(({ className, options, as, icon,...props }, ref)
           className
         )}
         ref={ref}
-        {...props} 
+        {...props}
       >
-        {options.map((option) => (
+        {options?.map((option) => (
           <option key={option.value} value={option.value}>{option.label}</option>
         ))}
       </select>

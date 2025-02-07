@@ -1,21 +1,27 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { FaMapMarkerAlt } from 'react-icons/fa'
 import CoverageModal from '@/components/modals/CoverageModal'
 import SectionTitle from '@/components/shared/SectionTitle'
-import { coverageAreas } from '@/data/fake'
 import PageBanner from '@/components/shared/PageBanner'
 import { IoSearch } from "react-icons/io5"
 import LabelInputContainer from '@/components/ui/LabelInputContainer'
 import { Input, Select } from '@/components/ui/input'
 import { cn } from '@/lib/utils'
 import MotionDiv from '@/components/ui/motion/motionDiv'
+import { APIContext } from '@/contexts/APIContext'
 
 const Coverage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [userLocation, setUserLocation] = useState(null)
   const [selectedDistrict, setSelectedDistrict] = useState("Dhaka")
   const [searchQuery, setSearchQuery] = useState("")
+
+
+  const { CoverageArea, getCoverageAreaData } = useContext(APIContext)
+  useEffect(() => {
+    !CoverageArea.data && getCoverageAreaData()
+  }, []);
 
   const handleCheckCoverage = () => {
     if (navigator.geolocation) {
@@ -39,9 +45,9 @@ const Coverage = () => {
   }
 
   // Filter areas based on search and selected district
-  const filteredAreas = coverageAreas
-    .find(district => district.district === selectedDistrict)?.area
-    .filter(area =>
+  const filteredAreas = CoverageArea.data
+    ?.find(district => district.district === selectedDistrict)?.area
+    ?.filter(area =>
       area.name.toLowerCase().includes(searchQuery.toLowerCase())
     ) || []
 
@@ -58,7 +64,7 @@ const Coverage = () => {
             {/* District Select */}
             <LabelInputContainer className={cn('w-full md:w-2/3')}>
               <Select
-                options={coverageAreas.map(district => ({ value: district.district, label: district.district }))}
+                options={CoverageArea.data?.map(district => ({ value: district.district, label: district.district }))}
                 value={selectedDistrict}
                 onChange={(e) => setSelectedDistrict(e.target.value)}
               />
@@ -99,7 +105,7 @@ const Coverage = () => {
             />
           </MotionDiv>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredAreas.map((location, index) => (
               <MotionDiv
                 key={index}
@@ -140,6 +146,7 @@ const Coverage = () => {
         </div>
 
         <CoverageModal
+          coverageAreas={CoverageArea.data}
           isOpen={isModalOpen}
           onClose={() => setIsModalOpen(false)}
           userLocation={userLocation}

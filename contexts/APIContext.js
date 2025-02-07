@@ -254,6 +254,29 @@ export const APIProvider = ({ children }) => {
       setContactInfo({ ...initial, isError: true });
     })
   }
+
+  //coverage area data
+  const [CoverageArea, setCoverageArea] = useState(initial);
+  const getCoverageAreaData = () => {
+    setCoverageArea({ ...initial, isLoading: true });
+    DB.collection(COLLECTION.COVERAGE_AREA).getFullList(
+      { filter: `active = true` },
+      { requestKey: null }
+    ).then((result) => {
+      const districts = [...new Set(result.map((item) => item.district))]
+      setCoverageArea({
+        ...initial, data: districts.map((district) => {
+          return {
+            district,
+            area: result.filter((item) => item.district === district)
+          }
+        })
+      });
+    }).catch((error) => {
+      console.log(COLLECTION.COVERAGE_AREA, error)
+      setCoverageArea({ ...initial, isError: true });
+    })
+  }
   //page banner data
   const getPageBannerData = () => {
     setPageBanners({ ...initial, isLoading: true });
@@ -308,6 +331,9 @@ export const APIProvider = ({ children }) => {
         // contact us page data
         getContactInfoData,
         ContactInfo,
+        // coverage area data
+        getCoverageAreaData,
+        CoverageArea
       }}>
       {children}
     </APIContext.Provider>

@@ -20,7 +20,8 @@ export const COLLECTION = {
   SUPPORT_REQUEST: 'support_request',
   WHY_CHOOSE_US: 'why_choose_us',
   POLICIES: 'all_policies',
-  CONTACT_INFO: 'contact_info'
+  CONTACT_INFO: 'contact_info',
+  COVERAGE_AREA: 'coverage_area'
 }
 
 // app info
