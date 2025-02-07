@@ -21,6 +21,7 @@ const Services = () => {
   useEffect(() => {
     !Services.data && getServicesData();
   }, []);
+  console.log(Services.data)
   return (
     <>
       <PageBanner

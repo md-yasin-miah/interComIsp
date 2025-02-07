@@ -7,6 +7,7 @@ const SocialIcons = () => {
   return (
     <div className="flex flex-wrap gap-1 max-sm:justify-center">
       {socialLinks.map((social, i) => {
+        const Icon = getSocialIcon(social.name)
         return (
           <Link
             key={i}
@@ -16,7 +17,7 @@ const SocialIcons = () => {
             aria-label={social.name}
             className="text-2xl text-gray-300 hover:text-primary transition-colors p-1.5"
           >
-            {getSocialIcon(social.name)}
+            <Icon />
           </Link>
         );
       })}

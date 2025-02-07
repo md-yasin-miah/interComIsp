@@ -123,17 +123,20 @@ const Slider = ({ options, setActiveIndex, activeIndex, data }) => {
     )
 }
 
-const SpeedIndicator = ({ icon, speed }) => (
-    <div className="flex items-center cursor-pointer hover:-translate-y-1 transition-all duration-300 gap-2 bg-white/80 dark:bg-gray-800/80 shadow-card rounded-lg px-5 py-3">
-        <div className="p-3 rounded-full bg-gray-200 dark:bg-gray-700">
-            <div className='text-xl text-black dark:text-white'>{getSocialIcon(icon)}</div>
+const SpeedIndicator = ({ icon, speed }) => {
+    const Icon = getSocialIcon(icon)
+    return (
+        <div className="flex items-center cursor-pointer hover:-translate-y-1 transition-all duration-300 gap-2 bg-white/80 dark:bg-gray-800/80 shadow-card rounded-lg px-5 py-3">
+            <div className="p-3 rounded-full bg-gray-200 dark:bg-gray-700">
+                <Icon className='text-xl text-black dark:text-white' />
+            </div>
+            <div>
+                <p className="text-sm font-semibold text-gray-600 dark:text-gray-300">Upto</p>
+                <p className="font-semibold text-gray-600 dark:text-gray-300 capitalize">{speed}</p>
+            </div>
         </div>
-        <div>
-            <p className="text-sm font-semibold text-gray-600 dark:text-gray-300">Upto</p>
-            <p className="font-semibold text-gray-600 dark:text-gray-300 capitalize">{speed}</p>
-        </div>
-    </div>
-);
+    )
+};
 
 
 

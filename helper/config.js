@@ -19,7 +19,9 @@ export const COLLECTION = {
   CONNECTION_REQUEST: 'connection_request',
   SUPPORT_REQUEST: 'support_request',
   WHY_CHOOSE_US: 'why_choose_us',
-  POLICIES: 'all_policies'
+  POLICIES: 'all_policies',
+  CONTACT_INFO: 'contact_info',
+  COVERAGE_AREA: 'coverage_area'
 }
 
 // app info

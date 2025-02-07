@@ -3,9 +3,8 @@ import React, { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { IoClose } from 'react-icons/io5'
 import { FaCheckCircle, FaTimesCircle } from 'react-icons/fa'
-import { coverageAreas } from '@/data/fake'
 
-const CoverageModal = ({ isOpen, onClose, userLocation }) => {
+const CoverageModal = ({ isOpen, onClose, userLocation, coverageAreas }) => {
   const [isInCoverageArea, setIsInCoverageArea] = useState(false)
   const [nearestLocation, setNearestLocation] = useState(null)
 

@@ -1,45 +1,14 @@
-import React from 'react'
+"use client"
+import React, { useContext, useEffect } from 'react'
 import ContactCard from '@/components/shared/ContactCard'
 import ContactForm from '@/components/shared/ContactForm'
 import SocialMedia from '@/components/shared/SocialMedia'
 import Map from '@/components/shared/Map'
 import { HiOutlinePhone, HiOutlineMail, HiOutlineLocationMarker, HiOutlineClock } from 'react-icons/hi'
 import { BsWhatsapp } from 'react-icons/bs'
+import { APIContext } from '@/contexts/APIContext'
 
-const contactInfo = [
-  {
-    icon: HiOutlinePhone,
-    title: "Phone Numbers",
-    items: [
-      "+1 (555) 123-4567",
-      "+1 (555) 987-6543"
-    ]
-  },
-  {
-    icon: HiOutlineMail,
-    title: "Email Addresses",
-    items: [
-      "support@isp.com",
-      "sales@isp.com"
-    ]
-  },
-  {
-    icon: BsWhatsapp,
-    title: "WhatsApp",
-    items: [
-      "+1 (555) 123-4567",
-      "Click to chat now"
-    ]
-  },
-  {
-    icon: HiOutlineLocationMarker,
-    title: "Office Address",
-    items: [
-      "123 Internet Street",
-      "Tech City, TC 12345"
-    ]
-  }
-]
+
 
 const operatingHours = [
   { day: "Monday - Friday", hours: "9:00 AM - 8:00 PM" },
@@ -52,6 +21,32 @@ const ConnectSection = ({
   banner,
   sectionTitle,
 }) => {
+  const { ContactInfo, getContactInfoData } = useContext(APIContext);
+  useEffect(() => {
+    !ContactInfo.data && getContactInfoData();
+  }, []);
+  const contactInfo = [
+    {
+      icon: HiOutlinePhone,
+      title: "Phone Numbers",
+      items: ContactInfo.data?.[0]?.phones
+    },
+    {
+      icon: HiOutlineMail,
+      title: "Email Addresses",
+      items: ContactInfo.data?.[0]?.emails
+    },
+    {
+      icon: BsWhatsapp,
+      title: "WhatsApp",
+      items: ContactInfo.data?.[0]?.whats_apps
+    },
+    {
+      icon: HiOutlineLocationMarker,
+      title: "Office Address",
+      items: ContactInfo.data?.[0]?.addresses
+    }
+  ]
   return (
     <>
       {banner}
@@ -66,16 +61,16 @@ const ConnectSection = ({
               <h2 className="text-2xl font-semibold">Operating Hours</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {operatingHours.map((schedule, index) => (
+              {ContactInfo.data?.[0]?.operating_hours?.map((schedule, index) => (
                 <div
                   key={index}
                   className="bg-gray-50 dark:bg-gray-700 p-4 rounded-xl"
                 >
                   <h3 className="font-medium text-gray-800 dark:text-gray-200 mb-2">
-                    {schedule.day}
+                    {schedule.name}
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300">
-                    {schedule.hours}
+                    {schedule.value}
                   </p>
                 </div>
               ))}
@@ -92,7 +87,7 @@ const ConnectSection = ({
           {/* Contact Form and Map Section */}
           <div className="pt-44 grid grid-cols-1 lg:grid-cols-2 gap-12" id='contactForm'>
             <ContactForm />
-            <Map />
+            <Map url={ContactInfo.data?.[0]?.location_iframe_url} />
           </div>
 
           {/* Social Media Section */}
@@ -103,11 +98,11 @@ const ConnectSection = ({
                 Follow us on social media for updates, tips, and special offers
               </p>
             </div>
-            <SocialMedia />
+            <SocialMedia socialLinks={ContactInfo.data?.[0]?.social_links} />
           </div>
 
           {/* Emergency Support Notice */}
-          <div className="mt-12 bg-gradient-to-r from-primary/10 to-secondary/10 p-6 rounded-2xl text-center">
+          {/* <div className="mt-12 bg-gradient-to-r from-primary/10 to-secondary/10 p-6 rounded-2xl text-center">
             <h3 className="text-xl font-semibold mb-2">24/7 Emergency Technical Support</h3>
             <p className="text-gray-600 dark:text-gray-300 mb-4">
               For urgent technical issues outside business hours, our emergency support team is available
@@ -115,7 +110,7 @@ const ConnectSection = ({
             <div className="font-semibold text-primary">
               Emergency Hotline: +1 (555) 999-9999
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </>
