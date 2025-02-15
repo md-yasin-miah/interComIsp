@@ -32,7 +32,6 @@ const AboutUsSection = () => {
           title={About.data?.title}
           title2={About.data?.title2}
           subTitle={About.data?.sub_title}
-          placeholder_title={About.data?.title_placeholder}
           reverse={About.data?.title_reverse}
         />
         <div className="relative mt-10">

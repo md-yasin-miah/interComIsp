@@ -19,7 +19,6 @@ const PricingSection = () => {
           <SectionTitle
             title="Our"
             title2="Packages"
-            placeholder_title="Packages"
             subTitle="Choose the perfect internet package for your needs"
             loading={Packages.isLoading}
           />

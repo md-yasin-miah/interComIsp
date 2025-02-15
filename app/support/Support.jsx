@@ -16,7 +16,6 @@ const Support = () => {
         <SectionTitle
           title="Support"
           title2="Contact Us"
-          placeholder_title="Support"
           subTitle="We're here to help! Reach out to us through any of these channels."
         />
       }

@@ -23,7 +23,6 @@ const Offers = () => {
           <SectionTitle
             title="Offers"
             title2="Offers"
-            placeholder_title='Offers'
             subTitle="Explore our exclusive offers and save big on your internet service!"
           />
 

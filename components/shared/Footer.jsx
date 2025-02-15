@@ -39,7 +39,7 @@ const Footer = () => {
             ))
           }
         </section>
-        <section className='md:py-[18px] md:px-[50px] py-4 px-4 mt-2.5 mb-5 bg-white/10 rounded-lg'>
+        <section className='md:py-[18px] md:px-[50px] py-4 px-4 mt-2.5 mb-5 text-slate-300 bg-white/10 rounded-lg'>
           <div className='flex flex-col md:flex-row max-sm:gap-3 items-center justify-between'>
             <p className='text-sm'>Copyright © {new Date()?.getFullYear()} <span className='font-semibold'>Netcom Internet</span> | All Rights Reserved.<br />  Developed by
               <span className='font-semibold'>

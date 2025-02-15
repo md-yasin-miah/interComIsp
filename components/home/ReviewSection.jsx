@@ -33,7 +33,6 @@ const ReviewSection = () => {
         <SectionTitle
           title="What our"
           title2="clients says!"
-          placeholder_title="review"
           subTitle='Join now and enjoy the exciting features from NetCom online'
         />
         <div className='pt-10'>
