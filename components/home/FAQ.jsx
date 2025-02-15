@@ -20,7 +20,6 @@ const FAQ = () => {
     <section className='md:py-20 py-10'>
       <div className="customContainer">
         <SectionTitle
-          placeholder_title="FAQ's"
           title='Frequently'
           title2="Asked Questions"
           subTitle="Common FAQ's regarding NetCom and it's services"

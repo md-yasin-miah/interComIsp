@@ -97,7 +97,6 @@ const Coverage = () => {
             <SectionTitle
               title="Coverage in"
               title2={selectedDistrict}
-              placeholder_title='Area'
               subTitle={<span>
                 Experience high-speed internet coverage across {selectedDistrict}.<br />
                 Check our service availability in your area.
