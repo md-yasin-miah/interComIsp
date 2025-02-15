@@ -23,6 +23,19 @@ export const COLLECTION = {
   CONTACT_INFO: 'contact_info',
   COVERAGE_AREA: 'coverage_area'
 }
+export const PAYMENT_METHOD = [
+  {
+    id: 1,
+    name: 'Bikash',
+    value: 'bikash'
+  },
+  {
+    id: 2,
+    name: 'Nogod',
+    value: 'nogod'
+  },
+
+]
 
 // app info
 export const APP_NAME = 'NetCom Internet';

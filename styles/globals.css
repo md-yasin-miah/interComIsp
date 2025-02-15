@@ -17,6 +17,8 @@
   --white2: #E4D0D0;
   --color-paragraph: #1A1A1AC4;
   --color-card-paragraph: #6d7882;
+
+  --color-bkash: #e30f71;
 }
 
 [data-theme="dark"] {
@@ -38,6 +40,7 @@ body {
 
 /* Dark mode */
 @media (prefers-color-scheme: dark) {
+
   .blog-content h1,
   .blog-content h1 *,
   .blog-content h2,
@@ -49,10 +52,11 @@ body {
   .blog-content h5,
   .blog-content h5 *,
   .blog-content h6,
-  .blog-content h6 *{
+  .blog-content h6 * {
     color: var(--foreground) !important;
-  } 
+  }
 }
+
 /* disable all base tailwind css in blog-content */
 .blog-content * {
   all: revert;
@@ -86,12 +90,14 @@ body {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
 .ellipsis-5 {
   display: -webkit-box;
   -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
 .ellipsis-6 {
   display: -webkit-box;
   -webkit-line-clamp: 6;
@@ -103,6 +109,7 @@ body {
 .customContainer {
   @apply w-[1140px] m-auto
 }
+
 .title {
   @apply md:text-[46px] text-[36px] text-center font-rajdhani font-bold tracking-[5px] capitalize relative max-sm:leading-[1]
 }
@@ -122,7 +129,8 @@ body {
 .navMenu ul li {
   @apply relative z-10 transition-all duration-300 text-black/80 dark:text-white/80 hover:text-white
 }
-.navMenu ul li a{
+
+.navMenu ul li a {
   @apply px-3 py-2.5
 }
 
