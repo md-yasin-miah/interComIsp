@@ -1,13 +1,14 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import React from 'react'
-import SSLFooterImg from '../../public/SSLCommerz-footer-1024x48.webp'
+import SSLFooterImg from '../../public/sslcommerz-foo2.webp'
 // import logo from '../../public/NetCom-Logo.png'
 import logoWhite from '../../public/NetCom-Logo-White.png'
 
 import SocialIcons from './SocialIcons'
 import { BackgroundBeams } from '../ui/background-beams'
 import { footerMenu } from '@/helper/pathConfig'
+import { APP_DESCRIPTION } from '@/helper/config'
 
 const Footer = () => {
   return (
@@ -16,10 +17,9 @@ const Footer = () => {
         <section className='grid grid-cols-12 text-white'>
           <div className='col-span-12 md:col-span-4 md:p-[34px] md:pl-0'>
             <div className="relative md:w-[70%] w-[50%] mb-4 max-sm:mx-auto">
-              {/* <Image src={logo} alt='logo' width='fill' height='fill' className='dark:hidden'/> */}
               <Image src={logoWhite} alt='logo' width='fill' height='fill' className='px-2' />
             </div>
-            <p className='pr-[6px] mb-2.5 max-sm:text-center'>NetCom Online is a Divisional Internet Service Provider company providing broadband internet service since 2009. NetCom is committed to provide extraordinary internet service to clients!</p>
+            <p className='pr-[6px] mb-2.5 max-sm:text-center'>{APP_DESCRIPTION}</p>
             <SocialIcons />
           </div>
           {
@@ -39,16 +39,16 @@ const Footer = () => {
             ))
           }
         </section>
+        <div className='relative w-full'>
+          <Image src={SSLFooterImg} alt='SSLCommerz-footer' width='fill' height='fill' />
+        </div>
         <section className='md:py-[18px] md:px-[50px] py-4 px-4 mt-2.5 mb-5 text-slate-300 bg-white/10 rounded-lg'>
-          <div className='flex flex-col md:flex-row max-sm:gap-3 items-center justify-between'>
-            <p className='text-sm'>Copyright © {new Date()?.getFullYear()} <span className='font-semibold'>Netcom Internet</span> | All Rights Reserved.<br />  Developed by
+          <div>
+            <p className='text-sm'>Copyright © {new Date()?.getFullYear()} <span className='font-semibold'>Netcom Internet</span>. All Rights Reserved. Developed by
               <span className='font-semibold'>
                 <Link href='#' className='transition-all duration-300 hover:text-primary'> Net Land System Bangladesh</Link>
               </span>
             </p>
-            <div className='relative w-full md:w-1/2'>
-              <Image src={SSLFooterImg} alt='SSLCommerz-footer' width='fill' height='fill' />
-            </div>
           </div>
         </section>
       </div>

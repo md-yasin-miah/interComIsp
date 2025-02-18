@@ -6,6 +6,7 @@ import SectionTitle from '@/components/shared/SectionTitle'
 import { DotLottieReact } from '@lottiefiles/dotlottie-react'
 import MotionDiv from '@/components/ui/motion/motionDiv'
 import PageBanner from '@/components/shared/PageBanner'
+import { APP_NAME } from '@/helper/config'
 
 const AboutUsPage = () => {
   return (
@@ -33,7 +34,7 @@ const AboutUsPage = () => {
                   className="!items-start"
                 />
                 <div className='md:text-lg text-sm text-colorParagraph font-medium md:leading-8 leading-7 mb-6'>
-                  <p>NetCom online is dedicated to revolutionizing internet connectivity in Bangladesh. With over 12 years of experience, we've built a reputation for excellence through our commitment to quality and customer satisfaction.</p>
+                  <p>{APP_NAME} is dedicated to revolutionizing internet connectivity in Bangladesh. With over 12 years of experience, we've built a reputation for excellence through our commitment to quality and customer satisfaction.</p>
                   <p className="mt-4">Our state-of-the-art infrastructure and dedicated team ensure that we deliver not just internet services, but a gateway to the digital future.</p>
                 </div>
 

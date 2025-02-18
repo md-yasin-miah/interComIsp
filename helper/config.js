@@ -39,6 +39,6 @@ export const PAYMENT_METHOD = [
 
 // app info
 export const APP_NAME = 'NetCom Internet';
-export const APP_DESCRIPTION = 'NetCom Internet';
+export const APP_DESCRIPTION = 'NetCom Internet is a District Internet Service Provider company providing broadband internet service since 2009. NetCom is committed to provide extraordinary internet service to clients!';
 export const APP_KEYWORDS = 'NetCom Internet, ISP';
 export const APP_AUTHOR = 'NetCom Internet';
