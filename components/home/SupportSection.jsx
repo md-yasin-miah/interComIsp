@@ -14,7 +14,7 @@ const supportFeatures = [
   {
     icon: <Icon icon="mdi:support" className="w-12 h-12" />,
     title: "Field Support",
-    description: "Dedicated on-site support team available 24/7"
+    description: "10 AM to 10 PM field support, call center 24/7"
   },
   {
     icon: <Icon icon="mdi:lightning-bolt" className="w-12 h-12" />,
@@ -80,7 +80,7 @@ const SupportSection = () => {
           className="text-center mt-16 max-w-2xl mx-auto"
         >
           <p className="text-lg font-medium text-gray-700 dark:text-gray-300">
-            Understand that when you select Netcom Internet, you choose internet services that improve your everyday life and advance your venture. 
+            Understand that when you select Netcom Internet, you choose internet services that improve your everyday life and advance your venture.
             <span className="block mt-2 text-primary font-semibold">Stay connected, always.</span>
           </p>
         </MotionDiv>
