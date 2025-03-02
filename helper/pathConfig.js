@@ -39,6 +39,7 @@ export const footerMenu = [
       { name: 'terms of use', url: PATH.termsOfUse },
       { name: 'privacy policy', url: PATH.privacyPolicy },
       { name: 'return & refund policy', url: PATH.returnRefundPolicy },
+      { name: 'BTRC Approved Tarrif', url: '' },
     ]
   },
   {
