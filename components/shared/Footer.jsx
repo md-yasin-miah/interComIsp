@@ -1,6 +1,7 @@
+"use client"
 import Link from 'next/link'
 import Image from 'next/image'
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import SSLFooterImg from '../../public/sslcommerz-foo2.webp'
 // import logo from '../../public/NetCom-Logo.png'
 import logoWhite from '../../public/NetCom-Logo-White.png'
@@ -9,8 +10,16 @@ import SocialIcons from './SocialIcons'
 import { BackgroundBeams } from '../ui/background-beams'
 import { footerMenu } from '@/helper/pathConfig'
 import { APP_DESCRIPTION } from '@/helper/config'
+import { PolicyAPIContext } from '@/contexts/PolicyAPIContext'
 
 const Footer = () => {
+  const { policy, getPolicy } = useContext(PolicyAPIContext);
+  useEffect(() => {
+    if (!policy.data) {
+      getPolicy();
+    }
+  }, []);
+  console.log('policy', policy)
   return (
     <footer className='bg-footerBG py-8 relative antialiased'>
       <div className='customContainer relative z-10'>
@@ -30,7 +39,12 @@ const Footer = () => {
                   {
                     item.menu.map((menu, index) => (
                       <li key={index} className='hover:text-white2 transition-all duration-300 py-1 capitalize'>
-                        <Link href={menu.url}>{menu.name}</Link>
+                        {menu.name === 'BTRC Approved Tarrif' && policy.data && (
+                          <Link href={policy.data.BTRC_tarrif_url} target='_blank'>{menu.name}</Link>
+                        )}
+                        {menu.name !== 'BTRC Approved Tarrif' && (
+                          <Link href={menu.url}>{menu.name}</Link>
+                        )}
                       </li>
                     ))
                   }
