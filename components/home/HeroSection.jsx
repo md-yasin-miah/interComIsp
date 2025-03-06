@@ -51,7 +51,15 @@ const Slider = ({ options, setActiveIndex, activeIndex, data }) => {
         <Splide
             key="hero-slider"
             className='md:pt-24 pt-20'
-            options={options}
+            options={{
+                ...options,
+                autoplay: true,
+                interval: 3000,
+                pauseOnHover: true,
+                pauseOnFocus: true,
+                rewind: true,
+                waitForTransition: true
+            }}
             onActive={(slide) => setActiveIndex(slide.index)}
         >
             {data?.map((slide, index) => (
