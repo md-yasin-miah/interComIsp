@@ -36,12 +36,12 @@ const HeroSection = () => {
 
     return (
         <section>
-            <AuroraBackground className='h-full md:pb-10 pb-5 overflow-hidden md:block hidden'>
+            {/* <AuroraBackground className='h-full md:pb-10 pb-5 overflow-hidden md:block hidden'> */}
+            <Slider options={heroSliderOptions} setActiveIndex={setActiveIndex} activeIndex={activeIndex} data={HeroSlide.data?.sort((a, b) => a.serial - b.serial)} />
+            {/* </AuroraBackground> */}
+            {/* <div className="md:hidden block">
                 <Slider options={heroSliderOptions} setActiveIndex={setActiveIndex} activeIndex={activeIndex} data={HeroSlide.data?.sort((a, b) => a.serial - b.serial)} />
-            </AuroraBackground>
-            <div className="md:hidden block">
-                <Slider options={heroSliderOptions} setActiveIndex={setActiveIndex} activeIndex={activeIndex} data={HeroSlide.data?.sort((a, b) => a.serial - b.serial)} />
-            </div>
+            </div> */}
         </section>
     )
 }
@@ -49,6 +49,7 @@ const HeroSection = () => {
 const Slider = ({ options, setActiveIndex, activeIndex, data }) => {
     return (
         <Splide
+            key="hero-slider"
             className='md:pt-24 pt-20'
             options={options}
             onActive={(slide) => setActiveIndex(slide.index)}

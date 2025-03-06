@@ -4,12 +4,12 @@ import Shade from "./Shade";
 const HeroSkeleton = () => {
     return (
         <section>
-            <AuroraBackground className='h-[716px] md:pb-10 pb-5 overflow-hidden md:block hidden'>
-                <Skeleton />
-            </AuroraBackground>
+            {/* <AuroraBackground className='h-[716px] md:pb-10 pb-5 overflow-hidden md:block hidden'> */}
+            <Skeleton />
+            {/* </AuroraBackground>
             <div className="md:hidden block">
                 <Skeleton />
-            </div>
+            </div> */}
         </section>
     )
 }
