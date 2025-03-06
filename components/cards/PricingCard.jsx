@@ -2,6 +2,8 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import Button from '../shared/Button'
+import Link from 'next/link'
+import { PATH } from '@/helper/pathConfig'
 
 const PricingCard = ({ plan }) => {
   return (
@@ -52,7 +54,7 @@ const PricingCard = ({ plan }) => {
                   {feature.name}
                 </span>
                 <span className={`font-medium ${plan?.featured ? 'text-white' : 'text-gray-800 dark:text-white'
-                  } capitalize` }>
+                  } capitalize`}>
                   {feature.value}
                 </span>
               </div>
@@ -66,25 +68,27 @@ const PricingCard = ({ plan }) => {
                 {plan?.price} {plan?.currency}<span className="text-base font-normal">/{plan?.price_schedule}</span>
               </div>
               {
-                plan?.vat&&
-                  <p className={`text-sm ${plan?.featured ? 'text-white/80' : 'text-gray-600 dark:text-white/80'
-                    }`}>
-                    {plan?.vat}
-                  </p>
-                }
+                plan?.vat &&
+                <p className={`text-sm ${plan?.featured ? 'text-white/80' : 'text-gray-600 dark:text-white/80'
+                  }`}>
+                  {plan?.vat}
+                </p>
+              }
               <p className={`text-sm ${plan?.featured ? 'text-white/80' : 'text-gray-600 dark:text-white/80'
                 }`}>
                 {plan?.installation}
               </p>
             </div>
-            <Button
-              className={`!w-full justify-center ${plan?.featured
-                ? '!bg-white !text-primary hover:bg-gray-50'
-                : ''
-                }`}
-            >
-              Get Now
-            </Button>
+            <Link href={`${PATH.contact}/#contactForm`}>
+              <Button
+                className={`!w-full justify-center ${plan?.featured
+                  ? '!bg-white !text-primary hover:bg-gray-50'
+                  : ''
+                  }`}
+              >
+                Get Now
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
