@@ -1,47 +1,26 @@
 "use client"
 import { Splide, SplideSlide } from '@splidejs/react-splide'
-import { useContext, useState, useEffect } from 'react'
+import { useState } from 'react'
 import { TextGenerateEffect } from '../ui/text-generate-effect'
 import { AuroraBackground } from '../ui/aurora-background'
 import { DotLottieReact } from '@lottiefiles/dotlottie-react'
 import { heroSliderOptions } from '@/lib/utils'
-import { APIContext } from '@/contexts/APIContext'
 import { getSocialIcon } from '@/helper/functions'
 import HeroSkeleton from '../skeleton/HeroSkeleton'
 import Button from '../shared/Button'
 import ErrorSection from '../sections/ErrorSection'
 import Image from 'next/image'
 
-const HeroSection = () => {
+const HeroSection = ({ data }) => {
     const [activeIndex, setActiveIndex] = useState(0);
-    const {
-        HeroSlide,
-        getHeroSlideData
-    } = useContext(APIContext);
-    useEffect(() => {
-        if (!HeroSlide.data) {
-            getHeroSlideData()
-        }
-    }, []);
 
-    if (HeroSlide.isLoading) {
+    if (!data) {
         return <HeroSkeleton />
-    }
-    if (HeroSlide.isError) {
-        return <ErrorSection
-            retry={getHeroSlideData}
-            message="Something went wrong while fetching hero slide data"
-        />
     }
 
     return (
         <section>
-            {/* <AuroraBackground className='h-full md:pb-10 pb-5 overflow-hidden md:block hidden'> */}
-            <Slider options={heroSliderOptions} setActiveIndex={setActiveIndex} activeIndex={activeIndex} data={HeroSlide.data?.sort((a, b) => a.serial - b.serial)} />
-            {/* </AuroraBackground> */}
-            {/* <div className="md:hidden block">
-                <Slider options={heroSliderOptions} setActiveIndex={setActiveIndex} activeIndex={activeIndex} data={HeroSlide.data?.sort((a, b) => a.serial - b.serial)} />
-            </div> */}
+            <Slider options={heroSliderOptions} setActiveIndex={setActiveIndex} activeIndex={activeIndex} data={data?.sort((a, b) => a.serial - b.serial)} />
         </section>
     )
 }

@@ -1,46 +1,55 @@
 "use client"
-import { useEffect, useContext } from 'react'
 import SectionTitle from '../shared/SectionTitle'
-import FaqCard from '../cards/FaqCard'
-import { APIContext } from '@/contexts/APIContext'
-import FAQSkeleton from '../skeleton/FAQSkeleton'
-import ErrorSection from '../sections/ErrorSection'
+import { useState } from 'react'
+import { HiChevronDown, HiChevronUp } from 'react-icons/hi'
+import MotionDiv from '../ui/motion/motionDiv'
 
-const FAQ = () => {
-  const { FAQ, getFaqData } = useContext(APIContext);
-  useEffect(() => {
-    !FAQ.data && getFaqData();
-  }, []);
-  if (FAQ.isLoading) return <FAQSkeleton />;
-  if (FAQ.isError) return <ErrorSection
-    retry={getFaqData}
-    message="Something went wrong while fetching FAQ data"
-  />;
+const FAQ = ({ data }) => {
+  const [openIndex, setOpenIndex] = useState(null);
+
+  if (!data) {
+    return null;
+  }
+
+  const toggleFAQ = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
   return (
     <section className='md:py-20 py-10'>
-      <div className="customContainer">
+      <div className='customContainer'>
         <SectionTitle
-          title='Frequently'
-          title2="Asked Questions"
-          subTitle="Common FAQ's regarding NetCom and it's services"
+          title="Frequently Asked"
+          title2="Questions"
+          subTitle="Find answers to common questions about our services"
         />
-        <div className='flex flex-col md:flex-row gap-5 pt-10'>
-          <div className='flex flex-col gap-5'>
-            {
-              FAQ.data?.map((faq, index) => {
-                if (index < FAQ.data.length / 2) {
-                  return <FaqCard key={index} faq={faq} index={index} />
-                }
-              })
-            }
-          </div>
-          <div className="flex flex-col gap-5">
-            {
-              FAQ.data?.map((faq, index) => {
-                if (index >= FAQ.data.length / 2) return <FaqCard key={index} faq={faq} index={index} />
-              })
-            }
-          </div>
+        <div className="mt-10 space-y-4">
+          {data.map((faq, index) => (
+            <MotionDiv
+              key={faq.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="bg-white dark:bg-gray-800 rounded-xl shadow-card overflow-hidden"
+            >
+              <button
+                className="w-full px-6 py-4 flex items-center justify-between text-left"
+                onClick={() => toggleFAQ(index)}
+              >
+                <h3 className="font-semibold text-lg">{faq.question}</h3>
+                {openIndex === index ? (
+                  <HiChevronUp className="w-5 h-5" />
+                ) : (
+                  <HiChevronDown className="w-5 h-5" />
+                )}
+              </button>
+              {openIndex === index && (
+                <div className="px-6 pb-4">
+                  <p className="text-gray-600 dark:text-gray-300">{faq.answer}</p>
+                </div>
+              )}
+            </MotionDiv>
+          ))}
         </div>
       </div>
     </section>

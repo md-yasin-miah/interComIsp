@@ -5,13 +5,13 @@ import PricingCard from '@/components/cards/PricingCard';
 import SectionTitle from '../shared/SectionTitle';
 import { APIContext } from '@/contexts/APIContext';
 import PricingCardSkeleton from '../skeleton/PricingCardSkeleton';
+import MotionDiv from '../ui/motion/motionDiv';
 
+const PricingSection = ({ data }) => {
+  if (!data) {
+    return null;
+  }
 
-const PricingSection = () => {
-  const { Packages, getPackagesData } = useContext(APIContext);
-  useEffect(() => {
-    !Packages.data && getPackagesData();
-  }, []);
   return (
     <section className="relative py-20">
       <WavyBackground>
@@ -19,20 +19,19 @@ const PricingSection = () => {
           <SectionTitle
             title="Our"
             title2="Packages"
-            subTitle="Choose the perfect internet package for your needs"
-            loading={Packages.isLoading}
+            subTitle="Choose the perfect plan for your needs"
           />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 mt-12">
-            {
-              Packages.isLoading ?
-                [...Array(3)].map((_, index) => (
-                  <PricingCardSkeleton key={index} />
-                ))
-                :
-                Packages.data && Packages.data.filter(plan => plan.view_in_home_page).map((plan, index) => (
-                  <PricingCard key={index} plan={plan} />
-                ))
-            }
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+            {data.data.map((plan, index) => (
+              <MotionDiv
+                key={plan.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <PricingCard plan={plan} />
+              </MotionDiv>
+            ))}
           </div>
         </div>
       </WavyBackground>
