@@ -58,7 +58,7 @@ const LeadCaptureForm = () => {
                 >
                     <div className="text-center mb-8">
                         <h2 className="text-2xl md:text-3xl font-bold mb-3 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                            Get Started with NetCom Today!
+                            Get Started with Netcom Today!
                         </h2>
                         <p className="text-gray-600 dark:text-gray-300">
                             Fill out the form below and our team will contact you shortly

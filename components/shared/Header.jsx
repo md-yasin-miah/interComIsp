@@ -62,7 +62,9 @@ const Header = () => {
           <Button
             animation='fill'
             type='outline'
-            href='/login'
+            href='https://portal.netcomisp.net/'
+            target='_blank'
+            referrer='noreferrer'
             icon={<FaUser />}
             className="max-sm:hidden"
           >Client Portal</Button>
@@ -96,7 +98,9 @@ const Header = () => {
                 <Button
                   animation='fill'
                   type='outline'
-                  href='/login'
+                  href='https://portal.netcomisp.net/'
+                  target='_blank'
+                  referrer='noreferrer'
                   icon={<FaUser />}
                   className="w-full justify-center"
                 >Client Portal</Button>

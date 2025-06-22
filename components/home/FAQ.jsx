@@ -22,7 +22,7 @@ const FAQ = () => {
         <SectionTitle
           title='Frequently'
           title2="Asked Questions"
-          subTitle="Common FAQ's regarding NetCom and it's services"
+          subTitle="Common FAQ's regarding Netcom and it's services"
         />
         <div className='flex flex-col md:flex-row gap-5 pt-10'>
           <div className='flex flex-col gap-5'>

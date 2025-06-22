@@ -113,7 +113,7 @@ export const APIProvider = ({ children }) => {
     //get data packages
     const getPackagesData = () => {
       setPackages({ ...initial, isLoading: true });
-      DB.collection(COLLECTION.PACKAGES).getFullList({ requestKey: null }).then((result) => {
+      DB.collection(COLLECTION.PACKAGES).getFullList({ requestKey: null, sort: 'speed_per_unit' }).then((result) => {
         setPackages({
           ...initial,
           data: result,

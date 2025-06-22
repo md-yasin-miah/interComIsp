@@ -47,9 +47,10 @@ const Button = ({
   )
 
   return (href ?
-    <Link 
-      className={`primaryBtn animate-${animation} ${type} ${sizeClass} ${className}`} 
+    <Link
+      className={`primaryBtn animate-${animation} ${type} ${sizeClass} ${className}`}
       href={href}
+      {...props}
     >
       {buttonContent}
     </Link>
