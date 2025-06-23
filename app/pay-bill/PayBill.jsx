@@ -1,9 +1,12 @@
 "use client"
 
-import React from 'react'
+import React, { useState } from 'react'
+import { PAYMENT_METHOD } from '@/helper/config'
+import Tabs from '@/components/shared/Tabs';
+import { Icon } from '@iconify/react';
 
 const PayBill = () => {
-  const [activeTab, setActiveTab] = useState('mobile-banking');
+  const [activeTab, setActiveTab] = useState(PAYMENT_METHOD[0].value);
   return (
     <div className="px-4 customContainer mx-auto pt-32">
       {/* Quick Pay Card */}
@@ -30,7 +33,9 @@ const PayBill = () => {
       <div className="mb-10">
         <h3 className="text-xl font-bold mb-2">Pay bill with <span className="text-red-500">mobile banking</span></h3>
         <p className="text-gray-600 mb-4">You can pay with Mobile banking by following these instructions</p>
-        <Tabs tabItems={PAYMENT_METHOD} activeTab={activeTab} setActiveTab={setActiveTab} />
+        <div className='w-fit'>
+          <Tabs tabItems={PAYMENT_METHOD} activeTab={activeTab} setActiveTab={setActiveTab} />
+        </div>
 
         {/* Stepper Design - Exact Match */}
         <div className="flex">
@@ -41,29 +46,28 @@ const PayBill = () => {
             {/* Steps */}
             <div className="relative z-10 flex flex-col items-center gap-8 py-2">
               {/* Step 1 */}
-              <div className="bg-red-500 w-12 h-12 rounded-full flex items-center justify-center">
-                {/* SVG: Login/Arrow icon */}
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="white" className="w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6A2.25 2.25 0 005.25 5.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15" /><path strokeLinecap="round" strokeLinejoin="round" d="M18 12H9m0 0l3-3m-3 3l3 3" /></svg>
+              <div className="bg-red-500 w-10 h-10 rounded-full flex items-center justify-center">
+                <Icon icon="mdi-light:login" className='w-5 h-5 text-white' />
               </div>
               {/* Step 2 */}
-              <div className="bg-red-500 w-12 h-12 rounded-full flex items-center justify-center">
+              <div className="bg-red-500 w-10 h-10 rounded-full flex items-center justify-center">
                 {/* SVG: Location/Lightbulb icon */}
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="white" className="w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" d="M12 3v1m0 16v1m8.66-13.66l-.71.71M4.05 19.95l-.71.71m16.97 0l-.71-.71M4.05 4.05l-.71-.71M21 12h-1M4 12H3m9-9a9 9 0 100 18 9 9 0 000-18z" /></svg>
+                <Icon icon="mdi-light:lightbulb" className='w-5 h-5 text-white' />
               </div>
               {/* Step 3 */}
-              <div className="bg-red-500 w-12 h-12 rounded-full flex items-center justify-center">
+              <div className="bg-red-500 w-10 h-10 rounded-full flex items-center justify-center">
                 {/* SVG: Clipboard icon */}
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="white" className="w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5h6a2 2 0 012 2v12a2 2 0 01-2 2H9a2 2 0 01-2-2V7a2 2 0 012-2zm0 0V3a2 2 0 012-2h2a2 2 0 012 2v2" /></svg>
+                <Icon icon="mdi-light:clipboard-text" className='w-5 h-5 text-white' />
               </div>
               {/* Step 4 */}
-              <div className="bg-red-500 w-12 h-12 rounded-full flex items-center justify-center">
+              <div className="bg-red-500 w-10 h-10 rounded-full flex items-center justify-center">
                 {/* SVG: Check/Heart icon */}
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="white" className="w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
+                <Icon icon="mdi-light:heart" className='w-5 h-5 text-white' />
               </div>
               {/* Step 5 */}
-              <div className="bg-red-500 w-12 h-12 rounded-full flex items-center justify-center">
+              <div className="bg-red-500 w-10 h-10 rounded-full flex items-center justify-center">
                 {/* SVG: Clock/Time icon */}
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="white" className="w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <Icon icon="mdi-light:clock" className='w-5 h-5 text-white' />
               </div>
             </div>
           </div>

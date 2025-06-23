@@ -23,7 +23,18 @@ export const COLLECTION = {
   CONTACT_INFO: 'contact_info',
   COVERAGE_AREA: 'coverage_area'
 }
-
+export const PAYMENT_METHOD = [
+  {
+    id: 1,
+    name: 'Bikash',
+    value: 'bikash'
+  },
+  {
+    id: 2,
+    name: 'Nogod',
+    value: 'nogod'
+  },
+]
 // app info
 export const APP_NAME = 'Netcom Internet';
 export const APP_DESCRIPTION = 'Netcom Internet is a District Internet Service Provider company providing broadband internet service since 2009. Netcom is committed to provide extraordinary internet service to clients!';
