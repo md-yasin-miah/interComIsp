@@ -3,7 +3,7 @@
 import React from 'react'
 
 const PayBill = () => {
-
+  const [activeTab, setActiveTab] = useState('mobile-banking');
   return (
     <div className="px-4 customContainer mx-auto pt-32">
       {/* Quick Pay Card */}
@@ -30,10 +30,7 @@ const PayBill = () => {
       <div className="mb-10">
         <h3 className="text-xl font-bold mb-2">Pay bill with <span className="text-red-500">mobile banking</span></h3>
         <p className="text-gray-600 mb-4">You can pay with Mobile banking by following these instructions</p>
-        <div className="flex gap-4 mb-6">
-          <button className="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded">Bkash</button>
-          <button className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded">Nagad</button>
-        </div>
+        <Tabs tabItems={PAYMENT_METHOD} activeTab={activeTab} setActiveTab={setActiveTab} />
 
         {/* Stepper Design - Exact Match */}
         <div className="flex">
