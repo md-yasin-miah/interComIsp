@@ -4,9 +4,9 @@ import React, { useContext, useEffect, useState } from 'react'
 import { APP_AUTHOR, PAYMENT_METHOD } from '@/helper/config'
 import Tabs from '@/components/shared/Tabs';
 import { Icon } from '@iconify/react';
-import MotionDiv from '@/components/ui/motion/motionDiv';
 import { APIContext } from '@/contexts/APIContext';
 import Link from 'next/link';
+import { motion } from 'framer-motion'
 
 const PayBill = () => {
   const { ContactInfo, getContactInfoData } = useContext(APIContext);
@@ -107,11 +107,11 @@ const PayBill = () => {
   return (
     <div className="px-2 sm:px-4 customContainer mx-auto pt-28 md:pt-40 pb-10 md:pb-20">
       {/* Quick Pay Card */}
-      <MotionDiv
+      <motion.div
         className="bg-white dark:bg-transparent dark:border dark:border-primary/10 rounded-2xl shadow-card p-6 md:p-8 flex flex-col md:flex-row items-center justify-between mb-8 md:mb-10 gap-6 transition-colors duration-300"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        viewport={{ once: true, amount: 0.3 }}
+        // viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.5, delay: 0.05 }}
       >
         <div>
@@ -122,14 +122,14 @@ const PayBill = () => {
           <Icon icon="famicons:card-outline" className='w-5 h-5' />
           PAY NOW
         </button>
-      </MotionDiv>
+      </motion.div>
 
       {/* How to pay? */}
-      <MotionDiv
+      <motion.div
         className="my-20"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
+        // viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.5, delay: 0.1 }}
       >
         <h2 className="text-4xl font-bold text-primary my-2">How to pay?</h2>
@@ -139,14 +139,14 @@ const PayBill = () => {
           <button className="flex items-center gap-2 border border-primary text-primary px-4 py-2 rounded font-semibold bg-white dark:bg-background3 dark:text-primary transition-colors duration-300 hover:bg-primary hover:text-white">Online Payment</button>
           <button className="flex items-center gap-2 border border-primary text-primary px-4 py-2 rounded font-semibold bg-white dark:bg-background3 dark:text-primary transition-colors duration-300 hover:bg-primary hover:text-white">Bank Transfer</button>
         </div>
-      </MotionDiv>
+      </motion.div>
 
       {/* Pay bill with mobile banking */}
-      <MotionDiv
+      <motion.div
         className="mb-10 md:mb-12"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
+        // viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.5, delay: 0.15 }}
       >
         <h3 className="text-xl font-bold mb-2">Pay bill with <span className="text-primary">mobile banking</span></h3>
@@ -163,7 +163,7 @@ const PayBill = () => {
           {/* Stepper column */}
           <div className="flex flex-col justify-between py-2 gap-5 relative min-w-[48px]">
             {activeSteps.map((step, idx) => (
-              <MotionDiv
+              <motion.div
                 key={step.id}
                 className="flex items-center h-12 gap-3"
                 initial={{ opacity: 0, y: 20 }}
@@ -175,7 +175,7 @@ const PayBill = () => {
                   <Icon icon={step.icon} className='w-5 h-5 text-white' />
                 </div>
                 <span className="text-gray-700 dark:text-gray-200 text-sm md:text-base">{step.description}</span>
-              </MotionDiv>
+              </motion.div>
             ))}
             {/* vertical line */}
             <div className="absolute top-1/2 -translate-y-1/2 left-[18px] -z-10 w-1 bg-gray-200" style={{ height: '90%' }}></div>
@@ -187,32 +187,32 @@ const PayBill = () => {
           <div className="bg-background3 dark:bg-background w-full sm:w-64 h-40 flex items-center justify-center rounded-xl shadow-card transition-colors duration-300">Video 1</div>
           <div className="bg-background3 dark:bg-background w-full sm:w-64 h-40 flex items-center justify-center rounded-xl shadow-card transition-colors duration-300">Video 2</div>
         </div>
-      </MotionDiv>
+      </motion.div>
 
       {/* Portal payment options */}
-      <MotionDiv
+      <motion.div
         className="mb-10 md:mb-12"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
+        // viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
         <h3 className="text-xl font-bold mb-4">Portal payment <span className="text-primary">options</span></h3>
         <p className="text-gray-600 dark:text-gray-300 mb-4">You can pay online with other suitable payment methods</p>
-        <img src="/paybill/syscomputersltd-payment.png" alt="syscomputersltd-payment" className='w-full rounded-xl shadow-card mb-4' />
+        <img src="/paybill/syscomputersltd-payment.png" alt="syscomputersltd-payment" className='w-full mb-4' />
         <div className="flex items-center gap-2 mb-2">
           <input type="checkbox" id="terms" />
           <label htmlFor="terms" className="text-gray-600 dark:text-gray-300 text-sm">I read and agreed to the Terms of use, Return & refund Policy, Privacy policy</label>
         </div>
         <button className="primaryBtn fill mt-2">Pay Now</button>
-      </MotionDiv>
+      </motion.div>
 
       {/* Direct bank transfer */}
-      <MotionDiv
+      <motion.div
         className="mb-10 md:mb-12"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
+        // viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.5, delay: 0.25 }}
       >
         <h3 className="text-xl font-bold mb-4">Direct <span className="text-primary">bank transfer</span></h3>
@@ -251,14 +251,14 @@ const PayBill = () => {
             </div>
           ))}
         </div>
-      </MotionDiv>
+      </motion.div>
 
       {/* Notice/Contact Section */}
-      <MotionDiv
+      <motion.div
         className="bg-white dark:bg-transparent dark:border dark:border-yellow-500 rounded-2xl overflow-hidden h-48 shadow-card flex flex-col sm:flex-row items-center gap-6 md:gap-8 transition-colors duration-300"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
+        // viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.5, delay: 0.3 }}
       >
         <div className="flex items-center justify-center w-48 min-h-full bg-yellow-500">
@@ -292,7 +292,7 @@ const PayBill = () => {
             animation: pulse-slow 1.2s infinite;
           }
         `}</style>
-      </MotionDiv>
+      </motion.div>
     </div>
   )
 }
