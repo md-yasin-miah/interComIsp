@@ -10,6 +10,7 @@ import { motion } from 'framer-motion'
 import QuickPayModal from '@/components/modals/QuickPayModal'
 import Image from 'next/image';
 import { PATH } from '@/helper/pathConfig';
+import Button from '@/components/shared/Button';
 
 const PayBill = () => {
   const { ContactInfo, getContactInfoData } = useContext(APIContext);
@@ -34,7 +35,7 @@ const PayBill = () => {
     {
       id: 3,
       icon: 'mdi-light:clipboard-text',
-      description: <span>Input your customer in <span className='font-semibold text-primary'>"Exord ID"</span> box.</span>
+      description: <span>Input your customer in <span className='font-semibold text-primary'>"Netcom ID"</span> box.</span>
     },
     {
       id: 4,
@@ -61,7 +62,7 @@ const PayBill = () => {
     {
       id: 3,
       icon: 'mdi-light:clipboard-text',
-      description: <span>Input your customer in <span className='font-semibold text-primary'>"Exord ID"</span> box.</span>
+      description: <span>Input your customer in <span className='font-semibold text-primary'>"Netcom ID"</span> box.</span>
     },
     {
       id: 4,
@@ -124,15 +125,14 @@ const PayBill = () => {
     // If checkbox is checked, proceed with payment
     window.open(PATH.paymentPortal, '_blank', 'noopener,noreferrer');
   };
-
+  const bgClass = "bg-[url('data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%2280%22%20height=%2280%22%20viewBox=%220%200%20200%20200%22%3E%3Cpolygon%20fill=%22%23DCEFFA%22%20fill-opacity=%220.50%22%20points=%22100%200%200%20100%20100%20100%20100%20200%20200%20100%20200%200%22/%3E%3C/svg%3E')] dark:bg-[url('data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%2280%22%20height=%2280%22%20viewBox=%220%200%20200%20200%22%3E%3Cpolygon%20fill=%22%23DCEFFA%22%20fill-opacity=%220.05%22%20points=%22100%200%200%20100%20100%20100%20100%20200%20200%20100%20200%200%22/%3E%3C/svg%3E')]"
   return (
     <div className="px-2 sm:px-4 customContainer mx-auto pt-14 md:pt-20 pb-10 md:pb-20">
       {/* Quick Pay Card */}
       <motion.div
-        className="bg-white dark:bg-transparent dark:border dark:border-primary/10 rounded-2xl shadow-card p-6 md:p-14 flex flex-col md:flex-row items-center justify-between mb-8 md:mb-10 gap-6 transition-colors duration-300"
+        className={`bg-white dark:bg-transparent dark:border dark:border-primary/10 rounded-2xl shadow-card p-6 md:p-14 flex flex-col md:flex-row items-center justify-between mb-8 md:mb-10 gap-6 transition-colors duration-300 ${bgClass}`}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        // viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.5, delay: 0.05 }}
       >
         <div>
@@ -323,45 +323,82 @@ const PayBill = () => {
         </div>
       </motion.div>
 
-      {/* Notice/Contact Section */}
+      {/* Important Notice Section */}
       <motion.div
-        className="bg-white dark:bg-transparent dark:border dark:border-yellow-500 rounded-2xl overflow-hidden h-48 shadow-card flex flex-col sm:flex-row items-center gap-6 md:gap-8 transition-colors duration-300"
+        className="bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 dark:from-amber-900/20 dark:via-orange-900/20 dark:to-yellow-900/20 rounded-2xl border border-amber-200 dark:border-amber-700/50 shadow-card p-6 transition-all duration-300"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        // viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.5, delay: 0.3 }}
       >
-        <div className="flex items-center justify-center w-48 min-h-full bg-yellow-500">
-          <span className="block animate-pulse-slow">
-            <Icon icon="ion:warning" className='w-20 h-20 text-red-600' />
-          </span>
+        <div className="flex flex-col items-start gap-6">
+          {/* Icon and Warning */}
+          <div className="flex items-center gap-4 flex-shrink-0">
+            <div className="relative">
+              <div className="w-12 h-12 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full flex items-center justify-center shadow-md">
+                <Icon icon="ion:warning" className='w-6 h-6 text-white' />
+              </div>
+              <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
+            </div>
+            <div>
+              <h3 className="text-lg md:text-xl font-bold text-amber-800 dark:text-amber-200">
+                Payment Update Required
+              </h3>
+              <p className="text-amber-600 dark:text-amber-300 text-sm">
+                For USSD, Bank Payment & Mobile Banking
+              </p>
+            </div>
+          </div>
+
+          {/* Content and Actions */}
+          <div className="flex-1">
+            <p className="text-gray-700 dark:text-gray-300 text-sm md:text-base mb-4">
+              Contact our helpline to update payments made through USSD, Bank Payment, or Mobile Banking App.
+            </p>
+
+            {/* Contact Info in compact format */}
+            <div className="flex flex-col sm:flex-row gap-4 text-sm">
+              <div className="flex items-center gap-2">
+                <Icon icon="mdi:phone" className='w-4 h-4 text-green-600 dark:text-green-400' />
+                <span className="font-medium text-gray-600 dark:text-gray-400">Phone:</span>
+                {ContactInfo.data?.[0]?.phones?.map((phone, index) => (
+                  <Link
+                    href={`tel:${phone}`}
+                    key={index}
+                    className='text-primary hover:text-secondary transition-colors duration-300 font-medium'
+                  >
+                    {phone}{index !== ContactInfo.data?.[0]?.phones?.length - 1 && ", "}
+                  </Link>
+                ))}
+              </div>
+
+              <div className="flex items-center gap-2">
+                <Icon icon="mdi:email" className='w-4 h-4 text-blue-600 dark:text-blue-400' />
+                <span className="font-medium text-gray-600 dark:text-gray-400">Email:</span>
+                {ContactInfo.data?.[0]?.emails?.map((email, index) => (
+                  <Link
+                    href={`mailto:${email}`}
+                    key={index}
+                    className='text-primary hover:text-secondary transition-colors duration-300 font-medium'
+                  >
+                    {email}{index !== ContactInfo.data?.[0]?.emails?.length - 1 && ", "}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Quick Action Button */}
+          <div className="flex-shrink-0">
+            <Button
+              href={`tel:${ContactInfo.data?.[0]?.phones?.[0]}`}
+              size="small"
+              className="!bg-gradient-to-r !from-green-500 !to-green-600 hover:!from-green-600 hover:!to-green-700 !text-white !border-none"
+              icon={<Icon icon="mdi:phone" className='w-4 h-4' />}
+            >
+              Call Now
+            </Button>
+          </div>
         </div>
-        <div className="flex-1 text-left">
-          <p className="text-gray-900 dark:text-gray-200 font-semibold text-base md:text-lg mb-4">You must need to contact with our helpline to update your payment if you use USSD,<br className="hidden md:block" /> Bank Payment or Mobile Banking App to pay the bill.</p>
-          <p className="text-gray-900 dark:text-gray-200 font-semibold text-base md:text-lg space-x-2">Helpline number:{" "}
-            {
-              ContactInfo.data?.[0]?.phones?.map((phone, index) => (
-                <Link href={`tel:${phone}`} key={index} className='hover:text-primary cursor-pointer transition-colors duration-300'>{phone}{index !== ContactInfo.data?.[0]?.phones?.length - 1 && ","}</Link>
-              ))
-            }
-          </p>
-          <p className="text-gray-900 dark:text-gray-200 font-semibold text-base md:text-lg space-x-2">E-Mail:{" "}
-            {
-              ContactInfo.data?.[0]?.emails?.map((email, index) => (
-                <Link href={`mailto:${email}`} key={index} className='hover:text-primary cursor-pointer transition-colors duration-300'>{email}{index !== ContactInfo.data?.[0]?.emails?.length - 1 && ","}</Link>
-              ))
-            }
-          </p>
-        </div>
-        <style jsx global>{`
-          @keyframes pulse-slow {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.4; }
-          }
-          .animate-pulse-slow {
-            animation: pulse-slow 1.2s infinite;
-          }
-        `}</style>
       </motion.div>
 
       {/* Quick Pay Modal */}
