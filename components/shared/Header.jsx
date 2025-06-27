@@ -10,9 +10,25 @@ import Link from 'next/link'
 import NavList from './NavList'
 import ThemeToggle from './ThemeToggle'
 import { navMenu, PATH } from '@/helper/pathConfig'
+import { usePathname } from 'next/navigation'
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const [menuHover, setMenuHover] = useState(false);
+
+  // Function to check if a menu item is active
+  const isActive = (url) => {
+    if (pathname === '/') {
+      return url === '/';
+    }
+    return pathname.startsWith(url) && url !== '/';
+  };
+
+  // Find the active menu item index
+  const activeIndex = navMenu.findIndex(item => isActive(item.url));
+  console.log({ activeIndex });
+  console.log({ menuHover });
   return (
     <header
       className="h-24 w-full flex items-center sticky top-0 z-50 bg-white dark:bg-gray-900 shadow-[0px_5px_20px_0px_rgba(0,0,0,0.1)]"
@@ -30,10 +46,17 @@ const Header = () => {
           <ul>
             {navMenu.map((item, index) => (
               <NavList key={index} url={item.url}>
-                <Link href={item.url}>{item.name}</Link>
+                <Link
+                  onMouseEnter={() => setMenuHover(true)}
+                  onMouseLeave={() => setMenuHover(false)}
+                  href={item.url}>
+                  {item.name}
+                </Link>
               </NavList>
             ))}
-            <span></span>
+            {(activeIndex !== -1 || menuHover) && (
+              <span></span>
+            )}
           </ul>
         </div>
 
