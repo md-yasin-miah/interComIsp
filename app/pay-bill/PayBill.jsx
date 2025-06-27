@@ -7,6 +7,7 @@ import { Icon } from '@iconify/react';
 import { APIContext } from '@/contexts/APIContext';
 import Link from 'next/link';
 import { motion } from 'framer-motion'
+import QuickPayModal from '@/components/modals/QuickPayModal'
 
 const PayBill = () => {
   const { ContactInfo, getContactInfoData } = useContext(APIContext);
@@ -14,6 +15,7 @@ const PayBill = () => {
     !ContactInfo.data && getContactInfoData();
   }, []);
   const [activeTab, setActiveTab] = useState(PAYMENT_METHOD[0].value);
+  const [isQuickPayModalOpen, setIsQuickPayModalOpen] = useState(false);
   const bikashSteps = [
     {
       id: 1,
@@ -108,7 +110,7 @@ const PayBill = () => {
     <div className="px-2 sm:px-4 customContainer mx-auto pt-28 md:pt-40 pb-10 md:pb-20">
       {/* Quick Pay Card */}
       <motion.div
-        className="bg-white dark:bg-transparent dark:border dark:border-primary/10 rounded-2xl shadow-card p-6 md:p-8 flex flex-col md:flex-row items-center justify-between mb-8 md:mb-10 gap-6 transition-colors duration-300"
+        className="bg-white dark:bg-transparent dark:border dark:border-primary/10 rounded-2xl shadow-card p-6 md:p-14 flex flex-col md:flex-row items-center justify-between mb-8 md:mb-10 gap-6 transition-colors duration-300"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         // viewport={{ once: true, amount: 0.3 }}
@@ -118,7 +120,10 @@ const PayBill = () => {
           <h2 className="text-3xl font-bold text-primary mb-2">Quick Pay</h2>
           <p className="text-gray-600 dark:text-gray-300 text-base w-3/4">Make your payment instantly using the facilities but not limited to like bKash, Nagad, Master Card, Visa card and some other way. You can pay your renewal fee and new connection fees from here instantly.</p>
         </div>
-        <button className="primaryBtn fill whitespace-nowrap">
+        <button
+          className="primaryBtn fill whitespace-nowrap"
+          onClick={() => setIsQuickPayModalOpen(true)}
+        >
           <Icon icon="famicons:card-outline" className='w-5 h-5' />
           PAY NOW
         </button>
@@ -293,6 +298,12 @@ const PayBill = () => {
           }
         `}</style>
       </motion.div>
+
+      {/* Quick Pay Modal */}
+      <QuickPayModal
+        isOpen={isQuickPayModalOpen}
+        onClose={() => setIsQuickPayModalOpen(false)}
+      />
     </div>
   )
 }
