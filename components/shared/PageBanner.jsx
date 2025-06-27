@@ -10,22 +10,25 @@ const PageBanner = ({
   title2 = '',
   subTitle = '',
   loading = false,
-  pageName = ''
+  pageName = '',
+  boxClassName = ''
 }) => {
   const { PageBanners, getPageBannerData } = useContext(APIContext);
   const banner = PageBanners.data?.find((item) => item.page_name === pageName);
   useEffect(() => {
     !PageBanners.data && getPageBannerData();
   }, []);
+  console.log({ boxClassName });
+
   return (
-    <section className="relative min-h-[450px]">
+    <section className={`${boxClassName} relative min-h-[300px] flex items-center`}>
       <div className="absolute inset-0 w-full h-full dark:bg-dot-white/[0.2] bg-dot-black/[0.2]">
         {
           banner?.bannerImgUrl && <Image src={banner?.bannerImgUrl} alt={banner?.banner_img} fill className='object-cover bg-opacity-50 absolute inset-0'></Image>
         }
         <div className={`absolute inset-0 dark:bg-black/55 mix-blend-multiply`} aria-hidden="true"></div>
       </div>
-      <div className="relative customContainer mx-auto lg:pb-32 md:pb-20 pb-16 lg:pt-52 md:pt-52 pt-52 -mt-24 sm:py-32 lg:mt-0">
+      <div className="relative customContainer">
         {
           loading || PageBanners.loading ?
             <Shade className="w-10/12 h-14 mb-8" />
@@ -54,6 +57,9 @@ export default PageBanner;
 
 PageBanner.propTypes = {
   title: PropTypes.string,
+  title2: PropTypes.string,
   subTitle: PropTypes.string,
-  bgClassName: PropTypes.string,
+  loading: PropTypes.bool,
+  pageName: PropTypes.string,
+  boxClassName: PropTypes.string,
 }

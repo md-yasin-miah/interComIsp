@@ -50,7 +50,6 @@ const Slider = ({ options, setActiveIndex, activeIndex, data }) => {
     return (
         <Splide
             key="hero-slider"
-            className='md:pt-24 pt-20'
             options={{
                 ...options,
                 autoplay: true,

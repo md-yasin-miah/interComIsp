@@ -16,6 +16,8 @@ export const PATH = {
   getQuote: '/get-quote',
   userManual: '/user-manual',
   scheduleOfCharges: '/schedule-of-charges',
+
+  paymentPortal: 'https://portal.netcomisp.net/payment/paymentPage',
 }
 
 export const navMenu = [

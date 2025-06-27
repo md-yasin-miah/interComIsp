@@ -15,7 +15,7 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
     <header
-      className="h-24 w-full flex items-center fixed top-0 left-0 right-0 z-50 bg-white dark:bg-gray-900 shadow-[0px_5px_20px_0px_rgba(0,0,0,0.1)]"
+      className="h-24 w-full flex items-center sticky top-0 z-50 bg-white dark:bg-gray-900 shadow-[0px_5px_20px_0px_rgba(0,0,0,0.1)]"
     >
       <div className="customContainer flex items-center justify-between">
         <div className='relative w-[180px]'>

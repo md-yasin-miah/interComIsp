@@ -8,6 +8,8 @@ import { APIContext } from '@/contexts/APIContext';
 import Link from 'next/link';
 import { motion } from 'framer-motion'
 import QuickPayModal from '@/components/modals/QuickPayModal'
+import Image from 'next/image';
+import { PATH } from '@/helper/pathConfig';
 
 const PayBill = () => {
   const { ContactInfo, getContactInfoData } = useContext(APIContext);
@@ -16,6 +18,8 @@ const PayBill = () => {
   }, []);
   const [activeTab, setActiveTab] = useState(PAYMENT_METHOD[0].value);
   const [isQuickPayModalOpen, setIsQuickPayModalOpen] = useState(false);
+  const [isTermsChecked, setIsTermsChecked] = useState(false);
+  const [showTermsError, setShowTermsError] = useState(false);
   const bikashSteps = [
     {
       id: 1,
@@ -30,7 +34,7 @@ const PayBill = () => {
     {
       id: 3,
       icon: 'mdi-light:clipboard-text',
-      description: <span>Now select your internet billing timeline in <span className='font-semibold text-primary'>"Billing Cycle"</span> box & input your customer in <span className='font-semibold text-primary'>"Exord ID"</span> box.</span>
+      description: <span>Input your customer in <span className='font-semibold text-primary'>"Exord ID"</span> box.</span>
     },
     {
       id: 4,
@@ -57,7 +61,7 @@ const PayBill = () => {
     {
       id: 3,
       icon: 'mdi-light:clipboard-text',
-      description: <span>Now select your internet billing timeline in <span className='font-semibold text-primary'>"Billing Cycle"</span> box & input your customer in <span className='font-semibold text-primary'>"Exord ID"</span> box.</span>
+      description: <span>Input your customer in <span className='font-semibold text-primary'>"Exord ID"</span> box.</span>
     },
     {
       id: 4,
@@ -106,8 +110,23 @@ const PayBill = () => {
     },
   ];
 
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    section.classList.add('md:scroll-mt-40', 'scroll-mt-20');
+    section.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  const handlePayNowClick = () => {
+    if (!isTermsChecked) {
+      setShowTermsError(true);
+      return;
+    }
+    // If checkbox is checked, proceed with payment
+    window.open(PATH.paymentPortal, '_blank', 'noopener,noreferrer');
+  };
+
   return (
-    <div className="px-2 sm:px-4 customContainer mx-auto pt-28 md:pt-40 pb-10 md:pb-20">
+    <div className="px-2 sm:px-4 customContainer mx-auto pt-14 md:pt-20 pb-10 md:pb-20">
       {/* Quick Pay Card */}
       <motion.div
         className="bg-white dark:bg-transparent dark:border dark:border-primary/10 rounded-2xl shadow-card p-6 md:p-14 flex flex-col md:flex-row items-center justify-between mb-8 md:mb-10 gap-6 transition-colors duration-300"
@@ -140,14 +159,39 @@ const PayBill = () => {
         <h2 className="text-4xl font-bold text-primary my-2">How to pay?</h2>
         <p className="text-gray-600 dark:text-gray-300 mb-4">Step-by-step guide to making an online payment</p>
         <div className="flex flex-wrap gap-2 md:gap-4 mb-4 md:mb-6">
-          <button className="flex items-center gap-2 border border-primary text-primary px-4 py-2 rounded font-semibold bg-white dark:bg-background3 dark:text-primary transition-colors duration-300 hover:bg-primary hover:text-white">Mobile Banking</button>
-          <button className="flex items-center gap-2 border border-primary text-primary px-4 py-2 rounded font-semibold bg-white dark:bg-background3 dark:text-primary transition-colors duration-300 hover:bg-primary hover:text-white">Online Payment</button>
-          <button className="flex items-center gap-2 border border-primary text-primary px-4 py-2 rounded font-semibold bg-white dark:bg-background3 dark:text-primary transition-colors duration-300 hover:bg-primary hover:text-white">Bank Transfer</button>
+          <button className="flex items-center gap-2 border border-primary text-primary px-4 py-2 rounded font-semibold bg-white dark:bg-background3 dark:text-primary transition-colors duration-300" onClick={() => scrollToSection('mobile-banking')}>
+            <Image
+              src="/paybill/mobile-banking.png"
+              alt="mobile-banking"
+              width={30}
+              height={30}
+              className='w-6 h-6'
+            />
+            Mobile Banking</button>
+          <button className="flex items-center gap-2 border border-primary text-primary px-4 py-2 rounded font-semibold bg-white dark:bg-background3 dark:text-primary transition-colors duration-300" onClick={() => scrollToSection('online-payment')}>
+            <Image
+              src="/paybill/cashless-payment.png"
+              alt="online-payment"
+              width={30}
+              height={30}
+              className='w-6 h-6'
+            />
+            Online Payment</button>
+          <button className="flex items-center gap-2 border border-primary text-primary px-4 py-2 rounded font-semibold bg-white dark:bg-background3 dark:text-primary transition-colors duration-300" onClick={() => scrollToSection('bank-transfer')}>
+            <Image
+              src="/paybill/banking.png"
+              alt="bank-transfer"
+              width={30}
+              height={30}
+              className='w-6 h-6'
+            />
+            Bank Transfer</button>
         </div>
       </motion.div>
 
       {/* Pay bill with mobile banking */}
       <motion.div
+        id="mobile-banking"
         className="mb-10 md:mb-12"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -196,6 +240,7 @@ const PayBill = () => {
 
       {/* Portal payment options */}
       <motion.div
+        id="online-payment"
         className="mb-10 md:mb-12"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -206,14 +251,34 @@ const PayBill = () => {
         <p className="text-gray-600 dark:text-gray-300 mb-4">You can pay online with other suitable payment methods</p>
         <img src="/paybill/syscomputersltd-payment.png" alt="syscomputersltd-payment" className='w-full mb-4' />
         <div className="flex items-center gap-2 mb-2">
-          <input type="checkbox" id="terms" />
-          <label htmlFor="terms" className="text-gray-600 dark:text-gray-300 text-sm">I read and agreed to the Terms of use, Return & refund Policy, Privacy policy</label>
+          <input
+            type="checkbox"
+            id="terms"
+            checked={isTermsChecked}
+            onChange={(e) => {
+              setIsTermsChecked(e.target.checked);
+              if (e.target.checked) {
+                setShowTermsError(false);
+              }
+            }}
+          />
+          <label
+            htmlFor="terms"
+            className="text-gray-600 dark:text-gray-300 text-sm">I read and agreed to the <Link href={PATH.termsOfUse} className='hover:underline hover:text-black dark:hover:text-white'>Terms of use</Link>, <Link href={PATH.returnRefundPolicy} className='hover:underline hover:text-black dark:hover:text-white'>Return & refund Policy</Link>, <Link href={PATH.privacyPolicy} className='hover:underline hover:text-black dark:hover:text-white'>Privacy policy</Link></label>
         </div>
-        <button className="primaryBtn fill mt-2">Pay Now</button>
+        {showTermsError && (
+          <p className="text-red-500 text-xs mb-2">Please check the terms and conditions checkbox to proceed.</p>
+        )}
+        <button
+          onClick={handlePayNowClick}
+          className="primaryBtn fill mt-2">
+          Pay Now
+        </button>
       </motion.div>
 
       {/* Direct bank transfer */}
       <motion.div
+        id="bank-transfer"
         className="mb-10 md:mb-12"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
