@@ -29,10 +29,10 @@ const Header = () => {
   const activeIndex = navMenu.findIndex(item => isActive(item.url));
   return (
     <header
-      className="h-16 md:h-24 w-full flex items-center sticky top-0 z-50 bg-white dark:bg-gray-900 shadow-[0px_5px_20px_0px_rgba(0,0,0,0.1)]"
+      className="h-16 md:h-20 w-full flex items-center sticky top-0 z-50 bg-white dark:bg-gray-900 shadow-[0px_5px_20px_0px_rgba(0,0,0,0.1)]"
     >
       <div className="customContainer flex items-center justify-between">
-        <div className='relative w-[130px] md:w-[180px]'>
+        <div className='relative w-[130px] md:w-[160px]'>
           <Link href={PATH.root}>
             <Image src={logo} alt='logo' width='fill' height='fill' className='dark:hidden' />
             <Image src={logoWhite} alt='logo' width='fill' height='fill' className='hidden dark:block px-2' />

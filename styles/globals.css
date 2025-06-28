@@ -131,7 +131,7 @@ body {
 }
 
 .navMenu ul li a {
-  @apply px-3 py-2.5
+  @apply px-3 py-[9px] text-sm font-medium
 }
 
 .navMenu ul span {
@@ -142,7 +142,7 @@ body {
   transform: translateY(-50%);
   left: 0;
   width: 68px;
-  height: 43px;
+  height: 38px;
   background: linear-gradient(to right, var(--primary), var(--secondary));
   border-radius: 3px;
 }
@@ -153,37 +153,37 @@ body {
 
 .navMenu ul li:nth-child(1).active~span {
   left: 0px;
-  width: 71.72px;
+  width: 66px;
 }
 
 .navMenu ul li:nth-child(2).active~span {
-  left: 71.72px;
-  width: 90.19px;
+  left: 66px;
+  width: 82.75px;
 }
 
 .navMenu ul li:nth-child(3).active~span {
-  left: 161.72px;
-  width: 101.94px;
+  left: calc(66px + 82.75px);
+  width: 93.08px;
 }
 
 .navMenu ul li:nth-child(4).active~span {
-  left: 263.66px;
-  width: 103.02px;
+  left: calc(66px + 82.75px + 93.08px);
+  width: 93.47px;
 }
 
 .navMenu ul li:nth-child(5).active~span {
-  left: 366.68px;
-  width: 78.98px;
+  left: calc(66px + 82.75px + 93.08px + 93.47px);
+  width: 73.53px;
 }
 
 .navMenu ul li:nth-child(6).active~span {
-  left: 445.66px;
-  width: 71.36px;
+  left: calc(66px + 82.75px + 93.08px + 93.47px + 73.53px);
+  width: 65.77px;
 }
 
 .navMenu ul li:nth-child(7).active~span {
-  left: calc(100% - 87.3px);
-  width: 87.3px;
+  left: calc(100% - 80.05px);
+  width: 80.05px;
 }
 
 .navMenu ul:hover li {
@@ -192,37 +192,37 @@ body {
 
 .navMenu ul li:nth-child(1):hover~span {
   left: 0px;
-  width: 71.72px;
+  width: 66px;
 }
 
 .navMenu ul li:nth-child(2):hover~span {
-  left: 71.72px;
-  width: 90.19px;
+  left: 66px;
+  width: 82.75px;
 }
 
 .navMenu ul li:nth-child(3):hover~span {
-  left: 161.72px;
-  width: 101.94px;
+  left: calc(66px + 82.75px);
+  width: 93.08px;
 }
 
 .navMenu ul li:nth-child(4):hover~span {
-  left: 263.66px;
-  width: 103.02px;
+  left: calc(66px + 82.75px + 93.08px);
+  width: 93.47px;
 }
 
 .navMenu ul li:nth-child(5):hover~span {
-  left: 366.68px;
-  width: 78.98px;
+  left: calc(66px + 82.75px + 93.08px + 93.47px);
+  width: 73.53px;
 }
 
 .navMenu ul li:nth-child(6):hover~span {
-  left: 445.66px;
-  width: 71.36px;
+  left: calc(66px + 82.75px + 93.08px + 93.47px + 73.53px);
+  width: 65.77px;
 }
 
 .navMenu ul li:nth-child(7):hover~span {
-  left: calc(100% - 87.3px);
-  width: 87.3px;
+  left: calc(100% - 80.05px);
+  width: 80.05px;
 }
 
 .navMenu ul li:nth-child(1):hover,
