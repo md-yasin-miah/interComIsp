@@ -20,7 +20,7 @@ const PageBanner = ({
   }, []);
 
   return (
-    <section className={`${boxClassName} relative min-h-[300px] py-7 flex items-center`}>
+    <section className={`${boxClassName} relative min-h-fit py-7 flex items-center`}>
       <div className="absolute inset-0 w-full h-full dark:bg-dot-white/[0.2] bg-dot-black/[0.2]">
         {
           banner?.bannerImgUrl && <Image src={banner?.bannerImgUrl} alt={banner?.banner_img} fill className='object-cover bg-opacity-50 absolute inset-0'></Image>

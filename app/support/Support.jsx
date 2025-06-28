@@ -6,7 +6,6 @@ const Support = () => {
     <ConnectSection
       banner={
         <PageBanner
-          boxClassName='min-h-[150px]'
           pageName='support'
           bgClassName='bg-secondary'
         />

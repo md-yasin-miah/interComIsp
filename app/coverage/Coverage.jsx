@@ -16,34 +16,68 @@ const Coverage = () => {
   const [userLocation, setUserLocation] = useState(null)
   const [selectedDistrict, setSelectedDistrict] = useState("Dhaka")
   const [searchQuery, setSearchQuery] = useState("")
-
+  const [locationLoading, setLocationLoading] = useState(false)
+  const [locationError, setLocationError] = useState(null)
 
   const { CoverageArea, getCoverageAreaData } = useContext(APIContext)
+
   useEffect(() => {
     !CoverageArea.data && getCoverageAreaData()
   }, []);
 
   const handleCheckCoverage = () => {
     if (navigator.geolocation) {
+      setLocationLoading(true)
+      setLocationError(null)
+
       navigator.geolocation.getCurrentPosition(
         (position) => {
-          setUserLocation({
+          const newLocation = {
             lat: position.coords.latitude,
-            lng: position.coords.longitude
-          })
+            lng: position.coords.longitude,
+            accuracy: position.coords.accuracy
+          }
+          setUserLocation(newLocation)
+          setLocationLoading(false)
           setIsModalOpen(true)
+          console.log("Location obtained:", newLocation)
         },
         (error) => {
-          console.error("Error getting location:", error)
-          setIsModalOpen(true) // Open modal anyway, but without location
+          setLocationLoading(false)
+          let errorMessage = "Unable to get your location. "
+
+          switch (error.code) {
+            case error.PERMISSION_DENIED:
+              errorMessage += "Please enable location permissions in your browser."
+              break
+            case error.POSITION_UNAVAILABLE:
+              errorMessage += "Location information is unavailable."
+              break
+            case error.TIMEOUT:
+              errorMessage += "Location request timed out."
+              break
+            default:
+              errorMessage += "An unknown error occurred."
+              break
+          }
+
+          setLocationError(errorMessage)
+          console.error("Geolocation error:", error)
+
+          // Still open modal to show coverage areas
+          setIsModalOpen(true)
+        },
+        {
+          enableHighAccuracy: true,
+          timeout: 15000,
+          maximumAge: 300000 // 5 minutes
         }
       )
     } else {
-      alert("Geolocation is not supported by your browser")
-      setIsModalOpen(true) // Open modal anyway, but without location
+      setLocationError("Geolocation is not supported by your browser")
+      setIsModalOpen(true)
     }
   }
-
   // Filter areas based on search and selected district
   const filteredAreas = CoverageArea.data
     ?.find(district => district.district === selectedDistrict)?.area
@@ -55,6 +89,7 @@ const Coverage = () => {
     <>
       <PageBanner
         pageName='coverage'
+        boxClassName='!min-h-[300px]'
       />
 
       {/* search coverage area */}
@@ -128,6 +163,19 @@ const Coverage = () => {
             ))}
           </div>
 
+          {/* Location Error Display */}
+          {locationError && (
+            <MotionDiv
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mt-6 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg text-center"
+            >
+              <p className="text-red-600 dark:text-red-400 text-sm">
+                {locationError}
+              </p>
+            </MotionDiv>
+          )}
+
           <MotionDiv
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -136,18 +184,46 @@ const Coverage = () => {
           >
             <button
               onClick={handleCheckCoverage}
-              className="text-white px-8 py-3 rounded-full relative bg-gradient-to-r from-primary to-secondary group overflow-hidden"
+              disabled={locationLoading}
+              className={`text-white px-8 py-3 rounded-full relative bg-gradient-to-r from-primary to-secondary group overflow-hidden transition-all duration-300 ${locationLoading
+                ? 'opacity-70 cursor-not-allowed'
+                : 'hover:shadow-lg hover:scale-105'
+                }`}
             >
-              <span className="relative z-10">Check Coverage in Your Area</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-secondary to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-400"></div>
+              <span className="relative z-10 flex items-center gap-2">
+                {locationLoading ? (
+                  <>
+                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+                    Getting Location...
+                  </>
+                ) : (
+                  <>
+                    <FaMapMarkerAlt className="w-4 h-4" />
+                    Check Coverage in Your Area
+                  </>
+                )}
+              </span>
+              {!locationLoading && (
+                <div className="absolute inset-0 bg-gradient-to-r from-secondary to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-400"></div>
+              )}
             </button>
+
+            {userLocation && (
+              <p className="mt-3 text-sm text-gray-600 dark:text-gray-400">
+                Last location: {userLocation.lat.toFixed(4)}, {userLocation.lng.toFixed(4)}
+                {userLocation.accuracy && ` (±${Math.round(userLocation.accuracy)}m)`}
+              </p>
+            )}
           </MotionDiv>
         </div>
 
         <CoverageModal
           coverageAreas={CoverageArea.data}
           isOpen={isModalOpen}
-          onClose={() => setIsModalOpen(false)}
+          onClose={() => {
+            setIsModalOpen(false)
+            setLocationError(null)
+          }}
           userLocation={userLocation}
         />
       </section>
