@@ -65,15 +65,15 @@ const Header = () => {
   }, [lastScrollY]);
 
   return (
-    <header className="w-full sticky top-0 z-50">
+    <header className={`${mobileMenuOpen ? 'h-screen' : ''} w-full sticky top-0 z-50 overflow-hidden`}>
       {/* Header Top Section */}
       <div
-        className={`bg-footerBG h-10 flex items-center transition-transform duration-300 ease-in-out ${isTopVisible ? 'transform translate-y-0' : 'transform -translate-y-full'
+        className={`bg-footerBG h-10 md:flex hidden items-center transition-transform duration-300 ease-in-out ${isTopVisible ? 'transform translate-y-0' : 'transform -translate-y-full'
           }`}
       >
-        <div className='customContainer text-white text-sm flex items-center gap-5'>
+        <div className='customContainer text-white md:text-sm text-xs flex flex-col md:flex-row md:items-center md:gap-5'>
           <div className='flex items-center gap-1'>
-            <Icon icon="famicons:call-outline" className='mr-1 w-4 h-4' />
+            <Icon icon="famicons:call-outline" className='mr-1 md:w-4 md:h-4 w-3 h-3' />
             {ContactInfo.data?.[0]?.phones?.map((phone, index) => (
               <Link
                 href={`tel:${phone}`}
@@ -85,7 +85,7 @@ const Header = () => {
             ))}
           </div>
           <div className='flex items-center gap-1'>
-            <Icon icon="material-symbols:mail-outline" className='mr-1 w-4 h-4' />
+            <Icon icon="material-symbols:mail-outline" className='mr-1 md:w-4 md:h-4 w-3 h-3' />
             {ContactInfo.data?.[0]?.emails?.map((email, index) => (
               <Link
                 href={`mailto:${email}`}
@@ -163,21 +163,21 @@ const Header = () => {
           </div>
 
           {/* Mobile Menu */}
-          <div className={`lg:hidden fixed h-screen top-24 left-0 w-full bg-white dark:bg-gray-900 transition-transform duration-300 transform ${mobileMenuOpen ? 'translate-x-0 z-[1000]' : 'translate-x-full'}`}>
+          <div className={`lg:hidden fixed h-screen top-16 left-0 w-full bg-white dark:bg-gray-900 transition-transform duration-300 transform z-[1000] ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
             <nav className="p-4">
-              <ul className="flex flex-col space-y-3">
+              <ul className="flex flex-col divide-y divide-gray-200 dark:divide-gray-700">
                 {navMenu.map((item, index) => (
                   <li key={index} className="text-center">
                     <Link
                       href={item.url}
-                      className="text-gray-800 dark:text-white hover:text-primary"
+                      className="text-gray-800 dark:text-white hover:text-primary block py-2"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {item.name}
                     </Link>
                   </li>
                 ))}
-                <li className="text-center sm:hidden m-auto flex gap-2">
+                <li className="text-center justify-center sm:hidden m-full flex gap-2 pt-4">
                   <Button
                     animation='outline'
                     href='https://portal.netcomisp.net/'
@@ -199,6 +199,32 @@ const Header = () => {
                   <ThemeToggle />
                 </li>
               </ul>
+              <div className='text-center text-sm pt-4 flex flex-col gap-2'>
+                <div className='flex items-center justify-center gap-1 border border-gray-200 dark:border-gray-700 rounded-md p-2'>
+                  <Icon icon="famicons:call-outline" className='mr-1 w-4 h-4' />
+                  {ContactInfo.data?.[0]?.phones?.map((phone, index) => (
+                    <Link
+                      href={`tel:${phone}`}
+                      key={index}
+                      className='hover:text-white/80 transition-colors duration-300'
+                    >
+                      {phone}{index !== ContactInfo.data?.[0]?.phones?.length - 1 && ","}
+                    </Link>
+                  ))}
+                </div>
+                <div className='flex items-center justify-center gap-1 border border-gray-200 dark:border-gray-700 rounded-md p-2'>
+                  <Icon icon="material-symbols:mail-outline" className='mr-1 w-4 h-4' />
+                  {ContactInfo.data?.[0]?.emails?.map((email, index) => (
+                    <Link
+                      href={`mailto:${email}`}
+                      key={index}
+                      className='hover:text-white/80 transition-colors duration-300'
+                    >
+                      {email}{index !== ContactInfo.data?.[0]?.emails?.length - 1 && ","}
+                    </Link>
+                  ))}
+                </div>
+              </div>
             </nav>
           </div>
         </div>
