@@ -1,5 +1,5 @@
 "use client"
-import { useContext, useEffect,  } from 'react'
+import { useContext, useEffect, } from 'react'
 import SectionTitle from '../shared/SectionTitle'
 import OfferCard from '../cards/OfferCard'
 import { APIContext } from '@/contexts/APIContext'
@@ -11,7 +11,7 @@ const OffersSection = () => {
     !Offers.data && getOffersData();
   }, []);
   return (
-    <section className='bg-background3 dark:bg-black md:py-20 py-10'>
+    <section className='bg-background3 dark:bg-black py-10'>
       <div className="customContainer">
         <SectionTitle
           title='Exciting'

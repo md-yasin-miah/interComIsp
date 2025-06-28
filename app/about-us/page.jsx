@@ -17,7 +17,7 @@ const AboutUsPage = () => {
       />
 
       {/* Vision Section */}
-      <section className='md:py-20 py-10'>
+      <section className='py-10'>
         <div className='customContainer'>
           <div className="mt-10 flex flex-col md:flex-row gap-20 items-center">
             {/* Left Content */}

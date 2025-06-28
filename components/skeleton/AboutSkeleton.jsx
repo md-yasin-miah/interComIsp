@@ -4,7 +4,7 @@ import Shade from './Shade'
 
 const AboutSkeleton = () => {
   return (
-    <section className='md:py-20 py-10'>
+    <section className='py-10'>
       <div className='customContainer overflow-hidden'>
         <SectionTitleSkeleton />
 

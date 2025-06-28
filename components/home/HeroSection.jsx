@@ -65,7 +65,7 @@ const Slider = ({ options, setActiveIndex, activeIndex, data }) => {
                 <SplideSlide key={slide.id || index}>
                     <div className="grid lg:grid-cols-12 grid-cols-1 h-full items-center customContainer">
                         {/* Left Content */}
-                        <div className="space-y-6 lg:col-span-7 col-span-12 md:py-20 py-10 order-2 lg:order-1">
+                        <div className="space-y-6 lg:col-span-7 col-span-12 py-10 order-2 lg:order-1">
                             <div className="md:min-h-[120px] min-h-[80px]">
                                 {activeIndex === index && (
                                     <TextGenerateEffect className="heroTitle" words={slide.tittle} />

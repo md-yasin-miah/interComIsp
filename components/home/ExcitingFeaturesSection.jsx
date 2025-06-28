@@ -10,7 +10,7 @@ import SectionTitle from "../shared/SectionTitle";
 
 const ExcitingFeaturesSection = () => {
   return (
-    <section className='md:py-20 py-10'>
+    <section className='py-10'>
       <div className="customContainer">
         <SectionTitle
           title='Exciting'

@@ -305,8 +305,8 @@ const PayBill = () => {
 
             {/* Contact Info in compact format */}
             <div className="flex flex-col sm:flex-row gap-4 text-sm">
-              <div className="flex items-center max-sm:flex-wrap gap-2">
-                <Icon icon="mdi:phone" className='w-4 h-4 text-green-600 dark:text-green-400' />
+              <div className="flex items-center max-sm:flex-wrap gap-1">
+                <Icon icon="mdi:phone" className='mr-1 w-4 h-4 text-green-600 dark:text-green-400' />
                 <span className="font-medium text-gray-600 dark:text-gray-400">Phone:</span>
                 {ContactInfo.data?.[0]?.phones?.map((phone, index) => (
                   <Link
@@ -319,8 +319,8 @@ const PayBill = () => {
                 ))}
               </div>
 
-              <div className="flex items-center max-sm:flex-wrap gap-2">
-                <Icon icon="mdi:email" className='w-4 h-4 text-blue-600 dark:text-blue-400' />
+              <div className="flex items-center max-sm:flex-wrap gap-1">
+                <Icon icon="mdi:email" className='mr-1 w-4 h-4 text-blue-600 dark:text-blue-400' />
                 <span className="font-medium text-gray-600 dark:text-gray-400">Email:</span>
                 {ContactInfo.data?.[0]?.emails?.map((email, index) => (
                   <Link

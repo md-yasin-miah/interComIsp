@@ -17,7 +17,7 @@ const FAQ = () => {
     message="Something went wrong while fetching FAQ data"
   />;
   return (
-    <section className='md:py-20 py-10'>
+    <section className='py-10'>
       <div className="customContainer">
         <SectionTitle
           title='Frequently'

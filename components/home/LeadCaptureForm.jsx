@@ -48,7 +48,7 @@ const LeadCaptureForm = () => {
     };
 
     return (
-        <section className="relative md:py-20 py-10 bg-background3 dark:bg-black">
+        <section className="relative py-10 bg-background3 dark:bg-black">
             <div className="customContainer">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}

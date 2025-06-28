@@ -18,7 +18,7 @@ const Skeleton = () => {
         <div className='md:pt-24 pt-20'>
             <div className="grid lg:grid-cols-12 gap-5 grid-cols-1 items-center customContainer">
                 {/* Left Content Skeleton */}
-                <div className="space-y-6 lg:col-span-7 col-span-12 md:py-20 py-10 order-2 lg:order-1">
+                <div className="space-y-6 lg:col-span-7 col-span-12 py-10 order-2 lg:order-1">
                     {/* Title Skeleton */}
                     <div className="md:min-h-[120px] min-h-[80px] space-y-4">
                         <Shade className="h-14 md:h-16 w-4/5" />
