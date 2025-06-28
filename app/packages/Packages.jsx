@@ -9,6 +9,9 @@ import PageBanner from '@/components/shared/PageBanner'
 import MotionButton from '@/components/ui/motion/motionButton'
 import MotionDiv from '@/components/ui/motion/motionDiv'
 import { APIContext } from '@/contexts/APIContext'
+import { DotLottieReact } from '@lottiefiles/dotlottie-react'
+import { APP_NAME } from '@/helper/config'
+
 
 const Packages = () => {
   const { Packages, getPackagesData, connectionRequest } = useContext(APIContext);
@@ -79,7 +82,7 @@ const Packages = () => {
           Get Corporate Package
         </h2>
         <p className="text-gray-600 dark:text-gray-300">
-          Fill out the form below and our team will contact you shortly
+          Kindly provide the following information to receive a quotation for your corporate internet connection from {APP_NAME}.
         </p>
       </div>
       <form onSubmit={handleSubmit} className="space-y-6">
@@ -161,6 +164,23 @@ const Packages = () => {
       )}
     </MotionDiv>
   )
+  const aboutPackages = [
+    {
+      name: 'home',
+      title: 'What is Home Package?',
+      description: 'Our Home Packages are designed to meet the needs of everyday internet users. Whether you use the internet for browsing, social media, or streaming videos, these packages provide a reliable and consistent connection. With competitive speeds and affordable pricing, our Home Package is the perfect choice for individuals and families looking for a dependable internet service.',
+    },
+    {
+      name: 'SME',
+      title: 'What is SME Package?',
+      description: 'Our SME (Small Medium Enterprise) Packages are specifically designed to cater to the needs of small and medium-sized businesses. It provides reliable and high-speed internet connectivity essential for efficient business operations. With advanced features such as dedicated customer support, Fixed IP Address, and flexible bandwidth options, our SME Package empowers businesses to communicate, collaborate, and grow seamlessly.',
+    },
+    {
+      name: 'corporate',
+      title: 'What is Corporate Package?',
+      description: 'Our Corporate Package is designed to meet the demanding requirements of large companies and organizations. With high-speed, scalable, and dedicated internet connectivity, this package ensures uninterrupted connectivity for critical business operations. It offers robust security features, service level agreements, and customizable bandwidth options to meet the unique needs of corporate clients. Our Corporate Package is the ideal solution for businesses that rely heavily on the internet for their day-to-day operations.',
+    },
+  ]
 
   return (
     <>
@@ -190,7 +210,29 @@ const Packages = () => {
               </button>
             ))}
           </div>
-
+          <div
+            className={`bg-white dark:bg-transparent dark:border dark:border-primary/10 rounded-2xl shadow-card p-6 flex items-center gap-6 transition-colors duration-300`}
+          >
+            <div>
+              <DotLottieReact
+                src="/lottie/info.lottie"
+                loop
+                autoplay
+                style={{
+                  width: '200px',
+                  height: '200px',
+                }}
+              />
+            </div>
+            <div>
+              <h2 className="text-2xl font-semibold text-primary mb-2">
+                {aboutPackages.find(item => item.name === activeTab)?.title}
+              </h2>
+              <p className="text-gray-600 dark:text-gray-300 text-base">
+                {aboutPackages.find(item => item.name === activeTab)?.description}
+              </p>
+            </div>
+          </div>
           {/* Tab Content */}
           <div className="mt-8">
             <div className='flex flex-col'>
