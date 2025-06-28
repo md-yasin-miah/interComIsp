@@ -1,4 +1,3 @@
-import SectionTitle from '@/components/shared/SectionTitle'
 import PageBanner from '@/components/shared/PageBanner'
 import ConnectSection from '@/components/sections/ConnectSection'
 
@@ -7,7 +6,7 @@ const Support = () => {
     <ConnectSection
       banner={
         <PageBanner
-          boxClassName='min-h-[200px]'
+          boxClassName='min-h-[150px]'
           pageName='support'
           bgClassName='bg-secondary'
         />

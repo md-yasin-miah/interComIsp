@@ -82,7 +82,7 @@ const PayBill = () => {
 
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
-    section.classList.add('md:scroll-mt-40', 'scroll-mt-20');
+    section.classList.add('md:scroll-mt-36', 'scroll-mt-28');
     section.scrollIntoView({ behavior: 'smooth' });
   }
 
@@ -94,6 +94,26 @@ const PayBill = () => {
     // If checkbox is checked, proceed with payment
     window.open(PATH.paymentPortal, '_blank', 'noopener,noreferrer');
   };
+  const paymentMethod = [
+    {
+      id: 1,
+      name: "Mobile Banking",
+      icon: "/paybill/mobile-banking.png",
+      ref_section: "mobile-banking"
+    },
+    {
+      id: 2,
+      name: "Online Payment",
+      icon: "/paybill/cashless-payment.png",
+      ref_section: "online-payment"
+    },
+    {
+      id: 3,
+      name: "Bank Transfer",
+      icon: "/paybill/banking.png",
+      ref_section: "bank-transfer"
+    }
+  ]
   const bgClass = "bg-[url('data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%2280%22%20height=%2280%22%20viewBox=%220%200%20200%20200%22%3E%3Cpolygon%20fill=%22%23DCEFFA%22%20fill-opacity=%220.50%22%20points=%22100%200%200%20100%20100%20100%20100%20200%20200%20100%20200%200%22/%3E%3C/svg%3E')] dark:bg-[url('data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%2280%22%20height=%2280%22%20viewBox=%220%200%20200%20200%22%3E%3Cpolygon%20fill=%22%23DCEFFA%22%20fill-opacity=%220.05%22%20points=%22100%200%200%20100%20100%20100%20100%20200%20200%20100%20200%200%22/%3E%3C/svg%3E')]"
   return (
     <div className="px-2 sm:px-4 customContainer mx-auto pt-14 md:pt-20 pb-10 md:pb-20">
@@ -128,33 +148,21 @@ const PayBill = () => {
         <h2 className="text-4xl font-bold text-primary my-2">How to pay?</h2>
         <p className="text-gray-600 dark:text-gray-300 mb-4">Step-by-step guide to making an online payment</p>
         <div className="flex flex-wrap gap-2 md:gap-4 mb-4 md:mb-6">
-          <button className="flex items-center gap-2 border border-primary text-primary px-4 py-2 rounded font-semibold bg-white dark:bg-background3 dark:text-primary transition-colors duration-300" onClick={() => scrollToSection('mobile-banking')}>
-            <Image
-              src="/paybill/mobile-banking.png"
-              alt="mobile-banking"
-              width={30}
-              height={30}
-              className='w-6 h-6'
-            />
-            Mobile Banking</button>
-          <button className="flex items-center gap-2 border border-primary text-primary px-4 py-2 rounded font-semibold bg-white dark:bg-background3 dark:text-primary transition-colors duration-300" onClick={() => scrollToSection('online-payment')}>
-            <Image
-              src="/paybill/cashless-payment.png"
-              alt="online-payment"
-              width={30}
-              height={30}
-              className='w-6 h-6'
-            />
-            Online Payment</button>
-          <button className="flex items-center gap-2 border border-primary text-primary px-4 py-2 rounded font-semibold bg-white dark:bg-background3 dark:text-primary transition-colors duration-300" onClick={() => scrollToSection('bank-transfer')}>
-            <Image
-              src="/paybill/banking.png"
-              alt="bank-transfer"
-              width={30}
-              height={30}
-              className='w-6 h-6'
-            />
-            Bank Transfer</button>
+          {paymentMethod.map((method) => (
+            <button
+              key={method.id}
+              className="flex items-center gap-2 border border-primary text-primary px-4 py-2 rounded font-semibold bg-white dark:bg-blue-500/10 dark:text-primary transition-colors duration-300 dark:hover:bg-transparent hover:bg-blue-500/10"
+              onClick={() => scrollToSection(method.ref_section)}
+            >
+              <Image
+                src={method.icon}
+                alt={method.name}
+                width={30}
+                height={30}
+                className='w-6 h-6'
+              />
+              {method.name}</button>
+          ))}
         </div>
       </motion.div>
 

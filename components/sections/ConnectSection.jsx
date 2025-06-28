@@ -5,17 +5,8 @@ import ContactForm from '@/components/shared/ContactForm'
 import SocialMedia from '@/components/shared/SocialMedia'
 import Map from '@/components/shared/Map'
 import { HiOutlinePhone, HiOutlineMail, HiOutlineLocationMarker, HiOutlineClock } from 'react-icons/hi'
-import { BsWhatsapp } from 'react-icons/bs'
 import { APIContext } from '@/contexts/APIContext'
-
-
-
-const operatingHours = [
-  { day: "Monday - Friday", hours: "9:00 AM - 8:00 PM" },
-  { day: "Saturday", hours: "10:00 AM - 6:00 PM" },
-  { day: "Sunday", hours: "10:00 AM - 2:00 PM" },
-  { day: "Holidays", hours: "10:00 AM - 2:00 PM" }
-]
+import ContactCardSkeleton from '@/components/skeleton/ContactCardSkeleton'
 
 const ConnectSection = ({
   banner,
@@ -32,19 +23,14 @@ const ConnectSection = ({
       items: [ContactInfo.data?.[0]?.addresses?.[0]?.value]
     },
     {
-      icon: HiOutlinePhone,
-      title: "Call Us",
-      items: ContactInfo.data?.[0]?.phones
-    },
-    {
       icon: HiOutlineMail,
       title: "Email Us",
       items: ContactInfo.data?.[0]?.emails
     },
     {
-      icon: BsWhatsapp,
-      title: "WhatsApp",
-      items: ContactInfo.data?.[0]?.whats_apps
+      icon: HiOutlinePhone,
+      title: "Call Us",
+      items: ContactInfo.data?.[0]?.phones
     }
   ]
   return (
@@ -56,11 +42,21 @@ const ConnectSection = ({
 
           <div className="grid grid-cols-12 gap-8 gap-y-12 mt-12">
             {/* Contact Cards */}
-            {contactInfo.map((info, index) => (
-              <div className='col-span-12 md:col-span-6 lg:col-span-3'>
-                <ContactCard key={index} {...info} />
-              </div>
-            ))}
+            {
+              !ContactInfo.data ? (
+                [1, 2, 3].map((item, index) => (
+                  <div className='col-span-12 md:col-span-6 lg:col-span-4'>
+                    <ContactCardSkeleton key={index} />
+                  </div>
+                ))
+              ) : (
+                contactInfo.map((info, index) => (
+                  <div className='col-span-12 md:col-span-6 lg:col-span-4'>
+                    <ContactCard key={index} {...info} />
+                  </div>
+                ))
+              )
+            }
             {/* additional address */}
             {
               ContactInfo.data?.[0]?.addresses?.length > 1 &&
