@@ -2,7 +2,7 @@ import React from 'react'
 
 const ContactCard = ({ className, icon: Icon, title, items }) => {
   return (
-    <div className={`bg-white dark:bg-slate-700 p-6 rounded-xl shadow-card hover:shadow-cardHover transition-all duration-300 text-center ${className}`}>
+    <div className={`bg-white h-full dark:bg-slate-700 p-6 rounded-xl shadow-card hover:shadow-cardHover transition-all duration-300 text-center ${className}`}>
       <div className="flex justify-center mb-4">
         <Icon className="w-8 h-8 text-primary" />
       </div>

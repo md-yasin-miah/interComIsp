@@ -32,7 +32,7 @@ const PageBanner = ({
           loading || PageBanners.loading ?
             <Shade className="w-10/12 h-14 mb-8" />
             :
-            <h1 className="capitalize !text-start dark:text-white text-black lg:text-5xl md:text-4xl !text-3xl title">{title || banner?.title1}{" "} <span className='text-primary'>{title2 || banner?.title2}</span>
+            <h1 className="title capitalize !text-start dark:text-white text-black lg:!text-5xl md:!text-4xl !text-3xl title">{title || banner?.title1}{" "} <span className='text-primary'>{title2 || banner?.title2}</span>
             </h1>
         }
         {

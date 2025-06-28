@@ -7,16 +7,9 @@ const Support = () => {
     <ConnectSection
       banner={
         <PageBanner
+          boxClassName='min-h-[200px]'
+          pageName='support'
           bgClassName='bg-secondary'
-          title='24/7 Support'
-          subTitle='We are here to help you with your needs.'
-        />
-      }
-      sectionTitle={
-        <SectionTitle
-          title="Support"
-          title2="Contact Us"
-          subTitle="We're here to help! Reach out to us through any of these channels."
         />
       }
     />

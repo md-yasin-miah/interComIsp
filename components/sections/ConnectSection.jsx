@@ -27,24 +27,24 @@ const ConnectSection = ({
   }, []);
   const contactInfo = [
     {
+      icon: HiOutlineLocationMarker,
+      title: ContactInfo.data?.[0]?.addresses?.[0]?.name,
+      items: [ContactInfo.data?.[0]?.addresses?.[0]?.value]
+    },
+    {
       icon: HiOutlinePhone,
-      title: "Phone Numbers",
+      title: "Call Us",
       items: ContactInfo.data?.[0]?.phones
     },
     {
       icon: HiOutlineMail,
-      title: "Email Addresses",
+      title: "Email Us",
       items: ContactInfo.data?.[0]?.emails
     },
     {
       icon: BsWhatsapp,
       title: "WhatsApp",
       items: ContactInfo.data?.[0]?.whats_apps
-    },
-    {
-      icon: HiOutlineLocationMarker,
-      title: "Office Address",
-      items: ContactInfo.data?.[0]?.addresses
     }
   ]
   return (
@@ -54,41 +54,58 @@ const ConnectSection = ({
         <div className="customContainer">
           {sectionTitle}
 
-          {/* Operating Hours Section */}
-          <div className="mt-12 bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-card">
-            <div className="flex items-center gap-3 mb-6">
-              <HiOutlineClock className="w-6 h-6 text-primary" />
-              <h2 className="text-2xl font-semibold">Operating Hours</h2>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {ContactInfo.data?.[0]?.operating_hours?.map((schedule, index) => (
-                <div
-                  key={index}
-                  className="bg-gray-50 dark:bg-gray-700 p-4 rounded-xl"
-                >
-                  <h3 className="font-medium text-gray-800 dark:text-gray-200 mb-2">
-                    {schedule.name}
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    {schedule.value}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Contact Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+          <div className="grid grid-cols-12 gap-8 gap-y-12 mt-12">
+            {/* Contact Cards */}
             {contactInfo.map((info, index) => (
-              <ContactCard key={index} {...info} />
+              <div className='col-span-12 md:col-span-6 lg:col-span-3'>
+                <ContactCard key={index} {...info} />
+              </div>
             ))}
+            {/* additional address */}
+            {
+              ContactInfo.data?.[0]?.addresses?.length > 1 &&
+              ContactInfo.data?.[0]?.addresses?.map((address, index) => {
+                if (index > 0) {
+                  return (
+                    <div className={`bg-white col-span-12 dark:bg-slate-700 p-6 rounded-xl shadow-card hover:shadow-cardHover transition-all duration-300 text-center`}>
+                      <h3 className="text-xl font-semibold mb-4">{address.name}</h3>
+                      <p className="text-gray-600 dark:text-white/[0.7]">{address.value}</p>
+                    </div>
+                  )
+                }
+              })
+            }
+            {/* Operating Hours Section */}
+            <div className="col-span-12 bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-card">
+              <div className="flex items-center gap-3 mb-6">
+                <HiOutlineClock className="w-6 h-6 text-primary" />
+                <h2 className="text-2xl font-semibold">Operating Hours</h2>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {ContactInfo.data?.[0]?.operating_hours?.map((schedule, index) => (
+                  <div
+                    key={index}
+                    className="bg-gray-50 dark:bg-gray-700 p-4 rounded-xl"
+                  >
+                    <h3 className="font-medium text-gray-800 dark:text-gray-200 mb-2">
+                      {schedule.name}
+                    </h3>
+                    <p className="text-gray-600 dark:text-gray-300">
+                      {schedule.value}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            {/* Contact Form and Map Section */}
+            <div className="md:col-span-6 col-span-12" id='contactForm'>
+              <ContactForm />
+            </div>
+            <div className='md:col-span-6 col-span-12'>
+              <Map url={ContactInfo.data?.[0]?.location_iframe_url} />
+            </div>
           </div>
 
-          {/* Contact Form and Map Section */}
-          <div className="pt-44 grid grid-cols-1 lg:grid-cols-2 gap-12" id='contactForm'>
-            <ContactForm />
-            <Map url={ContactInfo.data?.[0]?.location_iframe_url} />
-          </div>
 
           {/* Social Media Section */}
           <div className="mt-20">

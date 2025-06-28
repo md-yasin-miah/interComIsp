@@ -68,7 +68,7 @@ const Header = () => {
     <header className="w-full sticky top-0 z-50">
       {/* Header Top Section */}
       <div
-        className={`bg-footerBG h-12 flex items-center transition-transform duration-300 ease-in-out ${isTopVisible ? 'transform translate-y-0' : 'transform -translate-y-full'
+        className={`bg-footerBG h-10 flex items-center transition-transform duration-300 ease-in-out ${isTopVisible ? 'transform translate-y-0' : 'transform -translate-y-full'
           }`}
       >
         <div className='customContainer text-white text-sm flex items-center gap-5'>
@@ -101,7 +101,7 @@ const Header = () => {
 
       {/* Main Header Section */}
       <div
-        className={`h-16 md:h-20 w-full flex items-center bg-white dark:bg-gray-900 shadow-[0px_5px_20px_0px_rgba(0,0,0,0.1)] transition-transform duration-300 ease-in-out ${isTopVisible ? 'transform translate-y-0' : 'transform -translate-y-12'
+        className={`h-16 md:h-20 w-full flex items-center bg-white dark:bg-gray-900 shadow-[0px_5px_20px_0px_rgba(0,0,0,0.1)] transition-transform duration-300 ease-in-out ${isTopVisible ? 'transform translate-y-0' : 'transform -translate-y-10'
           }`}
       >
         <div className="customContainer flex items-center justify-between">
