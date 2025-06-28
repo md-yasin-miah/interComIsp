@@ -17,7 +17,6 @@ const QuickPayModal = ({ isOpen, onClose }) => {
             return
         }
         // Handle payment logic here
-        console.log('Processing payment for customer:', customerId)
         // You can add your payment processing logic here
     }
 

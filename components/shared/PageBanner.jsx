@@ -18,10 +18,9 @@ const PageBanner = ({
   useEffect(() => {
     !PageBanners.data && getPageBannerData();
   }, []);
-  console.log({ PageBanners });
 
   return (
-    <section className={`${boxClassName} relative min-h-[300px] flex items-center`}>
+    <section className={`${boxClassName} relative min-h-[300px] py-7 flex items-center`}>
       <div className="absolute inset-0 w-full h-full dark:bg-dot-white/[0.2] bg-dot-black/[0.2]">
         {
           banner?.bannerImgUrl && <Image src={banner?.bannerImgUrl} alt={banner?.banner_img} fill className='object-cover bg-opacity-50 absolute inset-0'></Image>
@@ -33,7 +32,7 @@ const PageBanner = ({
           loading || PageBanners.loading ?
             <Shade className="w-10/12 h-14 mb-8" />
             :
-            <h1 className="title capitalize !text-start dark:text-white text-black lg:text-5xl md:text-4xl text-4xl">{title || banner?.title1}{" "} <span className='text-primary'>{title2 || banner?.title2}</span>
+            <h1 className="capitalize !text-start dark:text-white text-black lg:text-5xl md:text-4xl !text-3xl title">{title || banner?.title1}{" "} <span className='text-primary'>{title2 || banner?.title2}</span>
             </h1>
         }
         {
@@ -44,7 +43,7 @@ const PageBanner = ({
             </div>
             :
             <p
-              className="lg:mt-6 md:mt-3 mt-6 lg:text-lg md:text-base text-lg dark:text-indigo-100 text-black max-w-3xl font-poppins"
+              className="lg:mt-6 md:mt-3 mt-6 lg:text-lg md:text-base text-sm dark:text-indigo-100 text-black max-w-3xl font-poppins"
               dangerouslySetInnerHTML={{ __html: subTitle || banner?.sub_title }}
             />
         }

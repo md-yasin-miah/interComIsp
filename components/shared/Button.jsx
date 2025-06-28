@@ -4,9 +4,10 @@ import React from 'react'
 import MotionButton from '../ui/motion/motionButton'
 
 const sizeClasses = {
-  small: '!px-4 !py-2 !text-sm',
-  default: '!px-6 !py-3 !text-base',
-  large: '!px-8 !py-4 !text-lg'
+  small: '!px-4 !py-2 !text-xs',
+  header: '!px-4 !py-2 !text-sm',
+  default: '!px-4 !py-2.5 !text-sm',
+  large: '!px-8 !py-4 !text-base'
 }
 
 const Button = ({

@@ -27,14 +27,12 @@ const Header = () => {
 
   // Find the active menu item index
   const activeIndex = navMenu.findIndex(item => isActive(item.url));
-  console.log({ activeIndex });
-  console.log({ menuHover });
   return (
     <header
-      className="h-24 w-full flex items-center sticky top-0 z-50 bg-white dark:bg-gray-900 shadow-[0px_5px_20px_0px_rgba(0,0,0,0.1)]"
+      className="h-16 md:h-24 w-full flex items-center sticky top-0 z-50 bg-white dark:bg-gray-900 shadow-[0px_5px_20px_0px_rgba(0,0,0,0.1)]"
     >
       <div className="customContainer flex items-center justify-between">
-        <div className='relative w-[180px]'>
+        <div className='relative w-[130px] md:w-[180px]'>
           <Link href={PATH.root}>
             <Image src={logo} alt='logo' width='fill' height='fill' className='dark:hidden' />
             <Image src={logoWhite} alt='logo' width='fill' height='fill' className='hidden dark:block px-2' />
@@ -62,14 +60,24 @@ const Header = () => {
 
         <div className='flex items-center gap-2'>
           <Button
-            animation='fill'
-            type='outline'
+            animation='outline'
+            type='fill'
             href='https://portal.netcomisp.net/'
             target='_blank'
             referrer='noreferrer'
             icon={<FaUser />}
+            size='header'
             className="max-sm:hidden"
           >Client Portal</Button>
+          <Button
+            animation='fill'
+            type='outline'
+            href='https://quickpay.netcomisp.net/'
+            target='_blank'
+            referrer='noreferrer'
+            size='header'
+            className="max-sm:hidden"
+          >Quick Pay</Button>
           <ThemeToggle />
 
           {/* Mobile Menu Button */}
@@ -84,7 +92,7 @@ const Header = () => {
         {/* Mobile Menu */}
         <div className={`lg:hidden fixed h-screen top-24 left-0 w-full bg-white dark:bg-gray-900 transition-transform duration-300 transform ${mobileMenuOpen ? 'translate-x-0 z-[1000]' : 'translate-x-full'}`}>
           <nav className="p-4">
-            <ul className="flex flex-col space-y-4">
+            <ul className="flex flex-col space-y-3">
               {navMenu.map((item, index) => (
                 <li key={index} className="text-center">
                   <Link
@@ -96,16 +104,26 @@ const Header = () => {
                   </Link>
                 </li>
               ))}
-              <li className="text-center sm:hidden m-auto">
+              <li className="text-center sm:hidden m-auto flex gap-2">
+                <Button
+                  animation='outline'
+                  href='https://portal.netcomisp.net/'
+                  target='_blank'
+                  referrer='noreferrer'
+                  icon={<FaUser />}
+                  size='small'
+                  className="w-full justify-center"
+                >Client Portal</Button>
                 <Button
                   animation='fill'
                   type='outline'
                   href='https://portal.netcomisp.net/'
                   target='_blank'
                   referrer='noreferrer'
-                  icon={<FaUser />}
+                  size='small'
                   className="w-full justify-center"
-                >Client Portal</Button>
+                >Quick Pay</Button>
+                <ThemeToggle />
               </li>
             </ul>
           </nav>

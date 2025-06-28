@@ -107,7 +107,7 @@ body {
 
 /*======== global css START*/
 .customContainer {
-  @apply w-[1140px] m-auto
+  @apply w-[1200px] m-auto
 }
 
 .title {
@@ -240,7 +240,7 @@ body {
 
 /*======== button css START  */
 .primaryBtn {
-  @apply w-fit border border-solid border-primary bg-primary text-white px-[15px] py-[13px] rounded-[5px] font-medium text-[15px] leading-none flex items-center gap-[9px] transition-all duration-300
+  @apply w-fit border border-solid border-primary bg-primary text-white px-3 py-2.5 rounded-[5px] font-medium text-[15px] leading-none flex items-center gap-1.5 transition-all duration-300
 }
 
 .primaryBtn.fill {
@@ -248,11 +248,15 @@ body {
 }
 
 .primaryBtn.outline {
-  @apply outline-none
+  @apply outline-none bg-transparent text-primary;
 }
 
 .primaryBtn.animate-fill {
-  @apply bg-transparent text-primary border-primary hover:bg-gradient-to-r hover:from-primary hover:to-secondary hover:text-white;
+  @apply hover:bg-gradient-to-r hover:from-primary hover:to-secondary hover:text-white;
+}
+
+.primaryBtn.animate-outline {
+  @apply hover:bg-transparent hover:text-primary hover:border-primary;
 }
 
 .primaryBtn.animate-stepUp:hover {

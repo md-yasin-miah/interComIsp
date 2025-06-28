@@ -19,7 +19,6 @@ const Footer = () => {
       getPolicy();
     }
   }, []);
-  console.log('policy', policy)
   return (
     <footer className='bg-footerBG py-8 relative antialiased'>
       <div className='customContainer relative z-10'>

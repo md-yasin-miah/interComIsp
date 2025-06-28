@@ -6,7 +6,6 @@ import MotionArticle from '../ui/motion/motionArticle'
 import { PATH } from '@/helper/pathConfig'
 
 const OfferCard = ({ offer }) => {
-  console.log({ offer });
   return (
     <MotionArticle
       initial={{ opacity: 0, y: 20 }}
@@ -51,13 +50,13 @@ const OfferCard = ({ offer }) => {
           <div>
             <div className="flex items-center gap-2 mb-4">
               {
-                offer?.price>0 &&
-                  <span className="text-2xl font-bold text-primary">{offer?.currency}{offer?.price}</span>
-           
+                offer?.price > 0 &&
+                <span className="text-2xl font-bold text-primary">{offer?.currency}{offer?.price}</span>
+
               }
               {
-                offer?.old_price>0 &&
-                  <span className="text-lg text-gray-400 line-through">{offer?.currency}{offer.old_price}</span>
+                offer?.old_price > 0 &&
+                <span className="text-lg text-gray-400 line-through">{offer?.currency}{offer.old_price}</span>
               }
             </div>
             <Button

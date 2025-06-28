@@ -47,7 +47,7 @@ export const APIProvider = ({ children }) => {
           })
           setHeroSlide({ ...initial, data: data });
         }).catch((error) => {
-          console.log(COLLECTION.HERO_SLIDE, error)
+          console.error(COLLECTION.HERO_SLIDE, error)
           setHeroSlide({ ...initial, isError: true });
         });
     }
@@ -63,7 +63,7 @@ export const APIProvider = ({ children }) => {
         })
         setAbout({ ...initial, data: data[0] });
       }).catch((error) => {
-        console.log(COLLECTION.ABOUT, error)
+        console.error(COLLECTION.ABOUT, error)
         setAbout({ ...initial, isError: true });
       })
     }
@@ -80,7 +80,7 @@ export const APIProvider = ({ children }) => {
         })
         setTestimonial({ ...initial, data: data });
       }).catch((error) => {
-        console.log(COLLECTION.TESTIMONIAL, error)
+        console.error(COLLECTION.TESTIMONIAL, error)
         setTestimonial({ ...initial, isError: true });
       })
     }
@@ -96,7 +96,7 @@ export const APIProvider = ({ children }) => {
         })
         setClientReview({ ...initial, data: data });
       }).catch((error) => {
-        console.log(COLLECTION.CLIENT_REVIEW, error)
+        console.error(COLLECTION.CLIENT_REVIEW, error)
         setClientReview({ ...initial, isError: true });
       })
     }
@@ -106,7 +106,7 @@ export const APIProvider = ({ children }) => {
       DB.collection(COLLECTION.FAQ).getFullList({ requestKey: null }).then((result) => {
         setFAQ({ ...initial, data: result });
       }).catch((error) => {
-        console.log(COLLECTION.FAQ, error)
+        console.error(COLLECTION.FAQ, error)
         setFAQ({ ...initial, isError: true });
       })
     }
@@ -121,7 +121,7 @@ export const APIProvider = ({ children }) => {
           type: [...new Set(result.map((item) => item.type))]
         });
       }).catch((error) => {
-        console.log(COLLECTION.PACKAGES, error)
+        console.error(COLLECTION.PACKAGES, error)
         setPackages({ ...initial, isError: true });
       })
     }
@@ -140,7 +140,7 @@ export const APIProvider = ({ children }) => {
         })
         setOffers({ ...initial, data });
       }).catch((error) => {
-        console.log(COLLECTION.OFFERS, error)
+        console.error(COLLECTION.OFFERS, error)
         setOffers({ ...initial, isError: true });
       })
     }
@@ -154,7 +154,7 @@ export const APIProvider = ({ children }) => {
           }
         });
       }).catch((error) => {
-        console.log(COLLECTION.OFFERS, error)
+        console.error(COLLECTION.OFFERS, error)
         setOfferDetails({ ...initial, isError: true });
       })
     }
@@ -164,7 +164,7 @@ export const APIProvider = ({ children }) => {
       DB.collection(COLLECTION.WHY_CHOOSE_US).getFullList({ requestKey: null }).then((result) => {
         setWhyChooseUs({ ...initial, data: result });
       }).catch((error) => {
-        console.log(COLLECTION.WHY_CHOOSE_US, error)
+        console.error(COLLECTION.WHY_CHOOSE_US, error)
         setWhyChooseUs({ ...initial, isError: true });
       })
     }
@@ -209,7 +209,7 @@ export const APIProvider = ({ children }) => {
         })
         setServices({ ...initial, data });
       }).catch((error) => {
-        console.log(COLLECTION.SERVICE, error)
+        console.error(COLLECTION.SERVICE, error)
         setServices({ ...initial, isError: true });
       })
     }
@@ -224,7 +224,7 @@ export const APIProvider = ({ children }) => {
           }
         });
       }).catch((error) => {
-        console.log(COLLECTION.SERVICE, error)
+        console.error(COLLECTION.SERVICE, error)
         setServiceDetails({ ...initial, isError: true });
       })
     }
@@ -255,7 +255,7 @@ export const APIProvider = ({ children }) => {
         })
         setBankAccount({ ...initial, data });
       }).catch((error) => {
-        console.log(COLLECTION.BANK_DETAILS, error)
+        console.error(COLLECTION.BANK_DETAILS, error)
         setBankAccount({ ...initial, isError: true });
       })
     }
@@ -274,7 +274,7 @@ export const APIProvider = ({ children }) => {
     ).then((result) => {
       setContactInfo({ ...initial, data: result });
     }).catch((error) => {
-      console.log(COLLECTION.CONTACT_INFO, error)
+      console.error(COLLECTION.CONTACT_INFO, error)
       setContactInfo({ ...initial, isError: true });
     })
   }
@@ -297,7 +297,7 @@ export const APIProvider = ({ children }) => {
         })
       });
     }).catch((error) => {
-      console.log(COLLECTION.COVERAGE_AREA, error)
+      console.error(COLLECTION.COVERAGE_AREA, error)
       setCoverageArea({ ...initial, isError: true });
     })
   }
@@ -314,7 +314,7 @@ export const APIProvider = ({ children }) => {
         })
       });
     }).catch((error) => {
-      console.log(COLLECTION.PAGE_BANNER, error)
+      console.error(COLLECTION.PAGE_BANNER, error)
       setPageBanners({ ...initial, isError: true });
     })
   }
@@ -325,7 +325,7 @@ export const APIProvider = ({ children }) => {
       DB.collection(COLLECTION.CONNECTION_REQUEST).create(data).then((result) => {
         console.log(result)
       }).catch((error) => {
-        console.log(error)
+        console.error(error)
       })
     }
   }
@@ -335,7 +335,7 @@ export const APIProvider = ({ children }) => {
       DB.collection(COLLECTION.SUPPORT_REQUEST).create(data).then((result) => {
         console.log(result)
       }).catch((error) => {
-        console.log(error)
+        console.error(error)
       })
     }
   }
