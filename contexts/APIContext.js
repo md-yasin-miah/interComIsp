@@ -118,7 +118,7 @@ export const APIProvider = ({ children }) => {
           ...initial,
           data: result,
           // unique type
-          type: [...new Set(result.map((item) => item.type))]
+          type: [...new Set(result.map((item) => item.type)), 'corporate']
         });
       }).catch((error) => {
         console.error(COLLECTION.PACKAGES, error)

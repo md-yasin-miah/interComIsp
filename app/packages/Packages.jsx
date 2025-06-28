@@ -193,7 +193,7 @@ const Packages = () => {
 
           {/* Tab Content */}
           <div className="mt-8">
-            <div className='flex flex-col gap-20'>
+            <div className='flex flex-col'>
               {renderPricingCards(Packages?.data?.filter(item => item.type === activeTab))}
               {activeTab === 'corporate' && renderCorporateForm()}
             </div>
