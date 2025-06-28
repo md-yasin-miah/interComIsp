@@ -64,6 +64,20 @@ const Header = () => {
     };
   }, [lastScrollY]);
 
+  // Disable body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    // Cleanup function to reset overflow when component unmounts
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [mobileMenuOpen]);
+
   return (
     <header className={`${mobileMenuOpen ? 'h-screen' : ''} w-full sticky top-0 z-50 overflow-hidden`}>
       {/* Header Top Section */}
@@ -101,7 +115,7 @@ const Header = () => {
 
       {/* Main Header Section */}
       <div
-        className={`h-16 md:h-20 w-full flex items-center bg-white dark:bg-gray-900 shadow-[0px_5px_20px_0px_rgba(0,0,0,0.1)] transition-transform duration-300 ease-in-out ${isTopVisible ? 'transform translate-y-0' : 'transform -translate-y-10'
+        className={`h-16 md:h-20 w-full flex items-center bg-white dark:bg-gray-900 shadow-[0px_5px_20px_0px_rgba(0,0,0,0.1)] transition-transform duration-300 ease-in-out ${isTopVisible ? 'md:transform md:translate-y-0' : 'md:transform md:-translate-y-10'
           }`}
       >
         <div className="customContainer flex items-center justify-between">

@@ -25,20 +25,15 @@ const OfferCard = ({ offer }) => {
             borderRadius: "0",
             transition: { duration: 0.3 }
           }}
-          className='min-h-[250px] w-full flex items-center justify-center overflow-hidden'
+          className='min-h-[250px] w-full flex items-center justify-center overflow-hidden relative'
         >
-          {/* Centered image */}
-          <div
-            className='relative w-full h-full'
-          >
-            <Image
-              src={offer.bannerImgUrl}
-              alt={offer?.slug || 'offer banner'}
-              fill
-              sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
-              className='object-cover'
-            />
-          </div>
+          <Image
+            src={offer.bannerImgUrl}
+            alt={offer?.slug || 'offer banner'}
+            fill
+            sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw'
+            className='object-cover'
+          />
         </MotionDiv>
 
         {/* Content area */}
