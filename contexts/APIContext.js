@@ -22,7 +22,7 @@ export const APIProvider = ({ children }) => {
   const [Offers, setOffers] = useState(initial);
   const [OfferDetails, setOfferDetails] = useState(initial);
   const [WhyChooseUs, setWhyChooseUs] = useState(initial);
-
+  const [BankAccount, setBankAccount] = useState(initial);
   //page banner state
   const [PageBanners, setPageBanners] = useState(initial);
 
@@ -158,7 +158,6 @@ export const APIProvider = ({ children }) => {
         setOfferDetails({ ...initial, isError: true });
       })
     }
-
     //why_choose_us data
     const getWhyChooseUsData = () => {
       setWhyChooseUs({ ...initial, isLoading: true });
@@ -238,6 +237,31 @@ export const APIProvider = ({ children }) => {
       //data
       Services,
       ServiceDetails
+    }
+  }
+  const payBillPage = () => {
+    //get bank account data
+    const getBankAccountData = () => {
+      setBankAccount({ ...initial, isLoading: true });
+      DB.collection(COLLECTION.BANK_DETAILS).getFullList(
+        { filter: `active = true` },
+        { requestKey: null }
+      ).then((result) => {
+        const data = result.map((item) => {
+          return {
+            ...item,
+            bank_image_url: getUrl(item, 'bank_image')
+          }
+        })
+        setBankAccount({ ...initial, data });
+      }).catch((error) => {
+        console.log(COLLECTION.BANK_DETAILS, error)
+        setBankAccount({ ...initial, isError: true });
+      })
+    }
+    return {
+      getBankAccountData,
+      BankAccount
     }
   }
 
@@ -322,6 +346,7 @@ export const APIProvider = ({ children }) => {
       value={{
         ...homePage(),
         ...servicePage(),
+        ...payBillPage(),
         // page banner data
         getPageBannerData,
         PageBanners,

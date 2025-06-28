@@ -11,11 +11,14 @@ import QuickPayModal from '@/components/modals/QuickPayModal'
 import Image from 'next/image';
 import { PATH } from '@/helper/pathConfig';
 import Button from '@/components/shared/Button';
+import BankAccountSkeleton from '@/components/skeleton/BankAccountSkeleton';
+import BankAccountCard from '@/components/cards/BankAccountCard';
 
 const PayBill = () => {
-  const { ContactInfo, getContactInfoData } = useContext(APIContext);
+  const { ContactInfo, getContactInfoData, getBankAccountData, BankAccount } = useContext(APIContext);
   useEffect(() => {
     !ContactInfo.data && getContactInfoData();
+    !BankAccount.data && getBankAccountData();
   }, []);
   const [activeTab, setActiveTab] = useState(PAYMENT_METHOD[0].value);
   const [isQuickPayModalOpen, setIsQuickPayModalOpen] = useState(false);
@@ -77,40 +80,6 @@ const PayBill = () => {
   ]
   const [activeSteps, setActiveSteps] = useState(bikashSteps);
 
-  // Bank card data for screenshot design
-  const bankAccounts = [
-    {
-      name: 'BRAC BANK',
-      logo: '/paybill/brac-bank.png',
-      tagline: 'অগ্রযাত্রায় আপনার পাশে',
-      color: 'bg-blue-500/10',
-      accountName: APP_AUTHOR,
-      accountNo: '1549204568505001',
-      branch: 'Banasree',
-      routing: '060260727',
-    },
-    {
-      name: 'Eastern Bank',
-      logo: '/paybill/Eastern_Bank.png',
-      tagline: 'Simple Math®',
-      color: 'bg-green-500/10',
-      accountName: APP_AUTHOR,
-      accountNo: '1091070219406',
-      branch: 'Banasree',
-      routing: '095260721',
-    },
-    {
-      name: 'City Bank',
-      logo: '/paybill/city_bank.png',
-      tagline: 'making sense of money',
-      color: 'bg-red-500/10',
-      accountName: APP_AUTHOR,
-      accountNo: '1452521113001',
-      branch: 'Pragati Sarani',
-      routing: '225272684',
-    },
-  ];
-
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
     section.classList.add('md:scroll-mt-40', 'scroll-mt-20');
@@ -137,7 +106,7 @@ const PayBill = () => {
       >
         <div>
           <h2 className="text-3xl font-bold text-primary mb-2">Quick Pay</h2>
-          <p className="text-gray-600 dark:text-gray-300 text-base w-3/4">Make your payment instantly using the facilities but not limited to like bKash, Nagad, Master Card, Visa card and some other way. You can pay your renewal fee and new connection fees from here instantly.</p>
+          <p className="text-gray-600 dark:text-gray-300 text-base md:w-3/4">Make your payment instantly using the facilities but not limited to like bKash, Nagad, Master Card, Visa card and some other way. You can pay your renewal fee and new connection fees from here instantly.</p>
         </div>
         <button
           className="primaryBtn fill whitespace-nowrap"
@@ -288,38 +257,17 @@ const PayBill = () => {
         <h3 className="text-xl font-bold mb-4">Direct <span className="text-primary">bank transfer</span></h3>
         <p className="text-gray-600 dark:text-gray-300 mb-4">You can pay us with direct bank transfer</p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-4">
-          {bankAccounts.map((bank, i) => (
-            <div key={i} className="rounded-2xl shadow-card overflow-hidden bg-white dark:bg-transparent dark:border dark:border-primary/10 flex flex-col">
-              {/* Top colored section with logo */}
-              <div className={`${bank.color} flex flex-col items-center justify-center h-36 py-6 px-4`}>
-                <img src={bank.logo} alt={bank.name} className="h-24 w-auto mb-2 px-20 object-contain" />
-                {/* <div className="font-bold text-lg text-gray-800 mb-1">{bank.name}</div>
-                {bank.tagline && <div className="text-xs text-gray-600 font-medium">{bank.tagline}</div>} */}
-              </div>
-              {/* Bottom white section with account info */}
-              <div className="bg-white dark:bg-transparent dark:border dark:border-primary/10 flex-1 flex flex-col justify-center px-6 py-6">
-                {/* Account details with dividers */}
-                <div className="divide-y divide-gray-200">
-                  <div className="grid grid-cols-2 gap-y-2 py-2">
-                    <div className="font-semibold text-gray-700 dark:text-gray-200">Account Name:</div>
-                    <div className="font-semibold text-gray-900 dark:text-gray-200">{bank.accountName}</div>
-                  </div>
-                  <div className="grid grid-cols-2 gap-y-2 py-2">
-                    <div className="font-semibold text-gray-700 dark:text-gray-200">Account No:</div>
-                    <div className="font-semibold text-gray-900 dark:text-gray-200">{bank.accountNo}</div>
-                  </div>
-                  <div className="grid grid-cols-2 gap-y-2 py-2">
-                    <div className="font-semibold text-gray-700 dark:text-gray-200">Branch name:</div>
-                    <div className="font-semibold text-gray-900 dark:text-gray-200">{bank.branch}</div>
-                  </div>
-                  <div className="grid grid-cols-2 gap-y-2 py-2">
-                    <div className="font-semibold text-gray-700 dark:text-gray-200">Routing No:</div>
-                    <div className="font-semibold text-primary dark:text-secondary">{bank.routing}</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
+          {BankAccount.isLoading ? (
+            // Show skeleton loading state
+            [...Array(3)].map((_, i) => (
+              <BankAccountSkeleton key={i} />
+            ))
+          ) : (
+            // Show actual bank account data
+            BankAccount.data?.map((bank, i) => (
+              <BankAccountCard key={i} bank={bank} />
+            ))
+          )}
         </div>
       </motion.div>
 
@@ -357,7 +305,7 @@ const PayBill = () => {
 
             {/* Contact Info in compact format */}
             <div className="flex flex-col sm:flex-row gap-4 text-sm">
-              <div className="flex items-center gap-2">
+              <div className="flex items-center max-sm:flex-wrap gap-2">
                 <Icon icon="mdi:phone" className='w-4 h-4 text-green-600 dark:text-green-400' />
                 <span className="font-medium text-gray-600 dark:text-gray-400">Phone:</span>
                 {ContactInfo.data?.[0]?.phones?.map((phone, index) => (
@@ -371,7 +319,7 @@ const PayBill = () => {
                 ))}
               </div>
 
-              <div className="flex items-center gap-2">
+              <div className="flex items-center max-sm:flex-wrap gap-2">
                 <Icon icon="mdi:email" className='w-4 h-4 text-blue-600 dark:text-blue-400' />
                 <span className="font-medium text-gray-600 dark:text-gray-400">Email:</span>
                 {ContactInfo.data?.[0]?.emails?.map((email, index) => (

@@ -15,6 +15,8 @@ export const COLLECTION = {
   SERVICE: 'services',
   // page banner
   PAGE_BANNER: 'page_banner',
+  //pay bill page
+  BANK_DETAILS: 'bank_details',
 
   CONNECTION_REQUEST: 'connection_request',
   SUPPORT_REQUEST: 'support_request',

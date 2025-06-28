@@ -9,6 +9,7 @@ import { reviewSplideOptions } from '@/lib/utils';
 import ReviewSectionSkeleton from '../skeleton/ReviewSectionSkeleton';
 import ErrorSection from '../sections/ErrorSection';
 import Link from 'next/link';
+import { PATH } from '@/helper/pathConfig';
 
 const ReviewSection = () => {
   const { ClientReview, getClientReviewData } = useContext(APIContext);
@@ -46,7 +47,7 @@ const ReviewSection = () => {
         </div>
         <div className="text-center mt-10">
           <Link
-            href={`https://maps.app.goo.gl/HFjgUKsmf6MaUZuA9`}
+            href={PATH.googleReviews}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center text-blue-600 dark:text-white hover:text-blue-800 transition-colors duration-300"

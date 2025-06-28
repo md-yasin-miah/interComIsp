@@ -18,7 +18,7 @@ const PageBanner = ({
   useEffect(() => {
     !PageBanners.data && getPageBannerData();
   }, []);
-  console.log({ boxClassName });
+  console.log({ PageBanners });
 
   return (
     <section className={`${boxClassName} relative min-h-[300px] flex items-center`}>

@@ -97,7 +97,7 @@ const AboutUsPage = () => {
             <div className="relative">
               <div className="relative rounded-2xl overflow-hidden h-[400px]">
                 <Image
-                  src="/enterprice_solution.jpeg"
+                  src="/enterprice_solution.jpg"
                   alt="Enterprise Solutions"
                   fill
                   className="object-cover"
@@ -111,7 +111,6 @@ const AboutUsPage = () => {
           </div>
           <div className=" grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
             <StatCard number="99.9%" label="Uptime" />
-            <StatCard number="24/7" label="Support" />
             <StatCard number="24/7" label="Support" />
             <StatCard number="100+" label="Enterprise Clients" />
           </div>

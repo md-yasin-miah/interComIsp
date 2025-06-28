@@ -18,6 +18,7 @@ export const PATH = {
   scheduleOfCharges: '/schedule-of-charges',
 
   paymentPortal: 'https://portal.netcomisp.net/payment/paymentPage',
+  googleReviews: 'https://maps.app.goo.gl/HFjgUKsmf6MaUZuA9'
 }
 
 export const navMenu = [
