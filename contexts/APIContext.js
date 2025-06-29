@@ -2,7 +2,7 @@
 import { COLLECTION } from "@/helper/config";
 import { DB, getUrl } from "@/helper/functions";
 import { createContext, useState } from "react";
-
+console.log({ DB })
 export const APIContext = createContext();
 
 export const APIProvider = ({ children }) => {
