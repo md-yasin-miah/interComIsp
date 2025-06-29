@@ -79,7 +79,7 @@ const Header = () => {
   }, [mobileMenuOpen]);
 
   return (
-    <header className={`${mobileMenuOpen ? 'h-screen' : ''} w-full sticky top-0 z-50 overflow-hidden`}>
+    <header className={`${mobileMenuOpen ? 'h-screen' : ''} w-full sticky top-0 z-50`}>
       {/* Header Top Section */}
       <div
         className={`bg-footerBG h-10 md:flex hidden items-center transition-transform duration-300 ease-in-out ${isTopVisible ? 'transform translate-y-0' : 'transform -translate-y-full'
