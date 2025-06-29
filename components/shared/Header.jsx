@@ -13,12 +13,13 @@ import ThemeToggle from './ThemeToggle'
 import { navMenu, PATH } from '@/helper/pathConfig'
 import { usePathname } from 'next/navigation'
 import { APIContext } from '@/contexts/APIContext'
+import QuickPayModal from '../modals/QuickPayModal'
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
   const [menuHover, setMenuHover] = useState(false);
-
+  const [isQuickPayModalOpen, setIsQuickPayModalOpen] = useState(false);
   // HeaderTop related states
   const { ContactInfo, getContactInfoData } = useContext(APIContext);
   const [isTopVisible, setIsTopVisible] = useState(true);
@@ -159,9 +160,7 @@ const Header = () => {
             <Button
               animation='fill'
               type='outline'
-              href='https://quickpay.netcomisp.net/'
-              target='_blank'
-              referrer='noreferrer'
+              onClick={() => setIsQuickPayModalOpen(true)}
               size='header'
               className="max-sm:hidden"
             >Quick Pay</Button>
@@ -204,9 +203,7 @@ const Header = () => {
                   <Button
                     animation='fill'
                     type='outline'
-                    href='https://portal.netcomisp.net/'
-                    target='_blank'
-                    referrer='noreferrer'
+                    onClick={() => setIsQuickPayModalOpen(true)}
                     size='small'
                     className="w-full justify-center"
                   >Quick Pay</Button>
@@ -243,6 +240,14 @@ const Header = () => {
           </div>
         </div>
       </div>
+      {
+        isQuickPayModalOpen && (
+          <QuickPayModal
+            isOpen={isQuickPayModalOpen}
+            onClose={() => setIsQuickPayModalOpen(false)}
+          />
+        )
+      }
     </header>
   )
 }
