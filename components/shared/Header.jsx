@@ -150,7 +150,7 @@ const Header = () => {
             <Button
               animation='outline'
               type='fill'
-              href='https://portal.netcomisp.net/'
+              href={PATH.clientPortal}
               target='_blank'
               referrer='noreferrer'
               icon={<FaUser />}
