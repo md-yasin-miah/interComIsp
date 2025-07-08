@@ -17,7 +17,7 @@ export const PATH = {
   userManual: '/user-manual',
   scheduleOfCharges: '/schedule-of-charges',
 
-  clientPortal: 'https://portal.netcomisp.net/',
+  clientPortal: 'https://portal.netcomisp.net',
   paymentPortal: 'https://portal.netcomisp.net/payment/paymentPage',
   googleReviews: 'https://maps.app.goo.gl/HFjgUKsmf6MaUZuA9'
 }

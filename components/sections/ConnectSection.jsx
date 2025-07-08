@@ -45,14 +45,14 @@ const ConnectSection = ({
             {
               !ContactInfo.data ? (
                 [1, 2, 3].map((item, index) => (
-                  <div className='col-span-12 md:col-span-6 lg:col-span-4'>
-                    <ContactCardSkeleton key={index} />
+                  <div className='col-span-12 md:col-span-6 lg:col-span-4' key={index}>
+                    <ContactCardSkeleton />
                   </div>
                 ))
               ) : (
                 contactInfo.map((info, index) => (
-                  <div className='col-span-12 md:col-span-6 lg:col-span-4'>
-                    <ContactCard key={index} {...info} />
+                  <div className='col-span-12 md:col-span-6 lg:col-span-4' key={index}>
+                    <ContactCard {...info} />
                   </div>
                 ))
               )
@@ -63,7 +63,7 @@ const ConnectSection = ({
               ContactInfo.data?.[0]?.addresses?.map((address, index) => {
                 if (index > 0) {
                   return (
-                    <div className={`bg-white col-span-12 dark:bg-slate-700 p-6 rounded-xl shadow-card hover:shadow-cardHover transition-all duration-300 text-center`}>
+                    <div key={index} className={`bg-white col-span-12 dark:bg-slate-700 p-6 rounded-xl shadow-card hover:shadow-cardHover transition-all duration-300 text-center`}>
                       <h3 className="text-xl font-semibold mb-4">{address.name}</h3>
                       <p className="text-gray-600 dark:text-white/[0.7]">{address.value}</p>
                     </div>

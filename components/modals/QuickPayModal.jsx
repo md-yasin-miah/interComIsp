@@ -7,17 +7,44 @@ import Image from 'next/image'
 import Button from '@/components/shared/Button'
 import { Input } from '@/components/ui/input'
 import LabelInputContainer from '@/components/ui/LabelInputContainer'
+import { PATH } from '@/helper/pathConfig'
 
 const QuickPayModal = ({ isOpen, onClose }) => {
-    const [customerId, setCustomerId] = useState('')
-
-    const handlePayNow = () => {
-        if (!customerId.trim()) {
-            alert('Please enter your Customer ID')
-            return
+    const [user, setUser] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState('');
+    console.log({ error });
+    const handlePayNow = async () => {
+        if (!user.trim()) {
+            setError('Please enter your Customer ID');
+            return;
         }
-        // Handle payment logic here
-        // You can add your payment processing logic here
+
+        setIsLoading(true);
+        setError('');
+
+        try {
+            const response = await fetch(`${PATH.clientPortal}/pay/searchUser`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ user }),
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to process payment');
+            }
+
+            const data = await response.json();
+            console.log({ data });
+            // Handle payment logic here
+            // You can add your payment processing logic here
+        } catch (error) {
+            setError('An error occurred. Please try again.');
+        } finally {
+            setIsLoading(false);
+        }
     }
 
     return (
@@ -63,16 +90,16 @@ const QuickPayModal = ({ isOpen, onClose }) => {
                             <div className="mb-6 text-left">
                                 <LabelInputContainer>
                                     <label
-                                        htmlFor="customerId"
+                                        htmlFor="user"
                                         className="block text-sm font-medium text-gray-700 dark:text-gray-300"
                                     >
                                         Customer ID
                                     </label>
                                     <Input
                                         type="text"
-                                        id="customerId"
-                                        value={customerId}
-                                        onChange={(e) => setCustomerId(e.target.value)}
+                                        id="user"
+                                        value={user}
+                                        onChange={(e) => setUser(e.target.value)}
                                         placeholder="Ex: 123456"
                                         icon={<Icon icon="mdi:account-outline" />}
                                     />

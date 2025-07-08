@@ -193,7 +193,7 @@ const Header = () => {
                 <li className="text-center justify-center sm:hidden m-full flex gap-2 pt-4">
                   <Button
                     animation='outline'
-                    href='https://portal.netcomisp.net/'
+                    href={PATH.clientPortal}
                     target='_blank'
                     referrer='noreferrer'
                     icon={<FaUser />}
