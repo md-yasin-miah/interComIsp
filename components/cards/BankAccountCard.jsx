@@ -8,8 +8,8 @@ const BankAccountCard = ({
   return (
     <div {...props} className="rounded-2xl shadow-card overflow-hidden bg-white dark:bg-transparent dark:border dark:border-primary/10 flex flex-col">
       {/* Top colored section with logo */}
-      <div className={`${bank?.background_color_class} flex flex-col items-center justify-center h-36 py-6 px-4`}>
-        <Image src={bank.bank_image_url} alt={bank.bank_name} className="h-24 w-auto mb-2 px-20 object-contain" width={100} height={100} />
+      <div className={`dark:bg-gray-300 flex flex-col items-center justify-center h-36 py-6 px-4`}>
+        <Image src={bank.bank_image_url} alt={bank.bank_name} className="h-24 w-auto mb-2 px-16 object-contain" width={100} height={100} />
       </div>
       {/* Bottom white section with account info */}
       <div className="bg-white dark:bg-transparent dark:border dark:border-primary/10 flex-1 flex flex-col justify-center px-6 py-6">
