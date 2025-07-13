@@ -38,7 +38,7 @@ const PayBill = () => {
     {
       id: 3,
       icon: 'mdi-light:clipboard-text',
-      description: <span>Select <span className='font-semibold text-primary'>"Bill Period"</span>,Input your Netcom customer in <span className='font-semibold text-primary'>"Enter Customer ID"</span> box. Then click the <span className='font-semibold text-primary'>"Proceed to pay"</span> button.</span>
+      description: <span>Select <span className='font-semibold text-primary'>"Bill Period"</span>, Input your Netcom customer in <span className='font-semibold text-primary'>"Enter Customer ID"</span> box. Then click the <span className='font-semibold text-primary'>"Proceed to pay"</span> button.</span>
     },
     {
       id: 4,
