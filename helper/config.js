@@ -28,13 +28,13 @@ export const COLLECTION = {
 export const PAYMENT_METHOD = [
   {
     id: 1,
-    name: 'Bikash',
-    value: 'bikash'
+    name: 'bKash',
+    value: 'bkash'
   },
   {
     id: 2,
-    name: 'Nogod',
-    value: 'nogod'
+    name: 'Nagad',
+    value: 'nagad'
   },
 ]
 // app info

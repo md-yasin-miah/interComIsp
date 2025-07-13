@@ -24,48 +24,48 @@ const PayBill = () => {
   const [isQuickPayModalOpen, setIsQuickPayModalOpen] = useState(false);
   const [isTermsChecked, setIsTermsChecked] = useState(false);
   const [showTermsError, setShowTermsError] = useState(false);
-  const bikashSteps = [
+  const bkashSteps = [
     {
       id: 1,
       icon: 'mdi-light:login',
-      description: <span>Login to your account</span>
+      description: <span>Login to your bKash account</span>
     },
     {
       id: 2,
       icon: 'mdi-light:lightbulb',
-      description: <span>In "Pay Bill" option you'll find <span className='font-semibold text-primary'>{APP_AUTHOR}</span>. Simply tap on it and follow the next step.</span>
+      description: <span>In "Pay Bill" option you'll find <span className='font-semibold text-primary'>"{APP_AUTHOR}"</span> or search. Simply tap on it and follow the next step.</span>
     },
     {
       id: 3,
       icon: 'mdi-light:clipboard-text',
-      description: <span>Input your customer in <span className='font-semibold text-primary'>"Netcom ID"</span> box.</span>
+      description: <span>Select <span className='font-semibold text-primary'>"Bill Period"</span>,Input your Netcom customer in <span className='font-semibold text-primary'>"Enter Customer ID"</span> box. Then click the <span className='font-semibold text-primary'>"Proceed to pay"</span> button.</span>
     },
     {
       id: 4,
       icon: 'mdi-light:heart',
-      description: <span>If you want to save the payment info for quick payment, you can simple tick the checkbox: <span className='font-semibold text-primary'>"Save this account for paying future bill"</span>.</span>
+      description: <span>Check your billing information.</span>
     },
     {
       id: 5,
       icon: 'mdi-light:clock',
-      description: <span>After that, tap the <span className='font-semibold text-primary'>"Pay Bill NOW"</span> button & hold the pay button for a few second. You're done!</span>
+      description: <span>After that, tap the <span className='font-semibold text-primary'>"Tab To Continue"</span> button & hold the pay button for a few second. You're done!</span>
     }
   ]
   const nagadSteps = [
     {
       id: 1,
       icon: 'mdi-light:login',
-      description: 'Login to your account'
+      description: 'Login to your Nagad account'
     },
     {
       id: 2,
       icon: 'mdi-light:lightbulb',
-      description: <span>In "Pay Bill" option you'll find <span className='font-semibold text-primary'>{APP_AUTHOR}</span>. Simply tap on it and follow the next step.</span>
+      description: <span>In "Bill Pay" option you'll find <span className='font-semibold text-primary'>"{APP_AUTHOR}"</span> or search. Simply tap on it and follow the next step.</span>
     },
     {
       id: 3,
       icon: 'mdi-light:clipboard-text',
-      description: <span>Input your customer in <span className='font-semibold text-primary'>"Netcom ID"</span> box.</span>
+      description: <span>Input your Netcom customer ID in <span className='font-semibold text-primary'>"Customer ID"</span> box. Then tab the <span className='font-semibold text-primary'>"Next"</span> button.</span>
     },
     {
       id: 4,
@@ -75,10 +75,10 @@ const PayBill = () => {
     {
       id: 5,
       icon: 'mdi-light:clock',
-      description: <span>After that, tap the <span className='font-semibold text-primary'>"Pay Bill NOW"</span> button & hold the pay button for a few second. You're done!</span>
+      description: <span>After that, tap the <span className='font-semibold text-primary'>"Next"</span> button and then <span className='font-semibold text-primary'>"Pay Bill NOW"</span> button & hold the pay button for a few second. You're done!</span>
     }
   ]
-  const [activeSteps, setActiveSteps] = useState(bikashSteps);
+  const [activeSteps, setActiveSteps] = useState(bkashSteps);
 
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
@@ -180,7 +180,7 @@ const PayBill = () => {
         <div className='w-fit mb-4 md:mb-6'>
           <Tabs tabItems={PAYMENT_METHOD} activeTab={activeTab} setActiveTab={(value) => {
             setActiveTab(value);
-            setActiveSteps(value === 'bikash' ? bikashSteps : nagadSteps);
+            setActiveSteps(value === 'bkash' ? bkashSteps : nagadSteps);
           }} />
         </div>
 
